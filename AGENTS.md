@@ -111,3 +111,25 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   Do not encode a session's starting reading as a permanent budget.
 - Keep docs/PHASE0_HANDOFF.md current with actual results, pending gates,
   prerequisites, next milestone, rollback, branch, and checkpoint evidence.
+
+## Permanent freeware policy
+
+- RestoVisuals must remain 100% free for end users. Every RestoVisuals-developed
+  graphics enhancement, shader, preset and optimization profile in an official
+  release must be freely available.
+- No purchase price, required subscription, paid graphics preset, premium shader
+  package, paid GPU profile, paid feature tier, trial limitation or advertisement
+  unlock. Never reduce free functionality to create a commercial upgrade.
+- No account requirement for local rendering features. Do not add licensing,
+  subscription, authentication or advertising infrastructure to enforce paid
+  access or commercial feature restrictions.
+- Optional donations/community sponsorship may be considered in the future;
+  they must never be required for access to features.
+- Use original implementations or appropriately licensed third-party components.
+  Prefer freely redistributable dependencies and document separate external
+  costs/distribution restrictions. Technical study of Dream Realism does not
+  authorize copying or publishing its proprietary implementation or assets.
+- Freeware is a pricing/distribution design requirement, distinct from open-source
+  licensing. A public GitHub repository does not automatically grant broad rights
+  to modify or redistribute. Do not select a repository license without the
+  project owner's approval. Keep the licensing decision explicitly unresolved.

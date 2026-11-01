@@ -1,5 +1,5 @@
 # RestoVisuals
-Open-source graphics enhancement for Assetto Corsa. Modern visuals on legacy AMD & NVIDIA GPUs, with adaptive optimization, low-VRAM support, and Pure LCS/Gamma compatibility.
+Freeware graphics-enhancement project for Assetto Corsa. Modern visuals on legacy AMD & NVIDIA GPUs, with adaptive optimization, low-VRAM support, and Pure LCS/Gamma compatibility as development targets.
 
 # RestoVisuals
 
@@ -147,6 +147,23 @@ Development and contribution guidelines will be established as the initial archi
 Future contributions may include hardware benchmarking, graphics research, shader optimization, bug reports, and compatibility testing.
 
 ## 📜 License
+
+### Permanent freeware policy
+
+RestoVisuals will remain **100% free for end users**. All RestoVisuals-developed
+graphics enhancements, shaders, presets and optimization profiles in official
+releases must be freely available. There will be no purchase price, subscription,
+premium packages, paid feature tiers, trial limits, advertisement unlocks, or
+account requirement for local rendering. Free functionality must never be reduced
+to create a commercial upgrade. Optional donations or community sponsorship may
+be considered later and must never be required for feature access.
+
+Freeware describes the project's end-user pricing policy; it does not select an
+open-source license. Public repository visibility alone does not grant broad
+redistribution or modification rights. A repository license requires the project
+owner's approval. Third-party software/content keeps its own license and may have
+separate acquisition costs; RestoVisuals does not redistribute commercial game,
+Pure, CSP preview, or proprietary filter content.
 
 A project license has not yet been selected.
 
