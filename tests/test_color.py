@@ -14,6 +14,12 @@ class ColorReferenceTests(unittest.TestCase):
     def test_one_ev_doubles_uncompressed_light(self):
         self.assertEqual(transform_rgba((0.1, 0.2, 0.3, 1), exposure_ev=1), (0.2, 0.4, 0.6, 1))
 
+    def test_identity_exactly_preserves_small_channels_beside_hdr_highlights(self):
+        color = (65504, 0.001, 1e-6, 0.75)
+        self.assertEqual(transform_rgba(color), color)
+        color = (0.04045, 0.0031308, 1e-6, 0.5)
+        self.assertEqual(transform_rgba(color, encoding="srgb_display"), color)
+
     def test_shoulder_is_monotonic_and_preserves_channel_ratios(self):
         previous = -1
         for step in range(1001):

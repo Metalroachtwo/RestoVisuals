@@ -6,11 +6,11 @@ import sys
 from pathlib import Path
 
 
-def compile_hlsl(source: bytes, entry: str) -> dict:
+def compile_bytecode(source: bytes, entry: str, target="ps_5_0") -> tuple[bytes, dict]:
     if sys.platform != "win32":
         raise ValueError("Native shader compilation requires Windows")
-    if entry not in ("PSLinear", "PSSrgb"):
-        raise ValueError("Only the two prototype entry points are allowed")
+    if (entry, target) not in {("PSLinear", "ps_5_0"), ("PSSrgb", "ps_5_0"), ("VSFullscreen", "vs_5_0")}:
+        raise ValueError("Only prototype pixel and validation vertex entry points are allowed")
     compiler = ct.WinDLL("d3dcompiler_47.dll", winmode=0x800)
     compiler.D3DCompile.argtypes = [ct.c_void_p, ct.c_size_t, ct.c_char_p, ct.c_void_p, ct.c_void_p,
                                   ct.c_char_p, ct.c_char_p, ct.c_uint32, ct.c_uint32,
@@ -32,17 +32,22 @@ def compile_hlsl(source: bytes, entry: str) -> dict:
     source_buffer = ct.create_string_buffer(source)
     try:
         status = compiler.D3DCompile(source_buffer, len(source), b"RV_ColorPrototype.hlsl", None, None,
-                                     entry.encode("ascii"), b"ps_5_0", flags, 0, ct.byref(code), ct.byref(errors))
+                                     entry.encode("ascii"), target.encode("ascii"), flags, 0, ct.byref(code), ct.byref(errors))
         if status < 0 or not code.value:
             raise ValueError("HLSL compilation failed" + (": " + blob_data(errors).decode("utf-8", errors="replace").rstrip("\x00") if errors.value else ""))
         compiled = blob_data(code)
-        return {"entry_point": entry, "target": "ps_5_0", "compiled_bytes": len(compiled),
+        metadata = {"entry_point": entry, "target": target, "compiled_bytes": len(compiled),
                 "bytecode_sha256": hashlib.sha256(compiled).hexdigest(), "hresult": f"0x{status & 0xFFFFFFFF:08x}",
                 "warnings_as_errors": True, "debug_information": False}
+        return compiled, metadata
     finally:
         for blob in (errors, code):
             if blob.value:
                 method(blob, 2, ct.c_uint32)(blob)
+
+
+def compile_hlsl(source: bytes, entry: str) -> dict:
+    return compile_bytecode(source, entry)[1]
 
 
 def compile_prototype(path: Path) -> dict:

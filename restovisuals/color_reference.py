@@ -29,6 +29,9 @@ def transform_rgba(color, *, exposure_ev=0.0, shoulder_strength=0.0, saturation=
         raise ValueError("Color parameters outside shader contract")
     if encoding not in ("scene_linear", "srgb_display"):
         raise ValueError("Unknown color encoding")
+    if (exposure_ev, shoulder_strength, saturation) == (0, 0, 1):
+        ceiling = 1 if encoding == "srgb_display" else 65504
+        return (*[min(ceiling, max(0.0, value)) for value in color[:3]], color[3])
     rgb = [decode_srgb(v) for v in color[:3]] if encoding == "srgb_display" else [max(0.0, v) for v in color[:3]]
     exposed = [v * 2**exposure_ev for v in rgb]
     luminance = sum(v * w for v, w in zip(exposed, WEIGHTS))

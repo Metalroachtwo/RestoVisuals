@@ -76,3 +76,65 @@ mode mismatch, main/auxiliary/second-eye callbacks, frozen PP parameters,
 bounded sampling, resize, registration errors and cleanup failures. These are
 executed Lua contracts with synthetic host functions, not CSP game execution.
 See [observer host contract](../runtime/lua/README.md).
+
+## Isolated D3D11 execution and identity defect
+
+Executed the original pixel shaders on the RX 5700 XT in a separate, explicit
+adapter-0 D3D11 device at requested feature level 11_0. No game, window, swap
+chain, injector, proprietary renderer or application configuration was involved.
+The harness uses original fullscreen-triangle source, system D3D11/DXGI/compiler
+DLLs, format support queries, three owned textures, bounded nonblocking readback,
+GPU timestamp/disjoint queries and deterministic resource release. COM ABI/slots
+were checked against installed Windows SDK 10.0.26100.0 `d3d11.h`.
+
+The first identity run found an actual defect in the Phase 0 prototype. For 1953
+synthetic pixels per case (63x31), neutral parameters changed 610/4375 channels
+in RGBA32F linear/sRGB and 366/3785 in RGBA16F. Linear saturation interpolation
+lost small channels beside HDR values through cancellation; sRGB decode/encode
+round trips also changed neutral output. The gate correctly skipped all color
+cases when identity failed. No claim of an in-game defect or visible difference
+is inferred from those synthetic pixels.
+
+Added an exact neutral path to both original shader entry points and the CPU
+reference. The second GPU run passed all four identity cases with **zero channel
+differences**, including exact alpha, across RGBA32F and RGBA16F. Only then did
+six nonidentity cases execute. All matched the CPU reference within the declared
+precision tolerances; alpha remained exact in every case.
+
+| Validation | RGBA32F result | RGBA16F result |
+|---|---|---|
+| Linear identity | exact, max error 0 | exact, max error 0 |
+| sRGB identity | exact, max error 0 | exact, max error 0 |
+| Linear exposure/shoulder | max absolute error 0.00000190735 | max absolute error 0.015625 |
+| Linear desaturation/shoulder | max absolute error 0.000000476837 | max absolute error 0.00390625 |
+| sRGB transform | max absolute error 0.000000363216 | max absolute error 0.00048828125 |
+
+Nonidentity thresholds are per-channel `3e-5 + 5e-6*abs(reference)` for RGBA32F
+and `0.002 + 0.002*abs(reference)` for RGBA16F. Half precision has larger HDR
+quantization steps; its absolute errors above must not be described as zero or
+as exact CPU/GPU equivalence. Identity and alpha use exact equality, not those
+nonidentity tolerances. Inputs and expected outputs are quantized to the tested
+format before comparison. Odd-width rows exercise GPU row padding correctly.
+
+GPU timestamps were non-disjoint for all ten draws. Single-draw durations in the
+successful 63x31 run ranged from **0.00160 to 0.00224 ms**, including pipeline
+overhead. This tiny synthetic workload is not a stable throughput benchmark,
+1080p cost estimate, FPS gain or CSP/Pure timing result. No scaling extrapolation
+is made. Declared texture payloads were 93,744 bytes for the three RGBA32F
+textures and 46,872 bytes for RGBA16F; driver allocation/VRAM placement was not
+measured. The staging texture is a readback resource, not a claimed game target.
+
+Current color source SHA256:
+`f762d3e4e98295b257b2fd46452023857e3b8d972c753d268835061dcf6fce88`.
+Both PS entry points compile at 1788/2180 bytecode bytes using the same system
+compiler. Original source/history and the first failing receipt are preserved;
+machine-local raw reports remain ignored. There are now **86 passing tests**
+with LuaJIT enabled, including precision regression, identity-before-color gate,
+native resource ABI, input-size bounds and two-second query timeout tests.
+
+Run explicitly with `python -m restovisuals gpu-validate --adapter-index 0`.
+Numerical failures return exit 4. The normal test suite does not silently start
+GPU draws; this command is the separate hardware-execution gate. CSP callback
+composition, actual game buffer encoding/lifetime, physical legacy GPU support
+and visual quality remain unvalidated. The observer still cannot dispatch this
+shader in the reference game and no planner capability is promoted by the test.

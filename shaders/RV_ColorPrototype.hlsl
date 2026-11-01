@@ -49,11 +49,17 @@ float3 encodeSrgb(float3 value)
 float4 PSLinear(PixelInput input) : SV_Target
 {
     float4 sampleColor = sourceColor.Sample(sourceSampler, input.uv);
+    // Neutral processing must not lose small channels through cancellation.
+    if (exposureEV == 0.0 && shoulderStrength == 0.0 && saturation == 1.0)
+        return float4(clamp(sampleColor.rgb, 0.0, 65504.0), sampleColor.a);
     return float4(processLinear(sampleColor.rgb), sampleColor.a);
 }
 
 float4 PSSrgb(PixelInput input) : SV_Target
 {
     float4 sampleColor = sourceColor.Sample(sourceSampler, input.uv);
+    // Avoid a lossy decode/encode round trip when no adjustment is requested.
+    if (exposureEV == 0.0 && shoulderStrength == 0.0 && saturation == 1.0)
+        return float4(saturate(sampleColor.rgb), sampleColor.a);
     return float4(encodeSrgb(processLinear(decodeSrgb(sampleColor.rgb))), sampleColor.a);
 }

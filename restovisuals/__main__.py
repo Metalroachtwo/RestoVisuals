@@ -10,6 +10,7 @@ from .gpu_windows import probe_gpus
 from .benchmark import analyze_frame_times, compare_captures, read_frame_csv
 from .planning import capabilities_from_audit, make_plan
 from .shader_compile import compile_prototype
+from .d3d11_validation import validate_gpu_shader
 
 
 def main(argv=None):
@@ -35,6 +36,9 @@ def main(argv=None):
     benchmark.add_argument("--warmup-frames", type=int, default=0)
     shader = commands.add_parser("compile-shader", help="Compile prototype entry points in memory; no GPU dispatch")
     shader.add_argument("source", type=Path)
+    gpu_validation = commands.add_parser("gpu-validate", help="Bounded isolated GPU identity/readback validation; no game integration")
+    gpu_validation.add_argument("--adapter-index", type=int, required=True)
+    gpu_validation.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1] / "shaders/RV_ColorPrototype.hlsl")
     compare = commands.add_parser("compare", help="Compare captured CSVs only when declared context matches")
     for argument in ("baseline_csv", "baseline_metadata", "candidate_csv", "candidate_metadata"):
         compare.add_argument(argument, type=Path)
@@ -67,6 +71,8 @@ def main(argv=None):
             result = analyze_frame_times(read_frame_csv(args.csv), warmup_frames=args.warmup_frames)
         elif args.command == "compile-shader":
             result = compile_prototype(args.source)
+        elif args.command == "gpu-validate":
+            result = validate_gpu_shader(args.adapter_index, args.source)
         elif args.command == "compare":
             result = compare_captures(read_frame_csv(args.baseline_csv), read_frame_csv(args.candidate_csv),
                                       read_object(args.baseline_metadata), read_object(args.candidate_metadata))
@@ -77,6 +83,8 @@ def main(argv=None):
             changes = compare_protected(before, after)
             result = {"protected_files_unchanged": not changes, "changed": changes}
         print(json.dumps(result, indent=2, allow_nan=False))
+        if args.command == "gpu-validate" and result["status"] != "passed":
+            return 4
         return 3 if args.command == "guard" and changes else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, OverflowError) as error:
         # Avoid echoing OS exceptions containing private machine paths.
