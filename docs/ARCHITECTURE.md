@@ -1,4 +1,4 @@
-# RestoVisuals architecture, Phase 0
+# RestoVisuals architecture, Phase 0B checkpoint
 
 ## Decision and current implementation
 
@@ -10,8 +10,17 @@ The implemented control plane is Python 3.11+ standard library. It has no packag
 downloads, installation hooks, telemetry service or game-setting writer.
 Windows-only GPU detection uses system DXGI/D3D11 through ctypes; the planner,
 schema validator, file audit and frame-time mathematics are independently usable.
-A future CSP Lua bridge will supply runtime evidence and apply approved graphics
-operations through existing supported interfaces. That bridge is not implemented.
+A read-only Lua observer now exists with explicit host/version/build/mode gates,
+bounded diagnostic samples and owned subscription cleanup. It is tested in
+LuaJIT against synthetic hosts, not installed or exercised in the game. A future
+verified CSP/Pure host must supply the actual runtime receipt before rendering
+integration. The optional Lua test dependency is isolated from the core CLI.
+
+The explicit `gpu-validate` command owns a windowless D3D11 context and executes
+original pixel/vertex shaders, reads RGBA32F/RGBA16F output with row-pitch handling,
+and checks strict identity before color changes. It is a separate hardware
+validation path, not a CSP renderer, injector, game timing source or deployed
+effect. See [Phase 0B evidence](PHASE0B_RUNTIME.md).
 
 ```mermaid
 flowchart LR
@@ -39,7 +48,9 @@ flowchart LR
 | Capability adapters | context + per-capability evidence states -> feature eligibility | Observed labels stay observations. Optional eligibility requires tested evidence for matching CSP, Pure mode, render mode and resolution |
 | Performance planner | config + explicit adapter + capability report -> candidate JSON | Proposed memory class and resource ceiling; no setting writes, FPS prediction or runtime certification |
 | Benchmark analysis | display interval CSV -> average FPS, 1% low and percentiles | Duration-based average, documented slowest-frame definition, explicit warmup; no capture source certification |
-| Rendering integration | stage/format/ownership + approved operations | Future CSP/Pure runtime bridge; no active game module in Phase 0 |
+| Read-only runtime observer | injected CSP/Pure APIs -> copied bounded receipt | Implemented and LuaJIT contract-tested; every PP callback returns nil, no settings/texture access |
+| Isolated GPU validation | explicit adapter + original source -> readback comparison and timestamps | Actual D3D11 execution; no game/window/swap chain, exact identity gate, owned resources released |
+| Rendering integration | stage/format/ownership + approved operations | Future verified CSP/Pure host and named effect lifecycle; no active game module deployed |
 | Replay integration | versioned capture intent and visual profile ID | Future external MCP; no camera/replay implementation in Phase 0 |
 
 ## CSP and evidence model
@@ -56,6 +67,13 @@ exercise gates; these are not measurements from the game. A future runtime
 collector must verify symbols, loaded libraries, prerequisites and buffer
 availability, record source/hashes/driver/context, and invalidate evidence after
 changes. Until that exists, do not hand-edit an observation into runtime proof.
+
+The official stable SDK reference identifies build 3465, alongside preview3898.
+The observer gates both exact pairs. Stable's `OLD_IMPLEMENTATION` is boolean;
+preview reuses it as an upscaler method enum. The audit maps these by version
+and refuses unknown IDs/versions. Stable lacks the preview simulation `isHDR`
+field; optional FFI fields are protected independently. See
+[the version-matched reference](CSP0211_REFERENCE.md).
 
 Temporal FSR requires independent evidence for its integration plus depth,
 motion, jitter and history resets. FSR3 upscaling does not enable frame generation.

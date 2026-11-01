@@ -46,14 +46,14 @@ The working game stays read-only. A seven-file targeted integrity snapshot
 protects the locked binaries, CSP manifest, Pure weather sources, LDR bridge and
 PP SDK; no repeat of the full Phase 0 installation discovery is needed.
 
-Next bounded units are an original read-only Lua observer with explicit context
-gates and isolated Lua contract tests, followed by native windowless D3D11
-execution/readback of the existing identity shader. The latter can validate GPU
-math on the development adapter without starting Assetto Corsa, creating a
-window/swap chain, or claiming CSP/Pure integration success.
+The completed bounded units below implement the original read-only Lua observer
+and native windowless D3D11 execution/readback. GPU math is now validated within
+the stated fixture/adapter/format scope, without starting Assetto Corsa or
+creating a window/swap chain. CSP/Pure game integration remains unvalidated.
 
 CSP 0.2.11 runtime certification is BLOCKED pending an authorized isolated
-installation and matching SDK. Preview361 in-game callback/pipeline validation
+game installation; its matching SDK is now available as described below.
+Preview361 in-game callback/pipeline validation
 is BLOCKED pending an authorized isolated game host/loading path. No connected
 Assetto Corsa runtime tool is exposed in this session. These blockers do not
 prevent source-contract and isolated GPU validation. No DCC gateway or GUI
@@ -148,3 +148,25 @@ is superseded; isolated stable/preview **game runtime validation remains BLOCKED
 Version-specific parsing and optional-field handling are covered by **92 passing
 tests** with LuaJIT enabled. Dream Realism reference findings and the related
 Pure extension route are recorded in [the bounded analysis](DREAM_REALISM_REFERENCE.md).
+
+## Final checkpoint validation
+
+The observer additionally blocks restart after a thrown registration, since a
+native call could have installed a callback before failing to return its handle.
+A new partial-registration test proves the orphan stays inert and registration
+is not retried. There are now **93 passing tests with no skips** using the
+optional local LuaJIT toolchain, including all original 56 tests. Without that
+dependency, 25 Lua tests explicitly skip and 68 other tests pass on Windows.
+
+A fresh tracked-source export of code checkpoint
+`9290fde1fc9793916f0382690562979cab50af4f` passes both dependency-present and
+dependency-absent checks. GPU source/compiler/vertex/pixel hashes match the
+earlier hardware-validated source export; the final change affects only observer
+failure handling. The four exact identity and six color GPU cases remain tied
+to those unchanged sources. No repeated hardware run was needed for a Lua-only fix.
+
+Targeted end-of-session hashes match all seven protected reference files and the
+Dream INI/dependency state. All source/code checkpoints were pushed and remotely
+verified. Stable and preview game-host validation remain blocked pending safe
+isolation and an authorized native loading path; further unsupported deployment
+is not performed merely to spend the remaining allowance.

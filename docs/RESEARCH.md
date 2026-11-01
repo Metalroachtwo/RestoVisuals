@@ -1,5 +1,13 @@
 # Phase 0 research ledger
 
+Phase 0B update: the official CSP 0.2.11 archive and version-matched SDK were
+obtained privately and identify build 3465. The historical missing-inventory
+note below is superseded by [the stable reference](CSP0211_REFERENCE.md).
+Actual isolated GPU execution and the read-only Lua observer are recorded in
+[Phase 0B](PHASE0B_RUNTIME.md). No CSP/Pure game runtime has been certified.
+See [Dream Realism reference analysis](DREAM_REALISM_REFERENCE.md) for the
+additional authorized research; protected code/assets were not redistributed.
+
 Evidence date: 2026-11-01. Separate an upstream algorithm's requirements, CSP's
 integration, file presence, and actual runtime validation.
 

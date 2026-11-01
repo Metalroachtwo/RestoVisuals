@@ -107,16 +107,19 @@ Visual enhancements must justify their performance cost.
 
 ## 🚧 Current Status
 
-**Pre-Alpha — Phase 0: Engineering Foundation**
+**Pre-Alpha — Phase 0B: Isolated Runtime Engineering**
 
 The repository now contains a tested offline control plane: a bounded graphics
 audit, windowless DXGI/D3D11 GPU detection, strict profile validation, conservative
 capability planning, frame-time analysis and context-checked capture comparisons.
-An original HLSL color-pass prototype compiles in isolation for Shader Model 5.0.
+An original Lua observer is contract-tested under LuaJIT. The original HLSL
+color prototype now executes in an isolated D3D11 device: both entry points
+preserve neutral test pixels exactly in RGBA32F/RGBA16F, with additional color cases
+checked against the CPU reference.
 
-No in-game integration, calibrated visual release, certified legacy-GPU support,
-or verified gameplay performance improvement is available yet. The shader has
-not been dispatched on a GPU or deployed into the reference installation.
+In-game CSP/Pure integration, visual calibration, certified legacy-GPU support,
+and gameplay performance improvement remain unvalidated. No adapter or shader
+has been deployed into the reference installation.
 
 Hardware compatibility, installation instructions, benchmarks, and download releases will be published after successful testing.
 
@@ -171,6 +174,18 @@ probing and shader compilation require Windows. The reference installation
 remains read-only; CSP 0.3.0-preview361 and Content Manager 0.8.2913.40776 are
 locked. CSP 0.2.11 is the minimum target, with runtime validation still pending.
 No other CSP track is authorized.
+
+The full Phase 0B suite passes 93 tests with the optional hash-pinned LuaJIT
+dependency. Without that dependency, 25 Lua contract tests explicitly skip;
+the other 68 tests run on the Windows development host. See the
+[observer contract](runtime/lua/README.md) for the isolated test setup.
+Run `python -m restovisuals gpu-validate --adapter-index 0` explicitly for bounded
+hardware identity/readback validation; select the intended measured adapter.
+
+The [Phase 0B report](docs/PHASE0B_RUNTIME.md) records the GPU-discovered identity
+defect and fix, the [official 0.2.11 reference](docs/CSP0211_REFERENCE.md) records
+version-matched SDK evidence, and the [Dream Realism analysis](docs/DREAM_REALISM_REFERENCE.md)
+records missing local companion resources and a Pure-owned extension candidate.
 
 Read the [CLI guide](docs/CLI.md), [architecture](docs/ARCHITECTURE.md),
 [compatibility matrix](docs/COMPATIBILITY.md), [environment audit](docs/ENVIRONMENT.md),

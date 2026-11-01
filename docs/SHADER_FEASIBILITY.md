@@ -1,5 +1,13 @@
 # Original color-pass feasibility
 
+Phase 0B supersedes the original compilation-only status below: both pixel
+entry points have now executed in an isolated D3D11 context on the development
+GPU. The initial strict identity failure was fixed with a neutral fast path;
+four identity and six numerical color cases pass. Current source hash and
+1788/2180-byte compilation results are in [Phase 0B](PHASE0B_RUNTIME.md).
+CSP/Pure execution, visual quality and game performance remain NOT ASSESSED.
+The remainder of this document preserves the Phase 0 checkpoint record.
+
 Status: **compilation and CPU-reference contracts validated; GPU execution,
 CSP integration, visual quality and performance NOT ASSESSED**.
 

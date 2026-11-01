@@ -35,6 +35,12 @@ and proprietary vendor accelerators are not foundation dependencies.
 
 ## Pending release gates
 
+Phase 0B now has actual isolated RX 5700 XT GPU readback: four exact float/half
+identity cases and six precision-bounded color cases pass. This validates the
+original shader math on that adapter/fixture, not either CSP runtime, Pure
+pipeline, physical legacy hardware or gameplay performance. The source-matched
+observer has LuaJIT contract coverage only; its in-game receipt is still pending.
+
 1. The 0.2.11 source/API inventory is now available; obtain an authorized isolated
    game installation to validate it. Never switch or downgrade the reference CSP.
 2. Exercise the observed Pure source minimums and establish package hotfix

@@ -1,5 +1,40 @@
 # Phase 0 validation record
 
+## Current Phase 0B checkpoint
+
+Code: `9290fde1fc9793916f0382690562979cab50af4f`, pushed and verified.
+All **93 tests pass with no skips** when the optional project-local LuaJIT test
+dependency is provided. A fresh 52-file tracked-source export passes the same
+93 tests using that declared toolchain, without reading the private CSP/Pure
+reference files. Without LuaJIT, 25 contract tests explicitly skip; 68 execute
+on the Windows development host. All original 56 tests remain covered.
+
+Actual GPU execution also passed independently from the source export: four
+exact identity cases and six CPU-reference color cases on RX 5700 XT using a
+separate D3D11 feature-level-11_0 context. Own COM references were released.
+GPU math and compilation are now validated within that narrow scope; the
+original NOT ASSESSED items below remain historical Phase 0 status, not a denial
+of this new hardware evidence. No CSP game renderer was executed or certified.
+
+The original shader failed strict identity; its corrected neutral path now has
+zero channel differences in RGBA32F and RGBA16F. Color cases use documented
+precision tolerances and preserve alpha exactly. See [Phase 0B](PHASE0B_RUNTIME.md)
+for errors, source hashes, timing scope and the original failure evidence.
+
+Seven targeted reference files (locked binaries, CSP manifest, Pure weather
+sources, Pure LDR bridge and PP SDK) retained their hashes throughout Phase 0B.
+Dream Realism's INI and checked dependency/missing-file states also remained
+unchanged. A full installation audit was not repeated. The official 0.2.11
+archive/reference binary was inspected privately without installation/execution.
+No third-party assets/source or optional dependency binaries were tracked.
+
+The callback observer ran only under LuaJIT synthetic hosts; actual CSP/Pure
+invocation, stage/format/encoding, visual comparisons, low-memory board support
+and game frame times remain pending. See [stable SDK provenance](CSP0211_REFERENCE.md)
+and [Dream reference limits](DREAM_REALISM_REFERENCE.md).
+
+## Original Phase 0 record
+
 Date: 2026-11-01, America/New_York. Code checkpoint:
 `0e5628e5e594061ee69313419ed37c6349012caa`, pushed and independently verified on
 `phase0/foundation`. Later closeout documentation does not change that source.

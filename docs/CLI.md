@@ -83,6 +83,22 @@ python -m restovisuals compile-shader shaders/RV_ColorPrototype.hlsl
 python -m restovisuals benchmark examples/frame-times-synthetic.csv
 ```
 
+Phase 0B also provides an explicit bounded GPU execution command:
+
+```powershell
+python -m restovisuals gpu-validate --adapter-index 0
+```
+
+Choose an explicitly identified hardware adapter. This creates its own D3D11
+device, three small textures per case and a fullscreen triangle without a
+window, swap chain or game attachment. Four strict-identity checks must pass
+before six numerical color checks run. Readback handles padded rows; GPU waits
+are bounded to two seconds. A numerical failure returns exit 4. The receipt
+distinguishes isolated GPU execution from CSP/Pure gameplay, and records
+precision tolerances, payload arithmetic and narrowly scoped GPU timestamps.
+The normal suite does not run GPU draws implicitly. Optional Lua tests require
+the hash-pinned local setup in the [observer guide](../runtime/lua/README.md).
+
 Compilation keeps bytecode in memory and dispatches no shader. See
 [shader contracts](SHADER_FEASIBILITY.md) and [capture protocol](BENCHMARKING.md)
 before interpreting results. The tool does not create screenshots, initialize a

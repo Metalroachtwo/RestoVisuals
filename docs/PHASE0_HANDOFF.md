@@ -1,146 +1,195 @@
-# Phase 0 continuation handoff
+# RestoVisuals Phase 0B continuation handoff
 
-Prepared 2026-11-01 for the next Wednesday continuation, 2026-11-04
-(America/New_York). This is a durable handoff, not a scheduled automation.
+Prepared 2026-11-01, America/New_York. This updates the Phase 0 handoff for the
+next authorized continuation; no Wednesday automation has been scheduled.
 
 ## Known-good repository state
 
-- Repository: [Metalroachtwo/RestoVisuals](https://github.com/Metalroachtwo/RestoVisuals).
-- Branch: `phase0/foundation`; original `main` history was preserved.
-- Most recent verified code checkpoint:
-  `0e5628e5e594061ee69313419ed37c6349012caa`.
-- Early upload: `c558f6d9a3051ae6ed268f8a61a62c00b6cda473`.
-- Verified audit, planning, shader and capture-framework checkpoints:
-  `7532280`, `bf80f1f`, `81bc380`, `ace85b7` respectively.
-- The final documentation revision is discoverable from this branch's HEAD;
-  a document cannot contain its own commit hash. Confirm its exact current SHA
-  using `git rev-parse HEAD` and `git ls-remote origin refs/heads/phase0/foundation`.
-- Existing Git identity was retained. No force push, history reset, global Git
-  configuration change, proprietary asset publication or credential exposure.
+Repository: [Metalroachtwo/RestoVisuals](https://github.com/Metalroachtwo/RestoVisuals).
+Working branch: `phase0/foundation`. Do not merge to main automatically.
+The latest tested, pushed and remotely verified code checkpoint is
+`9290fde1fc9793916f0382690562979cab50af4f`. Final documentation HEAD is recorded
+by Git and the private `.local/phase0b-final-sync.json` receipt after closeout.
+Use `git rev-parse HEAD` and `git ls-remote origin refs/heads/phase0/foundation`
+to confirm the exact current synchronized revision.
 
-At code closeout the tracked worktree was clean and its SHA matched the remote.
-Final synchronization also verifies the documentation commit before reporting
-completion. A private `.local/final-sync.json` receipt records the final exact
-SHA and observed usage; the repository and remote refs are the durable source
-of truth on another machine.
+Original foundation checkpoint: `c9177484c2c3fd460f3e32dc855af1db895728e1`.
+Original 56-test foundation and prior audit evidence remain preserved in history.
+Phase 0B checkpoints: `af61207` integration findings; `7fc4752` Lua observer;
+`f4a9818` actual GPU execution/identity fix; `6c65105` Dream/Pure diagnostics;
+`212d63d` official stable SDK/version-specific fixes; `9290fde` uncertain-registration failure latch. Each was pushed and
+verified before the next substantial unit. Existing Git identity/history and
+unrelated work were preserved; no forced push, reset or global Git change.
 
-## Delivered work and files
+## Implemented and validated
 
-The original README was updated in place. Added artifacts are:
+- Original read-only Lua observer with explicit start/stop, exact version/build
+  and Pure shader-space gates, bounded samples, raw timing/PP/upscaling flags,
+  independent optional-field probes and owned unsubscribe cleanup. It returns
+  nil from every callback, touches no PP parameters, and allocates no textures.
+  Failed/unknown cleanup leaves the callback inert and blocks restart.
+- Original windowless D3D11 GPU execution/readback harness. It owns a separate
+  feature-level-11_0 device, point-sampled synthetic inputs, two floating-point
+  formats, an original fullscreen triangle, timestamp/disjoint queries, bounded
+  nonblocking waits and deterministic release of its own COM references.
+- GPU execution found neutral saturation cancellation and sRGB round-trip drift
+  in the original prototype. Exact neutral paths were added to both shader
+  entry points and the CPU reference. Four identity cases now have zero channel
+  differences in RGBA32F/RGBA16F; only then do six numerical color cases run.
+  All six pass their declared precision tolerances; alpha is exact in all ten.
+- Version-scoped upscaler parsing: stable boolean spatial selector is not the
+  preview method enum. Unknown versions/IDs remain unknown. Stable struct field
+  absence cannot suppress other readable flags.
+- **93 tests pass, no skips with optional LuaJIT**; all original 56 are covered.
+  A fresh 52-file source export passes the same 93 tests with the declared
+  toolchain. All ten hardware cases also passed from the earlier source export;
+  GPU/compiler/shader hashes match after the later observer-only fix. Neither
+  validation reads private CSP/Pure source. The 25 Lua tests explicitly skip if the
+  optional dependency is absent; 68 other tests execute on this Windows host.
 
-- `.gitignore`, `.gitattributes`, and `AGENTS.md` with the full access policy,
-  version locks, evidence, compatibility, credit and Git requirements.
-- `restovisuals/`: CLI, bounded audit and preservation checks, native DXGI/D3D11
-  GPU probe, shared schema validation, capability/profile planning, frame-time
-  analysis/comparison, original color reference, and isolated shader compilation.
-- `schemas/profile.schema.json`, `schemas/capture.schema.json`; separate
-  `profiles/gamma.json` and `profiles/lcs.json` plan inputs.
-- `shaders/RV_ColorPrototype.hlsl`, fully preserved original source.
-- `examples/`: explicitly synthetic GPU, unknown capabilities, timing CSV and
-  baseline/candidate capture sidecars usable on a fresh checkout.
-- `tests/`: eight files, 56 meaningful unit/native/CLI tests.
-- `docs/PHASE0_PLAN.md`, `ENVIRONMENT.md`, `RESEARCH.md`, `ARCHITECTURE.md`,
-  `COMPATIBILITY.md`, `SHADER_FEASIBILITY.md`, `BENCHMARKING.md`, `CLI.md`,
-  `ROADMAP.md`, `VALIDATION.md`, and this handoff.
+The optional CPython 3.14 Windows x64 Lupa 2.8 wheel is hash-pinned in
+`requirements-lua-tests-win-cp314.txt` and installed only under ignored local
+test dependencies. LuaJIT 2.1.1774896198 executes original adapter code against
+synthetic host APIs. It does not load CSP/Pure DLLs or certify a game runtime.
+The core CLI remains standard-library-only.
 
-Private `.local/` holds observations, before/after hashes, compiler receipts,
-native GPU report, shell checks and an independently tested tracked-source
-export. These are intentionally untracked; they are not missing public source.
-No shipping release, installer, preconfigured game filter or runtime bridge exists.
+## Environment and source evidence
 
-## Verified findings and decisions
+Protected reference remains CSP 0.3.0-preview361/build 3898 and Content Manager
+0.8.2913.40776. Seven targeted before/after hashes covering binaries, manifest,
+Pure weather sources, Pure LDR bridge and PP SDK match. Dream INI and checked
+resource/missing-file states also match. No full repeat of the Phase 0 audit,
+active deployment, GUI automation, application/service restart, driver change
+or update-policy change occurred. No running acs/acs_x86 process was observed.
 
-Reference binaries: CSP 0.3.0-preview361/build 3898 and Content Manager
-0.8.2913.40776. Both Pure forks' manifests and core scripts report 3.50; package
-hotfix revision unknown. Source minimums differ: Gamma 0.2.0/build 2639;
-LCS 0.2.3p211/build 2974. Runtime compatibility remains untested.
+Pure Gamma/LCS core and manifests previously report 3.50; exact hotfix package
+remains unknown. Source minimums are Gamma 0.2.0/build 2639 and LCS
+0.2.3p211/build 2974. Saved Gamma/Dream Realism selection and 1920x1080/MSAA8,
+Extra FX, NIS method ID 2 are configuration observations, not running-game proof.
+The prior 101-PP-filter inventory and historical ReShade status remain in
+[ENVIRONMENT.md](ENVIRONMENT.md); they were not broadly rediscovered.
 
-Saved settings select Pure Gamma, Dream Realism 7.3 Gamma, 1920x1080, MSAA 8,
-Extra FX enabled and NVIDIA Image Scaling (FSR section method ID 2). There are
-101 top-level PP INIs. Preview labels advertise FSR 1.0.2, FSR 2.2.1 and FSR
-3.1.2; availability, loaded payloads and frame generation have not been exercised.
-Historical ReShade 6.5.1.2008 log exists; root dxgi/d3d11 loaders are absent and
-current activation is unknown.
+The official 0.2.11 archive is now obtained privately. Manifest build **3465**
+and binary file/product **0.2.11.0** resources agree. Archive SHA256 is
+`0729ccaebb403a7a6d1c40516990da8116cb5f56eea4c1fe0bdd29863a5a6ffb`.
+Selected version-matched SDK/config files were inspected; the DLL was never
+installed or executed. PP/WeatherFX SDK declares version, simulation, timing,
+post-processing callback, fullscreen pass, render-target size and extra canvas
+interfaces. Stable lacks the preview `isHDR` field and uses a boolean old/new
+spatial-upscaler selector. FSR2/3/FG are not established on stable. This resolves
+the source-inventory blocker, **not runtime certification**.
 
-RX 5700 XT native capability measured: 8,546,471,936 dedicated bytes, D3D11 FL
-12_1. Display-class registry driver 32.0.21043.12001, dated 2026-05-29. Two AMD
-DXGI entries have distinct LUIDs; do not infer two physical cards or auto-select
-the game's adapter. Probe-process memory is not game memory. No low-VRAM target
-board, FPS gain or visual improvement has been certified.
+The development RX 5700 XT exposes 8,546,471,936 dedicated bytes and previously
+measured maximum D3D11 feature level 12_1. The validation deliberately creates
+an 11_0 device. Windows driver metadata was 32.0.21043.12001; physical legacy
+boards and NVIDIA hardware remain untested. Duplicate AMD DXGI identities have
+different LUIDs; explicitly choose a measured adapter and do not infer two cards.
+External process budgets are not game usage or system-free VRAM.
 
-Keep one shared engine, strict target tracks and evidence-gated adapters. Prefer
-CSP/Pure interfaces; retain Pure exposure ownership. Gamma/LCS calibrations
-are separate and uncalibrated. Native stays available. No injector, custom FSR
-port, neural dependency or ReShade dependency is justified by this foundation.
-GPU class/extra-surface ceilings are proposed policy, not profiled guarantees.
-Future capture/replay integration consumes versioned profile/capture contracts;
-do not develop the separate replay MCP here.
+## Rendering evidence and limits
 
-Validation: 56 tests passed both in the working checkout and an independent
-39-file source export. Two SM5 pixel entry points compiled at 1568/2020 bytes.
-PowerShell 5.1 inline and 7.6.5 JSON pipelines passed. All 112 selected reference
-entries matched before/after. No shader was dispatched or installed, no app or
-driver version changed, and no GUI/DCC application was initialized.
+Current color-source SHA256:
+`f762d3e4e98295b257b2fd46452023857e3b8d972c753d268835061dcf6fce88`.
+Pixel bytecode sizes: 1788/2180 bytes. Original Phase 0 source/hash/compile-only
+results remain historical records. GPU fixture resolution is 63x31 (1953 pixels),
+with padded-row readback, controlled encoding, positive HDR/small-channel stress
+and sRGB transfer breakpoints. Nonidentity error thresholds are in the Phase 0B
+report; half-float results are not exact CPU equivalence.
 
-## Outstanding blockers and exact next milestone
+The first successful run had non-disjoint single-draw GPU timestamps of
+0.00160-0.00224 ms. These include pipeline overhead on a tiny synthetic workload;
+they are not an FPS gain, 1080p estimate, stable throughput benchmark or in-game
+cost. Three-texture payload arithmetic was 93,744/46,872 bytes for float/half;
+driver allocation, placement and total game VRAM were not measured.
 
-Begin **Phase 0B: read-only integration evidence**, as specified in
-[ROADMAP.md](ROADMAP.md). First obtain an authorized isolated CSP 0.2.11 instance
-with matching SDK and a supported native integration. No safe isolated instance
-or runtime game connector was established during Phase 0. Do not alter the
-owner's reference installation to fill that gap or repeat broad searches.
+No shader or observer was deployed to CSP/Pure. No callback has been observed
+in the game. No image-quality, physical low-VRAM compatibility, stable game
+frame-time, HDR/VR, rain/night or reflection improvement is claimed. Compile,
+Lua contract execution, actual isolated GPU execution and actual game execution
+remain distinct evidence classes. Native resolution/default effects stay safe.
 
-Establish Gamma/LCS stage encoding, formats, exposure ownership, callable APIs,
-timing units, pause/replay semantics, Extra FX prerequisites, buffer/reset/payload
-availability and exact package versions. Generate a genuine capability receipt
-with matching context. Expected result: compatibility matrix entries backed by
-reproducible runtime evidence, or explicit unknown/blocked entries. Optional
-features stay disabled without it. The official patch web reader hit a redirect
-loop; unverified community reposts were not accepted as baseline evidence.
+## Dream Realism and safer integration direction
 
-Then validate an identity pass and GPU readback against the CPU reference in
-isolation before artistic tuning. Require visual captures/review and repeated
-native/effect timing and game-memory measurements on physical legacy hardware
-before claiming support or improvement. HDR, VR, night, fog, headlights, wet
-surfaces, wheel/fence detail and temporal artifacts are pending. Compilation is
-not visual or performance validation.
+Authorized read-only investigation found the 7.3 Gamma INI but no matching Lua
+or encrypted companion in loader-resolved candidate locations, and no referenced
+grading LUT at the PP-filter-relative path. Pure's loader/source predicts default
+script fallback; actual loading/resource resolution still needs a runtime receipt.
+No installation repair, decryption, proprietary implementation copying or asset
+publication occurred. Available settings configure existing engine/Pure effects;
+they do not establish a Dream-specific renderer or LCS implementation.
 
-## Resume validation and rollback
+The related Pure SDK exposes read-only PP/YEBIS-bypass queries and named SPICE
+HDR/LDR effect registration functions. This is a candidate route preserving
+Pure's LDR bridge. Unregister/rollback and the exact supported shader/lifecycle
+contract are not yet established, so the observer only records API presence and
+never registers, forces YEBIS, changes exposure or replaces the bridge.
 
-1. Verify branch, status, remote destination and exact SHA; preserve any new work.
-2. Read AGENTS and the evidence/architecture documents. Run the 56-test suite
-   and synthetic example from [CLI.md](CLI.md), requiring Windows for native tests.
-3. Re-read usage and recheck only drift-prone installed facts. Existing private
-   roots are already known on the original machine; do not rescan unrelated assets.
-4. Compare an explicit current audit against the prior snapshot when available.
-   Do not overwrite an earlier baseline or treat missing local receipts as proof
-   that files remained unchanged.
-5. Satisfy Phase 0B prerequisites before runtime tests. If an authorized gateway
-   is unavailable, use only the bounded read-only assessment and safe validated
-   recovery allowed by policy; no GUI fallback, restarts or copied live scenes.
-6. Commit/push/verify useful evidence units and preserve the synchronization reserve.
+Keep one shared engine with independent Gamma/LCS calibrations, vendor-neutral
+capability gates and conservative memory ceilings. Pure retains exposure/weather
+ownership. No custom injector/upscaler, FSR4/RTX requirement, proprietary dependency
+redistribution or replay MCP is introduced.
 
-Nothing is installed by this checkpoint, so no game rollback is needed. Disable
-or omit proposed modules and retain the original stack. Do not delete or reset
-the repository for rollback. If source changes must be undone, review a new
-revert commit, preserve user changes, and use normal non-forced synchronization.
-Any later apply operation needs owned-key backups, drift detection, approval
-for concrete changes and a tested restore path; no apply/restore executor exists.
+## Exact next task and prerequisites
 
-## Usage accounting and policy boundaries
+Remaining Phase 0B gate: **isolated game-host observation and identity validation**.
 
-Owner estimate at authorization: approximately 27% weekly remaining. First
-observable account reading: 26%. Latest pre-documentation reading: 22% remaining,
-an exposed-meter difference of 4 percentage points. These are account-wide
-integer readings, not an exact attribution of task consumption. The final
-reading is recorded in the closeout receipt and final response after remote
-verification. The 3-5 percentage-point reserve was intact at every observed gate;
-no reset credit or purchase was used. Starting 27% is session context, not a
-permanent budget rule.
+1. Supply an authorized Assetto Corsa host with verified isolation of user config,
+   caches and mod state from the owner's working install. Stable reference source
+   is available; a safe running 0.2.11 game environment is not. Do not switch the
+   reference CSP, launch an unisolated copy or use GUI automation to fill this gap.
+2. Establish a supported native script-loading path exposing CSP and Pure SDK
+   namespaces. Import the original observer in that isolated context, start it
+   explicitly, collect bounded real callback receipts and remove only its own
+   subscription. Preserve the existing Pure LDR bridge/filter slot.
+3. Verify version/build, actual weather fork/package, PP and YEBIS bypass state,
+   callback ordering, main/auxiliary/eye flags, timing units, render format and
+   input/output encoding. SDK symbols/flags do not prove temporal buffers or FG.
+4. Verify a supported owned named-effect registration/removal path before any
+   neutral render hook. Compare actual game identity output/images and use
+   engine-owned surfaces where possible; preserve Pure exposure ownership.
+5. Only after that gate introduce bounded visual changes and repeat matched
+   native/effect timing, game-memory and visual tests across both modes and real
+   low-memory AMD/NVIDIA hardware. Do not infer improvement from this checkpoint.
 
-The offline Phase 0 work units are complete and independently recoverable.
-Remaining runtime/visual gates need the isolated environment and integration
-above; they are not resolved by further unbounded offline research. Do not
-automatically start character testing, a new major runtime build, an installer,
-or Wednesday automation. Keep computer-use providers disabled by default; no
-provider was initialized/enabled and no persistent tool permissions were changed.
+If the host/loading path is unavailable, report BLOCKED for dependent game
+validation and stop that work. No DCC gateway probing, GUI fallback, application
+restart, replacement replay MCP or reference-install deployment is authorized.
+Independent permitted work is already preserved; further unsupported rendering
+integration is not justified merely to consume the remaining account allowance.
+
+## Resume, files and rollback
+
+Read AGENTS, [PHASE0B_RUNTIME.md](PHASE0B_RUNTIME.md),
+[CSP0211_REFERENCE.md](CSP0211_REFERENCE.md), [DREAM_REALISM_REFERENCE.md](DREAM_REALISM_REFERENCE.md),
+[ARCHITECTURE.md](ARCHITECTURE.md), [COMPATIBILITY.md](COMPATIBILITY.md) and
+[VALIDATION.md](VALIDATION.md). Reuse confirmed paths from the private original
+machine context; do not scan unrelated game assets or repeat completed research.
+The official archive, SDK, binary, Dream analysis, dependency wheel, GPU receipts,
+source exports and targeted integrity snapshots remain ignored under `.local/`.
+No third-party source/assets or private machine paths were committed.
+
+Phase 0B added ten tracked artifacts: the runtime report; Lua module/guide;
+hash-pinned optional test requirement; Lua tests; D3D11 harness, validation vertex
+shader and tests; Dream reference report; stable SDK report. It modified original
+shader/reference/compiler/CLI/audit code and relevant tests/docs. Full diffs are
+available from the Phase 0 commit to current HEAD. Final closeout reports clean
+tracked status and exact remote SHA; private receipts are intentionally untracked.
+
+Run the suite with the optional dependency per the observer guide, and run GPU
+validation explicitly only when required. Do not repeat hardware runs without a
+new code change or unresolved concern. Nothing is installed, so no game rollback
+is needed. Future owned subscription stop must not touch another mod's state;
+failed cleanup remains inert/blocked with no automatic retry or restart. A future
+render/apply path needs verified ownership, backups, drift checks and an exercised
+restore procedure before changing known-good state. Revert source through a new
+reviewed commit, preserving history/user work; never reset or force-push.
+
+## Account usage
+
+First actual Phase 0B weekly reading: **22% remaining**. Latest pre-closeout
+reading: **17% remaining**. These are exposed account-wide integer percentages;
+the difference is not exact task-only billing. The final reading and synchronized
+SHA go in the closeout receipt and final response. Phase 0B bounds: finish bounded
+work at 9-7%, synchronize at 7-5%, and no new research/engineering/testing at 5%.
+No reset credit, purchase or GUI meter access was used. Every meaningful work
+unit was pushed well before the reserve; no new major game milestone starts here.

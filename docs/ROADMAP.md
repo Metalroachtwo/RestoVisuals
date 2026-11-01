@@ -16,7 +16,20 @@
 
 Foundation delivery does not close the stable-build or visual/hardware gates.
 
-## Next exact milestone: Phase 0B integration evidence
+## Completed Phase 0B engineering checkpoint
+
+- Implemented the original read-only CSP/Pure observer, tested under LuaJIT with
+  synthetic hosts, including source-matched build gates and cleanup failure paths.
+- Executed the original shader in an isolated D3D11 context, found/fixed the
+  neutral identity defect, and passed exact float/half identity and six numerical
+  color cases. This is GPU execution proof, not a game integration or visual gate.
+- Obtained the official 0.2.11/build3465 SDK reference privately without installation,
+  corrected stable/preview selector differences and independent optional-field probes.
+- Completed bounded Dream Realism/Pure analysis, preserving all third-party files,
+  and identified named Pure HDR/LDR extension APIs as an unvalidated lifecycle candidate.
+- Passed 93 tests and a fresh source-export run, including the explicit GPU gate.
+
+## Next exact task: remaining Phase 0B game-host gate
 
 Produce a read-only runtime capability receipt for each permitted CSP track
 and each Pure mode, using authorized isolated installations or supplied captures.
@@ -24,7 +37,8 @@ Do not apply the color prototype or change the owner's working installation.
 
 Prerequisites:
 
-1. An authorized isolated CSP 0.2.11 environment and its matching SDK/API inventory;
+1. An authorized isolated CSP 0.2.11 game environment; its matching SDK inventory
+   is now available privately. Isolation must cover user configuration/caches;
    no installation switching, copied live scenes or locked binary replacements.
 2. A supported native CSP/game integration path that can read version, module,
    pipeline and buffer information without injecting an unrelated renderer or
@@ -46,6 +60,12 @@ Acceptance:
   before any temporal eligibility; frame generation stays a separate gate.
 - Native baseline captures, unchanged audited input hashes and a committed,
   pushed, remotely verified receipt/handoff. No visual-performance claim yet.
+
+The current observer and isolated GPU harness already exist; do not rebuild
+them or repeat the installation audit. Begin with actual host isolation/loading
+and a real receipt. Preserve Pure's bridge; verify named-effect ownership and
+supported removal before registering any rendering operation. If the isolated
+host/native loading path is unavailable, stop dependent game validation.
 
 ## Later milestones and gates
 
