@@ -1,6 +1,29 @@
 # Phase 0 validation record
 
-## Current Phase 0B checkpoint
+## Current Phase 0C checkpoint
+
+Code `d83b1f4b272f40c044fa0cfbd3ce59b4154df16f` is pushed and remotely verified.
+All **104 tests pass with no skips** with optional LuaJIT. All original 93 tests
+remain unchanged. Without LuaJIT, 79 execute and 25 explicitly skip. A fresh
+56-file tracked-source export passes both configurations.
+
+The original ten small GPU cases still pass. Sixteen additional explicit native
+GPU cases pass at 1280x720 and 1920x1080: eight full-frame exact identities precede
+eight color cases with all-pixel finite/alpha checks and 3,672 CPU-oracle probes
+each. The source export reproduces all 16 raw readback hashes and all 24 PNG
+hashes exactly on the same host/driver. Six original PNGs and a sanitized JSON
+receipt are published with the [comparison viewer](visuals/phase0c-demo/index.html).
+
+See [Phase 0C](PHASE0C_RUNTIME.md) for the measured adapter/driver, precision,
+single-batch timing, sampled DXGI memory and visual-inspection limits. Seven
+previously captured protected core hashes and 19 Dream dependency/file states
+still match; this is targeted preservation evidence, not a full new audit.
+The mandatory freeware first checkpoint is pushed; no repository license has
+been selected. [Host isolation](RUNTIME_ISOLATION.md) remains blocked for native
+game launch/loading. Actual CSP/Pure, game visuals/FPS and low-VRAM support are
+unvalidated. The records below retain their historical scopes.
+
+## Historical Phase 0B checkpoint
 
 Code: `9290fde1fc9793916f0382690562979cab50af4f`, pushed and verified.
 All **93 tests pass with no skips** when the optional project-local LuaJIT test

@@ -202,6 +202,9 @@ hardware identity/readback validation; select the intended measured adapter.
 Phase 0C adds `python -m restovisuals gpu-demo --adapter-index 0 --profile both --output .local/my-new-demo`
 for original 720p/1080p calibration charts, GPU readback PNGs and a local
 comparison viewer. This is isolated D3D11 evidence, not an in-game demonstration.
+The [Phase 0C report](docs/PHASE0C_RUNTIME.md) and
+[original chart comparison](docs/visuals/phase0c-demo/index.html) publish the
+results and their limits.
 See the [host isolation gate](docs/RUNTIME_ISOLATION.md) and
 [freeware/dependency boundaries](docs/FREEWARE_AND_DEPENDENCIES.md).
 

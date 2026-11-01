@@ -1,0 +1,982 @@
+{
+  "schema_version": 1,
+  "execution_scope": "isolated_native_d3d11",
+  "gameplay_validated": false,
+  "csp_integration_validated": false,
+  "source_sha256": "f762d3e4e98295b257b2fd46452023857e3b8d972c753d268835061dcf6fce88",
+  "vertex_sha256": "af8edd41b089c0df49759da64255f8a722b4b84284752dd49891b4fcb6a4cf9e",
+  "window_created": false,
+  "swap_chain_created": false,
+  "compilation": [
+    {
+      "entry_point": "VSFullscreen",
+      "target": "vs_5_0",
+      "compiled_bytes": 756,
+      "bytecode_sha256": "eda2a9f4ee93c737e4178bbeb907035eb91f06320fc4214dde4ba40b46709d01",
+      "hresult": "0x00000000",
+      "warnings_as_errors": true,
+      "debug_information": false
+    },
+    {
+      "entry_point": "PSLinear",
+      "target": "ps_5_0",
+      "compiled_bytes": 1788,
+      "bytecode_sha256": "684e09816b275798836cc7f2c1f4747eca720eae29483fa8a7f7f406458a5eeb",
+      "hresult": "0x00000000",
+      "warnings_as_errors": true,
+      "debug_information": false
+    },
+    {
+      "entry_point": "PSSrgb",
+      "target": "ps_5_0",
+      "compiled_bytes": 2180,
+      "bytecode_sha256": "6aa4291e6f451c70ec42159c864a1e3b7a4a4dd11bb1566fe5dcaae87f86abaf",
+      "hresult": "0x00000000",
+      "warnings_as_errors": true,
+      "debug_information": false
+    }
+  ],
+  "demonstration": "original_synthetic_calibration_v1",
+  "cases": [
+    {
+      "entry": "PSLinear",
+      "format": "rgba32f",
+      "pixels": 921600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 44236800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 2555904
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 20480,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.18332,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "f999de7ff921fab3b747641c17f3f218bbf1b70943f0f6463cc985f4bc0bbbcc",
+      "readback_sha256": "f999de7ff921fab3b747641c17f3f218bbf1b70943f0f6463cc985f4bc0bbbcc",
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba32f",
+      "pixels": 921600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 44236800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 20480,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.18388,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "910212d2486b803c23d0fb9f0954f85ee4b92a10dac2e633ae1518dcd4a2cb9b",
+      "readback_sha256": "910212d2486b803c23d0fb9f0954f85ee4b92a10dac2e633ae1518dcd4a2cb9b",
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSLinear",
+      "format": "rgba16f",
+      "pixels": 921600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 22118400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 10240,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.09192,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "479520213e92172c72150824c2b22d61637f6d68deb7e1623e5bf8664ec14ae9",
+      "readback_sha256": "479520213e92172c72150824c2b22d61637f6d68deb7e1623e5bf8664ec14ae9",
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba16f",
+      "pixels": 921600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 22118400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 10240,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.09164,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "35636d55a76dce102074468bb9f8f4e0cf8e0e799f4e94ed8df672ae6f7cab7c",
+      "readback_sha256": "35636d55a76dce102074468bb9f8f4e0cf8e0e799f4e94ed8df672ae6f7cab7c",
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSLinear",
+      "format": "rgba32f",
+      "pixels": 2073600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 99532800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 30720,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 71237632
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.41288,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "b86acb959f7bbafd94aa6c95c8e2129d2bbfd7bdde9a42d7afd0237b5052864d",
+      "readback_sha256": "b86acb959f7bbafd94aa6c95c8e2129d2bbfd7bdde9a42d7afd0237b5052864d",
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba32f",
+      "pixels": 2073600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 99532800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 30720,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 71237632
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.4122,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "990455cff4a644ccb51e79e8ccb4359bf6324a9ddef34dbc2e8217bf17885874",
+      "readback_sha256": "990455cff4a644ccb51e79e8ccb4359bf6324a9ddef34dbc2e8217bf17885874",
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSLinear",
+      "format": "rgba16f",
+      "pixels": 2073600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 49766400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 15360,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.21752,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "fa3cff29943cd70759de655dc65dddcdf87e8d01b89b2e2ac05161de14671de1",
+      "readback_sha256": "fa3cff29943cd70759de655dc65dddcdf87e8d01b89b2e2ac05161de14671de1",
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba16f",
+      "pixels": 2073600,
+      "parameters": [
+        0,
+        0,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 49766400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 15360,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.22092,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": true,
+      "input_sha256": "6b671d5f03ee24d70ea989ba62c1ea676c00bd7995a4f88606d818384c125baa",
+      "readback_sha256": "6b671d5f03ee24d70ea989ba62c1ea676c00bd7995a4f88606d818384c125baa",
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "identity"
+    },
+    {
+      "entry": "PSLinear",
+      "format": "rgba32f",
+      "pixels": 921600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 44236800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 20480,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.1844,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "f999de7ff921fab3b747641c17f3f218bbf1b70943f0f6463cc985f4bc0bbbcc",
+      "readback_sha256": "05f80cb8a1bd32f1469b965b0e3a90215ea5cf68cb800fefead4d7fc556e1772",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 1.9073486328125e-06,
+        "rms_error": 2.799420563984083e-07,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 3e-05,
+        "nonidentity_relative_tolerance": 5e-06,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "processed"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba32f",
+      "pixels": 921600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 44236800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 20480,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.24752,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 35586048
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "910212d2486b803c23d0fb9f0954f85ee4b92a10dac2e633ae1518dcd4a2cb9b",
+      "readback_sha256": "c503c8cd402c1ebc76e07dc9bd4fcdd8f16f0b654951b57ffc39aa6dc049de2c",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 3.03611159324646e-07,
+        "rms_error": 4.3842528097985644e-08,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 3e-05,
+        "nonidentity_relative_tolerance": 5e-06,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "processed"
+    },
+    {
+      "entry": "PSLinear",
+      "format": "rgba16f",
+      "pixels": 921600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 22118400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 10240,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.12956,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "479520213e92172c72150824c2b22d61637f6d68deb7e1623e5bf8664ec14ae9",
+      "readback_sha256": "9daa10ac17734005381d7b07de23700937a8e3327c494b211d845ff850a0069e",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 0.015625,
+        "rms_error": 0.002296076309351129,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 0.002,
+        "nonidentity_relative_tolerance": 0.002,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "processed"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba16f",
+      "pixels": 921600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 22118400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 10240,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.2548,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 19857408
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "35636d55a76dce102074468bb9f8f4e0cf8e0e799f4e94ed8df672ae6f7cab7c",
+      "readback_sha256": "1dfded6c396695b6d1a345a5e3d3493759feb92cdbc30d3fa6e08806391a3c85",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 0.00048828125,
+        "rms_error": 0.00020120078061539804,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 0.002,
+        "nonidentity_relative_tolerance": 0.002,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "720p",
+      "width": 1280,
+      "height": 720,
+      "kind": "processed"
+    },
+    {
+      "entry": "PSLinear",
+      "format": "rgba32f",
+      "pixels": 2073600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 99532800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 30720,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 71237632
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.41384,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "b86acb959f7bbafd94aa6c95c8e2129d2bbfd7bdde9a42d7afd0237b5052864d",
+      "readback_sha256": "f37148e520b721e181b2f6de3ce5b050f23867a726e8aa191c7a4c0062d7dfde",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 1.9073486328125e-06,
+        "rms_error": 2.802256534623814e-07,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 3e-05,
+        "nonidentity_relative_tolerance": 5e-06,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "processed"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba32f",
+      "pixels": 2073600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 99532800,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 30720,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 71237632
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.56436,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "990455cff4a644ccb51e79e8ccb4359bf6324a9ddef34dbc2e8217bf17885874",
+      "readback_sha256": "ed24214088753f0787fd0db844d85f267ac65fb0f2e6e73883e89d18f5b38cab",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 2.784654498100281e-07,
+        "rms_error": 4.38493471513918e-08,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 3e-05,
+        "nonidentity_relative_tolerance": 5e-06,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "processed"
+    },
+    {
+      "entry": "PSLinear",
+      "format": "rgba16f",
+      "pixels": 2073600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 49766400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 15360,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.2908,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "fa3cff29943cd70759de655dc65dddcdf87e8d01b89b2e2ac05161de14671de1",
+      "readback_sha256": "630b69c079800fd11a49999e6ba31d579532bb97cad64715fccba8a8bd2b68dd",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 0.015625,
+        "rms_error": 0.0022959567351080877,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 0.002,
+        "nonidentity_relative_tolerance": 0.002,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "processed"
+    },
+    {
+      "entry": "PSSrgb",
+      "format": "rgba16f",
+      "pixels": 2073600,
+      "parameters": [
+        0.25,
+        0.25,
+        1
+      ],
+      "draws": 5,
+      "warmup_draws": 1,
+      "declared_texture_payload_bytes": 49766400,
+      "driver_allocation_measured": false,
+      "memory_before": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 3866624
+      },
+      "owned_com_references_before": 7,
+      "mapped_row_pitch_bytes": 15360,
+      "memory_resources_live": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "gpu_timestamp_disjoint": false,
+      "gpu_duration_ms": 0.57592,
+      "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+      "owned_com_references_after": 7,
+      "memory_after_release": {
+        "status": "measured",
+        "scope": "calling_process_local_segment_node0",
+        "budget_bytes": 7741161472,
+        "current_usage_bytes": 37683200
+      },
+      "all_pixels_finite": true,
+      "all_pixels_alpha_exact": true,
+      "full_frame_identity_exact": null,
+      "input_sha256": "6b671d5f03ee24d70ea989ba62c1ea676c00bd7995a4f88606d818384c125baa",
+      "readback_sha256": "65c5f082f20c79532003598d1d997a933e4950d4480630b309a611e13a523a31",
+      "color_comparison": {
+        "passed": true,
+        "failed_channels": 0,
+        "max_absolute_error": 0.00048828125,
+        "rms_error": 0.00020376462271002671,
+        "strict_identity": false,
+        "alpha_exact": true,
+        "nonidentity_absolute_tolerance": 0.002,
+        "nonidentity_relative_tolerance": 0.002,
+        "first_failures": [],
+        "sampled_pixels": 3672,
+        "scope": "deterministic_edge_boundary_and_ramp_grid_not_every_pixel"
+      },
+      "passed": true,
+      "profile": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "kind": "processed"
+    }
+  ],
+  "artifacts": {
+    "720p-rgba32f-PSLinear-identity.png": "b08f152507876e1a1234135dfdc921d208fba1e5ff4d9f3dd48b11beacdce532",
+    "720p-rgba32f-PSLinear-input.png": "b08f152507876e1a1234135dfdc921d208fba1e5ff4d9f3dd48b11beacdce532",
+    "720p-rgba32f-PSSrgb-identity.png": "035ccf6550b4e126475d92dbdb4fd1b7f2b2868d5d5574b1da0b2d22dc848c10",
+    "720p-rgba32f-PSSrgb-input.png": "035ccf6550b4e126475d92dbdb4fd1b7f2b2868d5d5574b1da0b2d22dc848c10",
+    "720p-rgba16f-PSLinear-identity.png": "1c65637850e7e43f7b509376b7f1ff693588d664a3332f6b5a3c66b6bfab1a59",
+    "720p-rgba16f-PSLinear-input.png": "1c65637850e7e43f7b509376b7f1ff693588d664a3332f6b5a3c66b6bfab1a59",
+    "720p-rgba16f-PSSrgb-identity.png": "26c1deee76cfa263ea476b9888c421917c5952fa23a2ce5bb60ccc8af71994f5",
+    "720p-rgba16f-PSSrgb-input.png": "26c1deee76cfa263ea476b9888c421917c5952fa23a2ce5bb60ccc8af71994f5",
+    "1080p-rgba32f-PSLinear-identity.png": "3c4fb3b1d9ff03474d05e70a60e4615926fe33511c1edeca6254c4b554237cca",
+    "1080p-rgba32f-PSLinear-input.png": "3c4fb3b1d9ff03474d05e70a60e4615926fe33511c1edeca6254c4b554237cca",
+    "1080p-rgba32f-PSSrgb-identity.png": "65d7682bdb7590a31c3ce6ac3f811888f3cf529e5c395cb95e67bc5491385cb3",
+    "1080p-rgba32f-PSSrgb-input.png": "65d7682bdb7590a31c3ce6ac3f811888f3cf529e5c395cb95e67bc5491385cb3",
+    "1080p-rgba16f-PSLinear-identity.png": "07360e3bed8acb88dc750500a73035515c3706f0be6afe85bb73121ee2b021c2",
+    "1080p-rgba16f-PSLinear-input.png": "07360e3bed8acb88dc750500a73035515c3706f0be6afe85bb73121ee2b021c2",
+    "1080p-rgba16f-PSSrgb-identity.png": "6a1d96e60f25c9ded83923c832eec76ce8cda9d31d2bdb7d98e07d56088fccc9",
+    "1080p-rgba16f-PSSrgb-input.png": "6a1d96e60f25c9ded83923c832eec76ce8cda9d31d2bdb7d98e07d56088fccc9",
+    "720p-rgba32f-PSLinear-processed.png": "d8e073931dee5b325376c15abcb5d8008a3a4da25aa5f0165559f21080fe2afd",
+    "720p-rgba32f-PSSrgb-processed.png": "7a0bfbfa43ae1bf77d04d0883d69528743fc0e6c6f0fb3c2001822cf923bbb84",
+    "720p-rgba16f-PSLinear-processed.png": "d3acdb902ca7d9c8d276d993ccf5a2753e01d4852f63ebf211614d6a587995d6",
+    "720p-rgba16f-PSSrgb-processed.png": "37c5f78aba8ee8f66ee9fb59d1049d37830efc941638d06060eb93d82987e8a1",
+    "1080p-rgba32f-PSLinear-processed.png": "52529aac6956de671395dec41ee94d4bf62c4243dc4d9fe6e51007d679595825",
+    "1080p-rgba32f-PSSrgb-processed.png": "92c9c2bad5e9f2c1d5a5bf948c71fc7ecc5550f90cf8a16754e01f220787a502",
+    "1080p-rgba16f-PSLinear-processed.png": "430cd600116def6f703cd92d598878e39792287413bafd827492811b495570b3",
+    "1080p-rgba16f-PSSrgb-processed.png": "5708a1c3157487e25c47e629a30e7e28223230ea996740130b45062730957104"
+  },
+  "status": "passed",
+  "game_visuals_validated": false,
+  "memory_scope": "sampled_process_local_segment_not_peak_or_physical_allocation",
+  "timing_scope": "five_draw_batch_after_one_warmup_excludes_upload_readback",
+  "preview": "RGB8_sRGB_display_clipped_alpha_omitted_no_personal_metadata",
+  "adapter": {
+    "index": 0,
+    "description": "AMD Radeon RX 5700 XT",
+    "vendor_id": 4098,
+    "device_id": 29471,
+    "dedicated_bytes": 8546471936,
+    "created_feature_level": "11_0"
+  },
+  "owned_context_released": true,
+  "evidence_context": {
+    "observed_date": "2026-11-01",
+    "harness_code_commit": "d83b1f4b272f40c044fa0cfbd3ce59b4154df16f",
+    "driver_version_observed_in_windows_registry": "32.0.21043.12001",
+    "python_version": "3.14.6",
+    "reproduction": {
+      "tracked_source_export": "d83b1f4b272f40c044fa0cfbd3ce59b4154df16f",
+      "tests_with_luajit": 104,
+      "tests_without_luajit": {
+        "executed": 79,
+        "skipped": 25
+      },
+      "gpu_cases_passed": 16,
+      "all_16_raw_readbacks_reproduced_exactly": true,
+      "all_24_png_hashes_reproduced_exactly": true
+    },
+    "claim_scope": "controlled_original_charts_not_game_or_Pure_visual_validation",
+    "published_subset": "1080p_rgba16f_both_encodings",
+    "artifact_hash_scope": "all_24_PNGs_from_full_local_matrix_reproducible_with_gpu_demo"
+  },
+  "published_artifacts": {
+    "1080p-rgba16f-PSLinear-input.png": "07360e3bed8acb88dc750500a73035515c3706f0be6afe85bb73121ee2b021c2",
+    "1080p-rgba16f-PSLinear-identity.png": "07360e3bed8acb88dc750500a73035515c3706f0be6afe85bb73121ee2b021c2",
+    "1080p-rgba16f-PSLinear-processed.png": "430cd600116def6f703cd92d598878e39792287413bafd827492811b495570b3",
+    "1080p-rgba16f-PSSrgb-input.png": "6a1d96e60f25c9ded83923c832eec76ce8cda9d31d2bdb7d98e07d56088fccc9",
+    "1080p-rgba16f-PSSrgb-identity.png": "6a1d96e60f25c9ded83923c832eec76ce8cda9d31d2bdb7d98e07d56088fccc9",
+    "1080p-rgba16f-PSSrgb-processed.png": "5708a1c3157487e25c47e629a30e7e28223230ea996740130b45062730957104"
+  }
+}

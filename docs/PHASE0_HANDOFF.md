@@ -1,4 +1,128 @@
-# RestoVisuals Phase 0B continuation handoff
+# RestoVisuals Phase 0C continuation handoff
+
+Prepared 2026-11-01, America/New_York. **Current checkpoint is Phase 0C**;
+the explicitly historical Phase 0B record below is retained to avoid repeating
+completed investigations. No automation has been scheduled.
+
+## Current repository and policy checkpoint
+
+Repository: [Metalroachtwo/RestoVisuals](https://github.com/Metalroachtwo/RestoVisuals).
+Branch: `phase0/foundation`; no automatic merge to main. Latest tested and remotely
+verified code: **`d83b1f4b272f40c044fa0cfbd3ce59b4154df16f`**. The final documentation
+HEAD is recorded by Git and ignored `.local/phase0c-final-sync.json` after closeout;
+verify with `git rev-parse HEAD` and `git ls-remote origin refs/heads/phase0/foundation`.
+
+Phase 0C meaningful checkpoints, each pushed and verified:
+
+- `92088687608b34ea8e43b9d96ddc1a022ebb37cc`: mandatory first freeware checkpoint.
+  README and AGENTS preserve existing restrictions and require 100% free official
+  functionality, no paid tiers/trials/ad/account unlocks, and optional donations
+  that never gate access. Premature open-source wording was corrected.
+- `4966b1ac091beb11adfdb29d5b69336cd56db78c`: host isolation acceptance/rollback
+  gate and [external dependency boundaries](FREEWARE_AND_DEPENDENCIES.md).
+- `d83b1f4b272f40c044fa0cfbd3ce59b4154df16f`: full-resolution demonstration using
+  the existing D3D11 renderer, memory samples, bounded draws, export safety and tests.
+
+Repository license remains **undecided, pending owner approval**. Freeware is not
+an open-source license. Assetto Corsa, Pure, CSP/CM and proprietary filter content
+retain separate acquisition/distribution terms; none is bundled. Lupa/LuaJIT is
+an optional private test dependency, not an end-user rendering requirement.
+
+## Current validated results
+
+See [Phase 0C evidence](PHASE0C_RUNTIME.md), [public original chart viewer](visuals/phase0c-demo/index.html)
+and [sanitized measurements](visuals/phase0c-demo/report.json).
+
+- **104 tests pass with no skips** using the declared optional LuaJIT setup.
+  All 93 original tests remain unchanged. Without LuaJIT, 79 execute and 25 skip.
+  The 11 new tests target actual full-frame checks, encoding/precision, PNG
+  transfer/CRC, destination safety, failure gates and owned resource cleanup.
+- A fresh 56-file tracked-source export passes both configurations without
+  private game/SDK files. All 16 native 720p/1080p cases pass from that export;
+  every raw readback and all 24 PNG hashes reproduce the first run exactly.
+- Eight full-frame exact identities precede eight color cases across two
+  resolutions, float/half and explicit scene-linear/sRGB-display. Color checks
+  require finite pixels and exact alpha everywhere, plus 3,672 declared probes.
+  The original four-identity/six-color small GPU regression still passes.
+- RX 5700 XT, explicit adapter 0, feature-level-11_0 device; driver metadata
+  32.0.21043.12001. Source and pixel bytecode hashes are unchanged. Measurements
+  are single five-draw batches after one warmup, excluding upload/readback/export.
+  They are not gameplay FPS or improvement claims. The published report records
+  exact tolerances, per-case timing, format, dimensions and hashes.
+- DXGI samples describe this process's local segment. Owned COM references
+  return to baseline, while some immediate memory samples remain elevated until
+  later sampling. No peak/allocation/leak/low-VRAM certification is inferred.
+- Visual inspection covers original chart structure, ramps, patches and intact
+  edges only. No game image, Pure calibration, physical legacy/NVIDIA board,
+  gameplay frame time or artistic improvement has been validated.
+- Seven previously captured protected core-file hashes and 19 unique Dream
+  file/dependency states still match. This is a targeted prior-snapshot comparison,
+  not a new full-installation audit. No deployment, GUI/DCC operation, game launch,
+  feature/account/VM creation, application restart or driver/version change occurred.
+
+Current private receipts: `.local/phase0c-demo-01/`,
+`.local/phase0c-source-export-d83b1f4/`, `.local/phase0c-reproduction.json`,
+`.local/phase0c-preservation.json`, and `.local/phase0c-small-gpu.json`.
+Public files contain original code/charts and sanitized summaries only.
+
+## Exact next milestone and blockers
+
+**BLOCKED: isolated Assetto Corsa native loading, observer receipts and neutral
+game-frame validation.** A same-user game-directory copy does not establish
+configuration/cache isolation. The bounded CM source assessment identified
+Windows Documents paths; no complete supported per-process redirect is established.
+Read [RUNTIME_ISOLATION.md](RUNTIME_ISOLATION.md) before attempting host work.
+
+1. Supply/authorize an independently provisioned licensed host or explicitly
+   approved alternative. Verify separate resolved executable/content, Documents,
+   AppData, Steam, CM, Pure/CSP, cache and output paths. No writable reference
+   location or shared library/configuration may be used. Snapshot isolated state.
+2. Establish the real supported CSP/Pure script-loading path for exactly stable
+   0.2.11/build3465 and optional preview361/build3898. Preserve the owner's locked
+   preview/CM stack, Pure bridge and active scriptable-filter slot.
+3. Start the existing observer explicitly; obtain bounded real callbacks and
+   successful owned unsubscribe. Verify PP/bypass flags, fork/package, ordering,
+   timing units, main/auxiliary/eye behavior and actual buffer format/encoding.
+4. Establish uniquely owned named-effect registration **and removal** before any
+   render hook. Keep Pure exposure ownership and validate neutral game output.
+   Calibrate and validate Gamma/LCS separately only after those facts are known.
+5. Then test matched visual/performance and total memory on real legacy AMD/NVIDIA
+   boards. Upscaling and FG remain separate runtime gates; no CSP 0.3.1 dependency.
+
+Unknowns remain native loading, actual callback delivery/order, shader resource
+access, buffer encoding, exposure stage and supported named-effect teardown.
+SDK/source declarations, synthetic Lua execution and independent D3D11 output
+must not be promoted into real CSP/Pure evidence. No new observer or Dream code
+change was justified by this phase's evidence.
+
+Failure symptoms: paths alias owner state, protected hashes drift, missing native
+APIs/callbacks, unknown encoding, or registration with unknown cleanup. Stop
+dependent work; leave uncertain callbacks inert and blocked. Do not retry via a
+replacement bridge, GUI automation, injector or reference-install deployment.
+
+Rollback: current standalone work releases only its own device/resources and
+leaves ignored output; no game restore is needed. Future isolated work must stop
+only owned subscriptions and restore its accepted snapshot, preserving receipts.
+Never delete another mod's registration or restart an app with unsaved state.
+Revert source with a reviewed new commit, preserving history and user changes.
+
+## Phase 0C usage and continuation discipline
+
+Owner-reported allowance was 16%; first live Phase 0C reading was **15% weekly
+remaining**. Latest pre-closeout live reading was **13%**. These are account-wide
+integer readings, not task-only billing. Final measured usage and synchronized
+SHA belong in the final receipt/response. No need to consume the reserve while
+the game-host gate is blocked. No new R&D/testing occurred at or below 5%.
+
+For continuation, read the actual meter anew: finish the current bounded unit
+and prepare closeout around 8%, prioritize synchronization at 7%, and do no new
+engineering/research/testing at 5%. Never encode this session's starting reading
+as a permanent budget. Reuse the code/evidence above rather than repeating GPU
+runs or completed SDK/Dream research without a new change or evidence gap.
+
+---
+
+## Historical Phase 0B handoff (superseded where Phase 0C updates it)
 
 Prepared 2026-11-01, America/New_York. This updates the Phase 0 handoff for the
 next authorized continuation; no Wednesday automation has been scheduled.
