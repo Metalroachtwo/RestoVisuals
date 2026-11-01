@@ -1,0 +1,3 @@
+# Optional isolated LuaJIT contract tests on CPython 3.14 / Windows x64.
+# Core CLI and the original 56 tests remain dependency-free.
+lupa==2.8 --hash=sha256:3903c9cf628dae2f56405503247b77a61a3a61bd2dda470e336950c74776d55d

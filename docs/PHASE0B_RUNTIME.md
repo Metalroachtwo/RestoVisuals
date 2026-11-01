@@ -58,3 +58,21 @@ is BLOCKED pending an authorized isolated game host/loading path. No connected
 Assetto Corsa runtime tool is exposed in this session. These blockers do not
 prevent source-contract and isolated GPU validation. No DCC gateway or GUI
 provider is initialized as a substitute.
+
+## Read-only observer implementation checkpoint
+
+Implemented `runtime/lua/restovisuals_observer.lua` as a module with explicit
+start/stop and injected native namespaces. It has no import-time registration,
+filter replacement, shader dispatch, exposure/settings writes or texture access.
+It gates exact CSP version/build and requested Pure shader-space profile, records
+bounded callback samples and resize events, and keeps timing units unknown.
+Every callback returns nil; only its own function unsubscribe handle is invoked.
+Cleanup failure leaves an inert callback and blocks restart without retries.
+
+All original tests plus 19 LuaJIT contract tests passed: **75 total, no skips**
+with the optional project-local dependency. Tests exercise the original Lua
+source under LuaJIT 2.1.1774896198/Lupa 2.8, including missing APIs, version and
+mode mismatch, main/auxiliary/second-eye callbacks, frozen PP parameters,
+bounded sampling, resize, registration errors and cleanup failures. These are
+executed Lua contracts with synthetic host functions, not CSP game execution.
+See [observer host contract](../runtime/lua/README.md).
