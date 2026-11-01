@@ -18,12 +18,19 @@ game, Content Manager, DCC application, installer, or GUI automation was launche
 | PP inventory | top-level `system/cfg/ppfilters/*.ini` | 101 files, including pure, pureCandy, pureHDR, pureLinear, pureSIMPLE, pureVR, NOVA_LCS, Ocular 1.0 LCS, SEDREALISM variants, and Dream Realism variants. No filters copied or replaced. |
 | ReShade history | first line of `ReShade.log1` | Historical initialization of 6.5.1.2008 through a root dxgi.dll. Neither root dxgi.dll nor d3d11.dll exists at audit time. Current installation/activation unknown; log presence does not establish active injection. |
 | Display driver | Windows display-class registry | AMD Radeon RX 5700 XT, driver 32.0.21043.12001 dated 2026-05-29. A Parsec virtual display adapter also appears. Registry identity does not establish the GPU used by the game. |
+| GPU capabilities | Windowless native DXGI enumeration and D3D11 device creation | RX 5700 XT: 8,546,471,936 dedicated bytes, measured feature level 12_1. Two DXGI adapter entries have distinct LUIDs but the same AMD identity; physical GPU count and game-selected adapter are not inferred. Software Basic Render Driver is excluded. |
 
 The CSP install log reports version/build zero from a custom ZIP installation.
 It is weaker version evidence than the agreeing binary and launcher manifest.
 Driver package naming in Radeon Software was not inferred from the Windows
 driver number. The WMI/CIM graphics query was unavailable in the sandbox;
 display-class registry metadata remained readable.
+
+The native probe loaded system DLLs with the Windows System32 search flag,
+created no window/swap chain, and released its own COM/device objects. A
+7,741,161,472-byte DXGI budget and zero current usage were returned for the
+**probe process**. They do not measure the game's budget or system free VRAM.
+No shader was dispatched and no adapter/driver configuration was changed.
 
 ## Rendering interfaces observed
 

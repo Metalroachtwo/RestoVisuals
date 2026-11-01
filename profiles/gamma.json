@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "csp_version": "0.3.0-preview361",
+  "pure_mode": "gamma",
+  "render_mode": "single",
+  "width": 1920,
+  "height": 1080,
+  "target_fps": 60,
+  "profile": "auto",
+  "upscaler": "native",
+  "frame_generation": false,
+  "color_transform": false
+}

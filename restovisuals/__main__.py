@@ -6,6 +6,9 @@ import sys
 from pathlib import Path
 
 from .audit import compare_protected, inspect_environment
+from .gpu_windows import probe_gpus
+from .benchmark import analyze_frame_times, read_frame_csv
+from .planning import capabilities_from_audit, make_plan
 
 
 def main(argv=None):
@@ -18,11 +21,36 @@ def main(argv=None):
     guard = commands.add_parser("guard", help="Compare two audit snapshots")
     guard.add_argument("before", type=Path)
     guard.add_argument("after", type=Path)
+    commands.add_parser("gpu", help="Windowless DXGI/D3D11 hardware capability probe")
+    capabilities = commands.add_parser("capabilities", help="Convert audit observations to conservative capability claims")
+    capabilities.add_argument("audit_snapshot", type=Path)
+    plan = commands.add_parser("plan", help="Produce a reviewable plan without changing settings")
+    plan.add_argument("--config", type=Path, required=True)
+    plan.add_argument("--gpu", type=Path, required=True)
+    plan.add_argument("--adapter-index", type=int, required=True)
+    plan.add_argument("--capabilities", type=Path, required=True)
+    benchmark = commands.add_parser("benchmark", help="Analyze previously captured frame_ms CSV")
+    benchmark.add_argument("csv", type=Path)
+    benchmark.add_argument("--warmup-frames", type=int, default=0)
     args = parser.parse_args(argv)
     try:
         if args.command == "audit":
             result = inspect_environment(args.game_root, args.user_config, args.cm_executable)
-        else:
+        elif args.command == "gpu":
+            result = probe_gpus()
+        elif args.command == "capabilities":
+            result = capabilities_from_audit(json.loads(args.audit_snapshot.read_text(encoding="utf-8-sig")))
+        elif args.command == "plan":
+            config = json.loads(args.config.read_text(encoding="utf-8-sig"))
+            report = json.loads(args.capabilities.read_text(encoding="utf-8-sig"))
+            gpu = json.loads(args.gpu.read_text(encoding="utf-8-sig"))
+            adapters = [adapter for adapter in gpu["adapters"] if adapter["adapter_index"] == args.adapter_index]
+            if len(adapters) != 1:
+                raise ValueError("An explicit unique adapter index is required")
+            result = make_plan(config, adapters[0], report)
+        elif args.command == "benchmark":
+            result = analyze_frame_times(read_frame_csv(args.csv), warmup_frames=args.warmup_frames)
+        elif args.command == "guard":
             before = json.loads(args.before.read_text(encoding="utf-8-sig"))
             after = json.loads(args.after.read_text(encoding="utf-8-sig"))
             changes = compare_protected(before, after)

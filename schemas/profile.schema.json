@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RestoVisuals offline plan configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "csp_version", "pure_mode", "render_mode", "width", "height", "target_fps", "profile", "upscaler", "frame_generation", "color_transform"],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "csp_version": {"type": "string", "enum": ["0.2.11", "0.3.0-preview361"]},
+    "pure_mode": {"type": "string", "enum": ["gamma", "lcs"]},
+    "render_mode": {"type": "string", "enum": ["single", "triple", "vr"]},
+    "width": {"type": "integer", "minimum": 640, "maximum": 16384},
+    "height": {"type": "integer", "minimum": 480, "maximum": 16384},
+    "target_fps": {"type": "number", "minimum": 30, "maximum": 240},
+    "profile": {"type": "string", "enum": ["auto", "ultra_lite", "optimized", "balanced", "enhanced"]},
+    "upscaler": {"type": "string", "enum": ["native", "fsr1", "fsr2", "fsr3"]},
+    "frame_generation": {"type": "boolean"},
+    "color_transform": {"type": "boolean"}
+  }
+}
