@@ -27,6 +27,12 @@ callback data and missing APIs disable observation. Sample history is bounded.
 Resize changes are recorded, not handled by creating buffers. Raw CPU/GPU timing
 values retain unknown units and must not be converted into FPS.
 
+Optional read-only queries record Pure PP enabled/YEBIS bypass state and the
+presence of named SPICE HDR/LDR registration APIs. Registration APIs are never
+called. Raw simulation flags `isFSRActive`, `isTripleFSRActive` and `isHDR` remain
+raw booleans; they do not identify an upscaler algorithm, frame generation or
+texture encoding. Missing/failed queries preserve unknown values.
+
 If unsubscription fails or a registration returns an unexpected handle, the
 callback stays locally inert, restart is blocked, and cleanup remains unknown.
 There is no automatic retry, application restart, foreign subscription removal

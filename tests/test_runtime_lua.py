@@ -224,3 +224,51 @@ class RuntimeLuaTests(unittest.TestCase):
             with self.subTest(key=key, value=value), self.assertRaises(Exception):
                 self.module.new(self.host, config)
         self.assertEqual(self.state.registered, 0)
+
+    def test_pipeline_queries_observe_without_registering_effects(self):
+        self.host.pure.pp = self.lua.eval("""{
+          isEnabled = function() return true end,
+          YEBISisBypassed = function() return true end,
+          spice = {
+            addLDRFilter = function() error('must not register LDR effect') end,
+            addHDRFilter = function() error('must not register HDR effect') end
+          }
+        }""")
+        self.host.ac.getSim = self.lua.eval("function() return {isFSRActive=true, isTripleFSRActive=false, isHDR=false} end")
+        adapter = self.create()
+        self.assertTrue(adapter.start(adapter))
+        self.assertIsNone(self.invoke())
+        pipeline = adapter.receipt(adapter).pipeline
+        self.assertTrue(pipeline.pure_pp_enabled)
+        self.assertTrue(pipeline.pure_yebis_bypassed)
+        self.assertTrue(pipeline.pure_ldr_registration_api)
+        self.assertTrue(pipeline.pure_hdr_registration_api)
+        self.assertTrue(pipeline.fsr_section_active)
+        self.assertFalse(pipeline.triple_fsr_section_active)
+        self.assertEqual(pipeline.upscaler_algorithm, "unknown")
+        self.assertEqual(pipeline.frame_generation, "unknown")
+        adapter.stop(adapter)
+
+    def test_pipeline_missing_or_failed_queries_preserve_unknown(self):
+        self.host.pure.pp = self.lua.eval("{isEnabled=function() error('unavailable') end, YEBISisBypassed=function() return 'not boolean' end}")
+        self.host.ac.getSim = self.lua.eval("function() return nil end")
+        adapter = self.create()
+        self.assertTrue(adapter.start(adapter))
+        self.invoke()
+        pipeline = adapter.receipt(adapter).pipeline
+        self.assertEqual(pipeline.pure_pp_enabled, "unknown")
+        self.assertEqual(pipeline.pure_yebis_bypassed, "unknown")
+        self.assertEqual(pipeline.fsr_section_active, "unknown")
+        self.assertFalse(pipeline.pure_ldr_registration_api)
+        adapter.stop(adapter)
+
+    def test_pipeline_can_change_without_touching_pure_or_upscaler(self):
+        self.host.pure.pp = self.lua.eval("{isEnabled=function() return true end, YEBISisBypassed=function() return false end}")
+        adapter = self.create()
+        adapter.start(adapter)
+        self.assertFalse(adapter.receipt(adapter).pipeline.pure_yebis_bypassed)
+        self.host.pure.pp.YEBISisBypassed = self.lua.eval("function() return true end")
+        self.invoke()
+        self.assertTrue(adapter.receipt(adapter).pipeline.pure_yebis_bypassed)
+        self.assertFalse(adapter.receipt(adapter).settings_written)
+        adapter.stop(adapter)

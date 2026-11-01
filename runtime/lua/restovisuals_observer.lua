@@ -55,11 +55,44 @@ function M.new(host, config)
     return linear and 'lcs' or 'gamma'
   end
 
+  local function readPipeline()
+    local result = {pure_pp_enabled = 'unknown', pure_yebis_bypassed = 'unknown',
+      fsr_section_active = 'unknown', triple_fsr_section_active = 'unknown', hdr_mode_raw = 'unknown',
+      upscaler_algorithm = 'unknown', frame_generation = 'unknown',
+      pure_ldr_registration_api = false, pure_hdr_registration_api = false}
+    local pure = host.pure
+    local pp = type(pure) == 'table' and pure.pp
+    if type(pp) == 'table' then
+      for name, field in pairs({isEnabled = 'pure_pp_enabled', YEBISisBypassed = 'pure_yebis_bypassed'}) do
+        if type(pp[name]) == 'function' then
+          local ok, value = pcall(pp[name])
+          if ok and type(value) == 'boolean' then result[field] = value end
+        end
+      end
+      if type(pp.spice) == 'table' then
+        -- Presence only: registration changes Pure state and is never called.
+        result.pure_ldr_registration_api = type(pp.spice.addLDRFilter) == 'function'
+        result.pure_hdr_registration_api = type(pp.spice.addHDRFilter) == 'function'
+      end
+    end
+    if type(host.ac) == 'table' and type(host.ac.getSim) == 'function' then
+      pcall(function()
+        local sim = host.ac.getSim()
+        for name, field in pairs({isFSRActive = 'fsr_section_active',
+          isTripleFSRActive = 'triple_fsr_section_active', isHDR = 'hdr_mode_raw'}) do
+          if type(sim[name]) == 'boolean' then result[field] = sim[name] end
+        end
+      end)
+    end
+    return result
+  end
+
   local function callback(_params, exposure, mainPass, updateExposure, size)
     -- Never write params and never return true/a canvas to replace YEBIS.
     if not active then return nil end
     local ok = pcall(function()
       if readMode() ~= requestedMode then fault('pure_shader_mode_changed_or_unavailable'); return end
+      receipt.pipeline = readPipeline()
       assert(type(mainPass) == 'boolean' and type(updateExposure) == 'boolean', 'invalid_callback_flags')
       receipt.callbacks = receipt.callbacks + 1
       if not mainPass then receipt.auxiliary_callbacks = receipt.auxiliary_callbacks + 1; return end
@@ -108,6 +141,7 @@ function M.new(host, config)
     receipt.shader_space_mode = mode or 'unknown'
     if mode == nil then return fault('pure_shader_mode_api_unavailable') end
     if mode ~= requestedMode then return fault('pure_shader_mode_profile_mismatch') end
+    receipt.pipeline = readPipeline()
     local ok, disposer = pcall(ac.onPostProcessing, callback)
     if not ok then return fault('callback_registration_failed') end
     if type(disposer) ~= 'function' then
