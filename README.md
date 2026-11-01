@@ -192,12 +192,18 @@ remains read-only; CSP 0.3.0-preview361 and Content Manager 0.8.2913.40776 are
 locked. CSP 0.2.11 is the minimum target, with runtime validation still pending.
 No other CSP track is authorized.
 
-The full Phase 0B suite passes 93 tests with the optional hash-pinned LuaJIT
+The current suite passes 104 tests with the optional hash-pinned LuaJIT
 dependency. Without that dependency, 25 Lua contract tests explicitly skip;
-the other 68 tests run on the Windows development host. See the
+the other 79 tests run on the Windows development host. The original 93 tests
+are preserved. See the
 [observer contract](runtime/lua/README.md) for the isolated test setup.
 Run `python -m restovisuals gpu-validate --adapter-index 0` explicitly for bounded
 hardware identity/readback validation; select the intended measured adapter.
+Phase 0C adds `python -m restovisuals gpu-demo --adapter-index 0 --profile both --output .local/my-new-demo`
+for original 720p/1080p calibration charts, GPU readback PNGs and a local
+comparison viewer. This is isolated D3D11 evidence, not an in-game demonstration.
+See the [host isolation gate](docs/RUNTIME_ISOLATION.md) and
+[freeware/dependency boundaries](docs/FREEWARE_AND_DEPENDENCIES.md).
 
 The [Phase 0B report](docs/PHASE0B_RUNTIME.md) records the GPU-discovered identity
 defect and fix, the [official 0.2.11 reference](docs/CSP0211_REFERENCE.md) records

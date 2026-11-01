@@ -1,8 +1,8 @@
 # Running the Phase 0 tools
 
 Run from the repository root with Python 3.11+. No pip installation is required.
-Windows is required only for `gpu`, native shader compilation and their native
-tests. Other code uses the standard library. No command installs software or
+Windows is required for `gpu`, native shader compilation, `gpu-validate`,
+`gpu-demo` and their native tests. Other code uses the standard library. No command installs software or
 applies game settings. JSON goes to stdout; failures use stderr with exit 2.
 `guard` exits 3 for detected drift and 0 for equality in the nonempty audited set.
 
@@ -99,7 +99,46 @@ precision tolerances, payload arithmetic and narrowly scoped GPU timestamps.
 The normal suite does not run GPU draws implicitly. Optional Lua tests require
 the hash-pinned local setup in the [observer guide](../runtime/lua/README.md).
 
+## Controlled full-resolution demonstration
+
+```powershell
+python -m restovisuals gpu-demo --adapter-index 0 --profile both --output .local/my-new-demo
+```
+
+The destination must be a **new directory under this checkout's `.local/`**.
+Existing directories, paths outside that root and resolved links escaping the
+checkout are rejected. The command creates only original project artifacts:
+24 PNGs, `report.json`, and a local `index.html` comparison viewer for `both`.
+Open the viewer manually if desired; the tool does not launch a browser.
+Choose `720p` or `1080p` for one profile instead of both.
+
+The same renderer uses fixed 1280x720/1920x1080 profiles, RGBA32F/RGBA16F
+textures and explicit scene-linear/sRGB-display fixtures. All identity cases
+must pass byte-for-byte across the full image before any color case runs.
+Color output is checked for finite values and exact alpha across the full image;
+3,672 deterministic probes per production-resolution case check CPU color math.
+This is sampled color equivalence, not a full-image color proof. The controlled
+experiment owns exposure (+0.25 EV), shoulder (0.25) and saturation (1.0);
+it does not establish Pure's real buffer encoding or exposure ownership.
+
+Each case has one warmup draw and five timestamped draws. Timings exclude upload,
+CPU validation, readback, PNG export, presentation and game work. They are a
+single batch, not frame-time distributions or gameplay measurements. DXGI
+memory samples describe the calling process's local segment, not texture
+allocation, peak memory, game usage or system free VRAM. Owned COM-reference
+counts must return to baseline; driver caching can outlive these references.
+The standalone harness owns three textures including a staging readback;
+it is not an installed runtime memory budget or a low-VRAM certification.
+
+RGB8 previews declare sRGB and omit alpha, which is verified numerically.
+Linear previews are converted to sRGB and display-clipped, so HDR extremes can
+clip. No personal/author/application metadata is embedded. A failed identity
+or numerical gate returns exit 4, retains a diagnostic JSON receipt and creates
+no success viewer. Native/OS failures return exit 2 and can leave partial local
+artifacts; choose another new directory after resolving the failure.
+
 Compilation keeps bytecode in memory and dispatches no shader. See
 [shader contracts](SHADER_FEASIBILITY.md) and [capture protocol](BENCHMARKING.md)
 before interpreting results. The tool does not create screenshots, initialize a
-creative application, capture a game, or prove appearance.
+creative application or capture a game. A synthetic chart does not validate
+in-game appearance or artistic quality.

@@ -1,4 +1,4 @@
-"""Command line interface: all commands produce data; none apply game settings."""
+"""Inspect or produce project data; no command applies game settings."""
 
 import argparse
 import json
@@ -11,6 +11,7 @@ from .benchmark import analyze_frame_times, compare_captures, read_frame_csv
 from .planning import capabilities_from_audit, make_plan
 from .shader_compile import compile_prototype
 from .d3d11_validation import validate_gpu_shader
+from .gpu_demo import demonstrate_gpu_shader
 
 
 def main(argv=None):
@@ -39,6 +40,11 @@ def main(argv=None):
     gpu_validation = commands.add_parser("gpu-validate", help="Bounded isolated GPU identity/readback validation; no game integration")
     gpu_validation.add_argument("--adapter-index", type=int, required=True)
     gpu_validation.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1] / "shaders/RV_ColorPrototype.hlsl")
+    gpu_demo = commands.add_parser("gpu-demo", help="Original full-resolution charts on an isolated GPU device; exports to a new .local directory")
+    gpu_demo.add_argument("--adapter-index", type=int, required=True)
+    gpu_demo.add_argument("--output", type=Path, required=True)
+    gpu_demo.add_argument("--profile", choices=("720p", "1080p", "both"), default="both")
+    gpu_demo.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1] / "shaders/RV_ColorPrototype.hlsl")
     compare = commands.add_parser("compare", help="Compare captured CSVs only when declared context matches")
     for argument in ("baseline_csv", "baseline_metadata", "candidate_csv", "candidate_metadata"):
         compare.add_argument(argument, type=Path)
@@ -73,6 +79,8 @@ def main(argv=None):
             result = compile_prototype(args.source)
         elif args.command == "gpu-validate":
             result = validate_gpu_shader(args.adapter_index, args.source)
+        elif args.command == "gpu-demo":
+            result = demonstrate_gpu_shader(args.adapter_index, args.source, args.output, profile=args.profile)
         elif args.command == "compare":
             result = compare_captures(read_frame_csv(args.baseline_csv), read_frame_csv(args.candidate_csv),
                                       read_object(args.baseline_metadata), read_object(args.candidate_metadata))
@@ -83,7 +91,7 @@ def main(argv=None):
             changes = compare_protected(before, after)
             result = {"protected_files_unchanged": not changes, "changed": changes}
         print(json.dumps(result, indent=2, allow_nan=False))
-        if args.command == "gpu-validate" and result["status"] != "passed":
+        if args.command in ("gpu-validate", "gpu-demo") and result["status"] != "passed":
             return 4
         return 3 if args.command == "guard" and changes else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, OverflowError) as error:

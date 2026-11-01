@@ -16,7 +16,7 @@ import time
 from pathlib import Path
 
 from .color_reference import transform_rgba
-from .gpu_windows import AdapterDescription, GUID
+from .gpu_windows import AdapterDescription, GUID, VideoMemoryInfo
 from .shader_compile import compile_bytecode
 
 
@@ -97,6 +97,7 @@ class D3D11Session:
             _check(dxgi.CreateDXGIFactory1(ct.byref(guid), ct.byref(factory)), "CreateDXGIFactory1")
             adapter = self._own(PTR())
             _check(_method(factory, 12, HRESULT, U32, ct.POINTER(PTR))(factory, adapter_index, ct.byref(adapter)), "EnumAdapters1")
+            self.native_adapter = adapter
             desc = AdapterDescription()
             _check(_method(adapter, 10, HRESULT, ct.POINTER(AdapterDescription))(adapter, ct.byref(desc)), "GetDesc1")
             if desc.flags & 2:
@@ -164,6 +165,26 @@ class D3D11Session:
     def query(self, kind):
         desc = QueryDescription(kind, 0)
         return self.create(24, "CreateQuery", [ct.POINTER(QueryDescription)], [ct.byref(desc)])
+
+    def memory_info(self):
+        """A sample of this process's local segment, never system free VRAM/peak."""
+        adapter3 = PTR()
+        guid = GUID.from_string("645967a4-1392-4310-a798-8053ce3e93fd")
+        try:
+            status = _method(self.native_adapter, 0, HRESULT, ct.POINTER(GUID), ct.POINTER(PTR))(
+                self.native_adapter, ct.byref(guid), ct.byref(adapter3))
+            if status < 0 or not adapter3.value:
+                return {"status": "unavailable"}
+            info = VideoMemoryInfo()
+            status = _method(adapter3, 14, HRESULT, U32, U32, ct.POINTER(VideoMemoryInfo))(
+                adapter3, 0, 0, ct.byref(info))
+            if status < 0:
+                return {"status": "unavailable"}
+            return {"status": "measured", "scope": "calling_process_local_segment_node0",
+                    "budget_bytes": info.budget, "current_usage_bytes": info.usage}
+        finally:
+            if adapter3.value:
+                _method(adapter3, 2, U32)(adapter3)
 
     def get_query(self, query, result):
         deadline = time.monotonic() + 2
@@ -243,16 +264,31 @@ def compare_pixels(actual, expected, *, strict_identity, format_name):
             "first_failures": first_failures}
 
 
-def _render_case(session, shaders, width, height, format_name, entry, parameters):
+def execute_texture(session, shaders, width, height, format_name, entry, parameters, packed, *, draws=1, warmup=0):
+    """Shared bounded dispatch/readback for both the small oracle and visual demo."""
+    if (any(type(v) is not int for v in (width, height, draws, warmup))
+            or not 8 <= width <= 1920 or not 8 <= height <= 1080
+            or not 1 <= draws <= 5 or not 0 <= warmup <= 2):
+        raise ValueError("Texture execution exceeds diagnostic bounds")
+    if format_name not in ("rgba32f", "rgba16f") or entry not in ("PSLinear", "PSSrgb"):
+        raise ValueError("Unsupported validation format or entry")
+    if len(parameters) != 3:
+        raise ValueError("Expected three color parameters")
+    transform_rgba((0, 0, 0, 1), encoding="scene_linear",
+                   **dict(zip(("exposure_ev", "shoulder_strength", "saturation"), parameters)))
     format_id, pixel_code, bytes_per_pixel = (2, "4f", 16) if format_name == "rgba32f" else (10, "4e", 8)
+    if not isinstance(packed, bytes) or len(packed) != width * height * bytes_per_pixel:
+        raise ValueError("Packed texture length mismatch")
     support = U32()
     _check(_method(session.device, 29, HRESULT, U32, ct.POINTER(U32))(session.device, format_id, ct.byref(support)), "CheckFormatSupport")
     if support.value & (0x20 | 0x200 | 0x4000) != (0x20 | 0x200 | 0x4000):
         raise ValueError("Required texture/sample/render-target format support missing")
-    source_pixels = fixture_pixels(width * height, display=entry == "PSSrgb")
-    packed = b"".join(struct.pack("<" + pixel_code, *pixel) for pixel in source_pixels)
-    uploaded = list(struct.iter_unpack("<" + pixel_code, packed))
     resource_mark = len(session.owned)
+    result = {"entry": entry, "format": format_name, "pixels": width * height,
+              "parameters": list(parameters), "draws": draws, "warmup_draws": warmup,
+              "declared_texture_payload_bytes": width * height * bytes_per_pixel * 3,
+              "driver_allocation_measured": False,
+              "memory_before": session.memory_info(), "owned_com_references_before": resource_mark}
     try:
         source = session.texture(width, height, format_id, 1, 8, 0, packed)  # immutable SRV
         output = session.texture(width, height, format_id, 0, 32, 0)
@@ -281,9 +317,12 @@ def _render_case(session, shaders, width, height, format_name, entry, parameters
         _method(context, 33, None, U32, ct.POINTER(PTR), PTR)(context, 1, (PTR * 1)(rtv.value), None)
         _method(context, 50, None, PTR, ct.POINTER(ct.c_float))(context, rtv, (ct.c_float * 4)(-1, -1, -1, -1))
         disjoint, start, end = session.query(3), session.query(2), session.query(2)
+        for _ in range(warmup):
+            _method(context, 13, None, U32, U32)(context, 3, 0)
         _method(context, 27, None, PTR)(context, disjoint)
         _method(context, 28, None, PTR)(context, start)
-        _method(context, 13, None, U32, U32)(context, 3, 0)
+        for _ in range(draws):
+            _method(context, 13, None, U32, U32)(context, 3, 0)
         _method(context, 28, None, PTR)(context, end)
         _method(context, 28, None, PTR)(context, disjoint)
         _method(context, 8, None, U32, U32, ct.POINTER(PTR))(context, 0, 1, (PTR * 1)())
@@ -294,32 +333,40 @@ def _render_case(session, shaders, width, height, format_name, entry, parameters
         begin_ticks = session.get_query(start, ct.c_uint64()).value
         end_ticks = session.get_query(end, ct.c_uint64()).value
         raw, row_pitch = session.read_texture(staging, width, height, bytes_per_pixel)
-        actual = list(struct.iter_unpack("<" + pixel_code, raw))
-        identity = tuple(parameters) == (0, 0, 1)
-        if identity:
-            expected = uploaded
-        else:
-            params = dict(zip(("exposure_ev", "shoulder_strength", "saturation"), [float(value) for value in constants[:3]]))
-            expected = [transform_rgba(pixel, encoding="srgb_display" if entry == "PSSrgb" else "scene_linear", **params) for pixel in uploaded]
-            expected = [struct.unpack("<" + pixel_code, struct.pack("<" + pixel_code, *pixel)) for pixel in expected]
-        result = compare_pixels(actual, expected, strict_identity=identity, format_name=format_name)
-        result.update({"entry": entry, "format": format_name, "pixels": width * height,
-                       "parameters": list(parameters), "mapped_row_pitch_bytes": row_pitch,
-                       "declared_texture_payload_bytes": width * height * bytes_per_pixel * 3,
-                       "driver_allocation_measured": False,
+        result.update({"mapped_row_pitch_bytes": row_pitch, "memory_resources_live": session.memory_info(),
                        "gpu_timestamp_disjoint": bool(clock.disjoint),
                        "gpu_duration_ms": (end_ticks - begin_ticks) * 1000 / clock.frequency
                        if not clock.disjoint and clock.frequency > 0 and end_ticks >= begin_ticks else None,
-                       "timing_scope": "one_small_synthetic_draw_including_pipeline_overhead_not_game_performance"})
-        return result
+                       "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance"})
     finally:
         _method(session.context, 110, None)(session.context)
         session.release_since(resource_mark)
+        _method(session.context, 111, None)(session.context)
+        result["owned_com_references_after"] = len(session.owned)
+        result["memory_after_release"] = session.memory_info()
+    return raw, result
 
 
-def validate_gpu_shader(adapter_index, source_path: Path, *, width=63, height=31):
-    if any(type(value) is not int or not 8 <= value <= 256 for value in (width, height)):
-        raise ValueError("Validation dimensions must be integers from 8 to 256")
+def _render_case(session, shaders, width, height, format_name, entry, parameters):
+    pixel_code = "<4f" if format_name == "rgba32f" else "<4e"
+    packed = b"".join(struct.pack(pixel_code, *pixel)
+                      for pixel in fixture_pixels(width * height, display=entry == "PSSrgb"))
+    raw, result = execute_texture(session, shaders, width, height, format_name, entry, parameters, packed)
+    uploaded, actual = list(struct.iter_unpack(pixel_code, packed)), list(struct.iter_unpack(pixel_code, raw))
+    identity = tuple(parameters) == (0, 0, 1)
+    if identity:
+        expected = uploaded
+    else:
+        params = dict(zip(("exposure_ev", "shoulder_strength", "saturation"),
+                          [ct.c_float(value).value for value in parameters]))
+        expected = [transform_rgba(pixel, encoding="srgb_display" if entry == "PSSrgb" else "scene_linear", **params)
+                    for pixel in uploaded]
+        expected = [struct.unpack(pixel_code, struct.pack(pixel_code, *pixel)) for pixel in expected]
+    result.update(compare_pixels(actual, expected, strict_identity=identity, format_name=format_name))
+    return result
+
+
+def compile_validation_program(source_path: Path):
     source = source_path.read_bytes()
     vertex_path = Path(__file__).resolve().parents[1] / "shaders/RV_FullscreenValidation.hlsl"
     vertex_source = vertex_path.read_bytes()
@@ -328,11 +375,18 @@ def validate_gpu_shader(adapter_index, source_path: Path, *, width=63, height=31
         binary, metadata = compile_bytecode(code, entry, target)
         bytecode[entry] = binary
         compilation.append(metadata)
-    result = {"schema_version": 1, "execution_scope": "isolated_native_d3d11", "gameplay_validated": False,
+    metadata = {"schema_version": 1, "execution_scope": "isolated_native_d3d11", "gameplay_validated": False,
               "csp_integration_validated": False, "source_sha256": hashlib.sha256(source).hexdigest(),
-              "vertex_sha256": hashlib.sha256(vertex_source).hexdigest(), "width": width, "height": height,
-              "window_created": False, "swap_chain_created": False, "compilation": compilation,
-              "identity_cases": [], "color_cases": [], "status": "not_executed"}
+              "vertex_sha256": hashlib.sha256(vertex_source).hexdigest(),
+              "window_created": False, "swap_chain_created": False, "compilation": compilation}
+    return bytecode, metadata
+
+
+def validate_gpu_shader(adapter_index, source_path: Path, *, width=63, height=31):
+    if any(type(value) is not int or not 8 <= value <= 256 for value in (width, height)):
+        raise ValueError("Validation dimensions must be integers from 8 to 256")
+    bytecode, result = compile_validation_program(source_path)
+    result.update({"width": width, "height": height, "identity_cases": [], "color_cases": [], "status": "not_executed"})
     with D3D11Session(adapter_index) as session:
         result["adapter"] = session.adapter
         shaders = {entry: session.shader(12 if entry == "VSFullscreen" else 15, code) for entry, code in bytecode.items()}
