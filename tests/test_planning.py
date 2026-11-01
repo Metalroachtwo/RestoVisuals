@@ -65,7 +65,8 @@ class PlannerTests(unittest.TestCase):
 
     def test_capacity_does_not_override_feature_level_or_software(self):
         cfg = dict(config(), upscaler="fsr2", frame_generation=True, color_transform=True)
-        for gpu in (adapter(8, level="10_1"), adapter(8, software=True), adapter(8, level=None), adapter(1)):
+        for gpu in (adapter(8, level="10_1"), adapter(8, software=True), adapter(8, level=None),
+                    adapter(8, level="99_9"), adapter(8, level="11_9"), adapter(1)):
             with self.subTest(gpu=gpu):
                 result = make_plan(cfg, gpu, evidence(cfg, "tested_validated"))
                 self.assertIsNone(result["candidate_profile"])

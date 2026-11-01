@@ -75,6 +75,8 @@ def _gpu_tier(adapter: dict):
     if not isinstance(level, str) or not re.fullmatch(r"\d{1,2}_[0-9]", level):
         return None, "Measured feature level is unavailable"
     major, minor = map(int, level.split("_"))
+    if (major, minor) not in {(10, 0), (10, 1), (11, 0), (11, 1), (12, 0), (12, 1), (12, 2)}:
+        return None, "Unrecognized feature level requires new capability validation"
     if (major, minor) < (11, 0):
         return None, "Measured feature level is below 11_0"
     if memory < 1792 * 1024**2:
