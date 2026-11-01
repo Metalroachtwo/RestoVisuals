@@ -33,7 +33,7 @@ called. Raw simulation flags `isFSRActive`, `isTripleFSRActive` and `isHDR` rema
 raw booleans; they do not identify an upscaler algorithm, frame generation or
 texture encoding. Missing/failed queries preserve unknown values.
 
-If unsubscription fails or a registration returns an unexpected handle, the
+If registration throws, unsubscription fails or registration returns an unexpected handle, the
 callback stays locally inert, restart is blocked, and cleanup remains unknown.
 There is no automatic retry, application restart, foreign subscription removal
 or claim that native cleanup succeeded. Host reload/recovery needs the existing

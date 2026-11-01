@@ -147,7 +147,13 @@ function M.new(host, config)
     if mode ~= requestedMode then return fault('pure_shader_mode_profile_mismatch') end
     receipt.pipeline = readPipeline()
     local ok, disposer = pcall(ac.onPostProcessing, callback)
-    if not ok then return fault('callback_registration_failed') end
+    if not ok then
+      -- A native registration could fail after creating a subscription. Without
+      -- its handle, cleanup cannot be proved and retry could duplicate callbacks.
+      cleanupBlocked = true
+      receipt.cleanup = 'registration_failure_cleanup_unknown'
+      return fault('callback_registration_failed')
+    end
     if type(disposer) ~= 'function' then
       cleanupBlocked = true
       receipt.cleanup = 'registration_return_contract_unknown'

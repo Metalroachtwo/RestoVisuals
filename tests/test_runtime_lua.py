@@ -193,6 +193,24 @@ class RuntimeLuaTests(unittest.TestCase):
         self.assertFalse(adapter.start(adapter))
         self.assertEqual(adapter.receipt(adapter).reason, "callback_registration_failed")
         self.assertEqual(self.state.registered, 0)
+        self.assertFalse(adapter.start(adapter))
+        self.assertFalse(adapter.stop(adapter))
+
+    def test_partial_registration_failure_cannot_reactivate_or_retry_orphan(self):
+        self.lua.globals().fixture_state = self.state
+        self.host.ac.onPostProcessing = self.lua.eval("""function(callback)
+          fixture_state.callback = callback
+          fixture_state.registered = fixture_state.registered + 1
+          error('synthetic failure after registration')
+        end""")
+        adapter = self.create()
+        self.assertFalse(adapter.start(adapter))
+        self.assertFalse(adapter.start(adapter))
+        self.assertEqual(self.state.registered, 1)
+        self.assertEqual(adapter.receipt(adapter).cleanup, "registration_failure_cleanup_unknown")
+        self.assertIsNone(self.invoke())
+        self.assertEqual(adapter.receipt(adapter).callbacks, 0)
+        self.assertFalse(adapter.stop(adapter))
 
     def test_shutdown_failure_does_not_retry_or_touch_external_owner(self):
         adapter = self.create()
