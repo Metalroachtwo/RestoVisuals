@@ -107,11 +107,16 @@ Visual enhancements must justify their performance cost.
 
 ## 🚧 Current Status
 
-**Pre-Alpha — Phase 0: Planning & Research**
+**Pre-Alpha — Phase 0: Engineering Foundation**
 
-RestoVisuals is currently in its initial architecture and feasibility stage.
+The repository now contains a tested offline control plane: a bounded graphics
+audit, windowless DXGI/D3D11 GPU detection, strict profile validation, conservative
+capability planning, frame-time analysis and context-checked capture comparisons.
+An original HLSL color-pass prototype compiles in isolation for Shader Model 5.0.
 
-No graphics-enhancement implementation or verified performance improvement is available yet.
+No in-game integration, calibrated visual release, certified legacy-GPU support,
+or verified gameplay performance improvement is available yet. The shader has
+not been dispatched on a GPU or deployed into the reference installation.
 
 Hardware compatibility, installation instructions, benchmarks, and download releases will be published after successful testing.
 
@@ -119,11 +124,13 @@ Hardware compatibility, installation instructions, benchmarks, and download rele
 
 The following technologies are being evaluated:
 
+- Python 3.11+ standard-library offline engineering tools (implemented)
+- Windows DXGI/D3D11 capability probing and system HLSL compilation (implemented)
 - Assetto Corsa
 - Custom Shaders Patch (CSP)
 - Pure LCS / Pure Gamma
 - CSP Lua scripting and configuration interfaces
-- ReShade FX and documented add-on interfaces
+- ReShade FX and documented add-on interfaces (deferred; not a foundation dependency)
 - C++ and HLSL shader development where justified
 - AMD FidelityFX Super Resolution integrations
 - Performance benchmarking and diagnostics
@@ -150,6 +157,25 @@ Third-party components will retain their respective licenses.
 
 *Restore the visuals. Not the hardware.*
 
-## Phase 0 engineering checkpoint
+## Run the Phase 0 tools
 
-Active work follows [the Phase 0 plan](docs/PHASE0_PLAN.md) and [repository instructions](AGENTS.md). The reference graphics installation remains read-only. No runtime compatibility or performance improvement is claimed by the foundation checkpoint.
+From the repository root, with Python 3.11+ and no package installation:
+
+```powershell
+python -m unittest discover -s tests -v
+python -m restovisuals plan --config profiles/gamma.json --gpu examples/gpu-synthetic-2gb.json --adapter-index 0 --capabilities examples/capabilities-unknown.json
+```
+
+The example uses synthetic hardware data and applies no settings. Native GPU
+probing and shader compilation require Windows. The reference installation
+remains read-only; CSP 0.3.0-preview361 and Content Manager 0.8.2913.40776 are
+locked. CSP 0.2.11 is the minimum target, with runtime validation still pending.
+No other CSP track is authorized.
+
+Read the [CLI guide](docs/CLI.md), [architecture](docs/ARCHITECTURE.md),
+[compatibility matrix](docs/COMPATIBILITY.md), [environment audit](docs/ENVIRONMENT.md),
+[research ledger](docs/RESEARCH.md), [shader feasibility](docs/SHADER_FEASIBILITY.md),
+[benchmark protocol](docs/BENCHMARKING.md), [validation evidence](docs/VALIDATION.md),
+[roadmap](docs/ROADMAP.md), and [continuation handoff](docs/PHASE0_HANDOFF.md).
+Development follows [repository instructions](AGENTS.md) and the
+[Phase 0 execution plan](docs/PHASE0_PLAN.md).
