@@ -149,3 +149,7 @@ Third-party components will retain their respective licenses.
 **RestoVisuals — Modern visuals. Legacy hardware.**
 
 *Restore the visuals. Not the hardware.*
+
+## Phase 0 engineering checkpoint
+
+Active work follows [the Phase 0 plan](docs/PHASE0_PLAN.md) and [repository instructions](AGENTS.md). The reference graphics installation remains read-only. No runtime compatibility or performance improvement is claimed by the foundation checkpoint.

@@ -1,0 +1,12 @@
+# Machine-local observations and third-party excerpts must never be published.
+.local/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+.vs/
+*.user
+*.suo
