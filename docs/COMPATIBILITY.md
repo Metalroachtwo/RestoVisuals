@@ -8,8 +8,8 @@ by Phase 0.** `tested and validated` below applies only to stated offline contra
 | Track detection | Proposed target; no isolated install available | Observed locally: binary, manifest and build 3898 agree | Target enum is not proof of compatibility |
 | Basic graphics/PP controls | Unknown build-specific inventory; native/no extra pass is the design fallback | Observed default/user configuration and PP-context SDK | Read first; do not modify reference stack |
 | Shader/fullscreen interface | Unknown for this exact build | Observed SDK declares fullscreen pass and extra canvas | Probe callable entry point, context and buffer format in isolation |
-| Pure Gamma | Mandatory design target; Pure minimum needs independent confirmation | Observed 3.50 manifests/core; saved selection Gamma | Separate exposure/color calibration and visual gate |
-| Pure LCS | Mandatory design target; same runtime gap | Observed 3.50 manifests/core and linear-space manifest hint | Separate calibration; no tier hierarchy |
+| Pure Gamma | Mandatory design target; runtime compatibility unknown | Observed 3.50 manifests/core, source minimum 0.2.0/build 2639; saved selection Gamma | Separate exposure/color calibration and visual gate |
+| Pure LCS | Mandatory design target; runtime compatibility unknown | Observed 3.50 manifests/core, source minimum 0.2.3p211/build 2974 and linear-space hint | Separate calibration; no tier hierarchy |
 | FSR 1 spatial | Upstream DX11 algorithm documented; exact CSP integration unknown | Observed 1.0.2 label, not selected or tested | Require matching validated integration before optional selection |
 | FSR 2 temporal | Unknown; not assumed | Observed 2.2.1 label and prerequisite hints | Validate integration, depth/motion/jitter/resets, screen mode and payload |
 | FSR 3 upscaling | Unknown; not assumed | Observed 3.1.2 label; not FG evidence | Same temporal gate; actual allocations/performance unknown |
@@ -37,8 +37,8 @@ and proprietary vendor accelerators are not foundation dependencies.
 
 1. Obtain an authorized isolated 0.2.11 installation and matching API inventory;
    never switch, install or downgrade the owner's reference CSP.
-2. Establish each installed Pure fork's exact minimum CSP requirement and package
-   hotfix revision; distinguish source gates from exercised runtime behavior.
+2. Exercise the observed Pure source minimums and establish package hotfix
+   revision; distinguish source guards from tested runtime behavior.
 3. Validate a read-only runtime probe and shader stage on each permitted track.
 4. Compare Gamma/LCS visual captures in daylight, dusk, night, headlights, fog,
    wet/rain and high-contrast scenes; validate SDR/HDR and VR separately.

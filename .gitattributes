@@ -4,3 +4,4 @@
 *.json text eol=lf
 *.ps1 text eol=crlf
 *.cs text eol=lf
+*.hlsl text eol=lf

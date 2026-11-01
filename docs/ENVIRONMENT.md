@@ -11,6 +11,7 @@ game, Content Manager, DCC application, installer, or GUI automation was launche
 | Content Manager | executable version resource | 0.8.2913.40776; protected version retained. |
 | Pure Gamma | `extension/weather/pure/manifest.ini`, `weather.lua` | Both report 3.50; exact hotfix inventory not established. |
 | Pure LCS | `extension/weather/Pure LCS/manifest.ini`, `weather.lua` | Both report 3.50; not runtime tested. |
+| Pure source version guards | each fork's `weather.lua` | Gamma declares minimum CSP 0.2.0/build 2639; LCS declares 0.2.3p211/build 2974. These are observed code guards, not exercised support guarantees or exact package hotfix requirements. |
 | Saved weather selection | user `extension/weather_fx.ini` | `BASIC/IMPLEMENTATION=pure`, corresponding to Pure Gamma; saved state only. |
 | Saved video | user `video.ini` | 1920x1080, MSAA 8, PP active, PP filter `Dream Realism 7.3 Gamma`, 75 Hz and VSync enabled. These settings are not project performance targets. |
 | Saved upscaler | merged default/user `graphics_adjustments.ini` | FSR section active, method ID 2 = NVIDIA Image Scaling. FSR section name does not identify the selected algorithm. |

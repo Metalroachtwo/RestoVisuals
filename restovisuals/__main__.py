@@ -9,6 +9,7 @@ from .audit import compare_protected, inspect_environment
 from .gpu_windows import probe_gpus
 from .benchmark import analyze_frame_times, read_frame_csv
 from .planning import capabilities_from_audit, make_plan
+from .shader_compile import compile_prototype
 
 
 def main(argv=None):
@@ -32,6 +33,8 @@ def main(argv=None):
     benchmark = commands.add_parser("benchmark", help="Analyze previously captured frame_ms CSV")
     benchmark.add_argument("csv", type=Path)
     benchmark.add_argument("--warmup-frames", type=int, default=0)
+    shader = commands.add_parser("compile-shader", help="Compile prototype entry points in memory; no GPU dispatch")
+    shader.add_argument("source", type=Path)
     args = parser.parse_args(argv)
     try:
         if args.command == "audit":
@@ -50,6 +53,8 @@ def main(argv=None):
             result = make_plan(config, adapters[0], report)
         elif args.command == "benchmark":
             result = analyze_frame_times(read_frame_csv(args.csv), warmup_frames=args.warmup_frames)
+        elif args.command == "compile-shader":
+            result = compile_prototype(args.source)
         elif args.command == "guard":
             before = json.loads(args.before.read_text(encoding="utf-8-sig"))
             after = json.loads(args.after.read_text(encoding="utf-8-sig"))
