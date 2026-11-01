@@ -2,6 +2,7 @@
 -- A future authorized host must inject ac and the exposed Pure SDK namespace.
 local M = {}
 local tracks = {['0.2.11'] = true, ['0.3.0-preview361'] = true}
+local builds = {['0.2.11'] = 3465, ['0.3.0-preview361'] = 3898}
 
 local function finite(v)
   return type(v) == 'number' and v == v and v ~= math.huge and v ~= -math.huge
@@ -76,13 +77,15 @@ function M.new(host, config)
       end
     end
     if type(host.ac) == 'table' and type(host.ac.getSim) == 'function' then
-      pcall(function()
-        local sim = host.ac.getSim()
+      local ok, sim = pcall(host.ac.getSim)
+      if ok and sim ~= nil then
         for name, field in pairs({isFSRActive = 'fsr_section_active',
           isTripleFSRActive = 'triple_fsr_section_active', isHDR = 'hdr_mode_raw'}) do
-          if type(sim[name]) == 'boolean' then result[field] = sim[name] end
+          -- FFI structs can raise on a missing field. Probe each independently.
+          local fieldOK, value = pcall(function() return sim[name] end)
+          if fieldOK and type(value) == 'boolean' then result[field] = value end
         end
-      end)
+      end
     end
     return result
   end
@@ -136,6 +139,7 @@ function M.new(host, config)
       return fault('runtime_version_mismatch_or_unknown')
     end
     if version == '0.3.0-preview361' and build ~= 3898 then return fault('preview_build_mismatch') end
+    if build ~= builds[version] then return fault('version_matched_sdk_build_mismatch') end
     receipt.csp_version, receipt.csp_build = version, build
     local mode = readMode()
     receipt.shader_space_mode = mode or 'unknown'

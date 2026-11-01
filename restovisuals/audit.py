@@ -88,7 +88,13 @@ def inspect_environment(game_root: Path, user_config: Path, cm_executable: Path 
     fsr.update(overrides.get("FSR", {}))
     extra = dict(read_ini(game_root / "extension/config/extra_fx.ini").get("BASIC", {}))
     extra.update(read_ini(user_config / "extension/extra_fx.ini").get("BASIC", {}))
-    methods = {"0": "fsr1", "1": "fsr_legacy_port", "2": "nis", "5": "fsr2", "7": "fsr3"}
+    # The same key changes from a boolean in stable to an enum in preview.
+    # Unknown versions must not inherit a preview method-ID interpretation.
+    method_maps = {
+        "0.2.11": {"0": "fsr_spatial_official", "1": "fsr_spatial_legacy"},
+        "0.3.0-preview361": {"0": "fsr1", "1": "fsr_legacy_port", "2": "nis", "5": "fsr2", "7": "fsr3"},
+    }
+    methods = method_maps.get(manifest.get("VERSION", {}).get("SHADERS_PATCH"), {})
     raw_default = (game_root / "extension/config/graphics_adjustments.ini")
     default_text = raw_default.read_text(encoding="utf-8-sig", errors="replace") if raw_default.is_file() else ""
     sdk = game_root / "extension/internal/lua-sdk/ac_pp_filters/lib.lua"

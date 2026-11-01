@@ -138,3 +138,13 @@ GPU draws; this command is the separate hardware-execution gate. CSP callback
 composition, actual game buffer encoding/lifetime, physical legacy GPU support
 and visual quality remain unvalidated. The observer still cannot dispatch this
 shader in the reference game and no planner capability is promoted by the test.
+
+## Subsequent source evidence
+
+The [official 0.2.11 reference](CSP0211_REFERENCE.md) now resolves the missing
+version-matched SDK. Its manifest/build and binary version resources were
+inspected without installation/execution. The earlier source-inventory blocker
+is superseded; isolated stable/preview **game runtime validation remains BLOCKED**.
+Version-specific parsing and optional-field handling are covered by **92 passing
+tests** with LuaJIT enabled. Dream Realism reference findings and the related
+Pure extension route are recorded in [the bounded analysis](DREAM_REALISM_REFERENCE.md).

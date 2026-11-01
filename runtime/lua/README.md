@@ -9,7 +9,7 @@ the working Pure scriptable-filter slot must remain owned by Pure.
 An authorized isolated host must expose the real CSP `ac` namespace and the
 Pure SDK namespace in that script context. `new(host, config)` accepts exactly
 `csp_version`, `pure_mode` and optional `max_samples` (1-64, default 8).
-`start()` verifies exact track/version, preview build 3898, required callable
+`start()` verifies exact track/version, stable build 3465 or preview build 3898, required callable
 APIs and Pure's linear-space signal before registering the read-only callback.
 `stop()` invokes only its own returned unsubscribe function. Calling start/stop
 again is idempotent while cleanup succeeds.

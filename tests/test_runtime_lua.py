@@ -100,7 +100,7 @@ class RuntimeLuaTests(unittest.TestCase):
         self.assertEqual(adapter.receipt(adapter).reason, "preview_build_mismatch")
 
     def test_stable_track_requires_actual_apis_and_does_not_claim_certification(self):
-        self.state.version, self.state.build = "0.2.11", 1234
+        self.state.version, self.state.build = "0.2.11", 3465
         self.config.csp_version = "0.2.11"
         adapter = self.create()
         self.assertTrue(adapter.start(adapter))
@@ -272,3 +272,26 @@ class RuntimeLuaTests(unittest.TestCase):
         self.assertTrue(adapter.receipt(adapter).pipeline.pure_yebis_bypassed)
         self.assertFalse(adapter.receipt(adapter).settings_written)
         adapter.stop(adapter)
+
+    def test_stable_optional_field_failure_does_not_hide_available_flags(self):
+        self.state.version, self.state.build = "0.2.11", 3465
+        self.config.csp_version = "0.2.11"
+        self.host.ac.getSim = self.lua.eval("""function()
+          return setmetatable({isFSRActive=true, isTripleFSRActive=false},
+            {__index=function() error('field absent in stable SDK') end})
+        end""")
+        adapter = self.create()
+        self.assertTrue(adapter.start(adapter))
+        self.invoke()
+        pipeline = adapter.receipt(adapter).pipeline
+        self.assertTrue(pipeline.fsr_section_active)
+        self.assertFalse(pipeline.triple_fsr_section_active)
+        self.assertEqual(pipeline.hdr_mode_raw, "unknown")
+        adapter.stop(adapter)
+
+    def test_stable_sdk_build_mismatch_is_blocked(self):
+        self.state.version, self.state.build = "0.2.11", 3466
+        self.config.csp_version = "0.2.11"
+        adapter = self.create()
+        self.assertFalse(adapter.start(adapter))
+        self.assertEqual(self.state.registered, 0)

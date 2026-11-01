@@ -37,6 +37,7 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(result["reshade"]["runtime_active"], "unknown")
 
     def test_observations_merge_defaults_without_writing(self):
+        self.write("game/extension/config/data_manifest.ini", "[VERSION]\nSHADERS_PATCH=0.3.0-preview361\n")
         self.write("game/extension/config/graphics_adjustments.ini", "[FSR]\nACTIVE=0\nOLD_IMPLEMENTATION=0\n")
         self.write("user/extension/graphics_adjustments.ini", "[FSR]\nACTIVE=1\nOLD_IMPLEMENTATION=2\n")
         self.write("game/extension/weather/pure/manifest.ini", "[ABOUT]\nNAME=Pure Gamma\nVERSION=3.50\n")
@@ -50,6 +51,18 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(result["pp_filters"], ["synthetic.ini"])
         self.assertEqual(before, {p: p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
         self.assertNotIn(str(self.root), str(result))
+
+    def test_method_ids_are_version_scoped(self):
+        self.write("game/extension/config/graphics_adjustments.ini", "[FSR]\nACTIVE=1\nOLD_IMPLEMENTATION=2\n")
+        (self.root / "user").mkdir()
+        game, user = self.root / "game", self.root / "user"
+        self.assertEqual(inspect_environment(game, user)["configured"]["upscaling_method"], "unknown")
+        self.write("game/extension/config/data_manifest.ini", "[VERSION]\nSHADERS_PATCH=0.2.11\n")
+        self.assertEqual(inspect_environment(game, user)["configured"]["upscaling_method"], "unknown")
+        self.write("game/extension/config/graphics_adjustments.ini", "[FSR]\nOLD_IMPLEMENTATION=0\n")
+        self.assertEqual(inspect_environment(game, user)["configured"]["upscaling_method"], "fsr_spatial_official")
+        self.write("game/extension/config/graphics_adjustments.ini", "[FSR]\nOLD_IMPLEMENTATION=1\n")
+        self.assertEqual(inspect_environment(game, user)["configured"]["upscaling_method"], "fsr_spatial_legacy")
 
     def test_guard_detects_content_change_addition_and_removal(self):
         game, user = self.root / "game", self.root / "user"
