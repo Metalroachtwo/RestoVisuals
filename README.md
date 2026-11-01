@@ -1,2 +1,151 @@
 # RestoVisuals
-Adaptive graphics enhancement for Assetto Corsa
+Open-source graphics enhancement for Assetto Corsa. Modern visuals on legacy AMD & NVIDIA GPUs, with adaptive optimization, low-VRAM support, and Pure LCS/Gamma compatibility.
+
+# RestoVisuals
+
+### Modern visuals. Legacy hardware.
+
+**RestoVisuals** is a graphics enhancement and optimization project designed to bring modern, photorealistic visuals to older AMD Radeon and NVIDIA GeForce GPUs.
+
+Our first target is **Assetto Corsa**, with support planned for Custom Shaders Patch (CSP), Pure LCS, and Pure Gamma.
+
+The mission is simple:
+
+**Beautiful graphics shouldn't require a $1,000 GPU.**
+
+---
+
+## 🎯 Project Goals
+
+RestoVisuals aims to improve visual realism while respecting the performance and memory limitations of older hardware.
+
+Rather than relying on proprietary AI hardware, RestoVisuals will prioritize efficient rendering techniques, intelligent graphics configuration, and GPU-adaptive optimization.
+
+### Core Objectives
+
+- **Cross-vendor compatibility:** Support older NVIDIA GeForce GTX and AMD Radeon graphics cards.
+- **Low-VRAM optimization:** Target GPUs with as little as 2–4 GB of VRAM where technically feasible.
+- **Photorealistic rendering:** Improve lighting, exposure, color reproduction, material appearance, and visual depth.
+- **Pure compatibility:** Support both Pure LCS and Pure Gamma rendering pipelines.
+- **Adaptive optimization:** Recommend graphics settings based on GPU capabilities, available VRAM, and measured performance.
+- **Upscaling integration:** Investigate FSR 1, FSR 2, and FSR 3 support through compatible CSP integrations.
+- **Cinematic capture:** Provide enhanced graphics presets for replay recording, photography, and video production.
+- **Modular design:** Allow players to enable or disable individual visual enhancements.
+
+## 🖥️ Target Hardware
+
+RestoVisuals is intended for a broad range of legacy GPUs.
+
+| GPU Class | Example Hardware | Target Profile |
+|---|---|---|
+| 2 GB VRAM | GTX 950, GTX 1050, RX 460 | Ultra Lite |
+| 3–4 GB VRAM | GTX 970, GTX 1060 3GB, RX 570 | Optimized |
+| 6 GB VRAM | GTX 1060 6GB, GTX 1660, RX 5600 XT | Balanced |
+| 8 GB VRAM | GTX 1070, RX 580 8GB, RX 5700 XT | Enhanced |
+
+These are proposed development targets, not confirmed hardware requirements or compatibility guarantees.
+
+Supported effects will depend on GPU architecture, graphics APIs, driver capabilities, available memory, and the installed Assetto Corsa rendering stack.
+
+## ✨ Planned Features
+
+### Adaptive Visual Enhancement
+
+- Natural color reproduction and cinematic tonemapping
+- Dynamic exposure and improved highlight handling
+- Optimized bloom, glare, and optical effects
+- Improved perceived surface and material detail
+- Performance-aware reflection and ambient-effect configuration
+- Separate tuning for daylight, sunset, nighttime, and wet-weather conditions
+
+### Intelligent Performance Optimization
+
+- GPU identification and capability detection
+- VRAM-aware graphics profiles
+- Frame-time monitoring and performance benchmarking
+- Automatic quality recommendations
+- Optional upscaling and sharpening
+- Configurable visual quality versus performance targets
+
+### Pure LCS & Gamma Integration
+
+RestoVisuals will investigate and support both rendering pipelines through documented, compatible interfaces.
+
+Separate configurations will account for differences in lighting, exposure, color response, and post-processing behavior.
+
+### Cinematic & Replay Tools
+
+Future integration is planned with automated Assetto Corsa replay and camera-control workflows.
+
+Potential capabilities include cinematic profiles, consistent capture settings, advanced replay rendering, and optional offline video enhancement.
+
+## 🧠 Rendering Philosophy
+
+RestoVisuals is not intended to reproduce NVIDIA DLSS 5 or require neural-rendering hardware.
+
+Instead, the project aims to achieve a more modern visual aesthetic using techniques that remain practical on older GPUs.
+
+Our priorities are:
+
+1. Image quality
+2. Consistent frame times
+3. Efficient VRAM usage
+4. Broad hardware compatibility
+5. Reversible, user-controlled configuration
+
+Visual enhancements must justify their performance cost.
+
+## 🏗️ Development Roadmap
+
+- [ ] **Phase 0 — Research & Architecture:** Audit CSP/Pure integration points, establish hardware targets, and document the rendering architecture.
+- [ ] **Phase 1 — Visual Foundation:** Develop initial LCS/Gamma-compatible visual presets.
+- [ ] **Phase 2 — GPU Optimization:** Implement hardware detection, performance profiling, and VRAM-aware quality presets.
+- [ ] **Phase 3 — Shader Enhancements:** Develop original, efficient graphics effects where existing integrations are insufficient.
+- [ ] **Phase 4 — Adaptive Rendering:** Explore dynamic quality control and supported upscaling integrations.
+- [ ] **Phase 5 — Cinematic Studio:** Integrate replay capture and optional offline enhancement.
+- [ ] **Phase 6 — Public Testing:** Validate performance and compatibility across AMD and NVIDIA GPU generations.
+
+## 🚧 Current Status
+
+**Pre-Alpha — Phase 0: Planning & Research**
+
+RestoVisuals is currently in its initial architecture and feasibility stage.
+
+No graphics-enhancement implementation or verified performance improvement is available yet.
+
+Hardware compatibility, installation instructions, benchmarks, and download releases will be published after successful testing.
+
+## 🔧 Planned Technology Stack
+
+The following technologies are being evaluated:
+
+- Assetto Corsa
+- Custom Shaders Patch (CSP)
+- Pure LCS / Pure Gamma
+- CSP Lua scripting and configuration interfaces
+- ReShade FX and documented add-on interfaces
+- C++ and HLSL shader development where justified
+- AMD FidelityFX Super Resolution integrations
+- Performance benchmarking and diagnostics
+
+Final implementation choices will be based on verified compatibility, licensing, and performance testing.
+
+## 🤝 Contributing
+
+Development and contribution guidelines will be established as the initial architecture matures.
+
+Future contributions may include hardware benchmarking, graphics research, shader optimization, bug reports, and compatibility testing.
+
+## 📜 License
+
+A project license has not yet been selected.
+
+Until a license is added, the repository should not be assumed to grant permission to copy, modify, or redistribute its code.
+
+Third-party components will retain their respective licenses.
+
+---
+
+**RestoVisuals — Modern visuals. Legacy hardware.**
+
+*Restore the visuals. Not the hardware.*
