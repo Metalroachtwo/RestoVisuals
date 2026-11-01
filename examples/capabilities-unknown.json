@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "context": {
+    "csp_version": "0.3.0-preview361",
+    "pure_mode": "gamma",
+    "render_mode": "single",
+    "width": 1920,
+    "height": 1080
+  },
+  "capabilities": {},
+  "evidence_id": "synthetic_unknown_capabilities"
+}

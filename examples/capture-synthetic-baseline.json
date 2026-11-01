@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "evidence_id": "synthetic_baseline_only",
+  "context": {
+    "scene_id": "synthetic_no_game_scene",
+    "csp_version": "0.3.0-preview361",
+    "pure_version": "synthetic_3.50",
+    "pure_mode": "gamma",
+    "gpu_id": "synthetic_2gb_amd",
+    "driver_version": "synthetic_no_driver",
+    "render_mode": "single",
+    "width": 1920,
+    "height": 1080,
+    "vsync": false,
+    "frame_cap_fps": 0
+  },
+  "treatment_id": "synthetic_native",
+  "timing_source": "synthetic_fixture",
+  "includes_generated_frames": false,
+  "warmup_frames": 0
+}

@@ -69,6 +69,12 @@ class AuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             inspect_environment(self.root / "absent", self.root)
 
+    def test_empty_or_malformed_preservation_evidence_rejected(self):
+        for snapshot in ({}, {"protected_files": {}}, {"protected_files": {"logical": {"exists": True, "sha256": None}}},
+                         {"protected_files": {"logical": {"exists": False, "sha256": "a" * 64}}}):
+            with self.subTest(snapshot=snapshot), self.assertRaises(ValueError):
+                compare_protected(snapshot, snapshot)
+
     def test_historical_reshade_is_not_runtime_evidence(self):
         self.write("game/ReShade.log1", "Initializing ReShade version '6.5.1.2008' from 'private/path'\n")
         (self.root / "user").mkdir()

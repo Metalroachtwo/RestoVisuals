@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RestoVisuals capture comparison metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "evidence_id", "context", "treatment_id", "timing_source", "includes_generated_frames", "warmup_frames"],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "evidence_id": {"type": "string", "minLength": 1},
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scene_id", "csp_version", "pure_version", "pure_mode", "gpu_id", "driver_version", "render_mode", "width", "height", "vsync", "frame_cap_fps"],
+      "properties": {
+        "scene_id": {"type": "string", "minLength": 1},
+        "csp_version": {"type": "string", "enum": ["0.2.11", "0.3.0-preview361"]},
+        "pure_version": {"type": "string", "minLength": 1},
+        "pure_mode": {"type": "string", "enum": ["gamma", "lcs"]},
+        "gpu_id": {"type": "string", "minLength": 1},
+        "driver_version": {"type": "string", "minLength": 1},
+        "render_mode": {"type": "string", "enum": ["single", "triple", "vr"]},
+        "width": {"type": "integer", "minimum": 640, "maximum": 16384},
+        "height": {"type": "integer", "minimum": 480, "maximum": 16384},
+        "vsync": {"type": "boolean"},
+        "frame_cap_fps": {"type": "number", "minimum": 0, "maximum": 1000}
+      }
+    },
+    "treatment_id": {"type": "string", "minLength": 1},
+    "timing_source": {"type": "string", "enum": ["display_intervals_external", "display_intervals_runtime", "synthetic_fixture"]},
+    "includes_generated_frames": {"type": "boolean"},
+    "warmup_frames": {"type": "integer", "minimum": 0}
+  }
+}

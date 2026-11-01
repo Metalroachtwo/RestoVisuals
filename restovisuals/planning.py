@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import json
-import math
 import re
 from pathlib import Path
+
+from .validation import validate_document
 
 
 TRACKS = {"0.2.11": "stable_baseline", "0.3.0-preview361": "preview_development"}
@@ -23,28 +24,7 @@ def validate_config(config: dict) -> dict:
     This is deliberately not a general-purpose JSON Schema implementation.
     """
     schema = json.loads((Path(__file__).resolve().parents[1] / "schemas/profile.schema.json").read_text(encoding="utf-8"))
-    if not isinstance(config, dict):
-        raise ValueError("Profile must be an object")
-    unknown = config.keys() - schema["properties"].keys()
-    missing = set(schema["required"]) - config.keys()
-    if unknown or missing:
-        raise ValueError("Profile fields differ from the schema")
-    types = {"integer": lambda v: type(v) is int,
-             "number": lambda v: type(v) is int or (type(v) is float and math.isfinite(v)),
-             "string": lambda v: isinstance(v, str),
-             "boolean": lambda v: type(v) is bool}
-    for key, value in config.items():
-        rule = schema["properties"][key]
-        if not types[rule["type"]](value):
-            raise ValueError(f"Invalid type for {key}")
-        if "const" in rule and value != rule["const"]:
-            raise ValueError(f"Invalid constant for {key}")
-        if "enum" in rule and value not in rule["enum"]:
-            raise ValueError(f"Unsupported value for {key}")
-        if "minimum" in rule and value < rule["minimum"]:
-            raise ValueError(f"Value below minimum for {key}")
-        if "maximum" in rule and value > rule["maximum"]:
-            raise ValueError(f"Value above maximum for {key}")
+    validate_document(config, schema)
     return dict(config)
 
 

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "synthetic_fixture",
+  "adapters": [{
+    "adapter_index": 0,
+    "description": "Synthetic AMD 2 GiB adapter; no hardware claim",
+    "vendor_id": 4098,
+    "dedicated_video_memory_bytes": 2147483648,
+    "is_software": false,
+    "feature_level": "11_0"
+  }]
+}

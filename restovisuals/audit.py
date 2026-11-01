@@ -143,5 +143,17 @@ def inspect_environment(game_root: Path, user_config: Path, cm_executable: Path 
 
 def compare_protected(before: dict, after: dict) -> list[str]:
     """List additions, removals, and hash changes in the audited set."""
+    for snapshot in (before, after):
+        if not isinstance(snapshot, dict) or not isinstance(snapshot.get("protected_files"), dict) or not snapshot["protected_files"]:
+            raise ValueError("A nonempty protected-file inventory is required")
+        for record in snapshot["protected_files"].values():
+            if not isinstance(record, dict) or set(record) != {"exists", "sha256"} or type(record["exists"]) is not bool:
+                raise ValueError("Invalid protected-file record")
+            digest = record["sha256"]
+            if record["exists"]:
+                if not isinstance(digest, str) or not re.fullmatch("[a-f0-9]{64}", digest):
+                    raise ValueError("Invalid protected-file hash")
+            elif digest is not None:
+                raise ValueError("A missing file cannot have a hash")
     old, new = before["protected_files"], after["protected_files"]
     return sorted(name for name in old.keys() | new.keys() if old.get(name) != new.get(name))
