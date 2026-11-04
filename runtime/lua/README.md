@@ -40,6 +40,15 @@ gates apply. A `cdata` observation is a value category, not proof of callability
 `unreadable` differs from absent. This mode does not validate unsubscribe even
 when its shared receipt contains a stop marker.
 
+The native declaration diagnostic found the build getter represented as `cdata`.
+The pinned SDK declares that public zero-argument getter, and installed Pure
+calls it during initialization before the global loader. The host probe adapts
+only that getter through an owned Lua closure calling the SDK-supplied value
+unchanged. It performs no cast, address lookup, fabricated return or mutation
+of the real `ac` namespace. The unchanged observer's protected query and exact
+version/build checks still precede any registration. Noncallable data, invalid
+results and mismatched builds remain blocked; no other API type is adapted.
+
 Deployment is conditional on the Phase 0D gates and critical review, even though
 the owner has authorized the task. No foreign file, shared test-ground script,
 existing Pure LDR bridge or active filter slot may be overwritten. The package

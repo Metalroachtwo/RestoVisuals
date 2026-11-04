@@ -3,7 +3,7 @@
 Prepared 2026-11-04, America/New_York. Current work resumed from verified Phase 0C
 HEAD `5fa7c42491ecb0cd049232fc70ae35d08ca21dbb`. The owner-supplied approved
 reference PNG is untracked and preserved. The original 104 tests remain unchanged;
-121 now pass with the declared optional LuaJIT dependency.
+124 now pass with the declared optional LuaJIT dependency.
 
 Read [DREAM_WEATHER_ARCHITECTURE.md](DREAM_WEATHER_ARCHITECTURE.md) and
 [PHASE0D_RUNTIME.md](PHASE0D_RUNTIME.md) for new findings and the bounded native
@@ -46,7 +46,19 @@ callback, timer or release handler and leaves the original observer's strict gat
 unchanged. Only that declaration check is reviewed for a further native attempt;
 callbacks/rendering are not. Use `phase0d_transaction_v3.py` and its v3 journal,
 never silently reuse an earlier run's permission or receipt. Its native result
-is pending. Never infer a neutral
+completed and found the build getter is `cdata` while the other three APIs are
+Lua functions. Its zero-subscription session was also fully recovered with all
+29/49 hashes restored; see `native-api-types-receipt.json` and
+`post-api-diagnostic-preservation.json`.
+
+The pinned SDK/Pure initialization and LuaJIT documented call semantics justify
+a narrow owned-proxy closure for this single public build getter. The original
+observer is unchanged and still validates protected query results and exact
+version/build before registration. Noncallable data, invalid results and wrong
+build are regression-tested. Only a newly reviewed observer v4 package is the
+next callback attempt: `package-v4/`, run `2474c30f7a9b4b0abfd043c91f7885e9`,
+helper `phase0d_transaction_v4.py`, separate v4 journal and rehearsal. Its native
+result is pending. Rendering is not authorized by that review. Never infer a neutral
 pass, game FPS, LCS support, encoding or effect-removal proof from the preparer,
 observer source or 51 synthetic filesystem failure-point recoveries.
 

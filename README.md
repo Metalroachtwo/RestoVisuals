@@ -192,8 +192,8 @@ remains read-only; CSP 0.3.0-preview361 and Content Manager 0.8.2913.40776 are
 locked. CSP 0.2.11 is the minimum target, with runtime validation still pending.
 No other CSP track is authorized.
 
-The current suite passes 121 tests with the optional hash-pinned LuaJIT
-dependency. Without that dependency, 38 Lua contract tests explicitly skip;
+The current suite passes 124 tests with the optional hash-pinned LuaJIT
+dependency. Without that dependency, 41 Lua contract tests explicitly skip;
 the other 83 tests run on the Windows development host. The original 104 tests
 are preserved. See the
 [observer contract](runtime/lua/README.md) for the isolated test setup.

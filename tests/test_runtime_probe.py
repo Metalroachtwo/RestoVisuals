@@ -176,10 +176,37 @@ class HostProbeTests(unittest.TestCase):
 
     def test_callable_ffi_value_is_reported_without_weakening_observer_gate(self):
         self.host.ac.getPatchVersionCode = self.lua.eval("require('ffi').cast('int (*)()', function() return 3898 end)")
+        raw_observer = self.observer.new(self.host, self.config)
+        self.assertFalse(raw_observer.start(raw_observer))
+        self.assertEqual(raw_observer.receipt(raw_observer).reason, 'required_csp_api_missing')
         experiment = self.run_probe()
         result = experiment.receipt(experiment)
         self.assertEqual(result.required_api_types.patch_build, 'cdata')
-        self.assertEqual(result.observer_before_stop.reason, 'required_csp_api_missing')
+        self.assertTrue(result.patch_build_getter_adapted)
+        self.assertEqual(result.observer.csp_build, 3898)
+        self.assertEqual(result.observer.state, 'observing')
+        self.invoke()
+        self.state.fire(1); self.state.fire(2)
+        self.assertEqual(experiment.receipt(experiment).event, 'stop_witness_completed')
+
+    def test_noncallable_cdata_cannot_pass_version_query_or_register(self):
+        self.host.ac.getPatchVersionCode = self.lua.eval("require('ffi').new('int', 3898)")
+        experiment = self.run_probe()
+        result = experiment.receipt(experiment)
+        self.assertEqual(result.observer_before_stop.reason, 'runtime_version_mismatch_or_unknown')
+        self.assertFalse(result.owned_lifecycle_calls_succeeded)
+        self.assertEqual(self.state.registered, 0)
+
+    def test_callable_ffi_wrong_build_is_still_blocked_before_registration(self):
+        self.host.ac.getPatchVersionCode = self.lua.eval("require('ffi').cast('int (*)()', function() return 3899 end)")
+        experiment = self.run_probe()
+        self.assertEqual(experiment.receipt(experiment).observer_before_stop.reason, 'preview_build_mismatch')
+        self.assertEqual(self.state.registered, 0)
+
+    def test_callable_ffi_nonfinite_build_is_rejected_without_coercion(self):
+        self.host.ac.getPatchVersionCode = self.lua.eval("require('ffi').cast('double (*)()', function() return 0/0 end)")
+        experiment = self.run_probe()
+        self.assertEqual(experiment.receipt(experiment).observer_before_stop.reason, 'runtime_version_mismatch_or_unknown')
         self.assertEqual(self.state.registered, 0)
 
 

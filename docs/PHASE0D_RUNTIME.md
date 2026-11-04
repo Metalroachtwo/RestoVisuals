@@ -35,7 +35,7 @@ setting write. A ten-second host timer invokes owned stop; a subsequent
 one-second timer checks for later native callbacks. These are script-timer
 intervals, not guaranteed wall-clock deadlines while the host is paused/stopped.
 
-All **121 tests pass with optional LuaJIT**, preserving the original 104 tests
+All **124 tests pass with optional LuaJIT**, preserving the original 104 tests
 unchanged. New coverage includes lifecycle/sink failures, no-callback receipts,
 late callback detection, workspace-only package safety and a prior mode fault
 surviving normal shutdown. A retained pre-stop snapshot prevents successful
@@ -109,7 +109,27 @@ registration or timer scheduling. The original strict observer gate is unchanged
 LuaJIT tests demonstrate that a callable `cdata` value is reported as such while
 still rejected by that gate; the category alone never enables a native feature.
 The new package received its own limited review, manifest and fault rehearsal.
-Its native result is pending; it is not an automatic callback retry.
+That separately reviewed diagnostic completed: the version, PP callback and Pure
+shader-space APIs are Lua functions; the build getter is `cdata`. It registered
+no callbacks/timers/release listener, and its stop marker is not unsubscribe
+evidence. Its game/CM processes exited normally, all owned files were recovered,
+and all 29 protected/49 selected settings hashes again match their originals.
+
+The pinned SDK declares the build getter's public zero-argument integer contract;
+Pure Gamma calls it at top-level before reaching the global loader.
+[LuaJIT FFI semantics](https://luajit.org/ext_ffi_semantics.html) explains calls on
+function cdata and conversion of ordinary 32-bit integer results to Lua numbers.
+That combined evidence supports a narrow host adapter, not acceptance of arbitrary
+cdata. The owned proxy supplies a Lua closure calling the same documented getter
+as-is. No cast, pointer lookup, native alias or fabricated build is introduced.
+The original observer and its exact protected version/build validation remain
+unchanged. New tests reject noncallable cdata, wrong build and nonfinite results.
+
+One fresh observer-only package with that adapter received a separate critical
+review and bound rollback rehearsal. Run `2474c30f7a9b4b0abfd043c91f7885e9`, manifest
+SHA256 `1ef0b2d4a3a84a0f24fe3b76bea206820a9b7bc4a2f07920b4dedf6fb76b1a88`, is
+the only reviewed next callback attempt. Rendering remains NO-GO. Its native
+result is pending; the prior failure and declaration run are retained separately.
 
 Format/encoding, exposure stage, supported named-effect removal, LCS execution,
 successful PP callbacks and a neutral final-image pass remain unvalidated.

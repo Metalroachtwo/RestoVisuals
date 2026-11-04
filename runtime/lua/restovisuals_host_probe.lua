@@ -29,6 +29,7 @@ function M.run(host, Observer, config, runID)
       stop_witness_available = stoppedAt ~= nil,
       owned_lifecycle_calls_succeeded = cleanupOK,
       required_api_types = apiTypes,
+      patch_build_getter_adapted = apiTypes.patch_build == 'cdata',
       diagnostic_only = host.diagnostic_only == true,
       named_pure_effect_registered = false, shader_executed = false,
       game_visuals_validated = false, buffer_encoding = 'unknown',
@@ -85,6 +86,14 @@ function M.run(host, Observer, config, runID)
   function object:stop() finish('explicit_stop'); return cleanupOK end
 
   local proxy = setmetatable({}, {__index = host.ac})
+  if apiTypes.patch_build == 'cdata' then
+    -- This one public zero-argument getter is declared by the pinned CSP SDK
+    -- and called at Pure initialization. Call the SDK-supplied value as-is:
+    -- no ffi.cast, address lookup, native alias or fabricated build number.
+    -- Observer:start() already protects this query and validates its numeric
+    -- result against the exact version/build pair BEFORE any registration.
+    proxy.getPatchVersionCode = function() return host.ac.getPatchVersionCode() end
+  end
   proxy.onPostProcessing = function(callback)
     return host.ac.onPostProcessing(function(...)
       nativeCalls = nativeCalls + 1
