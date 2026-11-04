@@ -270,14 +270,21 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
             or not 8 <= width <= 1920 or not 8 <= height <= 1080
             or not 1 <= draws <= 5 or not 0 <= warmup <= 2):
         raise ValueError("Texture execution exceeds diagnostic bounds")
-    if format_name not in ("rgba32f", "rgba16f") or entry not in ("PSLinear", "PSSrgb"):
+    procedural = entry in ("PSMaterial", "PSMaterialNormals")
+    if format_name not in ("rgba32f", "rgba16f") or entry not in ("PSLinear", "PSSrgb", "PSMaterial", "PSMaterialNormals"):
         raise ValueError("Unsupported validation format or entry")
     if len(parameters) != 3:
         raise ValueError("Expected three color parameters")
-    transform_rgba((0, 0, 0, 1), encoding="scene_linear",
-                   **dict(zip(("exposure_ev", "shoulder_strength", "saturation"), parameters)))
+    if procedural:
+        if (any(type(v) not in (int, float) or not math.isfinite(v) for v in parameters)
+                or not 0 <= parameters[0] <= 1 or not 0 <= parameters[1] <= 1
+                or parameters[2] not in (-1, 1) or packed is not None):
+            raise ValueError("Invalid procedural material parameters or unexpected input texture")
+    else:
+        transform_rgba((0, 0, 0, 1), encoding="scene_linear",
+                       **dict(zip(("exposure_ev", "shoulder_strength", "saturation"), parameters)))
     format_id, pixel_code, bytes_per_pixel = (2, "4f", 16) if format_name == "rgba32f" else (10, "4e", 8)
-    if not isinstance(packed, bytes) or len(packed) != width * height * bytes_per_pixel:
+    if not procedural and (not isinstance(packed, bytes) or len(packed) != width * height * bytes_per_pixel):
         raise ValueError("Packed texture length mismatch")
     support = U32()
     _check(_method(session.device, 29, HRESULT, U32, ct.POINTER(U32))(session.device, format_id, ct.byref(support)), "CheckFormatSupport")
@@ -286,22 +293,26 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
     resource_mark = len(session.owned)
     result = {"entry": entry, "format": format_name, "pixels": width * height,
               "parameters": list(parameters), "draws": draws, "warmup_draws": warmup,
-              "declared_texture_payload_bytes": width * height * bytes_per_pixel * 3,
+              "declared_texture_payload_bytes": width * height * bytes_per_pixel * (2 if procedural else 3),
+              "input_texture_allocated": not procedural, "constant_buffer_payload_bytes": 16,
               "driver_allocation_measured": False,
               "memory_before": session.memory_info(), "owned_com_references_before": resource_mark}
     try:
-        source = session.texture(width, height, format_id, 1, 8, 0, packed)  # immutable SRV
+        srv, sampler = PTR(), PTR()
+        if not procedural:
+            source = session.texture(width, height, format_id, 1, 8, 0, packed)  # immutable SRV
+            srv = session.create(7, "CreateShaderResourceView", [PTR, PTR], [source, None])
         output = session.texture(width, height, format_id, 0, 32, 0)
         staging = session.texture(width, height, format_id, 3, 0, 0x20000)
-        srv = session.create(7, "CreateShaderResourceView", [PTR, PTR], [source, None])
         rtv = session.create(9, "CreateRenderTargetView", [PTR, PTR], [output, None])
         constants = (ct.c_float * 4)(*parameters, 0)
         desc = BufferDescription(16, 1, 4, 0, 0, 0)
         initial = InitialData(ct.cast(constants, PTR), 0, 0)
         buffer = session.create(3, "CreateBuffer", [ct.POINTER(BufferDescription), ct.POINTER(InitialData)],
                                 [ct.byref(desc), ct.byref(initial)])
-        sampler_desc = SamplerDescription(0, 3, 3, 3, 0, 1, 8, (ct.c_float * 4)(), 0, 3.402823466e38)
-        sampler = session.create(23, "CreateSamplerState", [ct.POINTER(SamplerDescription)], [ct.byref(sampler_desc)])
+        if not procedural:
+            sampler_desc = SamplerDescription(0, 3, 3, 3, 0, 1, 8, (ct.c_float * 4)(), 0, 3.402823466e38)
+            sampler = session.create(23, "CreateSamplerState", [ct.POINTER(SamplerDescription)], [ct.byref(sampler_desc)])
         raster_desc = RasterDescription(3, 1, 0, 0, 0, 0, 1, 0, 0, 0)
         raster = session.create(22, "CreateRasterizerState", [ct.POINTER(RasterDescription)], [ct.byref(raster_desc)])
         viewport = Viewport(0, 0, width, height, 0, 1)
@@ -335,6 +346,8 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
         raw, row_pitch = session.read_texture(staging, width, height, bytes_per_pixel)
         result.update({"mapped_row_pitch_bytes": row_pitch, "memory_resources_live": session.memory_info(),
                        "gpu_timestamp_disjoint": bool(clock.disjoint),
+                       "gpu_timestamp_start": begin_ticks, "gpu_timestamp_end": end_ticks,
+                       "gpu_timestamp_frequency_hz": clock.frequency,
                        "gpu_duration_ms": (end_ticks - begin_ticks) * 1000 / clock.frequency
                        if not clock.disjoint and clock.frequency > 0 and end_ticks >= begin_ticks else None,
                        "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance"})
@@ -366,12 +379,13 @@ def _render_case(session, shaders, width, height, format_name, entry, parameters
     return result
 
 
-def compile_validation_program(source_path: Path):
+def compile_validation_program(source_path: Path, *, pixel_entries=("PSLinear", "PSSrgb")):
     source = source_path.read_bytes()
     vertex_path = Path(__file__).resolve().parents[1] / "shaders/RV_FullscreenValidation.hlsl"
     vertex_source = vertex_path.read_bytes()
     bytecode, compilation = {}, []
-    for entry, target, code in (("VSFullscreen", "vs_5_0", vertex_source), ("PSLinear", "ps_5_0", source), ("PSSrgb", "ps_5_0", source)):
+    programs = [("VSFullscreen", "vs_5_0", vertex_source)] + [(entry, "ps_5_0", source) for entry in pixel_entries]
+    for entry, target, code in programs:
         binary, metadata = compile_bytecode(code, entry, target)
         bytecode[entry] = binary
         compilation.append(metadata)

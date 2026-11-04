@@ -12,6 +12,7 @@ from .planning import capabilities_from_audit, make_plan
 from .shader_compile import compile_prototype
 from .d3d11_validation import validate_gpu_shader
 from .gpu_demo import demonstrate_gpu_shader
+from .material_demo import demonstrate_material
 from .runtime_probe import prepare_observer_probe
 
 
@@ -46,6 +47,11 @@ def main(argv=None):
     gpu_demo.add_argument("--output", type=Path, required=True)
     gpu_demo.add_argument("--profile", choices=("720p", "1080p", "both"), default="both")
     gpu_demo.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1] / "shaders/RV_ColorPrototype.hlsl")
+    material = commands.add_parser("material-demo", help="Original synthetic surface shading on an isolated windowless device")
+    material.add_argument("--adapter-index", type=int, required=True)
+    material.add_argument("--output", type=Path, required=True)
+    material.add_argument("--profile", choices=("720p", "1080p", "both"), default="both")
+    material.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1] / "shaders/RV_MaterialRealism.hlsl")
     probe_package = commands.add_parser("prepare-observer-probe", help="Stage original observer files under a new .local directory; does not install or launch")
     probe_package.add_argument("--output", type=Path, required=True)
     probe_package.add_argument("--diagnostic-only", action="store_true", help="Record API value types without subscriptions or rendering")
@@ -85,6 +91,8 @@ def main(argv=None):
             result = validate_gpu_shader(args.adapter_index, args.source)
         elif args.command == "gpu-demo":
             result = demonstrate_gpu_shader(args.adapter_index, args.source, args.output, profile=args.profile)
+        elif args.command == "material-demo":
+            result = demonstrate_material(args.adapter_index, args.source, args.output, profile=args.profile)
         elif args.command == "prepare-observer-probe":
             result = prepare_observer_probe(args.output, diagnostic_only=args.diagnostic_only)
         elif args.command == "compare":
@@ -97,7 +105,7 @@ def main(argv=None):
             changes = compare_protected(before, after)
             result = {"protected_files_unchanged": not changes, "changed": changes}
         print(json.dumps(result, indent=2, allow_nan=False))
-        if args.command in ("gpu-validate", "gpu-demo") and result["status"] != "passed":
+        if args.command in ("gpu-validate", "gpu-demo", "material-demo") and result["status"] != "passed":
             return 4
         return 3 if args.command == "guard" and changes else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, OverflowError) as error:

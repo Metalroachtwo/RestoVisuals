@@ -1,4 +1,11 @@
-# RestoVisuals architecture, Phase 0E checkpoint
+# RestoVisuals architecture, Phase 0G checkpoint
+
+Phase 0G adds an [offline synthetic material experiment](PHASE0G_MATERIAL_SHADER.md)
+through the existing windowless D3D11 executor. Original height-gradient normals,
+roughness and two light directions are numerically tested and measured on the
+RX 5700 XT. This supplies its own surface inputs and establishes no game material
+or post-processing integration. Production recommendation is REVISE for cost and
+material scale; the native rendering-contract NO-GO remains intact.
 
 Phase 0E records the [version-specific HDR contract review](PHASE0E_HDR_CONTRACT.md).
 The reviewed declarations do not establish the source representation or returned
@@ -19,7 +26,7 @@ Future controls retain Camera Realism, Enhanced Photorealism (default) and
 Cinematic Realism, bounded warmth/saturation/contrast/highlight/shadow/clarity
 controls, separate monitor calibration and custom presets. Weather-responsive
 calibration reads verified conditions while Pure/CSP retains weather/exposure
-ownership. Photo Studio/softbox and material enhancements remain deferred.
+ownership. Photo Studio/softbox and in-game material enhancements remain deferred.
 
 ## Decision and current implementation
 

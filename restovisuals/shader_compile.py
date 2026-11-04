@@ -9,7 +9,9 @@ from pathlib import Path
 def compile_bytecode(source: bytes, entry: str, target="ps_5_0") -> tuple[bytes, dict]:
     if sys.platform != "win32":
         raise ValueError("Native shader compilation requires Windows")
-    if (entry, target) not in {("PSLinear", "ps_5_0"), ("PSSrgb", "ps_5_0"), ("VSFullscreen", "vs_5_0")}:
+    if (entry, target) not in {("PSLinear", "ps_5_0"), ("PSSrgb", "ps_5_0"),
+                              ("PSMaterial", "ps_5_0"), ("PSMaterialNormals", "ps_5_0"),
+                              ("VSFullscreen", "vs_5_0")}:
         raise ValueError("Only prototype pixel and validation vertex entry points are allowed")
     compiler = ct.WinDLL("d3dcompiler_47.dll", winmode=0x800)
     compiler.D3DCompile.argtypes = [ct.c_void_p, ct.c_size_t, ct.c_char_p, ct.c_void_p, ct.c_void_p,
@@ -31,7 +33,8 @@ def compile_bytecode(source: bytes, entry: str, target="ps_5_0") -> tuple[bytes,
     flags = (1 << 11) | (1 << 13) | (1 << 15) | (1 << 18)
     source_buffer = ct.create_string_buffer(source)
     try:
-        status = compiler.D3DCompile(source_buffer, len(source), b"RV_ColorPrototype.hlsl", None, None,
+        source_name = b"RV_MaterialRealism.hlsl" if entry.startswith("PSMaterial") else b"RV_ColorPrototype.hlsl"
+        status = compiler.D3DCompile(source_buffer, len(source), source_name, None, None,
                                      entry.encode("ascii"), target.encode("ascii"), flags, 0, ct.byref(code), ct.byref(errors))
         if status < 0 or not code.value:
             raise ValueError("HLSL compilation failed" + (": " + blob_data(errors).decode("utf-8", errors="replace").rstrip("\x00") if errors.value else ""))

@@ -1,4 +1,52 @@
-# RestoVisuals Phase 0F continuation handoff
+# RestoVisuals Phase 0G continuation handoff
+
+Prepared 2026-11-04 from verified local/remote `phase0/foundation`
+`ca9204bc9322d5d2492d0ff39328e165050c0da2`.
+Read [PHASE0G_MATERIAL_SHADER.md](PHASE0G_MATERIAL_SHADER.md) for the original
+shader, equations, reproducible commands, hashes, measured costs and limitations.
+
+**Offline result:** flat, normal-detail and normal-plus-roughness variants pass
+on an explicitly verified RX 5700 XT at 720p and 1080p, under two light directions.
+Geometry stays one flat fullscreen triangle; procedural inputs require no source
+texture. The existing renderer/compiler/exporter are extended minimally. No
+game, Content Manager, GUI application, rendering hook or Pure effect was used.
+
+The enhanced isolated draw costs about 0.470 ms at 720p and 1.057 ms at 1080p,
+approximately 0.417 / 0.936 ms above the flat variant. These are GPU batch-derived
+durations, not gameplay FPS or pixel-shader-only timings. Each case retains three
+five-draw batches, two warmups per batch, raw timestamps and disjoint status.
+CPU discrepancy is below 6.3e-6, normal length error below 6.4e-8, and disable
+readbacks are byte-exact against the synthetic baseline. All owned resources
+are released. Texture payload is identical between baseline and enhancement;
+sampled process-local memory is documented separately from physical allocation.
+
+**Recommendation: REVISE before production.** Apparent relief responds to light;
+roughness is subtle and the surface reads as soft grooved stone. The next bounded
+milestone is a compact original normal/roughness fixture versus procedural ALU,
+with material-scale refinement and the same numerical/cost gates. No older GPU
+or CSP-material compatibility is inferred. Phase 0E's HDR/lifetime NO-GO remains
+binding and was not reinvestigated.
+
+Ten new tests and all 24 affected existing tests pass. One small original-color
+GPU identity regression passed; the full unrelated test/hardware matrix was not
+repeated. All original 124 tests and original color/fullscreen HLSL are preserved.
+Raw reports, 12 labeled PNGs and viewers remain ignored under
+`.local/phase0g-20261104/`; no visual sample is published in Git.
+
+Starting meters were **74% five-hour and 82% weekly remaining**. Closeout began
+at 65% five-hour / 80% weekly, reserving the 15-point session floor of 59% and
+independent 5% weekly cutoff. Final usage, preservation and verified local/remote
+SHA go in private receipts and the final response; read meters anew next time.
+No dependency or license choice changed; RestoVisuals remains freeware.
+
+Final preservation checks pass for all 29 protected files and 49 selected settings
+files; the untracked visual target is unchanged. All 12 PNG hashes and timestamp
+calculations are verified, and both resolutions used identical shader bytecode.
+No installation change or restoration was necessary.
+
+---
+
+## Historical Phase 0F continuation handoff
 
 Prepared 2026-11-04, America/New_York, from verified local/remote
 `phase0/foundation` checkpoint `00a7d5df23d5242c9a6acfcad13a4c06bf2788af`.
