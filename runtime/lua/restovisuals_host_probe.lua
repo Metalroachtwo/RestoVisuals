@@ -8,7 +8,7 @@ function M.run(host, Observer, config, runID)
     assert(type(host[name]) == 'function', 'missing_probe_lifecycle_api')
   end
   local nativeCalls, stoppedAt, cleanupOK = 0, nil, true
-  local deadline, grace, releaseCancel, observer
+  local deadline, grace, releaseCancel, observer, observerBeforeStop
   local event, finished, initialWrite = 'preparing', false, false
   local object = {}
   local function receipt()
@@ -20,6 +20,7 @@ function M.run(host, Observer, config, runID)
       owned_lifecycle_calls_succeeded = cleanupOK,
       named_pure_effect_registered = false, shader_executed = false,
       game_visuals_validated = false, buffer_encoding = 'unknown',
+      observer_before_stop = observerBeforeStop,
       observer = observer and observer:receipt() or nil}
   end
   local function persist(nextEvent)
@@ -39,15 +40,25 @@ function M.run(host, Observer, config, runID)
       if not pcall(cancel) then cleanupOK = false end
     end
   end
+  local function stopObserver()
+    if observer then
+      observerBeforeStop = observerBeforeStop or observer:receipt()
+      if observerBeforeStop.state == 'blocked' then cleanupOK = false end
+      if not observer:stop() then cleanupOK = false end
+    end
+  end
   local function finish(reason)
     if finished then return end
     finished = true
-    if observer and not observer:stop() then cleanupOK = false end
+    stopObserver()
     stoppedAt = stoppedAt or nativeCalls
     cancelTimer(deadline); deadline = nil
     cancelTimer(grace); grace = nil
     cancelRelease()
     if stoppedAt ~= nativeCalls then cleanupOK = false end
+    if reason == 'stop_witness_completed' and observerBeforeStop.state == 'blocked' then
+      reason = 'observer_fault_before_stop'
+    end
     persist(reason)
   end
   local function schedule(callback, seconds)
@@ -85,7 +96,7 @@ function M.run(host, Observer, config, runID)
   deadline = schedule(function()
     deadline = nil
     if finished then return end
-    if not observer:stop() then cleanupOK = false end
+    stopObserver()
     stoppedAt = nativeCalls
     if not persist('observer_stopped_waiting_for_witness') then cleanupOK = false end
     grace = schedule(function()

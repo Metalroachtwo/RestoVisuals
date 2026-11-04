@@ -98,6 +98,20 @@ class HostProbeTests(unittest.TestCase):
         self.assertFalse(result.observer.gameplay_validated)
         self.assertFalse(result.game_visuals_validated)
 
+    def test_mid_run_mode_fault_survives_stop_and_fails_terminal_receipt(self):
+        experiment = self.run_probe()
+        self.invoke()
+        self.state.linear = True
+        self.invoke()
+        self.state.fire(1); self.state.fire(2)
+        result = experiment.receipt(experiment)
+        self.assertEqual(result.observer.callbacks, 1)
+        self.assertEqual(result.observer.state, 'disabled')
+        self.assertEqual(result.observer_before_stop.state, 'blocked')
+        self.assertEqual(result.observer_before_stop.reason, 'pure_shader_mode_changed_or_unavailable')
+        self.assertEqual(result.event, 'observer_fault_before_stop')
+        self.assertFalse(result.owned_lifecycle_calls_succeeded)
+
     def test_sink_failure_before_start_does_not_register_postprocessing(self):
         self.host.write = self.lua.eval("function() return false end")
         experiment = self.run_probe()

@@ -1,4 +1,49 @@
-# RestoVisuals Phase 0C continuation handoff
+# RestoVisuals Phase 0D continuation handoff
+
+Prepared 2026-11-04, America/New_York. Current work resumed from verified Phase 0C
+HEAD `5fa7c42491ecb0cd049232fc70ae35d08ca21dbb`. The owner-supplied approved
+reference PNG is untracked and preserved. The original 104 tests remain unchanged;
+118 now pass with the declared optional LuaJIT dependency.
+
+Read [DREAM_WEATHER_ARCHITECTURE.md](DREAM_WEATHER_ARCHITECTURE.md) and
+[PHASE0D_RUNTIME.md](PHASE0D_RUNTIME.md) for new findings and the bounded native
+experiment. Initial Phase 0D code/research checkpoint
+`a3b4d4f6b74d23f9831c6fdc2393dde97fe775f7` is pushed and verified. Later revisions
+preserve a pre-stop fault snapshot and harden exact-file recovery before deployment.
+
+The owner conditionally authorized a reversible live-installation experiment and
+routine GUI testing only weekdays 08:00-17:00 Eastern, launching through Content
+Manager exclusively. Earlier blanket Phase 0 prohibitions below are historical
+for that scoped exception; version locks, protected files, lifecycle/rollback,
+Pure bridge ownership and the 5% cutoff remain mandatory. No isolated host was
+provisioned. The full rendering gate is not waived by GUI authorization.
+
+Critical review permits one observer-only v2 package, not rendering. Native
+acceptance requires positive main-pass callbacks, actual version/build/context,
+clean preserved pre-stop state, successful disposal and a quiet stop witness.
+The package is bound to run `517dbe86abfa432e8f99d6b64ad860fd`; do not substitute
+the initial transaction helper/package or retry automatically after failure.
+
+Private continuation/recovery artifacts live under `.local/phase0d-20261104/`:
+`preflight.json` (29 protected files and 49 verified settings backups),
+`before-game-settings.json`, `package-v2/`, `rollback-rehearsal-v2.json`,
+`safety-review-v2.json` and owned CM PID/window observations. The exact-file helper
+is `.local/phase0d_transaction_v2.py`; its first intent journal must precede any
+game write. It preserves ambiguous output/edited files and disables only verified
+owned executable source. Retain the reviewed package until recovery completes.
+
+At this checkpoint CM alone has been opened for read-only inspection. No live
+RestoVisuals file or game launch has occurred yet. Actual experiment and rollback
+results must replace this pending status before closeout. Never infer a neutral
+pass, game FPS, LCS support, encoding or effect-removal proof from the preparer,
+observer source or 51 synthetic filesystem failure-point recoveries.
+
+Phase 0D first live weekly reading was 100%; pre-deployment reading was 94%.
+Read the meter anew rather than reusing those values as a budget.
+
+---
+
+## Historical Phase 0C handoff
 
 Prepared 2026-11-01, America/New_York. **Current checkpoint is Phase 0C**;
 the explicitly historical Phase 0B record below is retained to avoid repeating

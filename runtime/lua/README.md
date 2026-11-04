@@ -28,6 +28,10 @@ removal. Actual file rollback requires a verified manifest, no active game,
 unchanged owned source hashes and handling only declared owned output; do not
 recursively remove an unverified directory.
 
+The wrapper retains `observer_before_stop`, since the original observer's normal
+stop state must not hide a prior mode/API fault. A blocked pre-stop snapshot
+fails the terminal experiment even when callback removal subsequently succeeds.
+
 Deployment is conditional on the Phase 0D gates and critical review, even though
 the owner has authorized the task. No foreign file, shared test-ground script,
 existing Pure LDR bridge or active filter slot may be overwritten. The package
