@@ -1,4 +1,51 @@
-# RestoVisuals Phase 0E continuation handoff
+# RestoVisuals Phase 0F continuation handoff
+
+Prepared 2026-11-04, America/New_York, from verified local/remote
+`phase0/foundation` checkpoint `00a7d5df23d5242c9a6acfcad13a4c06bf2788af`.
+Read [PHASE0F_NATIVE_BASELINE.md](PHASE0F_NATIVE_BASELINE.md) for the first native
+visual/configuration receipt, precise settings and remaining benchmark limitations.
+
+**Confirmed configuration:** 1920x1080 output; render scale 1; `FSR/ACTIVE=1`,
+`OLD_IMPLEMENTATION=2` selects NVIDIA Image Scaling. No NIS-quality user override
+exists, so installed `QUALITY_NIS=0.7692` applies. The stored FSR-only
+`QUALITY2=0.87` is inactive for this selected method. Multiplication/rounding gives
+1477x831, consistent with Phase 0D's callback size, without proving the runtime
+pipeline. No observer or shader was installed or registered.
+
+The existing Lexus `mm_lexus_rca` / `jd_drift_mansion/open` replay ran through CM.
+Raw 1920x1080 captures and replay SHA are recorded; a paused witness displays
+3:49 / 4:27, Camera Cockpit, car 0. The inherited view does not show the Lexus.
+Exact frame/transform and live Pure weather were not established; stored replay
+weather/time and camera receipts are preserved. No trustworthy frame-time capture
+was available in the bounded checks, so no FPS/performance result is claimed.
+No reliable CM upscaler-settings screenshot was obtained; source configuration
+and the installed schema supply the method/quality evidence.
+
+Cleanup began at 16:30:44 Eastern; the game closed normally and owned CM exited
+at 16:32:25. No GUI work remains. After both exits, only the three known session
+files were restored from fresh verified backups: camera settings, race settings
+and CM state. Their session-written versions are preserved. All 29 protected
+files and 49 settings files match preflight. Graphics/filter settings and the
+untracked approved PNG are unchanged. No unrelated work or mod was modified.
+
+Starting allowance: **86% five-hour, 84% weekly remaining**. This assignment's
+15-point limit gives a five-hour floor of 71%; the independent 5% weekly cutoff
+remains. Live ending meters and final verified local/remote SHA go in private
+`.local/phase0f-20261104/final-sync.json` and the final response. Main stays unchanged.
+The 124-test baseline is preserved; no unchanged runtime suite was rerun. All six
+targeted validation groups passed, including 17 local links and the replay/three
+native capture hashes. Pre-synchronization meters were 76% five-hour and 82%
+weekly remaining; closeout proceeds within the 15-point cap.
+
+**Next benchmark milestone:** establish a visible-car camera, exact replay
+segment and trustworthy timing source, then a separately authorized NIS/native
+comparison with fixed conditions and complete recovery. **Phase 0E's neutral-pass
+NO-GO remains binding**; this task did not revisit its unresolved HDR contract.
+No dependency or license decision changed; RestoVisuals remains freeware.
+
+---
+
+## Historical Phase 0E continuation handoff
 
 Prepared 2026-11-04, America/New_York. Resumed from locally/remotely verified
 `phase0/foundation` HEAD `3c0e40aefd958c3de923534871ce20461e050be5`.
