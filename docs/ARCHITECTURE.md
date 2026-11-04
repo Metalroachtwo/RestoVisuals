@@ -1,4 +1,11 @@
-# RestoVisuals architecture, Phase 0D checkpoint
+# RestoVisuals architecture, Phase 0E checkpoint
+
+Phase 0E records the [version-specific HDR contract review](PHASE0E_HDR_CONTRACT.md).
+The reviewed declarations do not establish the source representation or returned
+canvas retirement boundary. Native neutral rendering remains **NO-GO**; no runtime
+implementation, rendering stage or ownership boundary changes in this checkpoint.
+Resize registration can disable automatic host reload, and unload callbacks are
+best effort. Neither may be used to invent a safe canvas disposal deadline.
 
 Phase 0D additions: [Dream/WeatherFX/Pure ownership](DREAM_WEATHER_ARCHITECTURE.md)
 and an original finite host probe now extend this architecture. The probe reuses

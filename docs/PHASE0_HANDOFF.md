@@ -1,4 +1,78 @@
-# RestoVisuals Phase 0D continuation handoff
+# RestoVisuals Phase 0E continuation handoff
+
+Prepared 2026-11-04, America/New_York. Resumed from locally/remotely verified
+`phase0/foundation` HEAD `3c0e40aefd958c3de923534871ce20461e050be5`.
+**Current result: NO-GO for the neutral rendering pass.** The bounded contract
+review is complete; no shader was installed or executed inside Assetto Corsa.
+
+Read [PHASE0E_HDR_CONTRACT.md](PHASE0E_HDR_CONTRACT.md) for the evidence matrix,
+release-specific SDK hashes/locations, rejected assumptions, alternative stage
+assessment and conditional implementation plan. Installed preview361/build3898,
+Content Manager 0.8.2913.40776 and Pure Gamma/LCS 3.50 were verified read-only.
+No installation, version, update-policy or dependency changes were made.
+
+## Phase 0E findings and remaining gates
+
+- The callback substitutes HDR input **before YEBIS**. The already-bound LDR
+  destination does not make this a final-image hook. The existing observer works
+  and was not rebuilt or rerun.
+- Actual dynamic-source format/channel precision, transfer, primaries, alpha,
+  pre-exposure/scaling and source lifetime remain unknown. Owned-canvas format
+  selection, readback, size/readiness and exposure overrides do not discover them.
+- Callable cancellation is documented and the prior observer's stop was proved.
+  Safe retirement of previously returned canvases after cancellation, during
+  resize and at shutdown is still unestablished.
+- Registering `ac.onResolutionChange` disables automatic reload in relevant
+  hosts; its coverage of internal dynamic-resolution changes is unestablished.
+  `ac.onRelease` is best effort and cannot be the only recovery guarantee.
+- The documented PP redraw alternative does not provide a verified independently
+  owned stage alongside Pure's occupied LDR bridge. It is rejected for this
+  installation. The existing SPICE removal gap remains; no private workaround.
+
+The single next milestone is an authoritative contract for **source representation
+and returned-surface retirement on the supported versions/modes**. Seek a concrete
+SDK/maintainer answer, not another observer run. No external message was sent.
+Stop dependent rendering while those facts remain missing. The current agent's
+critical safety assessment is NO-GO, not an independent deployment review.
+
+If evidence resolves the gaps, prepare a fresh original design, critical review,
+owned-path installation diff and bound transaction/recovery rehearsal; then use
+the existing D3D11 identity harness before any native test. Old packages remain
+run-bound. Native matched-image, timing, resize, auxiliary/VR, LCS/stable and other
+GPU coverage are unvalidated and must remain separate gates.
+
+## Phase 0E preservation and credit checkpoint
+
+Starting live meters: **100% five-hour, 86% weekly remaining**. Research ended at
+**91% five-hour, 85% weekly**; closeout began at that reading, well before the
+75% planned closeout trigger and 70% absolute session stop. Final readings and
+local/remote documentation SHA go in ignored `.local/phase0e-20261104/` receipts
+and the final response; do not reuse these as a future starting budget.
+
+The 124-test Phase 0D baseline and original 104 tests remain intact. Documentation
+is the only public change; successful unchanged runtime/GPU tests were not
+repeated. All six Phase 0E validation groups passed: 22 local links/anchors,
+three release-specific SDK files and 27 declaration locations were checked,
+alongside source/test preservation, private evidence and publication boundaries.
+All 29 protected files and 49 selected settings files match preflight hashes.
+The approved PNG is unchanged/untracked and the prior owned probe directory is
+absent. Latest pre-synchronization meters: **89% five-hour, 84% weekly** remaining.
+
+The last native-validated configuration remains the Phase 0D Gamma observer:
+Pure PP enabled, YEBIS not bypassed, raw HDR-output flag false, 1477x831 callback
+surface and 1920x1080 saved image. The raw upscaler-section flag was true; actual
+algorithm/frame generation remains unknown. No Phase 0E runtime claim is added.
+
+No GUI/game process or rendering experiment was started. There are no new live
+files or settings to roll back. Exact settings/backups from the verified Phase 0D
+state remain in the existing ignored receipts; no private configuration is
+published. Source rollback, if needed, uses a reviewed follow-up commit, never
+history reset or force-push. The branch stays `phase0/foundation`; main is not
+merged. Freeware remains mandatory and repository licensing remains unresolved.
+
+---
+
+## Historical Phase 0D continuation handoff
 
 Prepared 2026-11-04, America/New_York. Current work resumed from verified Phase 0C
 HEAD `5fa7c42491ecb0cd049232fc70ae35d08ca21dbb`. The owner-supplied approved
