@@ -5,6 +5,14 @@ HEAD `5fa7c42491ecb0cd049232fc70ae35d08ca21dbb`. The owner-supplied approved
 reference PNG is untracked and preserved. The original 104 tests remain unchanged;
 124 now pass with the declared optional LuaJIT dependency.
 
+**Current result:** the native preview361/Gamma observer passed with 106 main
+callbacks and a quiet owned-stop witness. **Neutral rendering remains BLOCKED**
+on the dynamic HDR input contract and returned-canvas lifetime. No experimental
+component remains installed; all owned game/CM sessions exited normally.
+Latest tested/pushed code is `0cc3670968e6f6671d7934c71bd241efd2304a64`.
+Final documentation HEAD and measured allowance are recorded by Git and ignored
+`.local/phase0d-final-sync.json`; verify the remote rather than assuming a hash.
+
 Read [DREAM_WEATHER_ARCHITECTURE.md](DREAM_WEATHER_ARCHITECTURE.md) and
 [PHASE0D_RUNTIME.md](PHASE0D_RUNTIME.md) for new findings and the bounded native
 experiment. Initial Phase 0D code/research checkpoint
@@ -18,19 +26,20 @@ for that scoped exception; version locks, protected files, lifecycle/rollback,
 Pure bridge ownership and the 5% cutoff remain mandatory. No isolated host was
 provisioned. The full rendering gate is not waived by GUI authorization.
 
-Critical review permits one observer-only v2 package, not rendering. Native
-acceptance requires positive main-pass callbacks, actual version/build/context,
-clean preserved pre-stop state, successful disposal and a quiet stop witness.
-The package is bound to run `517dbe86abfa432e8f99d6b64ad860fd`; do not substitute
-the initial transaction helper/package or retry automatically after failure.
+Each native attempt had a separate bound review, manifest and fault rehearsal;
+all are completed and recovered. None authorizes an automatic reinstall/retry.
+The original v2 attempt failed before registration, v3 established API types,
+and v4 verified actual observer delivery and owned stop. No rendering review
+has passed and no shader/Pure named effect was installed.
 
 Private continuation/recovery artifacts live under `.local/phase0d-20261104/`:
 `preflight.json` (29 protected files and 49 verified settings backups),
 `before-game-settings.json`, `package-v2/`, `rollback-rehearsal-v2.json`,
 `safety-review-v2.json` and owned CM PID/window observations. The exact-file helper
-is `.local/phase0d_transaction_v2.py`; its first intent journal must precede any
+was `.local/phase0d_transaction_v2.py`; its first intent journal precedes any
 game write. It preserves ambiguous output/edited files and disables only verified
-owned executable source. Retain the reviewed package until recovery completes.
+owned executable source. v2/v3/v4 packages, journals and receipts remain private
+for audit; retain them rather than deleting or repurposing a reviewed run.
 
 The first reviewed observer entry loaded inside a CM-launched replay, but failed
 `required_csp_api_missing` before registration. Its zero callbacks and retained
@@ -40,12 +49,12 @@ removed. All 29 protected hashes and 49 selected settings match their original
 backups after restoring only the three session-changed files. See
 `post-runtime-preservation.json` for the complete targeted rollback result.
 
-A separate API-type-only diagnostic is staged under `package-v3/`, bound to run
+A separate API-type-only diagnostic was staged under `package-v3/`, bound to run
 `27a323d258214f688f152443151162da` and its own review/rehearsal. It registers no
 callback, timer or release handler and leaves the original observer's strict gate
-unchanged. Only that declaration check is reviewed for a further native attempt;
-callbacks/rendering are not. Use `phase0d_transaction_v3.py` and its v3 journal,
-never silently reuse an earlier run's permission or receipt. Its native result
+unchanged. Only that declaration check was reviewed for that native attempt;
+it did not test callback removal. `phase0d_transaction_v3.py` and its v3 journal
+remain preserved. Its native result
 completed and found the build getter is `cdata` while the other three APIs are
 Lua functions. Its zero-subscription session was also fully recovered with all
 29/49 hashes restored; see `native-api-types-receipt.json` and
@@ -55,15 +64,57 @@ The pinned SDK/Pure initialization and LuaJIT documented call semantics justify
 a narrow owned-proxy closure for this single public build getter. The original
 observer is unchanged and still validates protected query results and exact
 version/build before registration. Noncallable data, invalid results and wrong
-build are regression-tested. Only a newly reviewed observer v4 package is the
-next callback attempt: `package-v4/`, run `2474c30f7a9b4b0abfd043c91f7885e9`,
-helper `phase0d_transaction_v4.py`, separate v4 journal and rehearsal. Its native
-result is pending. Rendering is not authorized by that review. Never infer a neutral
+build are regression-tested. The separately reviewed observer v4 package was
+`package-v4/`, run `2474c30f7a9b4b0abfd043c91f7885e9`, helper
+`phase0d_transaction_v4.py`, separate v4 journal and rehearsal. Its native result
+passed and is in `native-observer-v4-receipt.json`: actual version/build3898,
+Gamma shader space, 106 main/zero auxiliary callbacks, eight bounded samples,
+1477x831 callback surface, clean preserved pre-stop state and zero callbacks
+after owned unsubscribe. Pure PP was enabled, YEBIS not bypassed; algorithm/FG,
+input format/encoding and exact Pure fork/hotfix remain unknown. Raw timing units
+are unverified and the startup samples are not a frame-time capture.
+
+`post-observer-v4-preservation.json` verifies complete owned-file/directory
+recovery, normal game/CM exit, 29 unchanged protected hashes and all 49 selected
+settings matching original backups. Only camera settings, race settings and CM
+state needed restoration after process exit. Screenshot/log evidence stays
+private. A fresh 71-file source export passes all 124 tests; without LuaJIT,
+83 execute and 41 skip. All original 104 tests remain unchanged. Rendering is
+not authorized by the v4 review. Never infer a neutral
 pass, game FPS, LCS support, encoding or effect-removal proof from the preparer,
 observer source or 51 synthetic filesystem failure-point recoveries.
 
-Phase 0D first live weekly reading was 100%; pre-deployment reading was 94%.
-Read the meter anew rather than reusing those values as a budget.
+## Exact next milestone and stop conditions
+
+Obtain version-specific authoritative metadata or a supported query for
+`dynamic::pp::hdr`: actual format, transfer/primaries and pre-exposure convention.
+Also establish downstream reference lifetime of a returned `ui.ExtraCanvas`,
+unsubscribe-before-dispose and resize replacement. The documented callback
+substitutes HDR input before YEBIS; it is not an independent final-image stage.
+Size/readiness queries do not supply those missing facts. Pure named-effect
+addition still has no established supported removal route. The final critical
+review returned NO-GO for rendering on these concrete gaps.
+
+Only after those contracts are supplied, prepare a fresh owned neutral-pass
+design and critical review, numerical/native identity evidence, matched images
+and frame captures. Reuse the proved observer and its actual dimensions; preserve
+Pure's bridge/slot and weather/exposure ownership. Validate Gamma/LCS, stable CSP,
+auxiliary/VR/resize and physical legacy/NVIDIA hardware separately. Do not repeat
+completed Dream searches, SDK inventory or hardware runs to fill an unrelated gap.
+
+If the input/lifetime contract remains unavailable, stop dependent rendering.
+Do not replace the bridge, use internal list removal, invent texture metadata,
+inject code or switch CSP/CM versions. Future GUI work needs the current task's
+authorization and a fresh Eastern-time check; no persistent GUI enablement or
+automation has been installed. Source rollback uses a new reviewed commit,
+never reset/force-push. Historical exact-file helpers are for their bound runs,
+not a general installer or an automatic instruction to deploy again.
+
+The permanent freeware requirement remains intact. Repository license selection
+is unresolved, requires owner approval, and no paid dependency was added.
+Phase 0D first live weekly reading was 100%; pre-closeout reading was 87%.
+Final reading goes in the receipt/response. Read the meter anew on continuation;
+no new engineering/research/testing is permitted at 5% remaining.
 
 ---
 

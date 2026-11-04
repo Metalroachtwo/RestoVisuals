@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "evidence_label": "tested_validated",
+  "validation_scope": "bounded_native_preview361_gamma_observer_and_owned_subscription_stop",
+  "tested_code_checkpoint": "0cc3670968e6f6671d7934c71bd241efd2304a64",
+  "date": "2026-11-04",
+  "launch_method": "owned_Content_Manager_UI_replay_Play",
+  "run_id": "2474c30f7a9b4b0abfd043c91f7885e9",
+  "native_receipt_sha256": "6cbe55cfa2e1b208250b7e13ac016423ac1b09af84464f9e239c0a4aac003095",
+  "installed_context": {
+    "content_manager": "0.8.2913.40776",
+    "csp": "0.3.0-preview361",
+    "csp_build": 3898,
+    "pure_gamma_manifest": "3.50",
+    "pure_lcs_manifest": "3.50",
+    "pure_hotfix": "unknown",
+    "development_gpu": "AMD Radeon RX 5700 XT",
+    "driver_registry": "32.0.21043.12001"
+  },
+  "runtime_context": {
+    "game_log_version": "1.16.4_x64",
+    "csp_version": "0.3.0-preview361",
+    "csp_build": 3898,
+    "shader_space": "gamma",
+    "weather_folder_logged": "pure",
+    "exact_pure_fork_identity": "unknown",
+    "game_adapter_independently_identified": false,
+    "display_output_from_saved_config": [
+      1920,
+      1080
+    ],
+    "callback_surface": [
+      1477,
+      831
+    ]
+  },
+  "api_types": {
+    "patch_version": "function",
+    "patch_build": "cdata",
+    "pure_shader_space": "function",
+    "post_processing": "function"
+  },
+  "documented_build_getter_adapted": true,
+  "callbacks": {
+    "native": 106,
+    "main": 106,
+    "auxiliary": 0,
+    "bounded_samples": 8,
+    "resolution_changes": 0
+  },
+  "pipeline_observations": {
+    "triple_fsr_section_active": false,
+    "fsr_section_active": true,
+    "hdr_mode_raw": false,
+    "pure_hdr_registration_api": true,
+    "pure_ldr_registration_api": true,
+    "pure_yebis_bypassed": false,
+    "pure_pp_enabled": true,
+    "frame_generation": "unknown",
+    "upscaler_algorithm": "unknown"
+  },
+  "stop": {
+    "event": "stop_witness_completed",
+    "pre_stop_state": "observing",
+    "owned_cleanup": "owned_subscription_removed",
+    "callbacks_after_stop": 0,
+    "witness_interval": "one_script_timer_second_not_a_wall_clock_or_reload_guarantee"
+  },
+  "ownership": {
+    "pp_parameters_written": false,
+    "settings_written_by_observer": false,
+    "exposure_owned_by_restovisuals": false,
+    "textures_accessed": false,
+    "pure_named_effect_registered": false,
+    "shader_executed": false
+  },
+  "unvalidated": {
+    "input_texture_format": true,
+    "input_transfer_and_primaries": true,
+    "input_pre_exposure_convention": true,
+    "returned_canvas_downstream_lifetime": true,
+    "complete_hot_reload_unload_or_crash_recovery": true,
+    "neutral_final_image_pass": true,
+    "matched_image_comparison": true,
+    "game_frame_time_or_FPS": true,
+    "lcs_runtime": true,
+    "csp_0_2_11_runtime": true,
+    "legacy_or_nvidia_hardware": true
+  },
+  "timing_scope": "raw_startup_samples_have_unverified_units_and_are_not_displayed_frame_intervals",
+  "preservation": {
+    "protected_files_unchanged": 29,
+    "selected_settings_restored_and_verified": 49,
+    "normal_owned_process_exit": true,
+    "owned_directory_rollback": "complete"
+  },
+  "earlier_attempts": [
+    {
+      "intent": "unadapted_observer",
+      "result": "blocked_before_registration_required_csp_api_missing",
+      "callbacks": 0,
+      "fully_recovered": true
+    },
+    {
+      "intent": "api_value_types_only",
+      "result": "completed_patch_build_cdata_other_required_APIs_function",
+      "callbacks": 0,
+      "fully_recovered": true
+    }
+  ],
+  "private_evidence_policy": "raw_logs_settings_backups_and_game_screenshots_remain_ignored_not_published",
+  "rendering_gate": "blocked_pending_authoritative_version_specific_input_and_lifetime_contract"
+}

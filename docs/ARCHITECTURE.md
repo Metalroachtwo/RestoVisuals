@@ -1,10 +1,12 @@
-# RestoVisuals architecture, Phase 0B checkpoint
+# RestoVisuals architecture, Phase 0D checkpoint
 
 Phase 0D additions: [Dream/WeatherFX/Pure ownership](DREAM_WEATHER_ARCHITECTURE.md)
 and an original finite host probe now extend this architecture. The probe reuses
-the existing observer and stages only uniquely owned files; native deployment
-remains conditional. No Pure named rendering effect or replacement bridge is
-implemented. A native observer receipt is a prerequisite for the neutral pass.
+the existing observer and stages only uniquely owned files. Actual preview361/
+Gamma execution delivered 106 main callbacks and a quiet owned-stop witness;
+the experimental files and settings were fully recovered. No Pure named effect
+or replacement bridge is implemented. A neutral pass remains blocked by actual
+input format/encoding/exposure and returned-canvas lifetime contracts.
 
 Future controls retain Camera Realism, Enhanced Photorealism (default) and
 Cinematic Realism, bounded warmth/saturation/contrast/highlight/shadow/clarity
@@ -23,10 +25,12 @@ downloads, installation hooks, telemetry service or game-setting writer.
 Windows-only GPU detection uses system DXGI/D3D11 through ctypes; the planner,
 schema validator, file audit and frame-time mathematics are independently usable.
 A read-only Lua observer now exists with explicit host/version/build/mode gates,
-bounded diagnostic samples and owned subscription cleanup. It is tested in
-LuaJIT against synthetic hosts, not installed or exercised in the game. A future
-verified CSP/Pure host must supply the actual runtime receipt before rendering
-integration. The optional Lua test dependency is isolated from the core CLI.
+bounded diagnostic samples and owned subscription cleanup. LuaJIT contract tests
+are supplemented by the narrowly verified native preview361/Gamma receipt above.
+No experimental component remains installed. The native host adapter wraps only
+the documented FFI build getter in its own proxy and retains exact version/build
+checks. Input semantics/lifetime and neutral output still gate rendering.
+The optional Lua test dependency is isolated from the core CLI.
 
 The explicit `gpu-validate` command owns a windowless D3D11 context and executes
 original pixel/vertex shaders, reads RGBA32F/RGBA16F output with row-pitch handling,
@@ -60,7 +64,7 @@ flowchart LR
 | Capability adapters | context + per-capability evidence states -> feature eligibility | Observed labels stay observations. Optional eligibility requires tested evidence for matching CSP, Pure mode, render mode and resolution |
 | Performance planner | config + explicit adapter + capability report -> candidate JSON | Proposed memory class and resource ceiling; no setting writes, FPS prediction or runtime certification |
 | Benchmark analysis | display interval CSV -> average FPS, 1% low and percentiles | Duration-based average, documented slowest-frame definition, explicit warmup; no capture source certification |
-| Read-only runtime observer | injected CSP/Pure APIs -> copied bounded receipt | Implemented and LuaJIT contract-tested; every PP callback returns nil, no settings/texture access |
+| Read-only runtime observer | supplied CSP/Pure APIs -> copied bounded receipt | LuaJIT contracts and one native preview361/Gamma run; every PP callback returns nil, no settings/texture access; owned stop witnessed |
 | Isolated GPU validation | explicit adapter + original source -> readback comparison and timestamps | Actual D3D11 execution; no game/window/swap chain, exact identity gate, owned resources released |
 | Rendering integration | stage/format/ownership + approved operations | Future verified CSP/Pure host and named effect lifecycle; no active game module deployed |
 | Replay integration | versioned capture intent and visual profile ID | Future external MCP; no camera/replay implementation in Phase 0 |

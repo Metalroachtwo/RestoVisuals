@@ -99,7 +99,7 @@ precision tolerances, payload arithmetic and narrowly scoped GPU timestamps.
 The normal suite does not run GPU draws implicitly. Optional Lua tests require
 the hash-pinned local setup in the [observer guide](../runtime/lua/README.md).
 
-## Controlled full-resolution demonstration
+## Runtime observer preparation
 
 Phase 0D also provides workspace-only runtime package preparation:
 
@@ -112,6 +112,8 @@ Both commands require new ignored workspace directories. They install/launch
 nothing. The diagnostic variant inspects native API value types without creating
 subscriptions or timers. See the [host experiment contract](../runtime/lua/README.md)
 and [actual Phase 0D limits](PHASE0D_RUNTIME.md) before any deployment.
+
+## Controlled full-resolution demonstration
 
 ```powershell
 python -m restovisuals gpu-demo --adapter-index 0 --profile both --output .local/my-new-demo

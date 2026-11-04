@@ -8,6 +8,14 @@ tested rollback gates pass. It does not establish those gates or authorize a
 bridge/foreign-file replacement. No isolated host has been newly provisioned.
 See [the current architecture assessment](DREAM_WEATHER_ARCHITECTURE.md).
 
+The scoped existing-installation route was subsequently exercised: 106 real
+preview361/Gamma callbacks, an owned stop witness, normal session exit and exact
+file recovery. Twenty-nine protected hashes and 49 selected settings match their
+originals. The prior observer-loading blocker is resolved within that scope.
+Neutral rendering remains blocked by input metadata and canvas lifetime, not by
+an untested permission assumption. See [actual results](PHASE0D_RUNTIME.md).
+The remaining Phase 0C assessment below is historical.
+
 Phase 0C, 2026-11-01. **BLOCKED for game launch/deployment**: no validated isolated
 Assetto Corsa host or native loading path is available in this workspace. The
 assessment below specifies how that gate can be satisfied without changing the

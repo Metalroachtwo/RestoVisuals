@@ -129,7 +129,74 @@ One fresh observer-only package with that adapter received a separate critical
 review and bound rollback rehearsal. Run `2474c30f7a9b4b0abfd043c91f7885e9`, manifest
 SHA256 `1ef0b2d4a3a84a0f24fe3b76bea206820a9b7bc4a2f07920b4dedf6fb76b1a88`, is
 the only reviewed next callback attempt. Rendering remains NO-GO. Its native
-result is pending; the prior failure and declaration run are retained separately.
+result is now complete and successful within the observer-only scope below;
+the prior failure and declaration run are retained separately.
 
-Format/encoding, exposure stage, supported named-effect removal, LCS execution,
-successful PP callbacks and a neutral final-image pass remain unvalidated.
+## Validated native result and recovery
+
+Tested code: `0cc3670968e6f6671d7934c71bd241efd2304a64`, pushed/verified before
+the run. The reviewed v4 package was launched through the selected existing
+replay in Content Manager at 12:38 Eastern. Its matching receipt reports:
+
+| Observation | Actual native result | Limit |
+|---|---|---|
+| CSP version/build | 0.3.0-preview361 / 3898 | No stable 0.2.11 execution |
+| Pure shader space | Gamma | Not an input-texture transfer/primaries query; exact Pure hotfix/fork identity remains unknown |
+| Callback delivery | 106 main, zero auxiliary, eight bounded samples | One startup/replay context; no VR/auxiliary validation |
+| Callback size | 1477x831, no observed resize | Saved display output is 1920x1080; do not allocate from the display setting |
+| PP state | Pure PP enabled, YEBIS not bypassed, raw HDR-output flag false | Does not identify HDR input encoding or precision |
+| Upscaling flags | FSR section active; triple flag false | Algorithm and FG remain unknown; no new optional capability is certified |
+| Exposure | Supplied values initially about 0.6333, then 0.4; RestoVisuals writes none | Existing Pure/AC path retains control; exact pre-exposure convention is unknown |
+| Owned stop | Clean preserved pre-stop state, owned disposer completed, terminal `stop_witness_completed`, zero callbacks after stop | One quiet script-timer interval, not crash/hot-reload certification |
+| Rendering | No texture access, shader or Pure named effect | No neutral final-image or visual-enhancement result |
+
+The host-supplied receipt scope remains conservatively `csp_runtime_unverified`;
+the external process/launch/run-ID evidence establishes the narrow actual native
+observation. It does not promote planner features or certify gameplay. Raw CPU/GPU
+startup values have unverified units and are not displayed frame intervals.
+No FPS or pass-cost conclusion is drawn.
+
+The owned replay and CM exited normally. Exact journaled recovery removed all
+three Lua files, the declared receipt and created target/staging directories.
+All **29 protected hashes match** and all **49 selected settings match their
+original backups**. Only camera settings, race settings and CM state needed
+restoration; each was hash-bound and restored after both processes exited.
+Two owned-window screenshots were visually inspected and retained privately.
+They show the native replay scene, not a matched before/after comparison or
+achievement of the approved visual target.
+
+A fresh **71-file tracked-source export** of this checkpoint passes all 124
+tests with LuaJIT. Without it, 83 execute and 41 explicitly skip. It uses no
+private SDK/game files. All original 104 tests and shader sources remain unchanged.
+The [sanitized native evidence](../examples/phase0d-native-observer.json) publishes
+only the original observer's measurements and preservation summary. Raw logs,
+configuration backups, screenshots and third-party analysis stay ignored.
+
+## Neutral rendering remains BLOCKED
+
+The final bounded architecture review found an official owned-canvas candidate,
+but no established input-metadata/lifetime contract sufficient for the requested
+neutral final-image test:
+
+| Interface | What is established | Missing prerequisite |
+|---|---|---|
+| `ac.onPostProcessing` canvas return | Substitutes YEBIS HDR input at matching resolution | It is before YEBIS, not a separately owned final-image stage; actual source format/transfer/primaries/pre-exposure are not specified |
+| `ui.ExtraCanvas` constructor and `dispose` | An owned format can be selected and explicitly released | A chosen destination format does not discover the source; downstream reference lifetime and resize replacement remain unverified |
+| `ui.imageSize` / `ui.imageState` | Size/readiness interfaces | Not general format/encoding queries; special-texture state is limited |
+| `ExtraCanvas:setExposure` | Exposure override for a particular YEBIS-AA canvas use | Not source exposure metadata; do not use it to guess the input convention |
+| Pure SPICE additions | Named HDR/LDR registration is exposed | Supported owned removal remains unestablished; private-list/UI deletion is not a substitute |
+
+Both installed WeatherFX and PP SDK declarations were checked selectively.
+The callback's HDR label, Gamma flag and raw HDR-output flag do not prove the
+source contract. A numerical copy shader cannot yet be claimed neutral across
+unverified decoding, conversion/quantization, exposure and downstream consumption.
+No shader was deployed to fill that evidence gap, and no bridge was replaced.
+
+The exact next milestone is version-specific authoritative documentation or a
+supported metadata interface for the dynamic HDR input and returned-canvas
+lifetime, followed by a concrete neutral-pass validation design. Reuse the proved
+observer/owned unsubscribe and actual callback dimensions. Do not repeat the
+native observation or Dream search without a new gap/change. Gamma/LCS, stable
+CSP, physical legacy/NVIDIA support and matched gameplay measurements remain
+separate gates. The Phase 0D observer milestone passed; the requested neutral
+rendering milestone is incomplete and blocked.

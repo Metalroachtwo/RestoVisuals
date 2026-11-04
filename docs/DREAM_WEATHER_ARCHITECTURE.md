@@ -2,7 +2,8 @@
 
 Phase 0D, 2026-11-04. Bounded read-only investigation of the installed packages.
 No proprietary implementation, preset, LUT or parameter table is reproduced.
-Runtime behavior remains unconfirmed until an actual game receipt is obtained.
+The native observer facts below now supplement source observations; unmeasured
+Dream-specific behavior remains unconfirmed.
 
 ## Observed installation and visual direction
 
@@ -113,8 +114,17 @@ rendering, geometry reconstruction or paid dependency is introduced. Photo
 Studio/softbox remains deferred behind a future module boundary; no UI or
 material-enhancement engine is implemented here.
 
-Next native gate: prove observer loading, actual callback delivery, version/build,
-context and owned stop; establish format/encoding/exposure and named-effect
-removal before a neutral final-image pass. A missing required interface stops
-dependent work. Real frames, matched captures and frame-time evidence remain
-separate acceptance requirements.
+The observer-loading/delivery/owned-stop gate now passes as described below.
+The next rendering gate is format/encoding/exposure and safe returned-canvas or
+named-effect ownership/removal before a neutral final-image pass. A missing
+required interface stops dependent work. Matched captures and frame-time
+evidence remain separate acceptance requirements.
+
+Phase 0D native update: observer loading/delivery/owned stop now passed on the
+installed preview361/Gamma path: 106 main callbacks, actual build3898, Gamma
+shader mode, 1477x831 callback surface and zero post-stop callbacks. Pure PP was
+enabled and YEBIS not bypassed. The Weather Control app also logged loading;
+this does not confirm user activation or its weather overrides. The observer
+does not identify exact Pure hotfix/fork, dynamic-texture encoding or a working
+Dream companion/LUT. All experimental files and selected settings were recovered.
+See [the native evidence and remaining rendering gate](PHASE0D_RUNTIME.md).

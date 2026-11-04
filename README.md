@@ -208,9 +208,11 @@ results and their limits.
 See the [host isolation gate](docs/RUNTIME_ISOLATION.md) and
 [freeware/dependency boundaries](docs/FREEWARE_AND_DEPENDENCIES.md).
 Phase 0D adds [Dream/weather architecture findings](docs/DREAM_WEATHER_ARCHITECTURE.md)
-and [a bounded native observer experiment](docs/PHASE0D_RUNTIME.md). Its entry
-loaded inside Assetto Corsa, but the observer's required-API gate stopped before
-callback registration. A neutral in-game rendering pass remains unvalidated.
+and [a bounded native observer experiment](docs/PHASE0D_RUNTIME.md). The observer
+received 106 real main-pass callbacks on preview361/Gamma and completed owned
+unsubscribe with no callbacks during its stop witness. All experimental files
+were recovered. A neutral in-game pass remains blocked on input metadata and
+canvas-lifetime contracts; no visual/FPS improvement is claimed.
 
 The [Phase 0B report](docs/PHASE0B_RUNTIME.md) records the GPU-discovered identity
 defect and fix, the [official 0.2.11 reference](docs/CSP0211_REFERENCE.md) records

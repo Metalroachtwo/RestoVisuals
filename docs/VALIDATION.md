@@ -1,6 +1,35 @@
 # Phase 0 validation record
 
-## Current Phase 0C checkpoint
+## Current Phase 0D checkpoint
+
+Tested/pushed code: `0cc3670968e6f6671d7934c71bd241efd2304a64`.
+All **124 tests pass** with the optional LuaJIT setup, preserving every original
+104 test unchanged. A fresh 71-file tracked-source export passes the same suite;
+without LuaJIT, 83 execute and 41 explicitly skip. Original shader/compiler/GPU
+sources are unchanged, so the prior isolated GPU evidence remains scoped to its
+original runs rather than being redundantly repeated.
+
+Actual Content Manager-launched native preview361/build3898/Gamma observation
+now passes: 106 main callbacks, eight bounded samples, clean pre-stop state,
+owned subscription removal and zero callbacks during the stop witness. Actual
+callback dimensions were 1477x831 despite saved 1920x1080 output. The first guard
+failure, declaration-only diagnostic and documented FFI getter adapter are
+preserved in [Phase 0D](PHASE0D_RUNTIME.md). Native entry/owned stop does not
+certify texture formats, transfers, canvas lifetime, live hot reload or shaders.
+
+Package-bound filesystem rehearsals cover 26 installation and 25 removal failure
+points, repeated recovery, collision refusal, edited/ambiguous-file preservation
+and original ancestry guards. All live attempts exited normally and recovered
+their owned files. All 29 protected hashes and 49 selected settings match their
+originals; three session-changed settings were restored after process exit.
+
+The [sanitized native record](../examples/phase0d-native-observer.json) contains
+no raw logs, private paths, third-party source or game screenshots. A neutral
+in-game rendering pass remains **BLOCKED** by the actual HDR input contract and
+returned-canvas consumption lifetime. No matched game images/frame-time or FPS
+gain, LCS runtime, stable runtime or physical legacy/NVIDIA support is certified.
+
+## Historical Phase 0C checkpoint
 
 Code `d83b1f4b272f40c044fa0cfbd3ce59b4154df16f` is pushed and remotely verified.
 All **104 tests pass with no skips** with optional LuaJIT. All original 93 tests
