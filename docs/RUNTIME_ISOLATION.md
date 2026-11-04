@@ -1,5 +1,13 @@
 # Runtime host isolation readiness
 
+Phase 0D update, 2026-11-04: the owner conditionally authorized a reversible
+experiment in the existing installation and weekday 08:00-17:00 Eastern GUI
+testing through Content Manager. This supersedes the historical blanket
+prohibition below only when all ownership, backup, supported lifecycle and
+tested rollback gates pass. It does not establish those gates or authorize a
+bridge/foreign-file replacement. No isolated host has been newly provisioned.
+See [the current architecture assessment](DREAM_WEATHER_ARCHITECTURE.md).
+
 Phase 0C, 2026-11-01. **BLOCKED for game launch/deployment**: no validated isolated
 Assetto Corsa host or native loading path is available in this workspace. The
 assessment below specifies how that gate can be satisfied without changing the

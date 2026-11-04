@@ -1,5 +1,38 @@
 # Read-only CSP/Pure observer contract
 
+## Phase 0D finite host experiment
+
+`prepare-observer-probe --output .local/new-probe` stages three original Lua
+files and a hash/run-ID manifest under a new workspace directory. It does not
+install files, modify settings or launch a game. The unprepared loader is inert.
+The candidate target is the uniquely owned
+`extension/config-ext/PureLdrEffects/RestoVisuals_Observer_0D/` directory;
+the installed Pure global loader remains unmodified.
+
+The prepared entry requires the existing Pure weather context and pins the
+owner's preview361/Gamma experiment. It reuses the observer unchanged, returns
+no rendering override, registers no Pure named effect and writes only its own
+`runtime-receipt.json`. Import/re-entry has a uniquely owned lifetime guard.
+The new host probe arranges a ten-second script-timer stop, invokes the returned
+unsubscribe and checks for later native callbacks over another one-second
+script-timer interval. Timer intervals are not guaranteed wall-clock durations
+when the host does not update. Receipt failures and unknown handles block start
+or stop the owned observation; there is no automatic retry. `onRelease` remains
+best effort, with explicit stop handling required as well.
+
+The two timers and release handle are owned by this experiment. A late callback
+fails the cleanup witness while the observer itself stays inert. Zero callbacks
+remain zero and do not validate the PP stage. Neither this probe nor synthetic
+tests determine texture encoding, render a neutral pass, or certify named-effect
+removal. Actual file rollback requires a verified manifest, no active game,
+unchanged owned source hashes and handling only declared owned output; do not
+recursively remove an unverified directory.
+
+Deployment is conditional on the Phase 0D gates and critical review, even though
+the owner has authorized the task. No foreign file, shared test-ground script,
+existing Pure LDR bridge or active filter slot may be overwritten. The package
+and Lua contract tests alone are not native loading/unloading validation.
+
 `restovisuals_observer.lua` is original module source, not an installed PP filter.
 Import has no registration side effect. No manifest or installer is supplied:
 the working Pure scriptable-filter slot must remain owned by Pure.

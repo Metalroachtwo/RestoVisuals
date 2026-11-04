@@ -133,3 +133,24 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   licensing. A public GitHub repository does not automatically grant broad rights
   to modify or redistribute. Do not select a repository license without the
   project owner's approval. Keep the licensing decision explicitly unresolved.
+
+## Phase 0D scoped experiment authorization (2026-11-04)
+
+- The owner's Phase 0D brief and follow-up GUI authorization conditionally revise
+  the earlier Phase 0 blanket deployment/GUI prohibition for this task only.
+  Assess isolation first. A live experiment may add uniquely owned RestoVisuals
+  files only after exact paths/ownership, collision checks, verified backups,
+  supported lifecycle and a tested rollback are established. Do not interpret
+  this as permission to replace Pure's bridge or an existing mod/filter/script.
+- Backed-up routine test configuration through supported CM/CSP/Pure/game
+  interfaces is authorized. Preserve locked versions and update policies;
+  stop and restore the last verified state after a failed experiment.
+- GUI testing is authorized only Monday-Friday 08:00-17:00 America/New_York.
+  Check the current Eastern time before use and stop at 17:00. Launch Assetto
+  Corsa through Content Manager exclusively. Preserve unrelated active work.
+  No creative/DCC access or persistent blanket GUI enablement is granted.
+- Unknown registration/removal, format/encoding or cleanup blocks dependent
+  rendering. A staged package, source declaration or synthetic rehearsal is not
+  native load/unload, callback, neutral-image or game-performance validation.
+- The permanent freeware policy, license-owner gate, protected installation
+  versions, existing history and 5% weekly cutoff remain mandatory.

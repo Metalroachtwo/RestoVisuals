@@ -1,5 +1,17 @@
 # RestoVisuals architecture, Phase 0B checkpoint
 
+Phase 0D additions: [Dream/WeatherFX/Pure ownership](DREAM_WEATHER_ARCHITECTURE.md)
+and an original finite host probe now extend this architecture. The probe reuses
+the existing observer and stages only uniquely owned files; native deployment
+remains conditional. No Pure named rendering effect or replacement bridge is
+implemented. A native observer receipt is a prerequisite for the neutral pass.
+
+Future controls retain Camera Realism, Enhanced Photorealism (default) and
+Cinematic Realism, bounded warmth/saturation/contrast/highlight/shadow/clarity
+controls, separate monitor calibration and custom presets. Weather-responsive
+calibration reads verified conditions while Pure/CSP retains weather/exposure
+ownership. Photo Studio/softbox and material enhancements remain deferred.
+
 ## Decision and current implementation
 
 Use one vendor-neutral engine with capability adapters and separate Pure
