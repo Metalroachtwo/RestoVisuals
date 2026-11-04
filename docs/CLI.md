@@ -101,6 +101,18 @@ the hash-pinned local setup in the [observer guide](../runtime/lua/README.md).
 
 ## Controlled full-resolution demonstration
 
+Phase 0D also provides workspace-only runtime package preparation:
+
+```powershell
+python -m restovisuals prepare-observer-probe --output .local/new-observer-package
+python -m restovisuals prepare-observer-probe --diagnostic-only --output .local/new-api-declarations
+```
+
+Both commands require new ignored workspace directories. They install/launch
+nothing. The diagnostic variant inspects native API value types without creating
+subscriptions or timers. See the [host experiment contract](../runtime/lua/README.md)
+and [actual Phase 0D limits](PHASE0D_RUNTIME.md) before any deployment.
+
 ```powershell
 python -m restovisuals gpu-demo --adapter-index 0 --profile both --output .local/my-new-demo
 ```

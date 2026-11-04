@@ -3,7 +3,7 @@
 Prepared 2026-11-04, America/New_York. Current work resumed from verified Phase 0C
 HEAD `5fa7c42491ecb0cd049232fc70ae35d08ca21dbb`. The owner-supplied approved
 reference PNG is untracked and preserved. The original 104 tests remain unchanged;
-118 now pass with the declared optional LuaJIT dependency.
+121 now pass with the declared optional LuaJIT dependency.
 
 Read [DREAM_WEATHER_ARCHITECTURE.md](DREAM_WEATHER_ARCHITECTURE.md) and
 [PHASE0D_RUNTIME.md](PHASE0D_RUNTIME.md) for new findings and the bounded native
@@ -32,9 +32,21 @@ is `.local/phase0d_transaction_v2.py`; its first intent journal must precede any
 game write. It preserves ambiguous output/edited files and disables only verified
 owned executable source. Retain the reviewed package until recovery completes.
 
-At this checkpoint CM alone has been opened for read-only inspection. No live
-RestoVisuals file or game launch has occurred yet. Actual experiment and rollback
-results must replace this pending status before closeout. Never infer a neutral
+The first reviewed observer entry loaded inside a CM-launched replay, but failed
+`required_csp_api_missing` before registration. Its zero callbacks and retained
+blocked pre-stop state are in `.local/phase0d-20261104/deployment-v2-output.json`.
+The session and owned CM exited normally; all owned files/directories were
+removed. All 29 protected hashes and 49 selected settings match their original
+backups after restoring only the three session-changed files. See
+`post-runtime-preservation.json` for the complete targeted rollback result.
+
+A separate API-type-only diagnostic is staged under `package-v3/`, bound to run
+`27a323d258214f688f152443151162da` and its own review/rehearsal. It registers no
+callback, timer or release handler and leaves the original observer's strict gate
+unchanged. Only that declaration check is reviewed for a further native attempt;
+callbacks/rendering are not. Use `phase0d_transaction_v3.py` and its v3 journal,
+never silently reuse an earlier run's permission or receipt. Its native result
+is pending. Never infer a neutral
 pass, game FPS, LCS support, encoding or effect-removal proof from the preparer,
 observer source or 51 synthetic filesystem failure-point recoveries.
 

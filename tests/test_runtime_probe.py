@@ -161,6 +161,27 @@ class HostProbeTests(unittest.TestCase):
         self.assertIsNone(self.lua.execute(entry))
         self.assertEqual(self.state.registered, 0)
 
+    def test_type_diagnostic_never_registers_callback_timer_or_release(self):
+        self.host.diagnostic_only = True
+        experiment = self.run_probe()
+        result = experiment.receipt(experiment)
+        self.assertEqual(result.event, 'api_type_diagnostic_complete')
+        self.assertEqual(result.required_api_types.patch_version, 'function')
+        self.assertEqual(result.required_api_types.patch_build, 'function')
+        self.assertEqual(result.required_api_types.post_processing, 'function')
+        self.assertEqual(self.state.registered, 0)
+        self.assertEqual(self.state.nextID, 0)
+        self.assertIsNone(self.state.release)
+        self.assertFalse(result.shader_executed)
+
+    def test_callable_ffi_value_is_reported_without_weakening_observer_gate(self):
+        self.host.ac.getPatchVersionCode = self.lua.eval("require('ffi').cast('int (*)()', function() return 3898 end)")
+        experiment = self.run_probe()
+        result = experiment.receipt(experiment)
+        self.assertEqual(result.required_api_types.patch_build, 'cdata')
+        self.assertEqual(result.observer_before_stop.reason, 'required_csp_api_missing')
+        self.assertEqual(self.state.registered, 0)
+
 
 class PackagePreparationTests(unittest.TestCase):
     @classmethod
@@ -188,6 +209,14 @@ class PackagePreparationTests(unittest.TestCase):
     def test_preparation_rejects_destination_outside_local_before_source_access(self):
         with self.assertRaises(ValueError):
             prepare_observer_probe(ROOT / "not-created")
+
+    def test_diagnostic_package_declares_and_pins_nonregistering_mode(self):
+        with tempfile.TemporaryDirectory(dir=self.temp_root) as directory:
+            output = Path(directory) / 'diagnostic'
+            manifest = prepare_observer_probe(output, diagnostic_only=True)
+            self.assertTrue(manifest['diagnostic_only'])
+            self.assertEqual(manifest['intent'], 'native_api_type_diagnostic_only')
+            self.assertIn('local diagnosticOnly = true', (output / TARGET / FILES[0]).read_text())
 
     def test_cli_preparation_failure_is_redacted_without_installation(self):
         with patch("sys.stderr", new_callable=io.StringIO) as error:

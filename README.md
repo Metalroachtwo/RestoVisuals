@@ -192,9 +192,9 @@ remains read-only; CSP 0.3.0-preview361 and Content Manager 0.8.2913.40776 are
 locked. CSP 0.2.11 is the minimum target, with runtime validation still pending.
 No other CSP track is authorized.
 
-The current suite passes 104 tests with the optional hash-pinned LuaJIT
-dependency. Without that dependency, 25 Lua contract tests explicitly skip;
-the other 79 tests run on the Windows development host. The original 93 tests
+The current suite passes 121 tests with the optional hash-pinned LuaJIT
+dependency. Without that dependency, 38 Lua contract tests explicitly skip;
+the other 83 tests run on the Windows development host. The original 104 tests
 are preserved. See the
 [observer contract](runtime/lua/README.md) for the isolated test setup.
 Run `python -m restovisuals gpu-validate --adapter-index 0` explicitly for bounded
@@ -207,6 +207,10 @@ The [Phase 0C report](docs/PHASE0C_RUNTIME.md) and
 results and their limits.
 See the [host isolation gate](docs/RUNTIME_ISOLATION.md) and
 [freeware/dependency boundaries](docs/FREEWARE_AND_DEPENDENCIES.md).
+Phase 0D adds [Dream/weather architecture findings](docs/DREAM_WEATHER_ARCHITECTURE.md)
+and [a bounded native observer experiment](docs/PHASE0D_RUNTIME.md). Its entry
+loaded inside Assetto Corsa, but the observer's required-API gate stopped before
+callback registration. A neutral in-game rendering pass remains unvalidated.
 
 The [Phase 0B report](docs/PHASE0B_RUNTIME.md) records the GPU-discovered identity
 defect and fix, the [official 0.2.11 reference](docs/CSP0211_REFERENCE.md) records

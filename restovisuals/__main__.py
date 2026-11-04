@@ -48,6 +48,7 @@ def main(argv=None):
     gpu_demo.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1] / "shaders/RV_ColorPrototype.hlsl")
     probe_package = commands.add_parser("prepare-observer-probe", help="Stage original observer files under a new .local directory; does not install or launch")
     probe_package.add_argument("--output", type=Path, required=True)
+    probe_package.add_argument("--diagnostic-only", action="store_true", help="Record API value types without subscriptions or rendering")
     compare = commands.add_parser("compare", help="Compare captured CSVs only when declared context matches")
     for argument in ("baseline_csv", "baseline_metadata", "candidate_csv", "candidate_metadata"):
         compare.add_argument(argument, type=Path)
@@ -85,7 +86,7 @@ def main(argv=None):
         elif args.command == "gpu-demo":
             result = demonstrate_gpu_shader(args.adapter_index, args.source, args.output, profile=args.profile)
         elif args.command == "prepare-observer-probe":
-            result = prepare_observer_probe(args.output)
+            result = prepare_observer_probe(args.output, diagnostic_only=args.diagnostic_only)
         elif args.command == "compare":
             result = compare_captures(read_frame_csv(args.baseline_csv), read_frame_csv(args.candidate_csv),
                                       read_object(args.baseline_metadata), read_object(args.candidate_metadata))

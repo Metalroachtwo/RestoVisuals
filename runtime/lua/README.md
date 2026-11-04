@@ -32,6 +32,14 @@ The wrapper retains `observer_before_stop`, since the original observer's normal
 stop state must not hide a prior mode/API fault. A blocked pre-stop snapshot
 fails the terminal experiment even when callback removal subsequently succeeds.
 
+`prepare-observer-probe --diagnostic-only --output .local/new-api-types` prepares
+a narrower declaration check: it records the raw native value types for the
+required version/build/PP/Pure-mode APIs and exits before observer start,
+timer scheduling or release registration. The same explicit deployment/recovery
+gates apply. A `cdata` observation is a value category, not proof of callability;
+`unreadable` differs from absent. This mode does not validate unsubscribe even
+when its shared receipt contains a stop marker.
+
 Deployment is conditional on the Phase 0D gates and critical review, even though
 the owner has authorized the task. No foreign file, shared test-ground script,
 existing Pure LDR bridge or active filter slot may be overwritten. The package

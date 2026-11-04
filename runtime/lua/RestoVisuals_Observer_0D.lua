@@ -1,5 +1,6 @@
 -- Original loader entry. A workspace-only preparer supplies this run identifier.
 local runID = '__RESTOVISUALS_RUN_ID__'
+local diagnosticOnly = false
 if runID == '__RESTOVISUALS_' .. 'RUN_ID__' then return end
 local guard = 'RestoVisuals_Observer_0D_lifetime'
 if rawget(_G, guard) ~= nil then return end
@@ -13,6 +14,7 @@ local ok = pcall(function()
   local Observer = dofile(folder .. 'restovisuals_observer.lua')
   local Probe = dofile(folder .. 'restovisuals_host_probe.lua')
   local host = {ac = ac, pure = pure, execution_scope = 'csp_runtime_unverified',
+    diagnostic_only = diagnosticOnly,
     schedule = setTimeout, cancel = clearTimeout, on_release = ac.onRelease,
     write = function(data) return io.save(folder .. 'runtime-receipt.json', JSON.stringify(data)) end}
   local experiment = Probe.run(host, Observer,

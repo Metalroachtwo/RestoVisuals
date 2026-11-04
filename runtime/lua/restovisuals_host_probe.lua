@@ -11,6 +11,16 @@ function M.run(host, Observer, config, runID)
   local deadline, grace, releaseCancel, observer, observerBeforeStop
   local event, finished, initialWrite = 'preparing', false, false
   local object = {}
+  local function apiType(reader)
+    local ok, value = pcall(reader)
+    return ok and type(value) or 'unreadable'
+  end
+  local apiTypes = {
+    patch_version = apiType(function() return host.ac.getPatchVersion end),
+    patch_build = apiType(function() return host.ac.getPatchVersionCode end),
+    post_processing = apiType(function() return host.ac.onPostProcessing end),
+    pure_shader_space = apiType(function() return host.pure.system.isCSP_LCS end)
+  }
   local function receipt()
     return {schema_version = 1, run_id = runID, event = event,
       execution_scope = host.execution_scope or 'unverified_host',
@@ -18,6 +28,8 @@ function M.run(host, Observer, config, runID)
       callbacks_after_stop = stoppedAt and (nativeCalls - stoppedAt) or 0,
       stop_witness_available = stoppedAt ~= nil,
       owned_lifecycle_calls_succeeded = cleanupOK,
+      required_api_types = apiTypes,
+      diagnostic_only = host.diagnostic_only == true,
       named_pure_effect_registered = false, shader_executed = false,
       game_visuals_validated = false, buffer_encoding = 'unknown',
       observer_before_stop = observerBeforeStop,
@@ -82,6 +94,10 @@ function M.run(host, Observer, config, runID)
   observer = Observer.new({ac = proxy, pure = host.pure, execution_scope = host.execution_scope}, config)
   initialWrite = persist('prepared_not_registered')
   if not initialWrite then finish('receipt_sink_failed_no_start'); return object end
+  if host.diagnostic_only == true then
+    finish('api_type_diagnostic_complete')
+    return object
+  end
 
   local ok, handle = pcall(host.on_release, function()
     releaseCancel = nil -- The host is already dispatching this release callback.
