@@ -1,4 +1,12 @@
-# RestoVisuals architecture, Phase 0K checkpoint
+# RestoVisuals architecture, Phase 0L checkpoint
+
+Phase 0L [establishes the candidate fixture authoring path](PHASE0L_FIXTURE_PIPELINE.md):
+original OBJ/MTL source, installed legacy FBX exporter and documented ksEditor
+Open FBX / Save KN5 workflow. Tool availability and source geometry are verified
+offline; no DCC import, FBX/KN5 export or native load occurred. The prepared pad
+has a known UV-derived basis and an explicitly unverified material proposal.
+Interactive export remains blocked by current authorization; no headless KN5
+interface or alternate converter is substituted. Native readiness remains NO-GO.
 
 Phase 0K [prepares experimental normal-only DDS assets](PHASE0K_MATERIAL_FIXTURE.md)
 and a disabled original package with workspace recovery rehearsal. Conventional

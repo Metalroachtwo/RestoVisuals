@@ -1,0 +1,33 @@
+{
+  "fbx_export_succeeded": false,
+  "files": {
+    "README.md": {
+      "bytes": 1423,
+      "sha256": "51070653160e6589482220b08bf84e1dfa7dc50205c4173b052d69ac79328e6c"
+    },
+    "pad.mtl": {
+      "bytes": 191,
+      "sha256": "487df5048e62addeaec309c51c5f84f6efa17f2adc536b0af2c95707d009cced"
+    },
+    "pad.obj": {
+      "bytes": 304,
+      "sha256": "da75d38be6614202f03235c81dfca57d51449575232929ca9e5ceb50c4715575"
+    },
+    "source-contract.json": {
+      "bytes": 3698,
+      "sha256": "3a3f3afa9cd78d17c1ed949cb4d8558c2f95e75ef3b1b894c9d4873a3ddf54e9"
+    },
+    "textures/flat.dds": {
+      "bytes": 349672,
+      "sha256": "ce82d560691c9fcd58ca30ba22f725e48b293048547e0f4c1a77f1ac360393d1"
+    },
+    "textures/neutral_diffuse.png": {
+      "bytes": 108,
+      "sha256": "6b5ee3661e0bde367b957fcea84b2ed5a32d2ab6afaeb9ca1b0d544fd402f54b"
+    }
+  },
+  "kn5_export_succeeded": false,
+  "native_ready": false,
+  "schema_version": 1,
+  "status": "original_source_only"
+}

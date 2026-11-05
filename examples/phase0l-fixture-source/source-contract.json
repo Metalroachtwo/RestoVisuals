@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "ownership": "Original RestoVisuals geometry and texture inputs",
+  "status": "source_only_not_exported",
+  "native_ready": false,
+  "fbx_export_succeeded": false,
+  "kn5_export_succeeded": false,
+  "dcc_import_validated": false,
+  "source_format": "Wavefront OBJ with one MTL preview material",
+  "mesh": "RV0L_TEST_PAD",
+  "material": "RV0L_NORMAL_TEST",
+  "counts": {"objects": 1, "materials": 1, "vertices": 4, "quad_faces": 1, "expected_triangles": 2, "uv_sets": 1},
+  "intended_metres_per_source_unit": 1,
+  "positions": [[-6,0,6],[6,0,6],[6,0,-6],[-6,0,-6]],
+  "uv1": [[0,0],[6,0],[6,6],[0,6]],
+  "normal": [0,1,0],
+  "tangent": [1,0,0],
+  "bitangent": [0,0,-1],
+  "intended_metres_per_uv_repeat": 2,
+  "tangent_storage": "Analytically derived here; OBJ stores no explicit tangents. FBX tangent export/import must be verified.",
+  "material_proposal": {
+    "status": "exact_expectation_pending_ksEditor_confirmation",
+    "shader_candidate": "ksPerPixelNM",
+    "shader_artifact_observed_in_sdk": true,
+    "native_shader_contract_verified": false,
+    "expected_required_slots": {"txDiffuse": "textures/neutral_diffuse.png", "txNormal": "textures/flat.dds"},
+    "expected_properties": {"ksAmbient": 0.2, "ksDiffuse": 0.6, "ksSpecular": 0.0, "ksSpecularEXP": 10.0, "ksEmissive": [0,0,0]},
+    "expected_render_state": {"blend": "opaque", "alpha_test": false, "transparent": false, "cast_shadows": true, "double_sided": false},
+    "unknowns": ["actual slot/property availability and types", "normal RGB/alpha interpretation", "native tangent handedness and V direction", "DDS loading and mip/sampler behavior", "full native property and flag baseline"]
+  },
+  "source_texture_interpretation": {
+    "diffuse": "Original constant RGB8 128/128/128 PNG with an sRGB intent tag. Native color handling is unverified.",
+    "normal": "Byte-identical Phase 0K experimental flat DDS; encoded 128/128/255, A=255, nine mips, DXGI 28. Native compatibility remains unknown."
+  },
+  "authoring_route": {
+    "status": "documented_candidate_not_executed",
+    "source_to_fbx": "Authorized DCC/MCP import into an isolated owned scene; verify units/basis; export selected mesh with supported legacy FBX 7400 and tangent space.",
+    "fbx_to_kn5": "Future approved operator: ksEditor File > Open FBX, assign and verify material, File > Save KN5 to workspace only.",
+    "headless_kn5_export_verified": false
+  },
+  "future_scene_requirements": {
+    "scope": "Pose proposals only; OBJ contains no spawn markers, cameras or track metadata.",
+    "spawn": {"proposed_marker": "AC_PIT_0", "position": [-3,0.5,0], "forward": [0,0,-1], "up": [0,1,0], "native_marker_and_collision_verified": false},
+    "start_marker": {"proposed_marker": "AC_START_0", "native_requirement_verified": false},
+    "camera_target": [2,0,0],
+    "cameras": [
+      {"name": "near-normal", "position": [2,6,0], "up": [0,0,-1]},
+      {"name": "moderate", "position": [2,3,4], "up": [0,1,0]},
+      {"name": "grazing", "position": [2,1,4.7], "up": [0,1,0]}
+    ],
+    "track_container_prepared": false,
+    "required_before_game_load": ["supported original track/container layout", "validated model registration and collision/surface conventions", "verified pit/start transforms and car clearance", "required native metadata for the selected test mode", "separate authorization and safety review"]
+  },
+  "cold_recovery": "End owned session; remove only reviewed owned configuration/resources; cold-load unchanged original KN5 and configuration; verify shader, slots, properties, flags, images and hashes.",
+  "licensing": "Repository license remains owner-undecided; permanent freeware policy applies."
+}

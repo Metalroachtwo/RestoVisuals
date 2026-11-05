@@ -1,0 +1,8 @@
+# Original DCC-preview material only; ksEditor bindings must be set separately.
+newmtl RV0L_NORMAL_TEST
+Ka 0.2 0.2 0.2
+Kd 0.6 0.6 0.6
+Ks 0 0 0
+d 1
+illum 1
+map_Kd textures/neutral_diffuse.png

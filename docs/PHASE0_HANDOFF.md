@@ -1,4 +1,90 @@
-# RestoVisuals Phase 0K continuation handoff
+# RestoVisuals Phase 0L continuation handoff
+
+Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
+`c1e03094a42f3a7ca54d7dfe88651938b3428d76`. Read
+[PHASE0L_FIXTURE_PIPELINE.md](PHASE0L_FIXTURE_PIPELINE.md) for exact inventory,
+source assets, future operator steps and native gates. Current tip plus final
+private Git receipt identify closeout. Main stays
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**Native test NO-GO.** The genuine candidate path is now documented: original
+OBJ/MTL -> authorized isolated DCC scene -> installed legacy FBX exporter ->
+ksEditor Open FBX / Save KN5. No DCC import, FBX export, editor operation, KN5 or
+game load was performed. No supported headless KN5 export was identified in the
+bounded installed references. Do not guess flags, launch help, use a variant
+editor or construct a conversion workaround. Stop at prepared source.
+
+The SDK contains ksEditor.exe (file 1.0.0.0), its FBX SDK 2014.1 runtime and the
+76-page Kunos pipeline manual. The launcher only starts the GUI. The manual
+requires its documented older FBX workflow, one UV set and unique object names;
+it documents Open FBX, Save KN5 and partial persistence behavior. Blender's real
+installed binary is 5.1 (registry 5.1.1), with a bundled legacy exporter declaring
+version 7400, selected export and tangent-space controls. This is static evidence,
+not a verified toolchain roundtrip. Version/hashes are in the report/private receipt.
+Blender MCP registration and DCC/MCP CLI exist; no live gateway/scene probe occurred.
+No ksEditor MCP interface was established. Alternate editor files were not chosen.
+
+The original [source package](../examples/phase0l-fixture-source/README.md) has
+one 12x12 intended-metre quad, one material and one UV set (0..6), at two intended
+metres per repeat. Basis is T=+X, B=-Z, N=+Y. Source counts/indices, area, winding,
+UV derivatives, PNG pixels/metadata and manifest hashes pass ten new tests. OBJ
+does not store tangent attributes, cameras or empty nodes; actual FBX conversion
+must preserve/recompute and verify them. No FBX, KN5 or native track is fabricated.
+
+This source uses `RV0L_TEST_PAD` / `RV0L_NORMAL_TEST` and candidate ksPerPixelNM
+(SDK artifact present), with exact expected txDiffuse/txNormal and scalar/RGB
+properties recorded as **unverified**. The MTL is preview material, not a native
+shader assignment. Its diffuse is original RGB8 128 PNG with sRGB intent; its flat
+DDS is an unchanged original Phase 0K candidate. All source/native/export flags
+remain false. Phase 0K's old ksPerPixelMultiMap/RV0K selector does not match this
+source and must not be enabled or automatically reused.
+
+The source contract gives spawn/camera proposals, but track/container files,
+collision conventions, native marker names and complete baseline are pending.
+A KN5 alone is not a driveable track. Before native testing, establish a supported
+original load container, verify ground clearance, source/FBX/exported hashes,
+material inputs and exact owned configuration/precedence. Future validation must
+cold-load the original, capture baseline, test neutral and +/-X/Y separately,
+then detail only after orientation succeeds; end the owned session, remove only
+reviewed resources and verify a fresh original load restores complete material
+state. Section deletion/persistence/file equality alone is not loaded-state recovery.
+
+The existing DCC/MCP-only policy still applies to authoring. Current offline
+authorization prohibits application launches and GUI. A future owner-operated
+interactive export or specific approved authoring integration/GUI policy exception
+is required; ordinary CM/game GUI authorization is insufficient. Any approved
+computer control must check actual weekday 08:00-17:00 America/New_York and allow
+recovery time. This checkpoint grants no such permission and initiates no tool.
+
+Previous 186 test definitions and all runtime code, shaders, Phase 0K assets and
+existing reports are preserved. Ten additions give 196 definitions; 140 closeout
+checks pass. Prior successful
+GPU/historical suites were not unnecessarily repeated. All 29 protected files,
+49 settings, nine previously reviewed sources, 13 inventory artifacts and the
+approved untracked visual reference are checked unchanged. No installed rollback
+is needed. Preserve original freeware assets; repository licensing stays unresolved.
+
+Private evidence is under `.local/phase0l-20261104/`: preflight, tool-inventory,
+SDK text/static-page extracts, final source tests and validation/Git receipts.
+No proprietary SDK manual, screenshot, shader or binary is published. Source
+manifest hashes and scoped Git attributes preserve exact original payload bytes.
+
+Starting live allowance was 60% five-hour / 67% weekly. The checkpoint near
+15 points read 46% / 65%: original source preparation is validated, remaining
+export is authorization-blocked, and documentation/synchronization closeout
+continues without research expansion. Read both meters anew on continuation,
+retain milestone reviews and synchronization reserves, and keep the 5% weekly
+hard cutoff. No deeper model or delegated review was used.
+
+**Next action:** obtain the specific authoring authorization/integration, execute
+the documented original source -> legacy FBX -> ksEditor -> KN5 roundtrip with
+verified units/basis/material state, then reassess native readiness. Preserve
+locked CSP/CM/Pure/Dream and Phase 0E HDR NO-GO throughout. Do not install new tools,
+launch DCC/GUI or deploy this source automatically on continuation.
+
+---
+
+## Historical Phase 0K continuation handoff
 
 Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
 `24d1ef8c3a2d110950af95a81ca49717a7d6fa42`. Read
