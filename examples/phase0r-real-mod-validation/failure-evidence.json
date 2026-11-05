@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "launch_route": "existing CM Quick Drive Go UIAutomation Invoke",
+  "attempts": 1,
+  "requested_car_id": "mm_lexus_rca",
+  "requested_track_id": "jd_drift_mansion",
+  "requested_layout_id": "open",
+  "requested_skin": "Burnt_Orange Metallic",
+  "started_eastern": "2026-11-05 14:33:50",
+  "runtime_csp_build_header": 3898,
+  "failure": "Steam API failed to initialize",
+  "phase_reached": "startup; no scene loaded",
+  "restart_prompt_answer": "No",
+  "steam_restarted": false,
+  "launch_retried": false,
+  "account_or_installation_repair_attempted": false,
+  "game_process_exited": true,
+  "game_exit_code": null,
+  "cm_normal_exit_codes": [
+    0,
+    0
+  ],
+  "cm_final_close_eastern": "2026-11-05 14:49:39",
+  "underlying_steam_cause": "UNKNOWN",
+  "mod_compatibility_result": "UNTESTED",
+  "native_material_activation": false,
+  "baseline_scene_images": 0,
+  "gpu_or_game_performance_measurements": [],
+  "private_evidence_root": ".local/phase0r-20261105/evidence/",
+  "private_evidence_hashes": {
+    "native-game.log": "3755a2bfeabb32121001603459a678d36ee71444f794fe54401360c22002347a",
+    "native-csp.log": "f4aecb3eb82f50a4ede0076de971a3e35dccf10279b5068b8dff16d1940421cc",
+    "game-initial.png": "564bdb762e9c142a2d7a71c007cb921ba6807b4597596142dd2ea4d96cfcd326",
+    "cm-restored-selection-final.png": "37b515516c1265435a60dbc1401de4d0be4637c7911213f8d733a33bc2633f3c"
+  },
+  "recovery_scope": "exact known failed-attempt files only; no static material state was activated",
+  "powershell_hash_guard_limitation_recorded": true,
+  "all_scoped_readable_hashes_restored": true
+}

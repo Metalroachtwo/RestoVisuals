@@ -1,21 +1,24 @@
-# Phase 0R: selected real-mod preflight and material eligibility
+# Phase 0R: real-mod baseline blocked at Steam initialization; recovery verified
 
 2026-11-05. Starting local/remote `phase0/foundation`:
 `f58b95ca72791f0174a36115b01db616058f9bd3`.
 
-**Preflight is complete; this report does not yet establish a Phase 0R game
-baseline or live material compatibility.** A run-specific baseline/recovery plan
-is prepared. The existing CM window contains an unsaved quick-drive preset;
-permission to close/reopen that existing session if exact recovery requires it
-is pending. No game launch or material activation has occurred in Phase 0R.
+**One unmodified baseline attempt failed at Steam API initialization before scene
+loading.** The game process was started through CM; no baseline scene, live
+material inspection or enhancement was obtained. The owner resolved the prior
+CM cleanup gate with "Allow CM cleanup restart if needed". The reviewed attempt
+then ran from checkpoint `bb0033bea42c093043474a7232da128e275ffa89`.
+Recovery is verified, including the original unsaved CM selection. CM is left
+closed to retain exact preflight preference bytes; the owner editor is untouched.
 
 Read the [sanitized observations](../examples/phase0r-real-mod-validation/observations.json)
 and [ownership manifest](../examples/phase0r-real-mod-validation/ownership-manifest.json).
 
 The owner authorizes this selected real-mod environment, superseding the earlier
 original-track prerequisite. Phase 0E HDR NO-GO remains unchanged. An enhancement
-is **NO-GO** until the exact live material, resource interpretation, sharing/count,
-configuration precedence and complete rehearsed transaction gates pass.
+is **NO-GO**, first pending a normally loading baseline and then the exact live
+material, resource interpretation, sharing/count, configuration precedence and
+complete rehearsed transaction gates. The primary runtime objective remains unmet.
 
 ## Target identification and immutable baseline
 
@@ -72,10 +75,10 @@ its own metadata labels a VDC layout; no track-skin correction is attempted.
 | Upscaling | Existing FSR section `ACTIVE=1`, `QUALITY2=0.87`, `OLD_IMPLEMENTATION=2`; effective runtime dimensions/algorithm not newly witnessed |
 | Pure bridge | Existing scriptable filter `pure`, enabled; no bridge/filter/shader replacement |
 
-The old race weather value is not promoted to the next session's effective
-weather. CM's Pure selection and the generated runtime state must be reconciled
-after an actual authorized launch. No camera, exposure, resolution, weather or
-visual setting has been tuned. CM's displayed UI FPS is not game performance.
+Configured weather is not promoted to a runtime observation. The failed attempt
+never reached a scene in which Pure, exposure or rendering could be verified.
+No camera, exposure, resolution, weather or visual setting was tuned. CM's
+displayed UI FPS is not game performance.
 
 ## Material inventory and rejected shortcuts
 
@@ -123,14 +126,40 @@ notes that CM may fetch configs automatically; no update policy is changed.
 Post-run checks must distinguish any generated/downloaded file from an owned
 RestoVisuals addition. No guessed precedence or broad wildcard replacement is used.
 
-**Actual material installation diff: empty.** There are no new game files,
-modified mod files, enabled replacement sections or staged enhancement assets.
+**Actual material installation diff: empty.** No RestoVisuals material files were
+added to the game; no inventoried mod files changed, and no replacement section
+or enhancement asset was activated.
 All RestoVisuals receipts/backups/captures are confined to ignored
 `.local/phase0r-20261105/`. A future normal-only test needs a fresh exact
 material/mesh/slot selector, expected count, immutable inputs, collision checks,
 complete file/hash manifest and full workspace recovery rehearsal before GO.
 
-## Recovery plan and present limits
+## Actual baseline attempt and stop decision
+
+At **14:33:50 Eastern**, CM's existing Quick Drive Go control was invoked through
+UI Automation after the run-specific unmodified-baseline GO and fresh preservation
+checks. It started the expected game executable. Startup logs identify CSP
+preview361/build3898, then report **`ERROR: Steam init failed`** and **Steam API
+failed to initialize**. A native error dialog offered to restart Steam and retry.
+That offer was declined using **No**; there was no retry, Steam restart, account
+investigation, installation repair or graphics/mod change.
+
+The attempt's generated race file confirms the requested car/track/layout/skin.
+It contains ambient/road temperatures 14/14, weather ID `sol_06_overcast`, sun
+angle 1.78 and time multiplier 1.0. These are **generated launch inputs**, not
+observed world conditions: the scene, Pure/PP execution, exposure, actual output
+surface and upscaling never became available for validation.
+
+The game process was confirmed gone at **14:35:36 Eastern**. Its exit code was
+not recoverable from the retained process object and is reported as unknown,
+not zero. CM showed **Cancelled**. No game-scene baseline, replay frame, live
+Objects Inspector data, normal-map sampling, image comparison or performance
+measurement was obtained. This failure does not establish a broken target mod
+or identify the underlying Steam/account/process cause. The earlier missing-model
+warning was not reached or diagnosed anew. **NO-GO for another native attempt or
+enhancement at this checkpoint.**
+
+## Executed recovery and preservation limits
 
 Fresh backups preserve the 29 protected files, 49 selected settings, 25 original
 source/backup pairs and both 839-file SDK inventories. One CM preference file had
@@ -146,50 +175,72 @@ changed, and they are excluded from modification/restoration. Active mandatory
 settings are readable; the inaccessible LUT is disabled in its active config.
 These exclusions prevent a claim of complete archival backup of every user file.
 
-Before a game launch, confirm no pre-existing engine session, review the run-bound
-baseline/recovery receipt and resolve safe cleanup for the existing CM session.
-Launch only with CM's existing Quick Drive Go control. Capture a stationary scene
-and inspect one material without edits. Stop on a normal-load failure or unknown
-state; no speculative mod repairs are authorized.
+The cancellation dialog was dismissed, and CM closed normally at 14:37:40,
+exit **0**, under the owner's cleanup authorization. No process was force-killed.
+An exact post-attempt audit found **no mod/protected/shared-config drift**. Five
+unique original files needed restoration: `race.ini`, the CM preference store,
+two runtime logs and the removed previous `race_out.json`. Every changed version
+was archived privately before restoration; the removed output's preflight backup
+was retained. One new crash archive was positively linked to this attempt's log.
 
-After an owned session, exit normally; preserve logs and changed setting bytes;
-verify protected, mod and shared hashes; restore only owned changes guarded by
-their exact post-run hashes and verified backups. Preserve foreign/ambiguous
-changes. Quiesce CM only under the approved session plan if its preferences need
-restoration, then verify its original quick-drive selection. Removing a shader
-replacement is never treated as live material rollback. An enhancement would
-also require a restored cold load and controlled original/restored comparison.
+The complete five-file recovery and owned-crash-archive removal passed **four
+workspace cases**: completion, foreign-existing-file refusal, refusal of a foreign
+file at the missing-output path, and interrupted recovery/resume. An unrelated
+synthetic sentinel survived each case. These are recovery tests for this failed
+launch, not static-material unload or scene cold-load validation.
 
-No enhanced/restored image comparison, performance measurement, visual-quality
-improvement, complete transaction rehearsal or native material compatibility is
-reported at this preflight checkpoint. The primary Phase 0R runtime objective
-remains pending. Freeware, owner-undecided licensing, locked versions and prior
-code/tests/visual reference remain unchanged.
+Native atomic replacement of `log.txt` was denied by Windows. A rehearsed native
+copy fallback restored it. PowerShell's hash reader encountered a sharing error;
+because that error was non-terminating, the copy was not prevented by that failed
+precheck. Verification then stopped. The original shared-read SHA-256 reader
+confirmed the restored bytes and the remaining recovery completed. This is a
+recorded guard limitation, not an atomicity/concurrency guarantee: an intervening
+writer at that instant cannot be independently excluded. The lock owner was not
+identified; no other process handle, ACL or permission was changed. Subsequent
+PowerShell recovery commands used terminating-error handling. Both file versions
+and the recovery receipts remain private. A verified temporary file left by the
+failed atomic step and the archived owned crash report were removed.
 
-## Verified preflight checkpoint
+CM was reopened under the same pinned executable. The original unsaved preset,
+vehicle/paint/track/skin, time, weather and other visible choices were verified.
+Normal startup rewrote its preference store. CM therefore closed normally again
+at **14:49:39 Eastern**, exit **0**, and the exact fresh preflight preference file
+was restored. **CM is left closed** to retain exact disk hashes; its restored
+selection is backed up and was visibly verified. The existing owner ksEditor
+remains open and untouched. All GUI operations finished before the deadline.
+
+The five-file restore, startup preference restore and all post-run bytes are
+documented under ignored `.local/phase0r-20261105/`. No material replacement was
+installed or removed. This recovery does not prove live material restoration;
+a future enhancement still needs original/enhanced/restored cold loads.
+
+## Final verification and next prerequisite
 
 The final scoped preservation check passes: **1,265 car files, 386 track files,
 13 shared configs, 29 protected files, 49 selected settings, 25 original/backup
 pairs and both 839-file SDK inventories** match their fresh baselines. All 261
 additional readable configuration files, 34 readable logs and three output files
-are unchanged. The 194 excluded auxiliary files retain recorded size/time;
-their contents are not hash-certified. No settings restoration was needed.
+match baseline after recovery. The 194 excluded auxiliary files retain recorded
+size/time; their contents are not hash-certified. The approved untracked visual
+reference and all original sources remain unchanged.
 
 All **201 existing test definitions** are byte-unchanged, including the historical
-124 baseline. The unit suite was not rerun for this documentation/read-only
-checkpoint. New validation checks source preservation, manifest/hash consistency,
+124 baseline. The unit suite was not rerun: project shader/code/asset bytes did
+not change. Four recovery cases and the Windows copy rehearsal passed; the native
+launch failed as recorded above. New checks cover preservation, manifest/hash consistency,
 policy/history preservation, public links and privacy; these pass and do not
 constitute native shader or image validation.
 
-At 14:26:11 Eastern, no game engine process existed and the same pre-existing CM
-and owner ksEditor sessions remained open. No owned application requires closure.
-GUI inspection ended with the original selection intact and no persistent
-automation enablement. The CM cleanup question remains unanswered; elapsed time
-does not authorize a dependent launch or restart.
-
 Fresh allowance began **70% five-hour / 42% weekly**. At the approximately
-15-point review it read **55%/39%**. Research stopped and checkpoint synchronization
-began with the runtime gate unresolved. Final live balances/SHA are recorded in
-the ignored receipt. No delegation, model escalation, software change or licensing
-decision occurred. Resume the existing task after the cleanup choice, rechecking
-time, fresh meters and the current installation first.
+15-point preflight review it read **55%/39%**. After the owner replied, resumed
+work began at **52%/39%**. The native failure ended testing; recovery/closeout
+continued at **41%/37%**. Final meters/SHA are in the ignored synchronization
+receipt. No delegation, model escalation, software update or licensing decision
+occurred. Main, freeware and Phase 0E HDR NO-GO remain unchanged.
+
+**Next prerequisite:** owner-established normal Steam/CM launch readiness, then
+a freshly reviewed, unmodified CM baseline run. Do not automatically retry or
+repair it. Only a normally loading scene can establish the exact live material,
+normal orientation/scale, sharing/match counts and config precedence required
+for the first normal-only transaction. The primary Phase 0R baseline/material
+objective remains unfulfilled; no visual improvement or game FPS claim is made.

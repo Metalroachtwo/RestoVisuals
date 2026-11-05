@@ -1,4 +1,63 @@
-# RestoVisuals Phase 0R handoff — real-mod preflight; runtime pending
+# RestoVisuals Phase 0R handoff — Steam-init launch blocker; recovery verified
+
+Resumed 2026-11-05 from verified local/remote
+`bb0033bea42c093043474a7232da128e275ffa89` on `phase0/foundation` after the
+owner answered "Allow CM cleanup restart if needed". Read
+[PHASE0R_REAL_MOD_VALIDATION.md](PHASE0R_REAL_MOD_VALIDATION.md),
+[observations](../examples/phase0r-real-mod-validation/observations.json) and
+[failure evidence](../examples/phase0r-real-mod-validation/failure-evidence.json).
+The earlier preflight handoff and prior milestones follow below.
+
+**The single unmodified CM baseline attempt failed before scene loading.** At
+14:33:50 Eastern, the existing CM Quick Drive Go control started the reviewed
+game process for `mm_lexus_rca` / `jd_drift_mansion/open`, Burnt Orange Metallic
+and the existing VDC 2024 track skin. Logs identify CSP preview361/build3898,
+then report Steam API initialization failure. The native offer to restart Steam
+and retry was declined. No Steam/account repair or second launch was attempted.
+This does not identify the underlying cause or establish mod incompatibility.
+
+No scene, replay baseline, Objects Inspector data, live material/texture
+compatibility, custom-HLSL execution, comparison image or game-performance result
+was obtained. **Native material testing and Phase 0E HDR remain NO-GO.** The
+pre-existing missing-model warning is unrelated evidence and was not reached in
+this attempt. Existing shader/UV/normal/sharing/precedence gates remain pending.
+
+The game process exited after No; its exit code is unknown, not zero. CM's
+cancellation dialog closed, and CM exited normally with code 0. Five original
+files (race input, CM preferences, two logs and one prior output) were restored
+from fresh backups; post-run versions were preserved privately. Four full-plan
+workspace recovery cases and a Windows copy rehearsal passed. One native atomic
+log replacement failed; the fallback encountered a non-terminating PowerShell
+hash/sharing error, so its precheck did not prevent the copy. Final shared-read
+hashes verify restoration; no concurrency/atomicity guarantee is claimed. Details
+and guard limitations are documented. No lock owner or access controls changed.
+
+CM reopened with the original unsaved selection visibly intact. Because startup
+rewrote its preference store, it closed normally again, code 0, at **14:49:39
+Eastern** and the exact preflight preference bytes were restored. **CM is left
+closed**; the existing owner ksEditor remains open/untouched. Owned crash and
+recovery-temp files were archived privately and removed. No persistent GUI
+permission or running helper remains. All GUI work ended before the deadline.
+
+Final scoped checks pass: 29 protected files, 49 settings, 25 original/backup
+pairs, 1,265 car files, 386 track files, 13 shared configs and both 839-file SDK
+inventories match baseline. Additional readable settings/logs/outputs match;
+194 inaccessible auxiliary files retain size/time only. All 201 test definitions
+and original shaders/code/reference remain unchanged. Unit suite not rerun.
+Private evidence is ignored under `.local/phase0r-20261105/`; public receipts
+contain no mod assets, proprietary shaders, machine paths or private configs.
+
+Original allowance 70% five-hour / 42% weekly; resumed 52%/39%; native failure
+ended testing and recovery/closeout continued at 41%/37%. Final meters/SHA are in
+private synchronization receipts. Main stays
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`; freeware and licensing remain unchanged.
+**Next:** owner-established normal Steam/CM launch readiness, then a fresh reviewed
+unmodified baseline run. Do not automatically repair or retry. Recheck actual
+Eastern time and meters; today's GUI authorization ends at 17:00, cleanup by 16:30.
+
+---
+
+## Historical Phase 0R preflight handoff — runtime pending at that checkpoint
 
 Prepared 2026-11-05 from verified local/remote
 `f58b95ca72791f0174a36115b01db616058f9bd3` on `phase0/foundation`.

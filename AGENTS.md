@@ -285,3 +285,12 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   and 49 settings checks plus scoped target hashes, prior tests/reference, freeware,
   unresolved licensing and Phase 0E HDR NO-GO. Review near 15 allowance points used;
   preserve final cleanup/Git reserve and the independent 5% weekly hard cutoff.
+- The owner subsequently answered "Allow CM cleanup restart if needed" for exact
+  Phase 0R recovery. Normal CM close/reopen with verified backups is authorized;
+  preserve its unsaved selection and leave the existing ksEditor untouched.
+  This does not authorize Steam repair, a failed-baseline retry or any material
+  activation before the Phase 0R gates pass.
+- Verification errors must terminate a recovery before writing. PowerShell file
+  sharing/hash errors can be non-terminating: use strict error handling and check
+  native exit codes. Do not continue from an unavailable hash or reuse a past
+  run's private recovery as an installer. Preserve both versions on uncertainty.
