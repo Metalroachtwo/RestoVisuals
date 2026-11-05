@@ -151,7 +151,19 @@ class D3D11Session:
             raise ValueError(operation + " returned no resource")
         return pointer
 
-    def texture(self, width, height, format_id, usage, bind, cpu_access, packed=None):
+    def texture(self, width, height, format_id, usage, bind, cpu_access, packed=None, *, mip_payloads=None):
+        if mip_payloads is not None:
+            if (format_id != 10 or usage != 1 or width != height or width not in (256,512)
+                    or len(mip_payloads) != width.bit_length() or packed != mip_payloads[0]
+                    or any(not isinstance(data,bytes) or len(data)!=max(1,width>>i)**2*8
+                           for i,data in enumerate(mip_payloads))):
+                raise ValueError("Invalid bounded immutable mip chain")
+            desc = TextureDescription(width,height,len(mip_payloads),1,format_id,SampleDescription(1,0),usage,bind,cpu_access,0)
+            buffers = [ct.create_string_buffer(data) for data in mip_payloads]
+            data = (InitialData * len(buffers))(*(InitialData(ct.cast(raw,PTR),max(1,width>>i)*8,len(mip_payloads[i]))
+                                                   for i,raw in enumerate(buffers)))
+            return self.create(5,"CreateTexture2D mips",[ct.POINTER(TextureDescription),ct.POINTER(InitialData)],
+                               [ct.byref(desc),data])
         desc = TextureDescription(width, height, 1, 1, format_id, SampleDescription(1, 0), usage, bind, cpu_access, 0)
         raw = ct.create_string_buffer(packed) if packed is not None else None
         data = InitialData(ct.cast(raw, PTR), len(packed) // height, len(packed)) if raw is not None else None
@@ -265,19 +277,37 @@ def compare_pixels(actual, expected, *, strict_identity, format_name):
 
 
 def execute_texture(session, shaders, width, height, format_name, entry, parameters, packed, *, draws=1, warmup=0,
-                    material_texture_size=None):
+                    material_texture_size=None, material_mips=None, material_filter=None, material_wrap=False,
+                    fixture_parameters=None, roughness_compensation=0):
     """Shared bounded dispatch/readback for both the small oracle and visual demo."""
     if (any(type(v) is not int for v in (width, height, draws, warmup))
             or not 8 <= width <= 1920 or not 8 <= height <= 1080
             or not 1 <= draws <= 5 or not 0 <= warmup <= 2):
         raise ValueError("Texture execution exceeds diagnostic bounds")
-    procedural = entry in ("PSMaterial", "PSMaterialNormals")
+    procedural = entry in ("PSMaterial", "PSMaterialNormals", "PSFixtureCoordinates")
     textured_material = material_texture_size is not None
     if textured_material and (not procedural or type(material_texture_size) is not int
                               or material_texture_size not in (256, 512)):
         raise ValueError("Only the bounded 256/512 material fixtures are supported")
-    if format_name not in ("rgba32f", "rgba16f") or entry not in ("PSLinear", "PSSrgb", "PSMaterial", "PSMaterialNormals"):
+    if format_name not in ("rgba32f", "rgba16f") or entry not in ("PSLinear", "PSSrgb", "PSMaterial", "PSMaterialNormals", "PSFixtureCoordinates"):
         raise ValueError("Unsupported validation format or entry")
+    filters = {None:(0x15,1),"point":(0,1),"bilinear":(0x14,1),"trilinear":(0x15,1),
+               "aniso2":(0x55,2),"aniso4":(0x55,4),"aniso8":(0x55,8),"aniso16":(0x55,16)}
+    if material_filter not in filters or type(material_wrap) is not bool:
+        raise ValueError("Unsupported material sampler")
+    if not textured_material and (material_mips is not None or material_filter is not None or material_wrap):
+        raise ValueError("Texture options require the bounded material input")
+    if fixture_parameters is not None:
+        if (not procedural or len(fixture_parameters)!=4
+                or any(type(v) not in (int,float) or not math.isfinite(v) for v in fixture_parameters)
+                or not 0<=fixture_parameters[0]<=1 or not .1<=fixture_parameters[1]<=1
+                or abs(fixture_parameters[0]**2+fixture_parameters[1]**2-1)>.00002
+                or not 1<=fixture_parameters[2]<=12 or abs(fixture_parameters[3])>2):
+            raise ValueError("Invalid pinhole fixture")
+    if (entry=="PSFixtureCoordinates" and fixture_parameters is None
+            or type(roughness_compensation) not in (int,float) or roughness_compensation not in (0,1)
+            or roughness_compensation and fixture_parameters is None):
+        raise ValueError("Invalid fixture or variance compensation")
     if len(parameters) != 3:
         raise ValueError("Expected three color parameters")
     if procedural:
@@ -293,6 +323,10 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
         raise ValueError("Packed texture length mismatch")
     if textured_material and (not isinstance(packed, bytes) or len(packed) != material_texture_size**2*8):
         raise ValueError("Packed compact material texture length mismatch")
+    if material_mips is not None and (len(material_mips)!=material_texture_size.bit_length()
+            or packed!=material_mips[0] or any(not isinstance(data,bytes) or len(data)!=max(1,material_texture_size>>i)**2*8
+                                             for i,data in enumerate(material_mips))):
+        raise ValueError("Malformed bounded mip payload")
     support = U32()
     _check(_method(session.device, 29, HRESULT, U32, ct.POINTER(U32))(session.device, format_id, ct.byref(support)), "CheckFormatSupport")
     if support.value & (0x20 | 0x200 | 0x4000) != (0x20 | 0x200 | 0x4000):
@@ -302,13 +336,21 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
             session.device, 10, ct.byref(support)), "Check material RGBA16F support")
         if support.value & (0x20 | 0x200) != (0x20 | 0x200):
             raise ValueError("Material RGBA16F sampling support missing")
+        if material_mips is not None and not support.value & 0x1000:
+            raise ValueError("Material mip support missing")
     resource_mark = len(session.owned)
+    input_bytes = sum(map(len,material_mips)) if material_mips is not None else material_texture_size**2*8 if textured_material else 0
     result = {"entry": entry, "format": format_name, "pixels": width * height,
               "parameters": list(parameters), "draws": draws, "warmup_draws": warmup,
               "declared_texture_payload_bytes": width * height * bytes_per_pixel * (2 if procedural else 3)
-                  + (material_texture_size**2*8 if textured_material else 0),
-              "material_texture_payload_bytes": material_texture_size**2*8 if textured_material else 0,
-              "input_texture_allocated": not procedural or textured_material, "constant_buffer_payload_bytes": 16,
+                  + input_bytes,
+              "material_texture_payload_bytes": input_bytes,
+              "material_mip_levels":len(material_mips) if material_mips is not None else 1,
+              "material_filter":material_filter,"material_address":"wrap" if material_wrap else "clamp",
+              "max_anisotropy":filters[material_filter][1] if textured_material else 1,
+              "fixture_parameters":list(fixture_parameters) if fixture_parameters is not None else None,
+              "roughness_compensation":roughness_compensation,
+              "input_texture_allocated": not procedural or textured_material, "constant_buffer_payload_bytes":32 if fixture_parameters is not None else 16,
               "driver_allocation_measured": False,
               "memory_before": session.memory_info(), "owned_com_references_before": resource_mark}
     try:
@@ -316,18 +358,22 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
         if not procedural or textured_material:
             source = session.texture(material_texture_size if textured_material else width,
                                      material_texture_size if textured_material else height,
-                                     10 if textured_material else format_id, 1, 8, 0, packed)
+                                     10 if textured_material else format_id, 1, 8, 0, packed,
+                                     **({"mip_payloads":material_mips} if material_mips is not None else {}))
             srv = session.create(7, "CreateShaderResourceView", [PTR, PTR], [source, None])
         output = session.texture(width, height, format_id, 0, 32, 0)
         staging = session.texture(width, height, format_id, 3, 0, 0x20000)
         rtv = session.create(9, "CreateRenderTargetView", [PTR, PTR], [output, None])
-        constants = (ct.c_float * 4)(*parameters, 0)
-        desc = BufferDescription(16, 1, 4, 0, 0, 0)
+        values = (*parameters,roughness_compensation,*(fixture_parameters or ()))
+        constants = (ct.c_float * len(values))(*values)
+        desc = BufferDescription(ct.sizeof(constants), 1, 4, 0, 0, 0)
         initial = InitialData(ct.cast(constants, PTR), 0, 0)
         buffer = session.create(3, "CreateBuffer", [ct.POINTER(BufferDescription), ct.POINTER(InitialData)],
                                 [ct.byref(desc), ct.byref(initial)])
         if not procedural or textured_material:
-            sampler_desc = SamplerDescription(0x15 if textured_material else 0, 3, 3, 3, 0, 1, 8,
+            address = 1 if material_wrap else 3
+            sampler_desc = SamplerDescription(filters[material_filter][0] if textured_material else 0,
+                                              address,address,address,0,filters[material_filter][1],8,
                                               (ct.c_float * 4)(), 0, 3.402823466e38)
             sampler = session.create(23, "CreateSamplerState", [ct.POINTER(SamplerDescription)], [ct.byref(sampler_desc)])
         raster_desc = RasterDescription(3, 1, 0, 0, 0, 0, 1, 0, 0, 0)

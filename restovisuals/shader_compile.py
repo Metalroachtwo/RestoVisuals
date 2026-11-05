@@ -11,6 +11,7 @@ def compile_bytecode(source: bytes, entry: str, target="ps_5_0") -> tuple[bytes,
         raise ValueError("Native shader compilation requires Windows")
     if (entry, target) not in {("PSLinear", "ps_5_0"), ("PSSrgb", "ps_5_0"),
                               ("PSMaterial", "ps_5_0"), ("PSMaterialNormals", "ps_5_0"),
+                              ("PSFixtureCoordinates", "ps_5_0"),
                               ("VSFullscreen", "vs_5_0")}:
         raise ValueError("Only prototype pixel and validation vertex entry points are allowed")
     compiler = ct.WinDLL("d3dcompiler_47.dll", winmode=0x800)

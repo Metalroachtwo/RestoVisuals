@@ -1,4 +1,34 @@
-# RestoVisuals Phase 0H continuation handoff
+# RestoVisuals Phase 0I continuation handoff
+
+Prepared 2026-11-04 from verified local/remote `phase0/foundation`
+`e82d52ded4495196b65ffe3f655ceec3bdb9cc00`.
+The [Phase 0I fixture checkpoint](PHASE0I_TEXTURE_STABILITY.md) adds periodic
+mean-vector mip chains and a proper controlled pinhole/plane geometry fixture
+through the existing windowless D3D11 executor. No GUI/game or installed-stack
+change occurred; the native HDR rendering NO-GO remains binding.
+
+Seventeen new tests, 40 affected existing tests, 25 native numerical/disable gates
+and two small legacy native regressions pass. The original shader and all prior
+test sources remain unchanged. First filter-screen results are invalid due to
+an observed HLSL negative-macro branch selecting SampleLevel(-1). A positive
+boolean selector and compiler/implicit-LOD regressions fix it. Corrected screening
+is running; no final filter recommendation or temporal claim is accepted yet.
+
+Live starting allowance was **46% five-hour, 77% weekly remaining**. At the
+approximately 15-point review it was 30% / 75%: progress is productive, the
+sampling-path issue is resolved, and bounded confirmation continues. The former
+12-point task cap is revoked by the owner's Phase 0I policy. Begin formal
+closeout near 15% five-hour remaining; the independent 5% weekly hard cutoff
+and synchronization reserve remain mandatory. Read meters anew on continuation.
+
+Current private evidence is under `.local/phase0i-20261104/`; `screen/` is marked
+invalid for filter ranking, `smoke-v3/` passes, and `screen-v2/` is the corrected
+run. Next: accept corrected screening, then bounded 1080p and deterministic
+camera/UV change probes. Preserve all receipts and use fresh destinations.
+
+---
+
+## Historical Phase 0H continuation handoff
 
 Prepared 2026-11-04 from verified local/remote `phase0/foundation`
 `1e21f6a2f3d515854bc276e91f3716dad4507392`.

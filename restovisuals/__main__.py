@@ -14,6 +14,7 @@ from .d3d11_validation import validate_gpu_shader
 from .gpu_demo import demonstrate_gpu_shader
 from .material_demo import demonstrate_material
 from .material_optimization import optimize_material
+from .texture_stability import run_stability_matrix,run_stability_smoke,run_stability_temporal
 from .runtime_probe import prepare_observer_probe
 
 
@@ -59,6 +60,13 @@ def main(argv=None):
     optimization.add_argument("--texture-size", type=int, choices=(256,512), default=256)
     optimization.add_argument("--profile", choices=("720p","1080p","both"), default="both")
     optimization.add_argument("--domain", type=int, choices=(1,2), default=1)
+    stability = commands.add_parser("texture-stability", help="Bounded windowless mip/oblique filtering fixture")
+    stability.add_argument("--adapter-index",type=int,required=True)
+    stability.add_argument("--output",type=Path,required=True)
+    stability.add_argument("--stage",choices=("smoke","screen","confirm","temporal"),default="screen")
+    stability.add_argument("--candidate",choices=("trilinear","aniso2","aniso4","aniso8","aniso16"),default="aniso4")
+    stability.add_argument("--compensation",type=int,choices=(0,1),default=0)
+    stability.add_argument("--size",type=int,choices=(256,512),default=512)
     probe_package = commands.add_parser("prepare-observer-probe", help="Stage original observer files under a new .local directory; does not install or launch")
     probe_package.add_argument("--output", type=Path, required=True)
     probe_package.add_argument("--diagnostic-only", action="store_true", help="Record API value types without subscriptions or rendering")
@@ -102,6 +110,10 @@ def main(argv=None):
             result = demonstrate_material(args.adapter_index, args.source, args.output, profile=args.profile)
         elif args.command == "material-compare":
             result = optimize_material(args.adapter_index,args.output,texture_size=args.texture_size,profile=args.profile,domain=args.domain)
+        elif args.command == "texture-stability":
+            result = (run_stability_smoke(args.adapter_index,args.output) if args.stage=="smoke" else
+                      run_stability_temporal(args.adapter_index,args.output,candidate=args.candidate,compensation=args.compensation,size=args.size) if args.stage=="temporal" else
+                      run_stability_matrix(args.adapter_index,args.output,stage=args.stage,candidate=args.candidate,compensation=args.compensation))
         elif args.command == "prepare-observer-probe":
             result = prepare_observer_probe(args.output, diagnostic_only=args.diagnostic_only)
         elif args.command == "compare":
@@ -114,7 +126,7 @@ def main(argv=None):
             changes = compare_protected(before, after)
             result = {"protected_files_unchanged": not changes, "changed": changes}
         print(json.dumps(result, indent=2, allow_nan=False))
-        if args.command in ("gpu-validate", "gpu-demo", "material-demo", "material-compare") and result["status"] != "passed":
+        if args.command in ("gpu-validate", "gpu-demo", "material-demo", "material-compare", "texture-stability") and result["status"] != "passed":
             return 4
         return 3 if args.command == "guard" and changes else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, OverflowError) as error:
