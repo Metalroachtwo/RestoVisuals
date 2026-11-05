@@ -205,3 +205,26 @@ Where supported, enforce these restrictions at the tool-permission or routing la
 - Read both live allowances, review progress near 15 points consumed and preserve
   closeout/synchronization allowance plus the 5% weekly hard cutoff. Commit/push
   reviewed changes to phase0/foundation, verify remote HEAD and leave main intact.
+
+## Phase 0O preview and sampling scope (2026-11-05)
+
+- Today's temporary RestoVisuals GUI/DCC exception also covers Phase 0O through
+  17:00 America/New_York, with final cleanup starting by 16:30. Check actual time;
+  preserve existing sessions, locked software/configurations and all original
+  assets. No game launch or installation/deployment is authorized.
+- Reuse the validated original FBX and existing legacy DDS representation. In an
+  isolated owned editor, test clear weather first, then default PP, one change at
+  a time with backed-up preview preferences. Record effective illumination and
+  distinguish saved defaults from actively applied settings. Stop if the preview
+  stays uninformative after the bounded supported-control investigation.
+- Only after an informative repeatable preview may the existing original +X/-X
+  diagnostics be represented in the already validated legacy DDS container and
+  compared under fixed geometry, UVs, shader, coefficients and lighting. A second
+  controlled illumination direction is allowed if needed; arbitrary format or
+  graphics-setting experimentation is not. Metadata/reload messages are not
+  sampling proof. KN5 requires a fresh explicit safety-review GO and new owned
+  output; preserve Phase 0E HDR NO-GO and Phase 0J cold-reload requirements.
+- Restore original editor preferences and verify the 29 protected files, 49
+  selected settings and 839 reviewed SDK files. Close owned sessions normally.
+  Retain sufficient credit for verification/documentation/Git and the weekly 5%
+  cutoff; use a progress review near 15 points consumed, not a rigid small cap.

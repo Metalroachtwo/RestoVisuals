@@ -1,4 +1,76 @@
-# RestoVisuals Phase 0N continuation handoff
+# RestoVisuals Phase 0O continuation handoff
+
+Prepared 2026-11-05 on `phase0/foundation` from verified local/remote
+`092625e2669f0f10a6afbdb8c8f15c2934c39a06`. Read
+[PHASE0O_EDITOR_RENDER_VALIDATION.md](PHASE0O_EDITOR_RENDER_VALIDATION.md),
+[editor observations](../examples/phase0o-editor-preview/editor-observations.json)
+and [capture receipts](../examples/phase0o-editor-preview/capture-receipts.json).
+The synchronized tip is recorded in Git and ignored final receipts; main remains
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**Preview partially recovered; material sampling and KN5 remain NO-GO.**
+In one fresh isolated SDK mirror, loading `3_clear` through Illumination >
+Load Weather recovered sky/cloud structure while `b&w` stayed monochrome.
+Loading `default` through Load PPfx then recovered color. Merely selecting a
+combo entry was recorded separately from pressing Load. Data Editor's original
+default selections were inspected without Save Data. Actual game/Pure/Dream
+weather or PP settings were untouched.
+
+The pad/diffuse surface was still not identifiable. Double-clicking its scene-tree
+mesh leaf produced a black view; the gesture's framing semantics and actual camera
+pose were not established. Reloading weather did not recover that transient view.
+View/Pos labels displayed zero triples, but were not proven live camera telemetry
+or supported setters. Do not diagnose a zero camera, a DDS failure or hidden mesh
+from these labels/blackness. No speculative navigation/settings loop followed.
+
+Before/after Save Persistence differs only in header DATE/MD5_HASH. The exact
+`ksPerPixelNM` material, 12 properties, diffuse/legacy-flat slots and mesh flags
+remain unchanged. Phase 0M's original FBX (19,260 bytes, SHA
+`49e1dc29e3e2ff976995d67e0bceaaca038e57443885814c72ea48e65ab2b474`)
+was reused without Blender/export. Phase 0N's legacy flat DDS is unchanged.
+No new DDS, directional sampling, KN5 save, game launch or deployment occurred.
+Diffuse/normal shader sampling and native tangent/channel decode remain UNKNOWN.
+
+Original `1_heavy_fog`/`b&w` preview values were reloaded. That restored the
+illumination grid, not the original preview pixels; no visual camera rollback
+is claimed. The owned editor closed normally with exit 0, verified at 08:48:13
+America/New_York. Its working persistence was restored byte-for-byte. All 29
+protected files, 49 settings, 25 original/backup pairs and 839 SDK files in each
+of the installed, prior-mirror and current-mirror locations pass fresh hashes.
+No SDK file was added/modified; the pre-existing exception log is unchanged.
+No installed rollback is needed. This is not a game material cold-reload test.
+
+Ten affected fixture-source tests pass, zero failures. All 201 existing test
+definitions and original implementations/assets remain intact, including the
+historical 124-test baseline; the entire 201-test suite was not rerun for this
+documentation/evidence milestone. Private screenshots, settings, raw exports,
+backups and receipts remain ignored under `.local/phase0o-20261105/`. The approved
+visual reference remains unchanged and untracked.
+
+Live meters started at 69% five-hour / 55% weekly. Formal closeout was already
+underway at 56% / 53%, before the approximately 15-point review, because the
+bounded preview gate had failed. The 15-point review read 54% / 52%; all 58 closeout
+checks passed and only synchronization remained. Final live readings are in the ignored receipt.
+No model escalation or delegation occurred. Preserve synchronization allowance
+and the independent 5% weekly cutoff; obtain fresh readings on resumption.
+
+Next: establish a documented repeatable ksEditor camera/framing operation above
+the unchanged +Y-facing pad, with identifiable silhouette and diffuse material.
+Reuse clear-weather/default-PP Load buttons and existing FBX/flat DDS. Only after
+that succeeds may fixed-camera/light flat/+X/-X sampling begin, followed by a
+fresh export review. Do not repeat header research, re-export Blender, generate
+more formats or alter shader coefficients/geometry to conceal visibility failure.
+Any future game experiment still requires its original container/markers and a
+separate reviewed authorization/cold-load plan.
+
+Today's temporary GUI/DCC exception ends at 17:00 America/New_York, cleanup by
+16:30; check actual time before any new GUI use. All owned applications are closed.
+Preserve Phase 0E HDR NO-GO, Phase 0J cold-reload requirements, locked versions,
+freeware policy, unresolved repository licensing and unchanged main.
+
+---
+
+## Historical Phase 0N continuation handoff
 
 Prepared 2026-11-05 on `phase0/foundation` from verified local/remote
 `5350ca3d34cc806026c1e0fa7f453606a5213f03`. Read

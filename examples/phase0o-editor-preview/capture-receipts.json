@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "evidence_label": "observed locally; display screenshots, not shader readback",
+  "private_evidence_directory": ".local/phase0o-20261105/evidence",
+  "viewport_roi_xyxy_exclusive": [
+    352,
+    62,
+    1869,
+    758
+  ],
+  "measurement": "8-bit display RGB; max(abs(R-G),abs(G-B)) > 2. UI excluded. Sky/cloud animation and capture times are uncontrolled; not a neutral-image comparison.",
+  "captures": [
+    {
+      "step": "original_material_gray_preview",
+      "private_capture": "00-original-material-viewport.png",
+      "sha256": "0d0b225c0c2bb2a99613c16cb2b4cbd6aa20bd4a9a6dfbaaa2c6da04c9cc1e64",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          231.380985,
+          231.380985,
+          231.380985
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": false
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "original_illumination",
+      "private_capture": "00-illumination-panel.png",
+      "sha256": "ceda844e51474a20155861fd53604e431ae5d0110799c5f2cb88e2e3f9fa61a4",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          207.53976,
+          207.53976,
+          207.53976
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": false
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "saved_default_selectors_inspected_only",
+      "private_capture": "00-data-editor-defaults.png",
+      "sha256": "e67146c042d92f0c15403c75386a97449fd5e79c95396bbe1040d608f410d4b1",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": null,
+      "metric_omission_reason": "Dialog overlaps viewport"
+    },
+    {
+      "step": "clear_selected_before_load",
+      "private_capture": "01-clear-selected-not-loaded.png",
+      "sha256": "76818d2b3190f331b87844673cc239e6097639aad3ae49c66a9eb8522f9c1859",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          166.748819,
+          166.748819,
+          166.748819
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": false
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "clear_weather_loaded",
+      "private_capture": "02-clear-weather-loaded.png",
+      "sha256": "a779fc47e0aad08ab1efb5948d13dca2984df464c77e4d07be36754cb8e3c7c2",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          146.580025,
+          146.580025,
+          146.580025
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": false
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "default_pp_selected_before_load",
+      "private_capture": "03-default-pp-selected-not-loaded.png",
+      "sha256": "30053b8e9238ba2221ee5f36243fb2627dc6936966c283689dd01e29dd1fe38f",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          161.075652,
+          161.075652,
+          161.075652
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": false
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "default_pp_loaded",
+      "private_capture": "04-default-pp-loaded.png",
+      "sha256": "d3f100c38e03f181b83a302bc1492870d3592022c75e4936f3e1f8c1a87b0baf",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          179.492101,
+          185.984493,
+          202.622772
+        ],
+        "chroma_gt_2_fraction": 0.88418233,
+        "all_black": false
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "tree_double_click_black_preview",
+      "private_capture": "05-selected-pad-framing.png",
+      "sha256": "804cf99f40259140fc56206fe34f24aa9e691dd9338073f5ced01c0f97c7e2b3",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": true
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "weather_reload_did_not_recover_black_preview",
+      "private_capture": "06-preview-after-weather-restore.png",
+      "sha256": "61a360bbe09b7382f848d805dd62218d10039f86a4217378e0c57ee5559f9c01",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": true
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "material_state_saved_for_comparison",
+      "private_capture": "07-persistence-check.png",
+      "sha256": "22426579a20398daae630019381f0f9e17f2e6dbd55f1f4d2a220d2dfbffa705",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": true
+      },
+      "metric_omission_reason": null
+    },
+    {
+      "step": "original_preview_selections_reloaded",
+      "private_capture": "08-preview-settings-restored.png",
+      "sha256": "9d5857d8f04f25bb72f6779798ff40a11e380ed78095c2b0bbeb897c566d0897",
+      "image_dimensions": [
+        1936,
+        1048
+      ],
+      "viewport_metrics": {
+        "mean_rgb_8bit": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chroma_gt_2_fraction": 0.0,
+        "all_black": true
+      },
+      "metric_omission_reason": null
+    }
+  ]
+}
