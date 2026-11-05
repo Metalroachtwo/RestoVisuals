@@ -1,30 +1,67 @@
 # RestoVisuals Phase 0I continuation handoff
 
-Prepared 2026-11-04 from verified local/remote `phase0/foundation`
-`e82d52ded4495196b65ffe3f655ceec3bdb9cc00`.
-The [Phase 0I fixture checkpoint](PHASE0I_TEXTURE_STABILITY.md) adds periodic
-mean-vector mip chains and a proper controlled pinhole/plane geometry fixture
-through the existing windowless D3D11 executor. No GUI/game or installed-stack
-change occurred; the native HDR rendering NO-GO remains binding.
+Prepared 2026-11-04 on `phase0/foundation`, starting from verified local/remote
+`e82d52ded4495196b65ffe3f655ceec3bdb9cc00`. The validated implementation checkpoint
+`abf47b666d70224f6de353e76a4d8cbadb0ce477` was pushed and remotely verified before
+final measurement closeout. This handoff and the [Phase 0I report](PHASE0I_TEXTURE_STABILITY.md)
+record the completed result; verify the current Git tip and final private remote
+receipt on continuation. Main remains `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
 
-Seventeen new tests, 40 affected existing tests, 25 native numerical/disable gates
-and two small legacy native regressions pass. The original shader and all prior
-test sources remain unchanged. First filter-screen results are invalid due to
-an observed HLSL negative-macro branch selecting SampleLevel(-1). A positive
-boolean selector and compiler/implicit-LOD regressions fix it. Corrected screening
-is running; no final filter recommendation or temporal claim is accepted yet.
+**CONTINUE: 256x256 RGBA16F moment mips, wrap, 8x anisotropy cap, extra variance
+compensation off.** Full chains require 699,048 bytes / 2,796,200 bytes for 256/512.
+512 improves close/moderate detail; at grazing-far 1080p it costs 0.424 ms versus
+256's 0.278 ms for very similar error (0.000842 / 0.000856 versus finite 4x4).
+256 trilinear costs 0.189 ms but has 0.002293 RMSE. These are isolated total draw
+times, not enhancement deltas or game FPS. The periodic flat reference contains
+residual noise work and is unsuitable as an optimized timing baseline.
 
-Live starting allowance was **46% five-hour, 77% weekly remaining**. At the
-approximately 15-point review it was 30% / 75%: progress is productive, the
-sampling-path issue is resolved, and bounded confirmation continues. The former
-12-point task cap is revoked by the owner's Phase 0I policy. Begin formal
-closeout near 15% five-hour remaining; the independent 5% weekly hard cutoff
-and synchronization reserve remain mandatory. Read meters anew on continuation.
+Five controlled views (0/55/78 degrees, distance 2/4/8), both sizes and full
+mips pass: 52 corrected 720p cases, 31 confirmation 1080p cases and 30 deterministic
+change images. Aniso8 lowers average camera/UV change residual but not every
+worst-pixel UV change. The 4x4/8x8 reference differs by 0.000433 RMS; even CPU16/32
+spots are not fully converged. Do not claim eliminated aliasing, pixel equivalence,
+in-game temporal stability or convincing asphalt. Repetition remains visible.
+The original nonperiodic shader is untouched; the periodic adapter is explicitly
+separate, including the groove Y-frequency change from 1.5 to 2. New packing stores
+mean normal XYZ / roughness^4 and cannot replace Phase 0H's packing implicitly.
 
-Current private evidence is under `.local/phase0i-20261104/`; `screen/` is marked
-invalid for filter ranking, `smoke-v3/` passes, and `screen-v2/` is the corrected
-run. Next: accept corrected screening, then bounded 1080p and deterministic
-camera/UV change probes. Preserve all receipts and use fresh destinations.
+Seventeen new automated tests and 40 affected existing tests pass. All 143
+pre-session tests, including the historical 124, are preserved. Twenty-five native
+numerical gates and two small legacy native regressions pass. Audit verifies 152
+artifact hashes and 544 timestamp/release receipts, all owned contexts released,
+56 byte-exact disabled spatial cases, finite/unit/range checks and repeat sampling.
+Whole-tile translation RMSE is 4.65e-7, not exact equality. All 29 protected files,
+49 selected settings and the approved untracked visual target remain unchanged.
+No GUI/game, installation change, restoration or native game rendering occurred.
+Native execution was limited to the separate windowless D3D11 device.
+
+The first screen is invalid: compiled SampleLevel(-1) forced the base mip despite
+a useful-looking LOD diagnostic. Disassembly, a positive boolean branch selector,
+compiled-instruction test and actual implicit trilinear CPU oracle resolve it.
+Do not reuse `screen/` rankings; keep its rejection receipt. Strict compiler flags
+remain enabled. Source rollback is a reviewed follow-up commit, never history reset.
+Cleanup uses owned contexts/resources and synchronous completion; it establishes
+no CSP/Pure downstream canvas retirement guarantee. Phase 0E HDR remains NO-GO.
+
+Dependencies: existing Windows D3D11/D3DCompiler_47, explicit RX 5700 XT adapter 0,
+feature level 11_0 and Python standard library. No new installed dependency.
+Accepted private evidence: `.local/phase0i-20261104/screen-v2/`, `confirm/`,
+`temporal/`, `audit.json`, `preservation.json`, `previous-path-regressions.json`.
+Each successful run has an original GPU-image viewer; commands in the report use
+fresh ignored paths. Raw metadata and analysis remain private. Preserve receipts.
+
+Starting live allowance: 46% five-hour / 77% weekly. Approximately 15-point review:
+30% / 75%, productive bounded continuation. Last pre-reset reading: 20% / 73%.
+The five-hour window replenished to 99% while confirmation completed; formal
+closeout continues without expanded scope. Current closeout reading: 96% / 73%.
+The former 12-point cap is revoked. Read meters anew; preserve the approximately
+15% five-hour closeout reserve and independent 5% weekly hard cutoff.
+
+**Next milestone:** an original tangent-space mesh fixture with calibrated
+surface scale and a better-converged grazing reference, then a supported material
+input/lifecycle plan before any separately reviewed native integration. No complete
+material editor, asset library, benchmark automation or installer is implemented.
+Permanent freeware, locked installations and unresolved license-owner gate persist.
 
 ---
 

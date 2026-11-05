@@ -1,4 +1,12 @@
-# RestoVisuals architecture, Phase 0H checkpoint
+# RestoVisuals architecture, Phase 0I checkpoint
+
+Phase 0I [validates periodic moment mipmaps and oblique filtering](PHASE0I_TEXTURE_STABILITY.md)
+through the same windowless renderer. Mean normal vectors retain directional
+variance; roughness uses a separately declared fourth-moment encoding. The
+balanced synthetic recommendation is 256x256 with complete mips, wrap and an
+8x anisotropy cap, without extra variance compensation. A 512 map improves close
+views. Finite reference convergence, grazing outliers and visible repetition
+limit production claims. No installed-stack or native HDR contract changes.
 
 Phase 0H [compares compact original material textures with the preserved procedural
 shader](PHASE0H_MATERIAL_OPTIMIZATION.md) using the same windowless executor.
