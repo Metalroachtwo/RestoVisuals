@@ -1,4 +1,45 @@
-# RestoVisuals Phase 0L continuation handoff
+# RestoVisuals Phase 0M continuation handoff
+
+Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
+`4eb90d9b9962e607fb334750497d68b376863807`. Read
+[PHASE0M_EXPORT_STATUS.md](PHASE0M_EXPORT_STATUS.md) for the bounded preflight.
+Current tip and ignored final receipts identify synchronization. Main remains
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+The owner has now granted a task-specific DCC computer-use exception for the
+original Phase 0L pad and interactive ksEditor export. It is retained in AGENTS.md;
+do not request that same authoring permission again. The independent weekday
+08:00-17:00 America/New_York scheduling gate still applies. Actual preflight time
+was Wednesday 22:22 Eastern, so GUI operations did not begin. An after-hours
+exception was requested and remains pending; silence does not grant permission.
+
+One read-only Blender MCP request failed to connect to its local endpoint.
+One bounded non-GUI check found no listener and no Blender/ksEditor process.
+No repeated diagnostics, restart, application launch, live scene mutation or
+GUI initialization occurred. No FBX or KN5 was created, and no export failure
+or shader compatibility conclusion can be inferred from this connection result.
+
+All 29 protected files, 49 selected settings and the untracked visual reference
+are unchanged. A verified private editor-config backup and preflight receipts
+are under `.local/phase0m-20261104/`. No restoration is required. Phase 0L source,
+all 196 tests, runtime code and earlier evidence are preserved. Documentation
+and authorization scope checks, rather than unchanged GPU runs, cover this change.
+
+Starting live allowance was 37% five-hour / 64% weekly. Recheck both meters on
+resumption, reserve approximately 15 five-hour points for closeout/recovery and
+preserve the 5% weekly hard cutoff. No model escalation or delegation was used.
+
+Next: in the approved time window or after an explicit scheduling exception,
+perform the actual owned source -> FBX -> ksEditor -> KN5 roundtrip documented
+in Phase 0L. Preserve existing sessions, verify fresh backups/output ownership
+and reopen the exported asset before claiming success. Do not build another
+exporter or install tools. This authorization never includes a game launch;
+native material testing and Phase 0E HDR remain NO-GO. Preserve Phase 0J cold
+recovery gates, locked versions, freeware policy and unresolved licensing.
+
+---
+
+## Historical Phase 0L continuation handoff
 
 Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
 `c1e03094a42f3a7ca54d7dfe88651938b3428d76`. Read

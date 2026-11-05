@@ -154,3 +154,26 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   native load/unload, callback, neutral-image or game-performance validation.
 - The permanent freeware policy, license-owner gate, protected installation
   versions, existing history and 5% weekly cutoff remain mandatory.
+
+## Phase 0M original-fixture authoring exception
+
+- The owner explicitly authorizes the Phase 0L original test-pad export task.
+  Prefer the existing Blender DCC/MCP interface; computer-use for this specific
+  authoring task and interactive Kunos ksEditor operation are allowed if needed.
+  This revises the DCC-only and foundation no-launch/probe restrictions only
+  within this task. It grants no access to unrelated projects or applications.
+- The weekday 08:00-17:00 America/New_York computer-use window still applies.
+  The authoring exception does not itself waive the separate scheduling gate.
+  Check actual Eastern time before GUI operations; outside that window, require
+  the owner's explicit scheduling exception before initializing GUI access.
+- Preserve original sources, existing sessions and unsaved work. Use separate
+  owned outputs, verify relevant backups, and record real exporter results,
+  scale, UVs, basis, materials and hashes. Do not substitute undocumented KN5
+  writing or bypass a failed exporter. No Assetto Corsa launch/native material
+  test, third-party asset change, or CSP/Pure/Dream/CM version/config change is
+  authorized. Phase 0E HDR NO-GO and Phase 0J cold-recovery gates remain binding.
+- Verify live allowances. Reserve approximately 15 five-hour percentage points
+  for recovery, validation, documentation and synchronization; maintain the 5%
+  weekly hard cutoff. Prefer one verified KN5 to additional infrastructure.
+- Commit/push reviewed task results only to phase0/foundation, verify remote
+  HEAD, and leave main unchanged. No permanent GUI enablement is authorized.
