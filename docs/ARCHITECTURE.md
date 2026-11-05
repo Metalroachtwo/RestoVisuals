@@ -1,4 +1,12 @@
-# RestoVisuals architecture, Phase 0I checkpoint
+# RestoVisuals architecture, Phase 0J checkpoint
+
+Phase 0J [assesses supported material integration](PHASE0J_MATERIAL_INTEGRATION.md).
+The proposed route assigns original, shader-specific textures to compatible
+built-in materials, without touching Pure or the HDR pipeline. This configures
+the native material shader; it does not execute the offline RestoVisuals HLSL.
+A future owned normal-only fixture experiment is CONDITIONAL GO after encoding,
+exact ownership and verified cold-recovery gates. Generic application, direct
+moment packing and unverified live rollback are not supported by current evidence.
 
 Phase 0I [validates periodic moment mipmaps and oblique filtering](PHASE0I_TEXTURE_STABILITY.md)
 through the same windowless renderer. Mean normal vectors retain directional

@@ -1,4 +1,76 @@
-# RestoVisuals Phase 0I continuation handoff
+# RestoVisuals Phase 0J continuation handoff
+
+Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
+`d15d28f55d68bc5707cf8ca31686a0406653b4f8`.
+Read [PHASE0J_MATERIAL_INTEGRATION.md](PHASE0J_MATERIAL_INTEGRATION.md) for the
+capability/version matrix, evidence, inert example and cold-recovery gates.
+The current Git tip plus the final private remote receipt identify closeout;
+`main` remains `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**CONDITIONAL GO:** a future isolated normal-only texture assignment to one
+original owned fixture with an already compatible built-in material shader.
+This report grants no deployment/launch permission. Static material resource
+assignment is documented; it does not execute our HLSL. Direct Phase 0I moment
+packing, arbitrary original existing-object material HLSL, broad generic
+application and hot-removal rollback remain NO-GO on present evidence.
+Phase 0E HDR/canvas retirement NO-GO remains binding; Pure is untouched.
+
+Installed app/track SDK declarations support material setters, uniqueness and
+inspection. The 0.2.11 extracted WeatherFX SDK declares the older core methods;
+its reviewed declarations lack preview's getTextureSlotDetails. Keep optional
+metadata behind an adapter. Installed fuPBR templates expose normal RG/DXT5NM
+and separate emissive/AO/metalness/roughness packing, but template presence does
+not certify shader availability in build3898 or 0.2.11. Common configs can evolve
+independently of the binary. Exact decoding, normals, mips and runtime costs
+require native validation on each target release in authorized isolation.
+
+Phase 0I signed normal moments / mean roughness^4 are not target-ready material
+maps. Reuse the original surface model, then validate a target-specific encoding.
+Normalizing/packing XY loses mean-vector variance; native filtering/BRDF and
+anisotropy are not equivalent to the offline shader. No automatic roughness to
+legacy specular-exponent conversion or per-material cap8 control is established.
+No converter or second renderer was implemented. All 0G-0I source and 160 existing
+test definitions, including the historical 124, are preserved.
+
+Removal of SHADER_REPLACEMENT does not restore loaded values. Material dumps are
+incomplete and can contain session-only texture IDs. resetSkin is not full
+restoration; clone copies a reference; setMaterialsFrom shares state. Do not use
+these as an undo transaction. Future testing needs exact owned paths, complete
+effective baselines, collision/precedence checks, a workspace fault rehearsal,
+then a separately approved session with cold-reload recovery verified before
+expanding to one author-approved existing asset.
+
+The original [configuration proposal](../examples/phase0j_material_proposal.ini)
+has two ACTIVE=0 sections, exact future fixture selectors, no shader swap or
+include and no supplied DDS files. It is not an installer. Production selection
+must use reviewed asset profiles with hashes, material/shader/slot/flag checks,
+match counts, UV/tangent validation, LOD/skin handling and skip-on-ambiguity.
+Road/paint/rubber names are not eligibility proof. Gamma/LCS visual calibration
+remains separate; no universal texture or in-game improvement is claimed.
+
+This phase is documentation/static inspection only: no GUI, CM/game launch,
+native renderer, material mutation or installed-file change. Targeted checks
+cover disabled config, path/selector safety, declared evidence, local links and
+preservation. All 29 protected files, 49 settings, nine reviewed sources and the
+approved untracked reference match their receipts. No restore is required.
+Private evidence: `.local/phase0j-20261104/preflight.json`,
+`declaration-evidence.json`, `validation.json` and final Git/usage receipt.
+Do not rerun the unchanged 0I GPU demonstrations to validate this report.
+
+Starting live allowance: 93% five-hour / 72% weekly. Closeout reading: 84% / 71%.
+The former 12-point cap remains revoked. Read meters anew, review after about
+15 five-hour points of future work, and retain synchronization reserves and the
+independent 5% weekly hard cutoff. No deeper model or delegated review was used.
+
+**Next milestone:** prepare the original owned fixture's exact material/encoding
+contract and a workspace-only recovery rehearsal, then obtain review/authorization
+for the bounded native normal-orientation and cold-reload experiment. Preserve
+locked CSP preview361/build3898 and CM 0.8.2913.40776, original assets, freeware
+policy, unresolved repository license and all Phase 0E constraints.
+
+---
+
+## Historical Phase 0I continuation handoff
 
 Prepared 2026-11-04 on `phase0/foundation`, starting from verified local/remote
 `e82d52ded4495196b65ffe3f655ceec3bdb9cc00`. The validated implementation checkpoint
