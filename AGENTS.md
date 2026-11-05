@@ -263,3 +263,25 @@ Where supported, enforce these restrictions at the tool-permission or routing la
 - Today's GUI exception still ends at 17:00 Eastern, cleanup by 16:30; check time
   before GUI operations. Preserve locked versions, all prior evidence/tests,
   freeware, unresolved licensing, Phase 0E HDR NO-GO and Phase 0J recovery gates.
+
+## Phase 0R selected real-mod testing scope (2026-11-05)
+
+- The owner authorizes reversible experiments on the selected MM Lexus Rocket
+  Bunny RC-A / JD Drift Mansion Open environment, with Burnt Orange Metallic skin.
+  Identify actual IDs through CM before use; no complete original-track prerequisite
+  applies to this scoped test. Preserve original KN5 files and third-party assets.
+- Today's computer-use exception ends at 17:00 Eastern; begin cleanup by 16:30.
+  Preserve pre-existing CM, editor and unrelated sessions. Launch the game through
+  Content Manager exclusively after run-specific backups, ownership and recovery GO.
+- Baseline capture is authorized. A material experiment additionally requires exact
+  supported shader/normal-slot/basis and match count, config/include precedence,
+  complete file manifest, verified backup and workspace transaction rehearsal.
+  Reject unknown isolation or restoration. No paint/damage/glass/tyre/functional
+  first target, broad replacement, physics change or arbitrary custom-HLSL injection.
+- Cold-load original/enhanced/restored states when needed; static replacement
+  removal alone is not recovery proof. Remove only verified manifest-owned changes,
+  preserve conflicts, restore only verified owned preferences and record limitations.
+- Keep private mod assets/captures under ignored .local/, locked software, 29 protected
+  and 49 settings checks plus scoped target hashes, prior tests/reference, freeware,
+  unresolved licensing and Phase 0E HDR NO-GO. Review near 15 allowance points used;
+  preserve final cleanup/Git reserve and the independent 5% weekly hard cutoff.

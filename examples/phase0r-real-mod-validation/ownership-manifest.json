@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scope": "Phase 0R preflight only; no activated material package",
+  "installed_additions": [],
+  "installed_modifications": [],
+  "native_material_activation": false,
+  "workspace_owned_private_root": ".local/phase0r-20261105/",
+  "preserved_target_roots_relative_to_ac": ["content/cars/mm_lexus_rca", "content/tracks/jd_drift_mansion"],
+  "immutable_originals": [
+    {"path": "content/cars/mm_lexus_rca/mm_lexus_rca.kn5", "bytes": 86636062, "sha256": "d1084750eff45996f559df48c99c2dc7beaa591c72c7ea7e4006920a075f9b78"},
+    {"path": "content/cars/mm_lexus_rca/extension/ext_config.ini", "bytes": 11433, "sha256": "af05c31cb695e35514e0e0349ef45e498975349098665f863eaa9ffef511a008"},
+    {"path": "content/cars/mm_lexus_rca/skins/Burnt_Orange Metallic/ext_config.ini", "bytes": 2074, "sha256": "fc1490b130bfc01298e27c2e58f85157f0f708ea47f42b62d38e6fd298cd3d61"},
+    {"path": "content/tracks/jd_drift_mansion/models_open.ini", "bytes": 464, "sha256": "3eec1fbf80845d0b95c2d7187b2bf2fe0b8c93ff9310c8eda8cf9a3b4a7d5d38"},
+    {"path": "content/tracks/jd_drift_mansion/jd_drift_mansion.kn5", "bytes": 157244712, "sha256": "f016ab05c097628a15e59cb38903b503a77133bbf76172e37f8e6db279e50a55"},
+    {"path": "content/tracks/jd_drift_mansion/extension/ext_config.ini", "bytes": 12019, "sha256": "0b2a4abaf84e70f733b9f4cd3d56b0acd840f2d6e283e1b88085c4ce00c9b744"}
+  ],
+  "complete_private_target_hash_records": 1651,
+  "shared_include_files_read_only": 13,
+  "current_native_rollback": "No native files were staged or activated; do not remove or restore original mod assets.",
+  "future_transaction_ready": false,
+  "future_transaction_requires": ["exact native selector and match count", "verified shader/normal/UV contract", "effective config precedence", "fresh collision checks and payload hashes", "full workspace recovery rehearsal", "cold-load restoration comparison"]
+}

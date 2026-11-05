@@ -1,4 +1,72 @@
-# RestoVisuals Phase 0Q handoff — original KN5 render-load validated
+# RestoVisuals Phase 0R handoff — real-mod preflight; runtime pending
+
+Prepared 2026-11-05 from verified local/remote
+`f58b95ca72791f0174a36115b01db616058f9bd3` on `phase0/foundation`.
+Read [PHASE0R_REAL_MOD_VALIDATION.md](PHASE0R_REAL_MOD_VALIDATION.md),
+[observations](../examples/phase0r-real-mod-validation/observations.json) and
+[ownership manifest](../examples/phase0r-real-mod-validation/ownership-manifest.json).
+The owner's Phase 0R authorization permits controlled reversible testing on the
+selected real mods; building a complete original track is no longer prerequisite.
+Main remains `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**Preflight validated; the primary runtime objective remains pending.** Existing
+CM displays the requested MM Lexus RC-A, Burnt Orange Metallic and Drift Mansion
+Open. Installed metadata and existing CM-generated race settings identify
+`mm_lexus_rca`, `jd_drift_mansion`, layout `open`, skin `Burnt_Orange Metallic`.
+Existing track skin `vdc2024` is preserved. Fresh immutable baselines cover 1,265
+car files, 386 track files and 13 shared configs. No original KN5/config was edited.
+The Open list references missing `dm_layout_pits.kn5`, also warned about during
+successful Phase 0D initialization; no repair or clean-dependency claim is made.
+
+Current configured stack remains CSP preview361/build3898, CM 0.8.2913.40776,
+Pure Gamma 3.50, Dream Realism 7.3 Gamma PP. CM shows 13:06, Pure, 13.5°C,
+Optimum, 8.1 km/h SSW, Practice/Pits. Configured output is 1920×1080 with existing
+FSR active/QUALITY2 0.87; effective runtime rendering is not newly witnessed.
+No weather, exposure, camera, physics or graphics setting was changed.
+
+Twelve existing authoring sidecars contain 1,137 records across source variants;
+these are not a runtime material count. Opaque normal-mapped trim/concrete are
+potential targets only. Actual shader/bindings, normal orientation, UV scale,
+sharing/match count and effective config precedence still need live inspection.
+Objects Inspector is enabled in the installed GUI default, not yet opened here.
+No generic replacement, roughness, family migration or custom HLSL was staged.
+
+**Baseline launch is HOLD pending the existing CM cleanup choice.** The existing
+CM session contains an unsaved preset. Its current files and visible selection
+are preserved, and the owner was asked whether CM may be closed/reopened only if
+needed for exact recovery. No answer is assumed. The installed owner ksEditor
+remains untouched. Do not launch a dependent game test before resolving safe
+recovery; if normal loading fails, stop without speculative mod repairs.
+
+All 29 protected files, 49 selected settings, 25 original/backup pairs and both
+839-file SDK inventories are backed up/verified. The new owner CM preference
+state since Phase 0Q is the current baseline; never restore the older Q bytes.
+Additional readable state backups and exact inaccessible auxiliary-file exclusions
+are recorded privately. No access controls, versions or update policies changed.
+No game session, native material activation, enhanced/restored image comparison
+or game performance measurement occurred in Phase 0R. Actual installation diff
+is empty; enhancement and Phase 0E HDR remain NO-GO. Prior code/tests/reference
+and Phase 0P/Q evidence are preserved; private receipts stay under ignored
+`.local/phase0r-20261105/`.
+
+The preflight preservation validation passes for all scoped readable files; the
+194 inaccessible auxiliary files retain size/time only. All 201 old test
+definitions remain byte-unchanged; no unit suite was rerun. No setting restore
+was needed, no owned application remains open and the original CM/editor sessions
+remain alive. At the approximately 15-point review, research stopped and this
+checkpoint entered synchronization while the required cleanup choice was pending.
+
+Allowances started 70% five-hour / 42% weekly; first checkpoint 64%/41%,
+checkpoint closeout 55%/39%.
+Read fresh meters/final private receipts before resuming. GUI cleanup must begin
+by 16:30 and all computer-use finish before 17:00 Eastern today. Next: resolve
+CM recovery permission, capture one unmodified stationary baseline through CM
+and read one live material in Objects Inspector. Prepare no material transaction
+until every exact-target gate passes. Freeware and unresolved licensing persist.
+
+---
+
+## Historical Phase 0Q handoff — original KN5 render-load validated
 
 Prepared 2026-11-05 from verified local/remote
 `e9cbf60d1707028add4c1e62bab930e441ab7a0d` on `phase0/foundation`.
