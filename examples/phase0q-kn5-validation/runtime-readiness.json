@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "BLOCKED_NOT_INSTALL_READY",
+  "runtime_decision": "NO-GO",
+  "owner_authorization_to_stage_or_launch": false,
+  "candidate_namespace": "rv0q_material_fixture",
+  "candidate_root_relative_to_ac": "content/tracks/rv0q_material_fixture",
+  "collision_check": {
+    "track_directory_exists": false,
+    "matching_loaded_csp_config_exists": false
+  },
+  "actual_installed_additions": [],
+  "known_model_proposed_addition": {
+    "path": "content/tracks/rv0q_material_fixture/rv0p_original_pad.kn5",
+    "bytes": 350981,
+    "sha256": "cc4285989205597824750c9871c44f7eeace384b02ef026dbf472fc9ea4d28fd"
+  },
+  "incomplete_candidate_files": [
+    {
+      "path": "models.ini",
+      "role": "explicit model registration; exact contract not yet verified"
+    },
+    {
+      "path": "rv0q_fixture_support.kn5",
+      "role": "new original support geometry and spawn/pit markers; not authored"
+    },
+    {
+      "path": "data/surfaces.ini",
+      "role": "surface/collision definitions; required keys/values not established"
+    },
+    {
+      "path": "ui/ui_track.json",
+      "role": "CM metadata; schema/required fields not established"
+    },
+    {
+      "path": "ui/preview.png and ui/outline.png",
+      "role": "proposed UI images; necessity not established"
+    }
+  ],
+  "source_preservation": "original pad KN5, FBX, Blend, OBJ and textures remain immutable; author support separately",
+  "complete_installation_diff_fixed": false,
+  "complete_payload_hash_manifest_fixed": false,
+  "workspace_rehearsal": {
+    "scope": "known model only; not a complete track package",
+    "collision_refusal": true,
+    "partial_copy_recovery": true,
+    "owned_file_rollback": true,
+    "unrelated_sentinel_preserved": true
+  },
+  "required_before_future_go": [
+    "authoritative track-specific contract and chosen test-mode requirements",
+    "complete original support/marker/collision assets and supported export validation",
+    "complete reviewed file/hash manifest and fresh path collision checks",
+    "rehearsal of that complete manifest, not this one-file subset",
+    "separate owner authorization before game staging or launch"
+  ],
+  "future_launch": "Content Manager exclusively after separate approval",
+  "future_cold_load_acceptance": [
+    "reviewed track selected and exact model registration verified",
+    "no load/resource errors; physical surface and car clearance correct",
+    "reviewed pit/start placement and source geometry/material identity verified",
+    "unchanged Pure/CSP/Dream/CM versions and settings confirmed"
+  ],
+  "future_failure_and_rollback": [
+    "stop owned session normally; do not retry altered settings or materials",
+    "remove only manifest-owned additions whose hashes still match receipts",
+    "preserve ambiguous or foreign modifications and report incomplete recovery",
+    "restore only verified owned settings changes from fresh backups",
+    "cold-load known-good baseline and verify protected hashes before declaring recovery"
+  ],
+  "no_live_shader_replacement_rollback_assumed": true,
+  "complete_track_recovery_validated": false,
+  "game_test_performed": false
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "starting_sha": "e9cbf60d1707028add4c1e62bab930e441ab7a0d",
+  "evidence_label": "observed locally; non-game CM render-load",
+  "original_source": ".local/phase0p-20261105/resume-1014/kn5-export/rv0p_original_pad.kn5",
+  "kn5_bytes": 350981,
+  "kn5_sha256": "cc4285989205597824750c9871c44f7eeace384b02ef026dbf472fc9ea4d28fd",
+  "owned_viewer_copy_sha256": "cc4285989205597824750c9871c44f7eeace384b02ef026dbf472fc9ea4d28fd",
+  "original_and_copies_unchanged": true,
+  "interface": {
+    "application": "Content Manager",
+    "version": "0.8.2913.40776",
+    "entry": "plain KN5 filename argument with no modifiers",
+    "renderer_window": "Lite Showroom",
+    "outside_installed_car_container": true,
+    "developer_option_changes": false,
+    "new_tools_installed": false
+  },
+  "geometry": {
+    "kn5_render_load": "PASS",
+    "visible_original_quad": true,
+    "reported_triangles": 2,
+    "serialized_mesh_count_inspected": false,
+    "serialized_vertex_data_inspected": false
+  },
+  "material": {
+    "expected_from_phase0p": "RV0L_NORMAL_TEST",
+    "expected_shader_from_phase0p": "ksPerPixelNM",
+    "serialized_identity_inspected": false,
+    "viewer_global_shader_set": "SimpleNoPCSS",
+    "global_shader_set_is_serialized_material_identity": false
+  },
+  "textures": {
+    "shaded_surface_visible": true,
+    "named_bindings_inspected": false,
+    "embedded_payloads_compared": false,
+    "complete_resource_validation": "UNVERIFIED"
+  },
+  "errors": {
+    "visible_load_error_dialog": false,
+    "normal_exit_code": 0,
+    "complete_resource_error_log_available": false
+  },
+  "capture": {
+    "private_directory": ".local/phase0q-20261105/evidence",
+    "filename": "cm-window-1641214.png",
+    "sha256": "e8d7f2c373b3763521e447924d05dfaae0c5097d18da912fd3a0a3afc8c19710",
+    "viewport_reported": [
+      1600,
+      900
+    ],
+    "overlay_fps_is_not_a_game_benchmark": true,
+    "overlay_hdr_is_not_phase0e_hdr_contract_evidence": true
+  },
+  "sdk_direct_library_candidate": {
+    "assembly": "AcTools",
+    "version": "1.0.1.21",
+    "load_from_failed": "0x80131515",
+    "existing_zone_id": 3,
+    "zone_marker_preserved": true,
+    "library_unblocked": false,
+    "public_type_invoked": false
+  },
+  "cleanup": {
+    "owned_cm_closed_normally": true,
+    "owner_editor_untouched": true,
+    "one_owned_cm_preferences_file_restored": true,
+    "protected_files_unchanged": 29,
+    "settings_unchanged": 49,
+    "original_backup_pairs_verified": 25,
+    "installed_sdk_files_unchanged": 839,
+    "mirror_sdk_files_unchanged": 839
+  },
+  "validation": {
+    "fixture_regressions_passed": 10,
+    "recovery_rehearsal_cases_passed": 3,
+    "existing_test_definitions_preserved": 201,
+    "full_suite_rerun": false
+  },
+  "runtime_decision": "NO-GO",
+  "game_launched": false,
+  "installed_additions": 0,
+  "hdr_decision": "NO-GO",
+  "full_channel_orientation_retested": false,
+  "starting_allowance_remaining": {
+    "five_hour": 100,
+    "weekly": 46
+  },
+  "formal_closeout_allowance_remaining": {
+    "five_hour": 82,
+    "weekly": 44
+  },
+  "repository_license": "owner undecided"
+}

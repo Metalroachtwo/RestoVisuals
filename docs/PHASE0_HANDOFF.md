@@ -1,4 +1,63 @@
-# RestoVisuals Phase 0P resumed handoff — camera and sampling validated
+# RestoVisuals Phase 0Q handoff — original KN5 render-load validated
+
+Prepared 2026-11-05 from verified local/remote
+`e9cbf60d1707028add4c1e62bab930e441ab7a0d` on `phase0/foundation`.
+Read [PHASE0Q_KN5_LOAD_VALIDATION.md](PHASE0Q_KN5_LOAD_VALIDATION.md),
+[observations](../examples/phase0q-kn5-validation/observations.json) and
+[runtime readiness](../examples/phase0q-kn5-validation/runtime-readiness.json).
+Main remains `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`; Git and ignored final
+receipts identify the synchronized checkpoint. The prior handoff follows below.
+
+**Non-game geometry/render-load passes.** Installed CM 0.8.2913.40776 accepted
+the original Track KN5 through its plain-filename Lite Showroom route, outside
+any installed car/track container. The original quad rendered and the viewer
+reported two triangles. The selected 350,981-byte file and all owned copies retain
+SHA-256 `cc4285989205597824750c9871c44f7eeace384b02ef026dbf472fc9ea4d28fd`.
+The original remains private and immutable. No FBX, DDS-header, camera or signed-X
+experiment was repeated; the owner's existing installed editor was untouched.
+
+**Serialized material/texture auditing remains incomplete.** The bare viewer
+did not expose mesh identity/count, material name, shader binding or embedded
+texture payloads. Its SimpleNoPCSS overlay is the viewer renderer shader set,
+not proof of serialized ksPerPixelNM. Phase 0P's source/editor sampling evidence
+remains separate. The older SDK AcTools library candidate was blocked by its
+legacy-host load error; its existing origin marker was preserved, with no
+unblocking or policy change. Maintainer source references and observed CM
+behavior establish the successful route without a custom parser or new tool.
+
+**In-game testing remains NO-GO.** No installation, game launch, material
+replacement or custom-HLSL execution occurred. The candidate original track
+namespace is absent, but the minimum supported track contract, original support/
+marker/collision assets and complete file/hash/recovery manifest are not ready.
+Three workspace-only recovery cases passed for the one known KN5: collision
+refusal, interrupted-copy cleanup and owned rollback preserving an unrelated
+sentinel. This is not complete track rollback or game cold-load validation.
+Separate owner approval is required before any future game staging or launch.
+
+The owned CM viewer closed normally, exit 0, at 12:27:17 America/New_York.
+One CM preferences file changed during normal use; its changed bytes were
+preserved privately and the verified preflight backup restored with CM closed
+and exact hash guards. All 29 protected files, 49 selected settings, 25 original/
+backup pairs and 839 files in each installed/mirror SDK location match baseline.
+The original untracked visual reference is preserved. Ten affected fixture-source
+regressions pass, zero failures; all 201 existing test definitions, including the
+historical 124 baseline, remain unchanged. No full-suite rerun was needed.
+
+Allowances began at 100% five-hour / 46% weekly following replenishment. Formal
+closeout began at 82%/44%, after native work finished; documentation checkpoint
+73%/42%. Read final private receipts and fresh meters before resuming. No model
+escalation or delegation occurred. Raw evidence remains ignored under
+`.local/phase0q-20261105/`. The temporary GUI exception ends at 17:00 Eastern,
+cleanup by 16:30. No further GUI operations are required for this checkpoint.
+
+Next: establish the authoritative minimum-track contract and prepare separately
+owned support assets plus a complete installation/recovery manifest. Preserve
+the demonstrated CM load route, locked stack, freeware policy, owner-undecided
+license, Phase 0E HDR NO-GO and Phase 0J cold-reload requirements.
+
+---
+
+## Historical Phase 0P resumed handoff — camera and sampling validated
 
 Prepared 2026-11-05 from verified `cecd6448dd0920ea2aaf9d8afed18546f820b8b5`
 on `phase0/foundation`. Read the current

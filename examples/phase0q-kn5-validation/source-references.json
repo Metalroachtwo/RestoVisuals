@@ -1,0 +1,26 @@
+{
+  "reference_commit": "e5e5c94b8dee7511def0b670bfd5dbb233831c11",
+  "scope": "Maintainer implementation references; actual installed CM behavior validated separately",
+  "sources": [
+    {
+      "url": "https://github.com/gro-ove/actools/blob/e5e5c94b8dee7511def0b670bfd5dbb233831c11/AcManager/Tools/ArgumentsHandler.cs",
+      "blob_sha": "40f8250787ef2f22bfca989547903ff90298d73e"
+    },
+    {
+      "url": "https://github.com/gro-ove/actools/blob/e5e5c94b8dee7511def0b670bfd5dbb233831c11/AcManager/CustomShowroom/CustomShowroomWrapper.cs",
+      "blob_sha": "620150a4acd57e8002c4d4843d7053824517a379"
+    },
+    {
+      "url": "https://github.com/gro-ove/actools/blob/e5e5c94b8dee7511def0b670bfd5dbb233831c11/AcTools.Render/Wrapper/FormWrapperBase.cs",
+      "blob_sha": "d4c99dbddba98f91590ad0db8b7fdc2db91788d9"
+    },
+    {
+      "url": "https://github.com/gro-ove/actools/blob/e5e5c94b8dee7511def0b670bfd5dbb233831c11/AcTools.Render/Kn5SpecificForward/ForwardKn5ObjectRenderer.cs",
+      "blob_sha": "01fd59733cd4bc18c1d118e53f05bb3659fb32db"
+    },
+    {
+      "url": "https://github.com/gro-ove/actools/blob/e5e5c94b8dee7511def0b670bfd5dbb233831c11/AcTools.Render/Wrapper/LiteShowroomFormWrapper.cs",
+      "blob_sha": "6548bb2ff0c4101102097b93747a92e8a92fbcba"
+    }
+  ]
+}

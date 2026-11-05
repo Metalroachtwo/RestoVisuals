@@ -246,3 +246,20 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   protected/source/settings/SDK hashes. Reserve approximately 15 five-hour points
   for closeout and the independent 5% weekly cutoff. Preserve existing tests,
   freeware policy, Phase 0E HDR NO-GO and Phase 0J cold-load requirements.
+
+## Phase 0Q KN5 inspection and planning scope (2026-11-05)
+
+- Verify the immutable Phase 0P KN5 and inspect only a byte-identical owned copy.
+  Bound the inventory to existing SDK/Content Manager interfaces and documented
+  public loader APIs. Do not assume a car showroom supports a standalone track.
+- No custom KN5 reader/writer/patcher, tool installation, developer-option change,
+  application reconfiguration or game launch is authorized. Preserve existing
+  sessions, especially the owner's installed editor. Keep structural loading,
+  texture decoding and rendered-resource validation distinct.
+- If a suitable non-game loader is unavailable, prepare an exact original-track
+  installation diff, collision checks, recovery rehearsal and cold-load/failure
+  criteria in the workspace only. Explicit owner approval is required before
+  staging to the game or launching any experiment.
+- Today's GUI exception still ends at 17:00 Eastern, cleanup by 16:30; check time
+  before GUI operations. Preserve locked versions, all prior evidence/tests,
+  freeware, unresolved licensing, Phase 0E HDR NO-GO and Phase 0J recovery gates.
