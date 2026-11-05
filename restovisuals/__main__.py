@@ -13,6 +13,7 @@ from .shader_compile import compile_prototype
 from .d3d11_validation import validate_gpu_shader
 from .gpu_demo import demonstrate_gpu_shader
 from .material_demo import demonstrate_material
+from .material_optimization import optimize_material
 from .runtime_probe import prepare_observer_probe
 
 
@@ -52,6 +53,12 @@ def main(argv=None):
     material.add_argument("--output", type=Path, required=True)
     material.add_argument("--profile", choices=("720p", "1080p", "both"), default="both")
     material.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1] / "shaders/RV_MaterialRealism.hlsl")
+    optimization = commands.add_parser("material-compare", help="Bounded original procedural/compact-texture GPU comparison")
+    optimization.add_argument("--adapter-index", type=int, required=True)
+    optimization.add_argument("--output", type=Path, required=True)
+    optimization.add_argument("--texture-size", type=int, choices=(256,512), default=256)
+    optimization.add_argument("--profile", choices=("720p","1080p","both"), default="both")
+    optimization.add_argument("--domain", type=int, choices=(1,2), default=1)
     probe_package = commands.add_parser("prepare-observer-probe", help="Stage original observer files under a new .local directory; does not install or launch")
     probe_package.add_argument("--output", type=Path, required=True)
     probe_package.add_argument("--diagnostic-only", action="store_true", help="Record API value types without subscriptions or rendering")
@@ -93,6 +100,8 @@ def main(argv=None):
             result = demonstrate_gpu_shader(args.adapter_index, args.source, args.output, profile=args.profile)
         elif args.command == "material-demo":
             result = demonstrate_material(args.adapter_index, args.source, args.output, profile=args.profile)
+        elif args.command == "material-compare":
+            result = optimize_material(args.adapter_index,args.output,texture_size=args.texture_size,profile=args.profile,domain=args.domain)
         elif args.command == "prepare-observer-probe":
             result = prepare_observer_probe(args.output, diagnostic_only=args.diagnostic_only)
         elif args.command == "compare":
@@ -105,7 +114,7 @@ def main(argv=None):
             changes = compare_protected(before, after)
             result = {"protected_files_unchanged": not changes, "changed": changes}
         print(json.dumps(result, indent=2, allow_nan=False))
-        if args.command in ("gpu-validate", "gpu-demo", "material-demo") and result["status"] != "passed":
+        if args.command in ("gpu-validate", "gpu-demo", "material-demo", "material-compare") and result["status"] != "passed":
             return 4
         return 3 if args.command == "guard" and changes else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, OverflowError) as error:

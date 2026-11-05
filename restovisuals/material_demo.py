@@ -21,7 +21,7 @@ def probe_positions(width, height):
                    for i in range(11) for j in range(9)})
 
 
-def verify_material(raw, width, height, parameters, *, normals=False):
+def verify_material(raw, width, height, parameters, *, normals=False, reference=None, cpu_tolerance=.0004):
     if len(raw) != width*height*16:
         raise ValueError("Material readback size mismatch")
     finite, alpha, max_normal_error = True, True, 0.0
@@ -41,13 +41,14 @@ def verify_material(raw, width, height, parameters, *, normals=False):
         for x,y in positions:
             actual = struct.unpack_from('<4f',raw,(y*width+x)*16)
             uv = ((x+.5)/width,(y+.5)/height)
-            expected = surface(*uv,*parameters[:2]) if normals else shade(*uv,*parameters)
+            expected = (reference(*uv,parameters,normals) if reference is not None else
+                        surface(*uv,*parameters[:2]) if normals else shade(*uv,*parameters))
             error = max(error,max(abs(a-b) for a,b in zip(actual,expected)))
-    passed = finite and alpha and error <= 0.0004
+    passed = finite and alpha and error <= cpu_tolerance
     if normals:
         passed &= max_normal_error <= 0.000002 and rough_min >= .41999 and rough_max <= .86001
     return {'passed':bool(passed),'all_pixels_finite':finite,'all_pixels_alpha_one':alpha if not normals else None,
-            'sampled_cpu_pixels':len(positions),'cpu_max_absolute_error':error,'cpu_absolute_tolerance':.0004,
+            'sampled_cpu_pixels':len(positions),'cpu_max_absolute_error':error,'cpu_absolute_tolerance':cpu_tolerance,
             'all_pixels_max_normal_length_error':max_normal_error if normals else None,
             'all_pixels_roughness_range':[rough_min,rough_max] if normals else None,
             'readback_sha256':hashlib.sha256(raw).hexdigest()}

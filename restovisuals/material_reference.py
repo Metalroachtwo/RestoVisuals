@@ -38,7 +38,12 @@ def surface(u, v, normal_amount=1, roughness_amount=1):
 
 
 def shade(u, v, normal_amount=1, roughness_amount=1, light_side=1):
-    *normal, roughness = surface(u,v,normal_amount,roughness_amount)
+    return shade_surface(surface(u,v,normal_amount,roughness_amount),light_side)
+
+
+def shade_surface(material, light_side=1):
+    """The same lighting oracle for analytic and sampled surface data."""
+    *normal, roughness = material
     length = math.sqrt(.85**2+.25**2+.65**2)
     light = (.85*light_side/length,.25/length,.65/length)
     half = (light[0],light[1],light[2]+1)

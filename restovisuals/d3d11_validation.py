@@ -264,13 +264,18 @@ def compare_pixels(actual, expected, *, strict_identity, format_name):
             "first_failures": first_failures}
 
 
-def execute_texture(session, shaders, width, height, format_name, entry, parameters, packed, *, draws=1, warmup=0):
+def execute_texture(session, shaders, width, height, format_name, entry, parameters, packed, *, draws=1, warmup=0,
+                    material_texture_size=None):
     """Shared bounded dispatch/readback for both the small oracle and visual demo."""
     if (any(type(v) is not int for v in (width, height, draws, warmup))
             or not 8 <= width <= 1920 or not 8 <= height <= 1080
             or not 1 <= draws <= 5 or not 0 <= warmup <= 2):
         raise ValueError("Texture execution exceeds diagnostic bounds")
     procedural = entry in ("PSMaterial", "PSMaterialNormals")
+    textured_material = material_texture_size is not None
+    if textured_material and (not procedural or type(material_texture_size) is not int
+                              or material_texture_size not in (256, 512)):
+        raise ValueError("Only the bounded 256/512 material fixtures are supported")
     if format_name not in ("rgba32f", "rgba16f") or entry not in ("PSLinear", "PSSrgb", "PSMaterial", "PSMaterialNormals"):
         raise ValueError("Unsupported validation format or entry")
     if len(parameters) != 3:
@@ -278,7 +283,7 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
     if procedural:
         if (any(type(v) not in (int, float) or not math.isfinite(v) for v in parameters)
                 or not 0 <= parameters[0] <= 1 or not 0 <= parameters[1] <= 1
-                or parameters[2] not in (-1, 1) or packed is not None):
+                or parameters[2] not in (-1, 1) or (not textured_material and packed is not None)):
             raise ValueError("Invalid procedural material parameters or unexpected input texture")
     else:
         transform_rgba((0, 0, 0, 1), encoding="scene_linear",
@@ -286,21 +291,32 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
     format_id, pixel_code, bytes_per_pixel = (2, "4f", 16) if format_name == "rgba32f" else (10, "4e", 8)
     if not procedural and (not isinstance(packed, bytes) or len(packed) != width * height * bytes_per_pixel):
         raise ValueError("Packed texture length mismatch")
+    if textured_material and (not isinstance(packed, bytes) or len(packed) != material_texture_size**2*8):
+        raise ValueError("Packed compact material texture length mismatch")
     support = U32()
     _check(_method(session.device, 29, HRESULT, U32, ct.POINTER(U32))(session.device, format_id, ct.byref(support)), "CheckFormatSupport")
     if support.value & (0x20 | 0x200 | 0x4000) != (0x20 | 0x200 | 0x4000):
         raise ValueError("Required texture/sample/render-target format support missing")
+    if textured_material:
+        _check(_method(session.device, 29, HRESULT, U32, ct.POINTER(U32))(
+            session.device, 10, ct.byref(support)), "Check material RGBA16F support")
+        if support.value & (0x20 | 0x200) != (0x20 | 0x200):
+            raise ValueError("Material RGBA16F sampling support missing")
     resource_mark = len(session.owned)
     result = {"entry": entry, "format": format_name, "pixels": width * height,
               "parameters": list(parameters), "draws": draws, "warmup_draws": warmup,
-              "declared_texture_payload_bytes": width * height * bytes_per_pixel * (2 if procedural else 3),
-              "input_texture_allocated": not procedural, "constant_buffer_payload_bytes": 16,
+              "declared_texture_payload_bytes": width * height * bytes_per_pixel * (2 if procedural else 3)
+                  + (material_texture_size**2*8 if textured_material else 0),
+              "material_texture_payload_bytes": material_texture_size**2*8 if textured_material else 0,
+              "input_texture_allocated": not procedural or textured_material, "constant_buffer_payload_bytes": 16,
               "driver_allocation_measured": False,
               "memory_before": session.memory_info(), "owned_com_references_before": resource_mark}
     try:
         srv, sampler = PTR(), PTR()
-        if not procedural:
-            source = session.texture(width, height, format_id, 1, 8, 0, packed)  # immutable SRV
+        if not procedural or textured_material:
+            source = session.texture(material_texture_size if textured_material else width,
+                                     material_texture_size if textured_material else height,
+                                     10 if textured_material else format_id, 1, 8, 0, packed)
             srv = session.create(7, "CreateShaderResourceView", [PTR, PTR], [source, None])
         output = session.texture(width, height, format_id, 0, 32, 0)
         staging = session.texture(width, height, format_id, 3, 0, 0x20000)
@@ -310,8 +326,9 @@ def execute_texture(session, shaders, width, height, format_name, entry, paramet
         initial = InitialData(ct.cast(constants, PTR), 0, 0)
         buffer = session.create(3, "CreateBuffer", [ct.POINTER(BufferDescription), ct.POINTER(InitialData)],
                                 [ct.byref(desc), ct.byref(initial)])
-        if not procedural:
-            sampler_desc = SamplerDescription(0, 3, 3, 3, 0, 1, 8, (ct.c_float * 4)(), 0, 3.402823466e38)
+        if not procedural or textured_material:
+            sampler_desc = SamplerDescription(0x15 if textured_material else 0, 3, 3, 3, 0, 1, 8,
+                                              (ct.c_float * 4)(), 0, 3.402823466e38)
             sampler = session.create(23, "CreateSamplerState", [ct.POINTER(SamplerDescription)], [ct.byref(sampler_desc)])
         raster_desc = RasterDescription(3, 1, 0, 0, 0, 0, 1, 0, 0, 0)
         raster = session.create(22, "CreateRasterizerState", [ct.POINTER(RasterDescription)], [ct.byref(raster_desc)])

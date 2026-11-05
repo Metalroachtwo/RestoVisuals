@@ -1,4 +1,10 @@
-# RestoVisuals architecture, Phase 0G checkpoint
+# RestoVisuals architecture, Phase 0H checkpoint
+
+Phase 0H [compares compact original material textures with the preserved procedural
+shader](PHASE0H_MATERIAL_OPTIMIZATION.md) using the same windowless executor.
+Measured texture sampling trades small bounded fidelity loss and 512 KiB/2 MiB
+of input payload for lower isolated GPU cost. Material integration and the native
+HDR contract remain unvalidated; no game deployment or GUI access is involved.
 
 Phase 0G adds an [offline synthetic material experiment](PHASE0G_MATERIAL_SHADER.md)
 through the existing windowless D3D11 executor. Original height-gradient normals,

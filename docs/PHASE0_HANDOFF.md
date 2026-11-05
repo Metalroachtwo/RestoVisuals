@@ -1,4 +1,53 @@
-# RestoVisuals Phase 0G continuation handoff
+# RestoVisuals Phase 0H continuation handoff
+
+Prepared 2026-11-04 from verified local/remote `phase0/foundation`
+`1e21f6a2f3d515854bc276e91f3716dad4507392`.
+Read [PHASE0H_MATERIAL_OPTIMIZATION.md](PHASE0H_MATERIAL_OPTIMIZATION.md) for the
+reproducible comparison, measured quality/cost, texture lifetime and limitations.
+
+**Recommendation: CONTINUE compact textures for this synthetic material.** At
+1080p/original density, procedural cost remains about 1.057 ms and texture cost
+is 0.133 ms, about 0.0122 ms above flat rather than Phase 0G's 0.936 ms increment.
+The 256x256 RGBA16F map adds 512 KiB of logical input payload; full-image RGB
+RMSE is 0.000368 and sampled normal p95 is 1.52 degrees. This is close, not exact
+quality equivalence, and implies no in-game FPS result.
+
+One finer-density probe increased small-map error nearly threefold, justifying
+the only second size. At 720p, 512x512 reduces its RMSE from 0.00104 to 0.000351
+and normal p95 from 2.18 to 0.86 degrees, with little measured draw-time change
+and 2 MiB payload. Finer 1080p also passes. Grain scale improves relative to the
+large stone-like field, but regular grooves remain; asphalt realism is unvalidated.
+No prolonged artistic tuning or general texture authoring system was built.
+
+The procedural HLSL is unchanged. Only the surface-data function is replaced in
+private assembled copies; lighting, parameters, geometry and output format match.
+The existing renderer/compiler/exporter remain shared. All normal/finite/range,
+disabled byte-equality, timestamp and resource-release gates pass. Nine new tests
+and 31 affected existing tests pass; every pre-existing test is preserved,
+including the historical 124 and Phase 0G's additional ten. One small original
+color-path native GPU regression passed. No full unrelated suite was rerun.
+
+Private reports, original fixture binaries and 30 labeled comparison PNGs/viewers
+remain under `.local/phase0h-20261104/`. No sample is published. No GUI, game,
+installation or global graphics setting was touched; Phase 0E's native HDR
+NO-GO remains binding. No dependency or licensing change was made.
+
+Starting meters were **59% five-hour and 80% weekly remaining**. The session cap
+is 12 points, giving a floor of 47%; closeout began at 52% / 78%, before the
+planned 51% trigger. The independent weekly hard cutoff remains 5%. Final usage,
+preservation and matching local/remote SHA go in private receipts and the response.
+
+Next: validate mip/oblique-view fidelity and seamless material sampling, then
+broader physical hardware. Source rollback uses a reviewed follow-up commit;
+preserve original references and receipts. No native deployment is authorized.
+
+Final preservation passes for all 29 protected files and 49 selected settings
+files; the approved untracked PNG is unchanged. All 30 image hashes, three fixture
+hashes and 170 timing/resource receipts verify. No restoration was necessary.
+
+---
+
+## Historical Phase 0G continuation handoff
 
 Prepared 2026-11-04 from verified local/remote `phase0/foundation`
 `ca9204bc9322d5d2492d0ff39328e165050c0da2`.
