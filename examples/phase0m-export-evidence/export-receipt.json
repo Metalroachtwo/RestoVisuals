@@ -1,0 +1,606 @@
+{
+  "status": "fbx_roundtrip_validated_kn5_blocked",
+  "native_ready": false,
+  "source_checkpoint": "4eb90d9b9962e607fb334750497d68b376863807",
+  "resumed_checkpoint": "cf80bda61467c574bf1c5c12e6495128c5539876",
+  "authoring_version_observed": "5.1.1",
+  "fbx": {
+    "version": 7400,
+    "bytes": 19260,
+    "sha256": "49e1dc29e3e2ff976995d67e0bceaaca038e57443885814c72ea48e65ab2b474",
+    "supported_reimport_validated": true,
+    "absolute_local_paths_present": true,
+    "distribution": "kept_private_without_binary_rewriting"
+  },
+  "blend": {
+    "bytes": 98472,
+    "sha256": "b7244f1347b30ded51545b49dc3a9f353950aaf685101663756d2896bf97a124"
+  },
+  "export_settings": {
+    "use_selection": true,
+    "object_types": [
+      "MESH"
+    ],
+    "global_scale": 1.0,
+    "apply_unit_scale": true,
+    "apply_scale_options": "FBX_SCALE_UNITS",
+    "axis_forward": "-Z",
+    "axis_up": "Y",
+    "use_space_transform": true,
+    "bake_space_transform": false,
+    "use_mesh_modifiers": true,
+    "mesh_smooth_type": "OFF",
+    "use_tspace": true,
+    "use_triangles": false,
+    "add_leaf_bones": false,
+    "bake_anim": false,
+    "path_mode": "RELATIVE",
+    "embed_textures": false,
+    "use_custom_props": false
+  },
+  "source_import": {
+    "name": "RV0L_TEST_PAD",
+    "materials": [
+      "RV0L_NORMAL_TEST"
+    ],
+    "world_positions": [
+      [
+        -6.0,
+        -6.0,
+        4.5298742179511464e-07
+      ],
+      [
+        6.0,
+        -6.0,
+        4.5298742179511464e-07
+      ],
+      [
+        6.0,
+        6.0,
+        -4.5298742179511464e-07
+      ],
+      [
+        -6.0,
+        6.0,
+        -4.5298742179511464e-07
+      ]
+    ],
+    "corners": [
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          6.0,
+          0.0
+        ]
+      },
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          6.0,
+          6.0
+        ]
+      },
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          0.0,
+          6.0
+        ]
+      }
+    ],
+    "uv_layer": "UVMap"
+  },
+  "supported_fbx_reimport": {
+    "name": "RV0L_TEST_PAD",
+    "materials": [
+      "RV0L_NORMAL_TEST"
+    ],
+    "world_positions": [
+      [
+        -6.0,
+        -6.0,
+        4.5298742179511464e-07
+      ],
+      [
+        6.0,
+        -6.0,
+        4.5298742179511464e-07
+      ],
+      [
+        6.0,
+        6.0,
+        -4.5298742179511464e-07
+      ],
+      [
+        -6.0,
+        6.0,
+        -4.5298742179511464e-07
+      ]
+    ],
+    "corners": [
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          6.0,
+          0.0
+        ]
+      },
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          6.0,
+          6.0
+        ]
+      },
+      {
+        "n": [
+          0.0,
+          7.549790126404332e-08,
+          1.0
+        ],
+        "t": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          0.0,
+          1.0,
+          -7.549790126404332e-08
+        ],
+        "uv": [
+          0.0,
+          6.0
+        ]
+      }
+    ],
+    "uv_layer": "UVMap"
+  },
+  "kseditor": {
+    "binary_sha256": "820a1c5de8b64074e3d32cdf1a377238da3a3e0480d03070ffa35ba98e6c122e",
+    "private_byte_verified_sdk_mirror": true,
+    "observed_mesh": "RV0L_TEST_PAD",
+    "observed_triangles": 2,
+    "observed_radius": 8.485281,
+    "observed_scale": [
+      1,
+      1,
+      1
+    ],
+    "shader": "ksPerPixelNM",
+    "material": "RV0L_NORMAL_TEST",
+    "depth_mode": 0,
+    "alpha_blend": 0,
+    "alpha_test": 0,
+    "variables": [
+      {
+        "name": "ksAmbient",
+        "persisted_channels": {
+          "float1": [
+            0.2
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "ksDiffuse",
+        "persisted_channels": {
+          "float1": [
+            0.6
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "ksSpecular",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "ksSpecularEXP",
+        "persisted_channels": {
+          "float1": [
+            10.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "ksEmissive",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "ksAlphaRef",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "fresnelC",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "fresnelEXP",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "nmObjectSpace",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "isAdditive",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "fresnelMaxLevel",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "boh",
+        "persisted_channels": {
+          "float1": [
+            0.0
+          ],
+          "float2": [
+            0.0,
+            0.0
+          ],
+          "float3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "float4": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "resources": [
+      {
+        "name": "txDiffuse",
+        "slot": 0,
+        "texture": "neutral_diffuse.png"
+      },
+      {
+        "name": "txNormal",
+        "slot": 1,
+        "texture": "flat.dds"
+      }
+    ],
+    "required_resource_directory": "texture",
+    "diffuse_displayed_dimensions": [
+      32,
+      32
+    ],
+    "normal_displayed_dimensions": [
+      0,
+      0
+    ],
+    "normal_displayed_format": "LUM (0)",
+    "normal_displayed_payload": "349 Kb",
+    "normal_gpu_decode_validated": false,
+    "reload_message_does_not_prove_decode": true,
+    "viewport_visual_validation": false,
+    "copied_error_log_unchanged": true,
+    "open_kn5_menu_entry_observed": false
+  },
+  "kn5": {
+    "export_attempted": false,
+    "output_created": false,
+    "reason": "normal DDS resource decode not established after supported binding/reload"
+  },
+  "cleanup": {
+    "blender_closed_normally": true,
+    "kseditor_closed_normally": true,
+    "installed_changes": false,
+    "game_launched": false,
+    "permanent_gui_enablement": false
+  }
+}

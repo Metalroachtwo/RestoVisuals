@@ -166,6 +166,10 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   The authoring exception does not itself waive the separate scheduling gate.
   Check actual Eastern time before GUI operations; outside that window, require
   the owner's explicit scheduling exception before initializing GUI access.
+- The owner subsequently answered "Authorize this export tonight" for the
+  2026-11-04 evening Phase 0M run. After-hours GUI control is authorized for this
+  original fixture export and its cleanup only. This exception ends with this
+  run and grants no persistent scheduling or unrelated computer-use permission.
 - Preserve original sources, existing sessions and unsaved work. Use separate
   owned outputs, verify relevant backups, and record real exporter results,
   scale, UVs, basis, materials and hashes. Do not substitute undocumented KN5

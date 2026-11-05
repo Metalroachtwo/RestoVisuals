@@ -1,4 +1,12 @@
-# RestoVisuals architecture, Phase 0L checkpoint
+# RestoVisuals architecture, Phase 0M checkpoint
+
+Phase 0M [executes the supported original FBX path](PHASE0M_EXPORT_STATUS.md):
+Blender export/reimport and ksEditor geometry import pass, with numerical and
+material-state receipts. The original normal DDS reports unknown format/zero
+dimensions in the editor after reload; actual decode remains unvalidated.
+No KN5 or native rendering is claimed. The singular editor `texture` directory
+is required. Raw outputs remain private; supported resource/output verification
+is the next gate. Owned GUI sessions closed normally and installations are intact.
 
 Phase 0L [establishes the candidate fixture authoring path](PHASE0L_FIXTURE_PIPELINE.md):
 original OBJ/MTL source, installed legacy FBX exporter and documented ksEditor

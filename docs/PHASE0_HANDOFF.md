@@ -1,41 +1,67 @@
 # RestoVisuals Phase 0M continuation handoff
 
-Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
+Prepared 2026-11-04 evening on `phase0/foundation`, resumed from verified
+`cf80bda61467c574bf1c5c12e6495128c5539876`. Original Phase 0L source checkpoint:
 `4eb90d9b9962e607fb334750497d68b376863807`. Read
-[PHASE0M_EXPORT_STATUS.md](PHASE0M_EXPORT_STATUS.md) for the bounded preflight.
+[PHASE0M_EXPORT_STATUS.md](PHASE0M_EXPORT_STATUS.md) and the
+[sanitized numerical receipt](../examples/phase0m-export-evidence/export-receipt.json).
 Current tip and ignored final receipts identify synchronization. Main remains
 `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
 
-The owner has now granted a task-specific DCC computer-use exception for the
-original Phase 0L pad and interactive ksEditor export. It is retained in AGENTS.md;
-do not request that same authoring permission again. The independent weekday
-08:00-17:00 America/New_York scheduling gate still applies. Actual preflight time
-was Wednesday 22:22 Eastern, so GUI operations did not begin. An after-hours
-exception was requested and remains pending; silence does not grant permission.
+Actual original FBX export and supported Blender reimport passed. Blender 5.1.1
+used the installed legacy FBX 7400 exporter, selected mesh, metric unit scale 1,
+-Z/Y export axes and tangent-space output. Four positions, one quad/UV set,
+UV-derived T/B/N and exact material name passed before/after import. The initial
+material-name check hit an orphan-data alias; cleaning only the owned orphan
+mesh/material data and reimporting the same unchanged FBX resolved it.
 
-One read-only Blender MCP request failed to connect to its local endpoint.
-One bounded non-GUI check found no listener and no Blender/ksEditor process.
-No repeated diagnostics, restart, application launch, live scene mutation or
-GUI initialization occurred. No FBX or KN5 was created, and no export failure
-or shader compatibility conclusion can be inferred from this connection result.
+FBX: 19,260 bytes, SHA-256
+`49e1dc29e3e2ff976995d67e0bceaaca038e57443885814c72ea48e65ab2b474`.
+Original Blend: 98,472 bytes, SHA-256
+`b7244f1347b30ded51545b49dc3a9f353950aaf685101663756d2896bf97a124`.
+Raw exports stay in `.local/phase0m-20261104/resumed-export/exports/` because
+the FBX embeds an absolute workspace path. Do not publish or rewrite it casually.
+The unchanged Phase 0L source package retains its historical source-only flags.
 
-All 29 protected files, 49 selected settings and the untracked visual reference
-are unchanged. A verified private editor-config backup and preflight receipts
-are under `.local/phase0m-20261104/`. No restoration is required. Phase 0L source,
-all 196 tests, runtime code and earlier evidence are preserved. Documentation
-and authorization scope checks, rather than unchanged GPU runs, cover this change.
+ksEditor imported the FBX and reported two triangles, unit scale and radius
+8.485281. The exact ksPerPixelNM panel and saved persistence confirm one material,
+two slots, 12 properties, opaque flags and owned mesh state. Extra properties
+and all persisted channels are recorded without inventing their semantics.
+The required resource folder is singular `texture`, documented by the SDK.
+Copying the original PNG there and reloading made it report 32x32.
 
-Starting live allowance was 37% five-hour / 64% weekly. Recheck both meters on
-resumption, reserve approximately 15 five-hour points for closeout/recovery and
-preserve the 5% weekly hard cutoff. No model escalation or delegation was used.
+**KN5/native NO-GO.** The original DX10/DXGI-28 flat normal DDS reported
+`LUM (0), 0x0`, 349 Kb before/after supported reload. A reloaded message does not
+validate decode. UI metadata limitation versus actual loader failure is unknown;
+do not assert categorical DX10 incompatibility. The viewport stayed gray, so
+visual appearance/orientation is not approved. No KN5 export was attempted.
+An Open KN5 menu entry was not observed; supported output verification is pending.
+The copied render-exception log was unchanged from the original and is not a
+new runtime failure witness. No alternative converter/shader/writer was tried.
 
-Next: in the approved time window or after an explicit scheduling exception,
-perform the actual owned source -> FBX -> ksEditor -> KN5 roundtrip documented
-in Phase 0L. Preserve existing sessions, verify fresh backups/output ownership
-and reopen the exported asset before claiming success. Do not build another
-exporter or install tools. This authorization never includes a game launch;
-native material testing and Phase 0E HDR remain NO-GO. Preserve Phase 0J cold
-recovery gates, locked versions, freeware policy and unresolved licensing.
+The owner explicitly approved the after-hours export and cleanup. Two owned GUI
+sessions ran with private configuration/SDK mirror and verified backups. Both
+closed normally with exit 0; original preferences and installation inputs are
+unchanged. No existing session, unrelated app, game/CM, mod or protected stack
+was changed. The temporary after-hours scope ended with cleanup. Future operations
+must follow the retained task scope and independently applicable time rules.
+The restricted-shell process inventory cannot prove host-wide absence; use the
+authorized host view when actually permitted. Do not repeat the failed gateway probe.
+
+Initial allowance was 37% five-hour / 64% weekly; resumed start was 33% / 63%.
+Closeout began at 18%, sessions closed at 16%; reserve remains for verification,
+documentation and Git. Read both meters anew on continuation, retain sufficient
+closeout allowance and keep the 5% weekly hard cutoff. All 196 tests and prior
+source/runtime artifacts are preserved; 169 closeout checks pass. No model
+escalation/delegation was used. Resumed-run final receipts are under
+`.local/phase0m-20261104/resumed-export/evidence/`.
+
+Next: resolve the normal-resource decode/display gate through supported evidence,
+then review any required compatible original DDS representation and output
+verification route before another owned export attempt. Do not launch games,
+automatically deploy the incomplete persistence, change locked versions or
+bypass a failed exporter. Preserve Phase 0E HDR NO-GO, Phase 0J cold recovery,
+100% freeware, references and unresolved repository licensing.
 
 ---
 
