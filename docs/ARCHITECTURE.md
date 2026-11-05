@@ -1,4 +1,12 @@
-# RestoVisuals architecture, Phase 0M checkpoint
+# RestoVisuals architecture, Phase 0N checkpoint
+
+Phase 0N [isolates the DDS header/reporting issue](PHASE0N_DDS_COMPATIBILITY.md).
+One traditional-header RGBA8 candidate preserves every original mip pixel and
+passes independent decoding. ksEditor recognizes its dimensions/nine mips, while
+the DX10 control's metadata stays unrecognized. This confirms metadata-path
+compatibility, not shader sampling or native compatibility. The viewport remains
+inconclusive and the explicit export review is NO-GO; no KN5/game load is claimed.
+Original files/settings and the existing renderer/texture implementations are intact.
 
 Phase 0M [executes the supported original FBX path](PHASE0M_EXPORT_STATUS.md):
 Blender export/reimport and ksEditor geometry import pass, with numerical and

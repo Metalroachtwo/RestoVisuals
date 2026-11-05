@@ -181,3 +181,27 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   weekly hard cutoff. Prefer one verified KN5 to additional infrastructure.
 - Commit/push reviewed task results only to phase0/foundation, verify remote
   HEAD, and leave main unchanged. No permanent GUI enablement is authorized.
+
+## Phase 0N temporary authoring access (2026-11-05 only)
+
+- The owner authorizes RestoVisuals development computer-use from the start of
+  Phase 0N until 17:00 America/New_York on 2026-11-05, including before 08:00.
+  Prefer existing Blender DCC/MCP; GUI authoring fallback, ksEditor and relevant
+  supported tools are explicitly allowed for this task. This temporary exception
+  supersedes the earlier DCC/GUI start restrictions only within this scope/date.
+- Verify actual Eastern time before operations. Begin final GUI cleanup no later
+  than 16:30; finish owned-session closure, restoration and GUI evidence before
+  17:00. Stop sooner if safe recovery time is insufficient. No persistent blanket
+  access or authorization after the deadline is created.
+- Preserve existing sessions/unsaved work, all original sources and the locked
+  game/CSP/Pure/Dream/CM installation/configuration. Work only in uniquely owned
+  workspace paths with fresh verified backups. No game launch, material deployment,
+  arbitrary format matrix or undocumented KN5 modification is authorized.
+- Compare exactly one payload-equivalent uncompressed traditional-header DDS
+  against the original DX10 control. Establish decoding evidence separately from
+  filenames/reload messages/metadata. KN5 export requires explicit documented
+  safety-review GO and all required compatibility gates. Native testing remains
+  separately gated; Phase 0E HDR NO-GO and Phase 0J recovery restrictions persist.
+- Read both live allowances, review progress near 15 points consumed and preserve
+  closeout/synchronization allowance plus the 5% weekly hard cutoff. Commit/push
+  reviewed changes to phase0/foundation, verify remote HEAD and leave main intact.

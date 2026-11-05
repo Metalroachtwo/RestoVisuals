@@ -1,0 +1,103 @@
+{
+  "status": "legacy_header_metadata_recognition_confirmed_shader_sampling_unknown",
+  "native_ready": false,
+  "native_compatibility": "UNKNOWN",
+  "shader_sampling_verified": false,
+  "source_fbx_sha256": "49e1dc29e3e2ff976995d67e0bceaaca038e57443885814c72ea48e65ab2b474",
+  "sdk_editor_sha256": "820a1c5de8b64074e3d32cdf1a377238da3a3e0480d03070ffa35ba98e6c122e",
+  "material": "RV0L_NORMAL_TEST",
+  "shader": "ksPerPixelNM",
+  "normal_slot": "txNormal",
+  "normal_slot_index": 1,
+  "material_count": 1,
+  "property_count": 12,
+  "all_persisted_state_except_normal_filename_equal": true,
+  "persisted_differences_excluding_header": [
+    {
+      "section": "MATERIAL_0",
+      "key": "res_1_texture",
+      "before": "flat.dds",
+      "after": "flat-legacy-rgba8.dds"
+    }
+  ],
+  "canonical_state_sha256_ignoring_normal_filename": "9268461e7086ac05781fa96a3845b5eefd5c73777e4dfc56d018d27c6780798f",
+  "test_a": {
+    "file": "flat.dds",
+    "reported_format": "LUM (0)",
+    "reported_dimensions": [
+      0,
+      0
+    ],
+    "reported_size": "349 Kb",
+    "reload_message": "Texture reloaded",
+    "viewport": "low-contrast grayscale; inconclusive"
+  },
+  "test_b": {
+    "file": "flat-legacy-rgba8.dds",
+    "reported_format": "ARGB",
+    "reported_dimensions": [
+      256,
+      256
+    ],
+    "reported_size": "349 Kb",
+    "reload_message": "Texture reloaded",
+    "viewport": "low-contrast grayscale; inconclusive"
+  },
+  "texture_review": {
+    "supported_menu": "Utilities > Texture Review",
+    "basis": "saved original_pad.fbx.ini and file/header list; not resident GPU/resource evidence",
+    "control_file_header_mips_reported": 0,
+    "candidate_file_header_mips_reported": 9,
+    "candidate_file_bytes_reported": 349652,
+    "candidate_listed_as_used_by_saved_ini": true,
+    "pixel_preview_or_readback_established": false
+  },
+  "controlled_state": {
+    "geometry_uv_shader_material_values_lighting_camera_parameters_changed": false,
+    "editor_preference_values_edited_or_saved": false
+  },
+  "read_only_preview_observations": {
+    "camera_exposure": 40,
+    "camera_fov": 60,
+    "camera_near": 0.1,
+    "camera_far": 5000,
+    "data_editor_default_weather_selection": "1_heavy_fog",
+    "data_editor_default_ppfx_selection": "b&w",
+    "selections_not_proven_active": true,
+    "cause_of_gray_viewport": "UNKNOWN"
+  },
+  "decision": {
+    "decision": "NO-GO",
+    "scope": "owned workspace KN5 export only; native/game testing not authorized",
+    "source_ownership_and_backups": "PASS",
+    "original_fbx_geometry_uv_basis_receipt_and_unchanged_hash": "PASS",
+    "shader_and_all_material_state_except_normal_resource": "PASS",
+    "offline_all_mip_and_independent_base_decode": "PASS",
+    "candidate_editor_metadata_256x256_nine_mips": "PASS",
+    "supported_editor_pixel_or_resident_resource_inspection": "NOT ESTABLISHED",
+    "actual_material_shader_sampling": "UNKNOWN",
+    "viewport_visual_validation": "INCONCLUSIVE",
+    "supported_exported_kn5_validation_route": "NOT ESTABLISHED",
+    "output_collision_free": true,
+    "kn5_export_attempted": false,
+    "reason": "Valid metadata and external pixel decoding do not establish actual editor shader/resource consumption; required compatibility gates remain unresolved.",
+    "next_diagnostic": "Establish a supported observable editor preview/resource-pixel validation path without changing the A/B material/lighting controls or generating another DDS format."
+  },
+  "cleanup": {
+    "owned_editor_closed_normally": true,
+    "exit_code": 0,
+    "original_settings_and_sources_unchanged": true,
+    "owned_project_ini_restored": true,
+    "game_launched": false,
+    "gui_deadline_met": true
+  },
+  "evidence_references": [
+    "test-a-control-reload.png",
+    "test-b-candidate-reload.png",
+    "test-a-state.ini",
+    "test-b-state.ini",
+    "texture-review.png",
+    "data-editor-preferences.png",
+    "session-cleanup.json"
+  ]
+}

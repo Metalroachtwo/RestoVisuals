@@ -1,4 +1,73 @@
-# RestoVisuals Phase 0M continuation handoff
+# RestoVisuals Phase 0N continuation handoff
+
+Prepared 2026-11-05 on `phase0/foundation` from verified local/remote
+`5350ca3d34cc806026c1e0fa7f453606a5213f03`. Read
+[PHASE0N_DDS_COMPATIBILITY.md](PHASE0N_DDS_COMPATIBILITY.md), the
+[offline DDS comparison](../examples/phase0n-dds-compatibility/comparison.json) and
+[editor observations/review](../examples/phase0n-dds-compatibility/editor-observations.json).
+Current tip and ignored final receipts identify synchronization; main remains
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+One original traditional-header candidate now reproduces all nine mip payloads
+of the unchanged Phase 0K DX10 flat DDS. It retains RGBA bytes/opaque alpha with
+little-endian R/G/B/A masks 0x000000ff/0x0000ff00/0x00ff0000/0xff000000.
+This is A8B8G8R8 word layout, not BGRA. No compression/gamma/pixel change occurs.
+Files are 349,672 / 349,652 bytes; the 349,524-byte pixel payload is identical.
+Candidate SHA-256:
+`1ead2f733f73ab1abff72f48267acdf794efbc1291165468df875081055e1460`.
+Independent mask decoding checks all mips; existing Pillow 13.0.0 independently
+checks both complete base images. Five new tests and 26 affected regressions pass;
+all 196 old definitions remain unchanged (201 now). The historical 124 baseline,
+original implementations and all original packages remain intact.
+
+ksEditor's metadata recognition changes from LUM (0), 0x0 to ARGB, 256x256 and
+nine mips. The generic ARGB UI label does not redefine the actual RGBA byte order.
+Saved A/B state differs only in the normal filename after ignoring header date/
+checksum; the same mesh/material/shader, 12 properties, slots and flags are retained.
+No lighting, camera, geometry or texture-coordinate change concealed the result.
+
+**KN5/native NO-GO.** This confirms header sensitivity in the editor's reporting
+path, not a categorical DX10 GPU-loader failure. Texture Review explicitly reads
+saved INI/file metadata; it is not proof of resident-resource or shader sampling.
+No supported pixel/readback evidence was established and the viewport stayed
+inconclusive. No KN5 save or game launch occurred. The export-safety review is
+explicitly NO-GO until actual resource/material compatibility is evidenced.
+
+Read-only preference inspection showed default weather/PPfx UI selections and
+camera lens/exposure values, but their active state and the preview's cause remain
+unknown. They were not changed/saved. The pre-existing copied exception log stayed
+unchanged; do not call it a new render fault. No alternate format was generated.
+
+Today only, task-specific GUI authorization runs from the owner's approval until
+17:00 America/New_York, overriding the 08:00 start and DCC GUI restriction in scope.
+Start GUI cleanup by 16:30. Recheck actual time before any later operation; neither
+this handoff nor a staging package extends the deadline or authorizes game testing.
+Private time guards enforce the window. No Blender session was needed or launched.
+One fresh owned editor session closed normally with exit 0 at 07:08:44 Eastern.
+A/B evidence is preserved; the owned project INI was restored to its input bytes.
+
+All 29 protected files, 49 settings, 23 scoped originals/reference and 839 installed
+SDK files match fresh preflight; 127 closeout checks pass. Original source packages
+and raw FBX/Blend remain
+unchanged; the visual reference remains untracked. No installed rollback is needed.
+Private backups, raw exports, screenshots and final receipts are under
+`.local/phase0n-20261105/`. Public artifacts contain original data/receipts only.
+
+Starting live meters were 99% five-hour / 59% weekly; the near-15-point review
+read 83% / 57%. Work then moved to closeout; the commit-ready reading was 76% / 56%.
+Read fresh meters on resumption,
+reserve verification/documentation/Git allowance and retain the 5% weekly cutoff.
+No model escalation or delegation occurred.
+
+Next: establish a supported informative editor preview/resource-pixel validation
+baseline with the same DDS pair, then review export readiness anew. Preserve
+KN5/native NO-GO, Phase 0E HDR NO-GO, Phase 0J cold-load restrictions, locked stack,
+freeware policy and unresolved repository licensing. Do not enable old J/K
+replacement packages, build a converter matrix or bypass the missing proof.
+
+---
+
+## Historical Phase 0M continuation handoff
 
 Prepared 2026-11-04 evening on `phase0/foundation`, resumed from verified
 `cf80bda61467c574bf1c5c12e6495128c5539876`. Original Phase 0L source checkpoint:
