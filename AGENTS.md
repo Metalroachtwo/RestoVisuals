@@ -294,3 +294,20 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   sharing/hash errors can be non-terminating: use strict error handling and check
   native exit codes. Do not continue from an unavailable hash or reuse a past
   run's private recovery as an installer. Preserve both versions on uncertainty.
+
+## Phase 0S Steam readiness investigation (2026-11-05)
+
+- Read-only investigation of the Phase 0R Steam API initialization failure.
+  Reuse its receipts and inventories. Keep CM closed and the owner editor untouched;
+  no shaders, material textures, physics or graphics-setting investigation.
+- Inspect only non-secret process/context, library and relevant log evidence.
+  Compare Windows-user equality without retaining names/identifiers. Do not read
+  Steam credentials, account IDs, login stores, cookies or licensing records.
+  A running client does not prove signed-in/online or current entitlement.
+- No Steam restart/termination, reboot, elevation change, verify/repair, software
+  update/reinstall, launch retry, AppID-file workaround, DLL/config/manifest change
+  or Steam licensing-data modification. Record inaccessible evidence as unknown;
+  do not enable auditing or weaken access controls to obtain it.
+- Today's GUI deadline and cleanup window still apply. Prefer non-activating
+  APIs; do not expose account UI. Preserve allowances for documentation/Git and
+  the 5% weekly cutoff. Existing freeware, license and HDR NO-GO gates persist.

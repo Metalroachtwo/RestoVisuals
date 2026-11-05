@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "starting_sha": "a98d1cb0fcc722e44719882a07d70e9c1d8a9523",
+  "status": "READ_ONLY_DIAGNOSIS_NARROWED_ROOT_CAUSE_UNRESOLVED",
+  "steam_client_running": true,
+  "current_client_start_precedes_phase0r_failure": true,
+  "current_steam_and_diagnostic_same_windows_user": true,
+  "current_steam_and_diagnostic_same_windows_session": true,
+  "current_inspected_integrity": "Medium",
+  "current_inspected_elevated": false,
+  "historical_cm_game_user_integrity": "UNKNOWN",
+  "checked_runasadmin_compatibility_entries": false,
+  "library_count": 5,
+  "assetto_corsa_appid": 244210,
+  "reviewed_installation_manifest_and_executable_present": true,
+  "manifest_buildid": "14923034",
+  "manifest_stateflags": "4",
+  "existing_appid_file_present": true,
+  "existing_appid_file_numeric_value": 244210,
+  "prior_game_tracked_as_expected_appid": true,
+  "previous_cwd": "UNKNOWN",
+  "visible_signed_in_state": "UNVERIFIED",
+  "online_state": "UNVERIFIED",
+  "entitlement_queried": false,
+  "historical_security_log_access": "DENIED",
+  "sysmon_and_application_supporting_evidence": "NOT_OBTAINED",
+  "new_launches": 0,
+  "steam_restart_or_termination": false,
+  "cm_opened": false,
+  "owner_editor_untouched": true,
+  "window_activation_menu_click_or_screenshot": false,
+  "credentials_account_ids_cookies_or_licensing_records_collected": false,
+  "steam_appid_dll_manifest_setting_or_elevation_changed": false,
+  "fresh_preservation_sha_checks": {
+    "protected_files": 29,
+    "selected_settings": 49
+  },
+  "reused_phase0r_counts": {
+    "car": 1265,
+    "track": 386,
+    "shared_configs": 13,
+    "sdk_installed": 839,
+    "sdk_mirror": 839
+  },
+  "decision": "NO-GO_NEW_LAUNCH_OR_REPAIR",
+  "hdr_decision": "NO-GO",
+  "starting_remaining": {
+    "five_hour": 31,
+    "weekly": 36
+  },
+  "closeout_remaining": {
+    "five_hour": 25,
+    "weekly": 35
+  },
+  "private_evidence_root": ".local/phase0s-20261105/",
+  "repository_license": "owner undecided"
+}

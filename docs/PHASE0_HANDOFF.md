@@ -1,4 +1,49 @@
-# RestoVisuals Phase 0R handoff — Steam-init launch blocker; recovery verified
+# RestoVisuals Phase 0S handoff — read-only Steam evidence; cause unresolved
+
+Prepared 2026-11-05 from verified local/remote
+`a98d1cb0fcc722e44719882a07d70e9c1d8a9523` on `phase0/foundation`. Read
+[PHASE0S_STEAM_READINESS.md](PHASE0S_STEAM_READINESS.md) and
+[findings](../examples/phase0s-steam-readiness/findings.json). Previous handoffs
+remain below. Main stays `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**Root cause remains unconfirmed; no launch/repair GO.** The same Steam client
+process predates Phase 0R's failure, and Steam's own log tracks the reviewed game
+process under correct App ID 244210 at 14:33:50, then removes it at 14:35:38.
+The configured library manifest resolves to the reviewed game installation and
+present executable; the existing App ID file contains 244210. Nothing was changed.
+This does not prove successful API initialization or active-account entitlement.
+
+Current Steam client/UI and diagnostic process share Windows user/session and
+Medium integrity, not elevated. No checked RUNASADMIN compatibility entries were
+present. Historical CM/game tokens and actual working directory were not captured
+in 0R and remain unknown. Windows denied the scoped Security-log read; supporting
+Sysmon/Application evidence was not obtained. No auditing or privilege change.
+
+Privacy-safe exact UI label queries exposed no sign-in/online indicator. No
+account labels, IDs, credentials, cookies, login stores or licensing records were
+retrieved; no raw Steam logs were copied. Absence of a label is not proof of
+offline/signed-out state. CM/game remain closed; owner ksEditor is untouched;
+Steam remains running. No activation, screenshot, menu, restart, repair, verify,
+update, AppID/DLL/manifest/launch-option edit or game test occurred.
+
+Fresh SHA checks pass for 29 protected files and 49 settings. Reuse Phase 0R's
+1,265-car/386-track/13-shared/both-839-SDK inventories rather than repeat them.
+Original shaders/code, 201 test definitions and the untracked reference are
+preserved. Private receipts stay ignored under `.local/phase0s-20261105/`.
+Unit suite not rerun for read-only/documentation work. No restoration is needed.
+
+Allowances began 31% five-hour / 36% weekly; bounded investigation ended and
+closeout began at 25%/35%. Final meters/SHA are in private synchronization
+receipts. No delegation/escalation of model reasoning occurred. Preserve freeware,
+owner-undecided licensing, locked versions and Phase 0R material/0E HDR NO-GO.
+Next: owner verification of visible Steam readiness without sharing identifiers,
+then only a separately reviewed baseline with live process-context evidence.
+No automatic retry or repair. Check actual time before GUI; today's deadline
+remains 17:00 Eastern with cleanup by 16:30.
+
+---
+
+## Historical Phase 0R handoff — Steam-init launch blocker; recovery verified
 
 Resumed 2026-11-05 from verified local/remote
 `bb0033bea42c093043474a7232da128e275ffa89` on `phase0/foundation` after the
