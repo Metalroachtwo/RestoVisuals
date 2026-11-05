@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "starting_sha": "4f7ba0530c8ab4724fa0d9af0fc624978343c716",
+  "status": "ORIGINAL_NATIVE_BASELINE_CAPTURED_WITH_DECLARED_RECOVERY_LIMITS",
+  "owner_authorized_attempts": 2,
+  "automatic_retries": 0,
+  "first_attempt": {
+    "started_eastern": "16:54:26",
+    "scene_loaded": false,
+    "failure": "Steam API failed to initialize",
+    "game_gone_before_agent_close_input": true,
+    "exit_code": null
+  },
+  "intervening_owner_action": "Steam restarted only; settings unchanged",
+  "agent_steam_restarts": 0,
+  "second_attempt": {
+    "owner_answer": "Authorize one new baseline attempt",
+    "started_eastern": "17:11:43",
+    "scene_loaded": true,
+    "normal_native_exit_eastern": "17:18:22",
+    "exit_code": 0
+  },
+  "targets": {
+    "car": "mm_lexus_rca",
+    "skin": "Burnt_Orange Metallic",
+    "track": "jd_drift_mansion",
+    "layout": "open",
+    "track_skin": "vdc2024"
+  },
+  "configured_cm": {
+    "time": "13:06",
+    "weather": "Pure",
+    "temperature_c": 13.5,
+    "track_condition": "Optimum",
+    "wind_kmh": 8.1,
+    "wind_direction": "SSW"
+  },
+  "observed_initial_game_panel": {
+    "time_approximately": "13:07",
+    "weather": "clear (no clouds)",
+    "air_c": 19,
+    "road_c": 30,
+    "wind_kmh": 0,
+    "track_grip_percent": 100
+  },
+  "camera_operation": "Click Drive from Pits, F1 once from loaded cockpit, capture rear exterior; Escape/Exit/Leave for shutdown",
+  "agent_driving_inputs": false,
+  "exact_pose_or_simulation_frame_certified": false,
+  "named_pp_set_load_witness": "Dream Realism 7.3 Gamma",
+  "configured_weather_mode": "Pure Gamma 3.50",
+  "all_live_process_user_session_medium_contexts_match": true,
+  "native_material_or_hlsl_installed": false,
+  "hdr_decision": "NO-GO",
+  "performance_measurements": [],
+  "exact_image_equivalence_tested": false,
+  "private_capture_root": ".local/phase0t-20261105/attempt2/evidence",
+  "captures": [
+    {
+      "filename": "game-first-state.png",
+      "bytes": 1359406,
+      "sha256": "65b39e244f827b085b883db44d7cb2002cca187cc4b0597a9b5fa68c08a6a66c",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-drive-cockpit.png",
+      "bytes": 3393401,
+      "sha256": "01b324e2acaaafe4c569bda3b28ae768a54b175cbc344ed87cf60c1324138c04",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-camera-f1-1.png",
+      "bytes": 3693715,
+      "sha256": "7d03f3dc2a2e1ba3471f628578ca81836da657569972449936893e1f06241681",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-chase-witness.png",
+      "bytes": 3680504,
+      "sha256": "488e20ca098439e15a5405495f937c1bd4769cd227c771ee31919dfd7a01d68a",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-end-menu.png",
+      "bytes": 3584150,
+      "sha256": "ab64e108fd40dbe2b3be83292f1550b408b021f4e7970a4621a035890af96dc4",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    }
+  ],
+  "matching_replay_candidates_privately_preserved": 1,
+  "replay_load_validated": false,
+  "preservation_counts": {
+    "protected_files": {
+      "matching": 29,
+      "exception": []
+    },
+    "selected_settings": {
+      "matching": 48,
+      "exception": [
+        "cm_values/Values.data"
+      ]
+    },
+    "car_files": 1265,
+    "track_files": 386,
+    "shared_configs": 13,
+    "mirror_sdk": 839,
+    "installed_sdk": 839,
+    "original_sources": 25
+  },
+  "owner_cm_choice": "Keep CM open; preserve working session",
+  "cm_preference_store_restored": false,
+  "selected_settings_exact_matches": 48,
+  "selected_settings_total": 49,
+  "additional_state_files_without_fresh_baseline": [
+    "extension/state/lua/app/WebBrowser.ini",
+    "extension/state/odometers.ini"
+  ],
+  "additional_uncertain_state_retained": true,
+  "complete_user_state_rollback_claimed": false,
+  "owner_cm_and_editor_sessions_preserved": true,
+  "agent_reset_actions": 0,
+  "available_reset_credits_at_closeout": 2,
+  "starting_remaining": {
+    "five_hour": 20,
+    "weekly": 34
+  },
+  "pending_gate_remaining": {
+    "five_hour": 17,
+    "weekly": 33
+  },
+  "replenished_window_observed_remaining": {
+    "five_hour": 99,
+    "weekly": 33
+  },
+  "closeout_remaining": {
+    "five_hour": 78,
+    "weekly": 30
+  },
+  "gui_cleanup_by": "18:00",
+  "gui_hard_stop": "18:15",
+  "repository_license": "owner undecided"
+}

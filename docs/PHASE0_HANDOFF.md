@@ -1,4 +1,74 @@
-# RestoVisuals Phase 0S handoff — read-only Steam evidence; cause unresolved
+# RestoVisuals Phase 0T handoff — original native baseline captured
+
+Prepared 2026-11-05 from verified local/remote
+`4f7ba0530c8ab4724fa0d9af0fc624978343c716` on `phase0/foundation`. Read
+[PHASE0T_BASELINE_VALIDATION.md](PHASE0T_BASELINE_VALIDATION.md) and
+[observations](../examples/phase0t-baseline/observations.json). Previous handoffs
+remain below. Main stays `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**The separately owner-authorized second attempt rendered the as-installed
+Lexus/Drift Mansion scene and exited normally with code 0 at 17:18:22 Eastern.**
+Private 1920×1080 cockpit/exterior images and one matching replay candidate were
+preserved and hashed. The replay was not load-validated. No RestoVisuals material,
+shader, HDR hook, physics or graphics setting was deployed or changed.
+
+The first T attempt failed Steam API initialization. The game was already gone
+before agent cleanup input; its exit code remains unknown. The owner confirmed a
+manual Steam-only restart, then explicitly authorized one fresh baseline attempt.
+No automatic retry, agent Steam restart, repair or usage reset occurred. Live
+Steam/CM/game contexts matched user/session and Medium integrity on both attempts.
+Successful loading after the owner's restart does not uniquely establish root
+cause. Normal launch readiness is now witnessed for this session only.
+
+CM retains the original car/skin, track/layout/skin and Practice/Pits selections.
+The game's initial panel reported clear/no clouds, approximately 13:07, air 19°C,
+road 30°C, wind 0 km/h and grip 100%, differing from CM's Pure/13:06/13.5°C/
+8.1 km/h SSW configuration. Do not equate configured and effective conditions.
+Native logs witness Dream Realism 7.3 Gamma PP loading; Pure Gamma 3.50 remains
+configured. Existing missing-model/app-icon warnings were retained, not repaired.
+
+Camera evidence records Drive, F1 once from cockpit, then two exterior captures
+without driving input. Simulation time advanced; exact camera/world pose,
+exposure, replay frame and internal render resolution were not certified. No
+image-equivalence test, live material inventory or trustworthy performance
+measurement was performed. Material integration and Phase 0E HDR remain **NO-GO**.
+
+Recovery restored nine fresh-backed file versions after the first attempt and
+five after the second, with scoped workspace rehearsals and hash guards. The
+owner explicitly chose **Keep CM open; preserve working session**. Accordingly,
+**48/49 selected settings match the T baseline**; the live CM preference store
+is the declared exception, with both versions preserved. CM and the owner's
+existing ksEditor remain open. No owned game process remains.
+
+Two additional runtime-state files, `extension/state/lua/app/WebBrowser.ini` and
+`extension/state/odometers.ini`, differ from an older R receipt but lack fresh T2
+pretest hashes. Their current data was archived and retained. Do not overwrite
+them from the old receipt or claim full user-state rollback/change attribution.
+Fresh final checks verify 29 protected files, 1,265 car files, 386 track files,
+13 shared configs, both 839-file SDK baseline sets and 25 original sources.
+The approved untracked reference and all 201 test definitions, including the
+historical 124, remain unchanged. Unit suite not rerun for this evidence/docs-only
+change; nine targeted receipt, recovery, preservation and publication validation
+groups passed.
+
+Last GUI evidence was collected at 17:26:47 Eastern, before the owner's final
+18:00 cleanup checkpoint and 18:15 hard stop. No further GUI work is planned.
+Initial allowance was 20% five-hour / 34% weekly, then 17%/33% while timing was
+pending; a replenished window was observed at 99%/33% without a reset action.
+Closeout began at 78%/30%; final meters/SHA are in private synchronization receipts.
+Both reset credits remain reserved for explicit owner instructions. No persistent
+access exception, model escalation or new deployment permission was created.
+
+**Next:** establish one controlled replay/camera baseline and read-only native
+inventory of a single opaque normal-mapped material, with fresh runtime-state
+coverage, exact match/slot counts, UV/basis, original resources and config
+precedence. Require separate authorization/safety review before enhancement.
+Preserve locked versions, freeware, owner-undecided licensing, existing source,
+Phase 0J cold-reload recovery and the Phase 0E HDR NO-GO.
+
+---
+
+## Historical Phase 0S handoff — read-only Steam evidence; cause unresolved
 
 Prepared 2026-11-05 from verified local/remote
 `a98d1cb0fcc722e44719882a07d70e9c1d8a9523` on `phase0/foundation`. Read

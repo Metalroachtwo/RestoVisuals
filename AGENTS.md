@@ -311,3 +311,25 @@ Where supported, enforce these restrictions at the tool-permission or routing la
 - Today's GUI deadline and cleanup window still apply. Prefer non-activating
   APIs; do not expose account UI. Preserve allowances for documentation/Git and
   the 5% weekly cutoff. Existing freeware, license and HDR NO-GO gates persist.
+
+## Phase 0T unmodified native baseline and final owner choices (2026-11-05)
+
+- The owner authorized GO in the existing selected CM session. Preserve that
+  session/configuration and the existing editor; no material deployment is granted.
+- Initial 16:30 cleanup was explicitly moved to 16:45. Subsequent extensions
+  culminate in cleanup by 18:00 and a hard computer-use stop at 18:15 Eastern today
+  only. Check actual time; this grants no persistent or unrelated GUI access.
+- A failed attempt must stop without automatic retry or agent Steam restart.
+  The owner restarted Steam and confirmed no settings changes, then separately
+  answered "Authorize one new baseline attempt". That retry is individually
+  authorized; no further launch authorization is inferred from its completion.
+- The owner selected "Keep CM open; preserve working session" for recovery.
+  Retain the live CM preference store and verified before/after copies rather
+  than close the app for exact bytes. Report the resulting hash exception and
+  any runtime state without a fresh baseline; preserve ambiguous changes.
+- Both usage reset credits are reserved. Never activate, schedule, assume or
+  consume a reset without a separate explicit owner instruction. Read live
+  meters, retain recovery/Git allowance and the independent 5% weekly cutoff.
+- Preserve freeware, owner-undecided licensing, all prior source/tests/reference,
+  locked installations and Phase 0E HDR NO-GO. Native baseline success is not
+  custom-HLSL, material-slot, image-equivalence or game-performance validation.
