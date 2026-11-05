@@ -1,4 +1,12 @@
-# RestoVisuals architecture, Phase 0J checkpoint
+# RestoVisuals architecture, Phase 0K checkpoint
+
+Phase 0K [prepares experimental normal-only DDS assets](PHASE0K_MATERIAL_FIXTURE.md)
+and a disabled original package with workspace recovery rehearsal. Conventional
+RGBA8 direction mips are a separate contract from Phase 0I's moment encoding;
+neither their file metadata nor their tested filesystem recovery proves native
+material behavior. Six candidates and numerical/transaction checks pass. Native
+testing is NO-GO until an original exported fixture, shader decode and complete
+baseline are established, with separate review/authorization and cold-load proof.
 
 Phase 0J [assesses supported material integration](PHASE0J_MATERIAL_INTEGRATION.md).
 The proposed route assigns original, shader-specific textures to compatible

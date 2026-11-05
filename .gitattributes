@@ -6,3 +6,5 @@
 *.cs text eol=lf
 *.hlsl text eol=lf
 *.lua text eol=lf
+# Generated package manifests hash exact file bytes, including text line endings.
+examples/phase0k-normal-probe/** -text

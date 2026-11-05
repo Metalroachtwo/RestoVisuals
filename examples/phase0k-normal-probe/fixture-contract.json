@@ -1,0 +1,91 @@
+{
+  "authoring_export_load_workflow_verified": false,
+  "basis_scope": "Asset-local proposal; exporter transform and tangent handedness must be verified",
+  "cold_recovery_plan": "End owned session; remove only owned component; cold-load original assets/config; verify effective material state and protected hashes.",
+  "expected_material_count": 1,
+  "expected_mesh_count": 1,
+  "material": "RV0K_OWNED_SURFACE",
+  "mesh": "RV0K_OWNED_PLANE",
+  "native_material_verified": false,
+  "original_kn5_available": false,
+  "ownership": "Original RestoVisuals fixture required; no third-party car/track modification",
+  "proposed_asset_local_vertices": [
+    [
+      -1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      -1
+    ],
+    [
+      -1,
+      0,
+      -1
+    ]
+  ],
+  "proposed_bitangent": [
+    0,
+    0,
+    -1
+  ],
+  "proposed_normal": [
+    0,
+    1,
+    0
+  ],
+  "proposed_tangent": [
+    1,
+    0,
+    0
+  ],
+  "proposed_triangles": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      3
+    ]
+  ],
+  "proposed_uv1": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "requirements": [
+    "supported authoring/export/load workflow",
+    "original source and KN5 hashes",
+    "verified always-on normal slot and decode",
+    "immutable complete baseline",
+    "exact config precedence and collision-free paths",
+    "separate authorization/safety review",
+    "owned session end and verified cold-load recovery"
+  ],
+  "shader_candidate": "ksPerPixelMultiMap",
+  "status": "prerequisite_missing",
+  "texture_slot_candidate": "txNormal"
+}

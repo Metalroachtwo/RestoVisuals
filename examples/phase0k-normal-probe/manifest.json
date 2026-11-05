@@ -1,0 +1,49 @@
+{
+  "component": "rv0k-material-probe",
+  "encoding": "normalize(2*RGB/255-1); A=255; DXGI 28 UNORM; experimental host interpretation",
+  "files": {
+    "README.txt": {
+      "bytes": 491,
+      "sha256": "4c591ca3da1996d10e523985a15b9357717e10e459de3f66a165a6373d9f6d99"
+    },
+    "disabled.ini": {
+      "bytes": 272,
+      "sha256": "0a5e0634dc7a6452825059ba34083635688d1adb9fa02d2060769a376db1bb34"
+    },
+    "fixture-contract.json": {
+      "bytes": 1686,
+      "sha256": "08358e13deabf6eec687734469083d7961da5ada68ae27aafc432153255cd434"
+    },
+    "textures/detail.dds": {
+      "bytes": 349672,
+      "sha256": "34b93be3c4077d4ca50e1a90619e595bf0382c202a38c2915e449307bf36c3da"
+    },
+    "textures/flat.dds": {
+      "bytes": 349672,
+      "sha256": "ce82d560691c9fcd58ca30ba22f725e48b293048547e0f4c1a77f1ac360393d1"
+    },
+    "textures/x-negative.dds": {
+      "bytes": 349672,
+      "sha256": "c00831f1fefb5e76b0f7d6c5a1bfb66d1a9a65b6378e48e7b5bcbd2d29550a7e"
+    },
+    "textures/x-positive.dds": {
+      "bytes": 349672,
+      "sha256": "6795dc027948c66054d9abe4b65101cc486018a2812971bfffa80e51282301e6"
+    },
+    "textures/y-negative.dds": {
+      "bytes": 349672,
+      "sha256": "f565389f97b6d4582446e8e8697a38ca0f955807bf3f052302366e3b3e9eff6a"
+    },
+    "textures/y-positive.dds": {
+      "bytes": 349672,
+      "sha256": "54a9f730c24cafe907664ef9fd9350299746af2d283a11ad8c20e5b8b518a704"
+    }
+  },
+  "fixture_status": "prerequisite_missing",
+  "mip_count": 9,
+  "native_compatible": false,
+  "native_ready": false,
+  "schema_version": 1,
+  "scope": "disabled_offline_normal_candidates",
+  "size": 256
+}

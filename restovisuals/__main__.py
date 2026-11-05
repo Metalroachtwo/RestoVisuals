@@ -16,6 +16,8 @@ from .material_demo import demonstrate_material
 from .material_optimization import optimize_material
 from .texture_stability import run_stability_matrix,run_stability_smoke,run_stability_temporal
 from .runtime_probe import prepare_observer_probe
+from .material_assets import prepare_material_textures
+from .material_recovery import rehearse_material_recovery
 
 
 def main(argv=None):
@@ -70,6 +72,11 @@ def main(argv=None):
     probe_package = commands.add_parser("prepare-observer-probe", help="Stage original observer files under a new .local directory; does not install or launch")
     probe_package.add_argument("--output", type=Path, required=True)
     probe_package.add_argument("--diagnostic-only", action="store_true", help="Record API value types without subscriptions or rendering")
+    texture_package = commands.add_parser("prepare-material-textures", help="Prepare experimental normal-only DDS candidates under a new .local path; never installs")
+    texture_package.add_argument("--output",type=Path,required=True)
+    recovery = commands.add_parser("rehearse-material-recovery", help="Rehearse disabled package recovery in a new workspace-only simulation")
+    recovery.add_argument("--package",type=Path,required=True)
+    recovery.add_argument("--output",type=Path,required=True)
     compare = commands.add_parser("compare", help="Compare captured CSVs only when declared context matches")
     for argument in ("baseline_csv", "baseline_metadata", "candidate_csv", "candidate_metadata"):
         compare.add_argument(argument, type=Path)
@@ -116,6 +123,10 @@ def main(argv=None):
                       run_stability_matrix(args.adapter_index,args.output,stage=args.stage,candidate=args.candidate,compensation=args.compensation))
         elif args.command == "prepare-observer-probe":
             result = prepare_observer_probe(args.output, diagnostic_only=args.diagnostic_only)
+        elif args.command == "prepare-material-textures":
+            result = prepare_material_textures(args.output)
+        elif args.command == "rehearse-material-recovery":
+            result = rehearse_material_recovery(args.package,args.output)
         elif args.command == "compare":
             result = compare_captures(read_frame_csv(args.baseline_csv), read_frame_csv(args.candidate_csv),
                                       read_object(args.baseline_metadata), read_object(args.candidate_metadata))
@@ -126,7 +137,7 @@ def main(argv=None):
             changes = compare_protected(before, after)
             result = {"protected_files_unchanged": not changes, "changed": changes}
         print(json.dumps(result, indent=2, allow_nan=False))
-        if args.command in ("gpu-validate", "gpu-demo", "material-demo", "material-compare", "texture-stability") and result["status"] != "passed":
+        if args.command in ("gpu-validate", "gpu-demo", "material-demo", "material-compare", "texture-stability", "prepare-material-textures", "rehearse-material-recovery") and result["status"] != "passed":
             return 4
         return 3 if args.command == "guard" and changes else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, OverflowError) as error:

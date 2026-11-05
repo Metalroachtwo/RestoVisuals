@@ -1,4 +1,84 @@
-# RestoVisuals Phase 0J continuation handoff
+# RestoVisuals Phase 0K continuation handoff
+
+Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
+`24d1ef8c3a2d110950af95a81ca49717a7d6fa42`. Read
+[PHASE0K_MATERIAL_FIXTURE.md](PHASE0K_MATERIAL_FIXTURE.md) for the exact texture,
+fixture, package and recovery contracts. The current tip plus final private Git
+receipt identify closeout. Main remains `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**Native experiment NO-GO.** No original KN5 fixture or supported authoring/export/
+loading workflow is established. `ksPerPixelMultiMap` / `txNormal` remains a
+candidate, not a verified always-on normal material. The proposed original quad,
+UVs and right-handed T/B/N are recorded in the package; they are not an exported
+mesh. Native signs, alpha, mip/sampler behavior, effective baseline and cold-load
+recovery remain unvalidated. No third-party asset or new KN5 writer fills the gap.
+
+**Offline candidate/package readiness passes.** Six original 256x256 DX10 DDS
+files contain nine mips each: flat, +/-X, +/-Y and periodic detail. Format is
+R8G8B8A8_UNORM (28), signed normal encoded in RGB, every A byte 255, no roughness,
+no sRGB transform. Alpha-mode metadata is zero for documented legacy D3DX
+compatibility. Flat 128/128/255 has 0.317755-degree bias under the declared CPU
+decoder. Max source quantization angle is 0.36510 degrees; direct analytic detail
+base comparison is max/RMS 0.337558/0.183761 degrees. Unit normalization is offline,
+not proof of native shader decoding. The Phase 0I moment generator/shaders are
+unchanged; normalizing/packing loses their variance statistic.
+
+Each texture chain is 349,524 pixel bytes plus 148 header bytes. Six DDS files
+total 2,098,032 bytes; the ten-file public package totals 2,102,109 bytes. Logical
+payloads are not physical VRAM or performance measurements. Independent existing
+D3DX metadata parsing accepts all six with 256x256, nine levels and DXGI 28;
+it creates no device, uploads no texture and establishes no CSP compatibility.
+
+The original package is [examples/phase0k-normal-probe](../examples/phase0k-normal-probe/README.txt).
+Its manifest SHA-256 is `1073f5b093d912eec82f15bf54227c918ba9ecdc43d743ac6db20aa8682026a4`.
+All files match regeneration; scoped Git attributes preserve exact package
+bytes. `disabled.ini` remains ACTIVE=0 with exact owned material/shader/slot
+selection and flat as default. It has no shader swap, include or enabling command.
+Changing a candidate needs a fresh reviewed run-bound package. Native eligibility
+flags remain false. This is not an installer and grants no launch/deployment permission.
+
+The new recovery command only writes fresh `.local/` simulations. Forty-five
+file/commit interruption cases recover idempotently, preserving synthetic
+baselines and retiring owned data as private evidence. Four additional guards
+cover collisions, drift, unexpected content and interrupted retirement; eight
+negative synthetic selections are rejected. Unknown files, links, wrong ownership,
+missing baseline receipts and orphan journal updates stop automatic recovery.
+No recursive deletion or live installation target is exposed. Filesystem recovery
+is not material-state recovery: end an owned native session and verify a fresh
+load against full original bindings/properties/flags before any native success claim.
+
+All 26 new tests, five existing CLI tests and 17 existing moment/filter tests pass
+(48 total). Original 160 test definitions, including the historical 124, remain
+unchanged; the source inventory is now 186. No old shader/moment implementation
+was modified. All 37 final static/preservation checks pass. All 29 protected files, 49 settings, nine reviewed sources and the
+approved untracked reference are unchanged. No GUI, CM/game launch, DCC, graphics
+device, rendering or installed-file modification occurred; no game restore is needed.
+
+Reproduce with fresh ignored paths using `prepare-material-textures` then
+`rehearse-material-recovery`; the report provides commands. Final private evidence
+is `.local/phase0k-20261104/assets-b/`, `recovery-b/`,
+`targeted-tests-final-v2.txt`, `cli-regressions.txt`, `moment-regressions.txt`,
+`independent-dds-metadata.json`, `asset-cross-validation.json`, preflight and final
+preservation/Git receipts. Superseded `assets-a/`/`recovery-a/` are retained only
+for audit and must not be reused automatically. No broad CSP research is pending.
+
+Live starting allowance was 81% five-hour / 70% weekly. The approximately
+15-point review read 66% / 68%: the bounded implementation is productive and
+complete, so formal closeout proceeds without scope expansion. Read meters anew
+on continuation. Keep milestone reviews and synchronization reserves; the independent
+5% weekly hard cutoff remains binding. No deeper model or delegated review was used.
+
+**Next action:** establish a supported original fixture authoring/export/load
+workflow or obtain an independently owned fixture with complete source/baseline
+data, then verify its actual normal-slot contract. Prepare a fresh transaction
+and obtain separate safety review/task authorization before any native flat/ramp
+test. Do not bypass the fixture, use GUI fallback, enable this package or change
+locked CSP/CM/Pure/Dream installations. Phase 0E HDR NO-GO, freeware and the
+owner-undecided repository license remain intact.
+
+---
+
+## Historical Phase 0J continuation handoff
 
 Prepared 2026-11-04 on `phase0/foundation` from verified local/remote
 `d15d28f55d68bc5707cf8ca31686a0406653b4f8`.
