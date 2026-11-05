@@ -1,4 +1,67 @@
-# RestoVisuals Phase 0P continuation handoff
+# RestoVisuals Phase 0P resumed handoff — camera and sampling validated
+
+Prepared 2026-11-05 from verified `cecd6448dd0920ea2aaf9d8afed18546f820b8b5`
+on `phase0/foundation`. Read the current
+[PHASE0P_CAMERA_VALIDATION.md](PHASE0P_CAMERA_VALIDATION.md),
+[resumed receipt](../examples/phase0p-camera-validation/resumed-observations.json)
+and [native comparisons](../examples/phase0p-camera-validation/native-sampling.json).
+The prior blocked attempt is preserved below. Main remains
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`; final tip/verification are in Git
+and ignored receipts.
+
+**Primary gate passes; native normal-texture sampling is confirmed.** Two fresh
+owned sessions reused the verified SDK mirror and unchanged original FBX. At FOV
+60, Ctrl+Page Up held 120 ms followed by vertical left-drags +90 and +60 pixels
+produced the same full-pad view, position label `(0,30,0)`. The captured viewport
+interiors match exactly in display RGB. Verify pose when repeating elsewhere;
+timed input is not guaranteed frame-independent. Actual mesh identity, two
+triangles, position/scale/bounds and original material values were checked.
+
+Original +X/-X DDS inputs were represented in the existing legacy container only
+after that repeat passed. All original pixels/nine mips and channel masks are
+preserved. Fixed-state captures show distinct six-repeat shading; persistence
+changes only the normal filename. Returned flat restores all material/mesh values
+and exactly matches baseline display RGB. This confirms native ksPerPixelNM
+texture consumption and X-consistent response, not complete RGB-to-TBN calibration,
+green-axis sign, absolute world-light direction or native resource precision.
+No artistic detail map or custom HLSL was deployed.
+
+**One original Track KN5 was exported**, after a fresh file-only safety GO, through
+File > Save KN5 > Track and native Save As. Private `rv0p_original_pad.kn5`:
+350,981 bytes; SHA `cc4285989205597824750c9871c44f7eeace384b02ef026dbf472fc9ea4d28fd`.
+Its backup matches. It is **exported, not load-validated**; serialized contents
+were not independently inspected. No game launch/deployment occurred. Native-game
+integration remains NO-GO pending supported KN5 load validation and a separately
+reviewed original container/spawn/collision/cold-load plan. Phase 0E HDR NO-GO persists.
+
+Programmatic focus refusals were resolved with a validated owned-title-bar click:
+date/executable/PID guards, two ownership hit tests, no held modifiers and final
+foreground verification. No unrelated app received input, no input-routing bypass
+or persistent provider permission was added. The owner's installed editor was
+left open/untouched. Only the two owned resumed sessions closed, both exit 0;
+the last closure was verified at 10:54:23 Eastern. Original preview selections
+were reloaded and working persistence restored. Editor restoration is not a game
+loaded-material recovery test.
+
+All 29 protected files, 49 settings, 25 source/backup pairs and 839 SDK files in
+each installed/reused-mirror location pass fresh hashes. Four original working
+inputs are restored. The SDK-created NULL.dds and private KN5/screenshots remain
+ignored under `.local/phase0p-20261105/resume-1014/`; no proprietary asset is
+published. The approved reference remains unchanged/untracked. Fifteen targeted
+tests pass, zero failures; all 201 old definitions/historical 124 baseline remain
+unchanged. No full-suite rerun, model escalation or delegation occurred.
+
+Resumed meters began 41% five-hour / 50% weekly. After sampling, 30%/48% supported
+one bounded file-only export; formal closeout began at 23%/47% with all native work
+finished. Read final receipts/fresh balances before resuming, reserve closeout
+allowance and retain the weekly 5% cutoff. Today's GUI/DCC exception ends at 17:00
+Eastern, cleanup by 16:30. Recheck actual time. Next: supported KN5 load validation
+under a separately reviewed isolated fixture plan. Keep locked stack, freeware,
+unresolved licensing, Phase 0J cold-reload requirements and main unchanged.
+
+---
+
+## Historical Phase 0P initial handoff — foreground blocked
 
 Prepared 2026-11-05 on `phase0/foundation` from verified local/remote
 `d7e3c1707ecf32e6964583ba0095f5c74e9de50f`. Read

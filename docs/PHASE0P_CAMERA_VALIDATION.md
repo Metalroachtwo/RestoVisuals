@@ -1,4 +1,146 @@
-# Phase 0P: camera control evidence and foreground-access blocker
+# Phase 0P: repeatable camera, native normal sampling and original KN5
+
+## Resumed result — 2026-11-05
+
+Resumed from local/remote `cecd6448dd0920ea2aaf9d8afed18546f820b8b5` after the
+owner's foreground-readiness reply. **The visible-pad gate now passes.** Two fresh
+owned editor sessions reproduced the full original pad from above. Signed-X
+normal inputs produced distinct shading through `ksPerPixelNM`, and returning
+the flat input restored the captured viewport exactly. One original Track KN5
+was exported after a fresh file-only safety GO. **It is not load-validated.**
+
+Read the [resumed receipt](../examples/phase0p-camera-validation/resumed-observations.json),
+[native image comparisons](../examples/phase0p-camera-validation/native-sampling.json)
+and [directional DDS checks](../examples/phase0p-camera-validation/directional-dds.json).
+The earlier blocked attempt is retained below as history, not current status.
+
+### Repeatable camera and visible material
+
+The owner had opened the installed SDK editor. That session was left untouched;
+the tests used the existing verified isolated SDK mirror and a new working copy
+of the same hashed FBX. No Blender export, source geometry edit or stack change
+was performed. The actual `RV0L_TEST_PAD` mesh was identified by single selection:
+two triangles, position 0,0,0, scale 1,1,1, radius 8.485281, and the original
+`RV0L_NORMAL_TEST` material. Selecting the scene root clears its pink highlight.
+
+At the tested 1936x1048 editor window, the repeatable sequence was:
+
+1. Open the unchanged FBX; Load Weather `3_clear`, then Load PPfx `default`.
+2. Keep FOV 60 and the initial mouse-speed control unchanged. Click empty viewport.
+3. Send one Ctrl+Page Up down/up pair held 120 ms.
+4. Left-drag vertically +90 pixels, from window-relative `(1100,400)` in ten steps.
+5. Select Scene Root without double-clicking the mesh; left-drag another +60 pixels
+   from `(1100,400)`, again in ten steps.
+6. Verify full pad framing and the resulting position label `(0,30,0)`; the View
+   label was `(0,-18.648300,-23.499810)` in both sessions.
+
+The complete pad silhouette and neutral material are distinct from the background.
+The camera is above the unchanged +Y-facing source plane. Display labels are
+reported as observed; their complete matrix/direction semantics are not inferred.
+Timed key motion can depend on rendering/input timing: verify the resulting pose
+on another host rather than promising frame-independent movement distances.
+
+The two independent viewport interiors `(352,62)..(1869,758)` are exactly equal in
+captured 8-bit RGB: all difference-channel extrema are zero. These are display
+screenshots, not native floating-point readbacks or in-game stability measurements.
+Private captures: `s2-final-camera.png`, `s3-final-camera.png`.
+
+Programmatic foreground activation was still unreliable. A scoped fallback was
+validated: raise only the owned window without activation, verify its title-bar
+hit-test belongs to the owned PID twice, click that title bar, then verify foreground
+ownership before any further input. It checks the owned executable, date/window
+and held modifiers; it sends no input to other apps and grants no persistent
+provider permissions. Raw diagnostics stay private. No repeated focus investigation
+is needed when this already validated task-scoped route is applicable.
+
+### Native sampling and restoration
+
+Only after the fresh-session repeat passed, the existing adapter represented the
+original Phase 0K +X/-X DDS files in the already validated legacy container. Each
+349,652-byte output preserves every original RGBA texel across all nine mips;
+independent per-word mask decoding passed. R/G/B/A masks remain
+`ff/ff00/ff0000/ff000000`, little-endian word `0xAABBGGRR`; no compression,
+channel reorder, gamma conversion or normal-vector change occurs.
+
+Flat, +X, -X and returned-flat captures used the same camera, geometry, UVs,
+lighting, diffuse texture and all 12 material properties. Persistence confirms
+the only non-header change was the `txNormal` resource filename. Reload opens an
+information dialog; it must be dismissed before capturing. The initial dialog-
+occluded frame was retained privately and excluded from all image comparisons.
+
+| Input | Mean display RGB, pad interior | RGB MAE from flat | Maximum channel difference |
+|---|---|---|---|
+| Flat | 244.438, 240.250, 232.365 | 0 | 0 |
+| +X | 248.875, 245.905, 239.894 | 5.874 | 11 |
+| -X | 221.289, 214.526, 203.742 | 25.832 | 84 |
+| Returned flat | Same as flat | 0 | 0 |
+
+The 49,844 interior pixels exclude the fixed axis overlay. Signed inputs produce
+distinct shading across the six source U repeats, consistent with the expected
+U/+X basis. This is positive **native normal-texture sampling evidence**, beyond
+metadata or reload messages. Absolute world-light direction, green-axis sign and
+complete RGB-to-TBN decode calibration remain unverified; no full tangent-handedness
+or radiometric correctness claim is made. No artistic detail map was applied.
+
+The returned-flat **entire viewport interior** exactly matches the baseline RGB,
+and all original material/mesh values were restored. Private matched captures are
+`s3-final-camera.png`, `matched-x-positive.png`, `matched-x-negative.png` and
+`matched-flat-return.png`. Their hashes and numerical scope are in the receipts.
+
+### Original KN5 export and remaining gates
+
+The fresh review checked original ownership/hashes, live source counts and
+transforms, supported authoring/basis evidence, shader/slots, sampling, flat
+restoration, backups and an unused output destination. Its **GO covers one private
+file save only**. File > Save KN5 offers Car, Car (No Textures), Track and Car
+(Experimental); the ordinary **Track** route was used. Menu navigation needed
+an explicit path into the submenu; early navigation/control-name checks did not
+invoke an exporter or create files. No alternate exporter was tried.
+
+The native Save As dialog saved `rv0p_original_pad.kn5` to the reviewed ignored
+`kn5-export/` directory and reported success. The actual file is **350,981 bytes**,
+SHA-256 `cc4285989205597824750c9871c44f7eeace384b02ef026dbf472fc9ea4d28fd`.
+A separate private backup is byte-identical. No KN5 writer, patcher or parser was
+constructed. The serialized mesh/texture counts were not independently inspected;
+source counts and the successful save do not establish load/runtime compatibility.
+No reviewed KN5 reopen method was available through the inspected editor menu.
+
+**In-game integration remains NO-GO.** The fixture still needs supported KN5 load
+validation and a separately reviewed original container/spawn/collision/cold-load
+plan. The existing Phase 0E HDR NO-GO is unchanged. ksEditor used a built-in shader
+with original texture inputs; no RestoVisuals HLSL or CSP replacement was deployed.
+
+### Closeout
+
+Both resumed owned sessions closed normally with exit 0, the last at **10:54:23
+America/New_York**. Original heavy-fog/b&w preview values were reloaded, and the
+working persistence was restored to its immutable input. The owner's installed
+editor remains open and untouched. No game launch or installation change occurred.
+
+All **29 protected files**, **49 settings**, **25 original/backup pairs**, **839
+installed SDK files** and **839 reused-mirror files** match fresh baselines. All
+four original working inputs are restored/verified. The SDK generated a 136-byte
+`NULL.dds` placeholder only in the owned project; it and all raw exports/screenshots
+remain private. No SDK/proprietary asset is added to Git.
+
+**15 affected tests pass** (five DDS adapter, ten fixture-source), zero failures.
+All 201 existing test definitions, including the historical 124 baseline, remain
+unchanged; the full suite was not rerun. The two new public diagnostic files are
+original RestoVisuals data with lossless container changes, not new shader code.
+
+Resumed live meters started at **41% five-hour / 50% weekly**. The camera repeat
+checkpoint read 36%/49%; after sampling, 30%/48% supported the bounded file-only
+export. Formal closeout began at **23%/47%** with all native work finished. Final
+balances/synchronization are recorded privately. No model escalation/delegation
+occurred; the approximate 15-point closeout reserve and weekly 5% cutoff remain.
+
+Next: **supported KN5 load validation under a separately reviewed isolated fixture
+plan**, retaining the remaining channel-orientation and game-container gates.
+Freeware policy, unresolved licensing, locked stack and unchanged main persist.
+
+---
+
+## Initial attempt — historical foreground-access blocker
 
 2026-11-05. Starting local/remote `phase0/foundation`:
 `d7e3c1707ecf32e6964583ba0095f5c74e9de50f`.

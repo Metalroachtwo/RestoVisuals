@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "only_existing_legacy_container_adapter_used": true,
+  "channel_bytes": "R,G,B,A",
+  "little_endian_word": "0xAABBGGRR",
+  "masks_rgba": [
+    "0x000000ff",
+    "0x0000ff00",
+    "0x00ff0000",
+    "0xff000000"
+  ],
+  "compression": "none",
+  "color_conversion": false,
+  "normal_vectors_changed": false,
+  "rows": [
+    {
+      "kind": "x-positive",
+      "source": "examples/phase0k-normal-probe/textures/x-positive.dds",
+      "source_sha256": "6795dc027948c66054d9abe4b65101cc486018a2812971bfffa80e51282301e6",
+      "output": "examples/phase0p-camera-validation/x-positive-legacy-rgba8.dds",
+      "output_sha256": "b00ad09471a2bc62925941a91c9fe910732bd6ce7d3fcb44db2ae1edae453fa9",
+      "source_bytes": 349672,
+      "output_bytes": 349652,
+      "all_texels_and_mips_preserved": true,
+      "mips": [
+        {
+          "level": 0,
+          "width": 256,
+          "bytes": 262144,
+          "payload_sha256": "5d012db0c725172aa452cf12d21bf29c65df6a20e9d37b7b4d16a96dc445bbaa",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 1,
+          "width": 128,
+          "bytes": 65536,
+          "payload_sha256": "5a7cef6304aeaf9764673425c10f9b611780a66934539b46a61796175433e5dd",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 2,
+          "width": 64,
+          "bytes": 16384,
+          "payload_sha256": "1cd7cf87b2e98f125f1f93fdc06728951aa2181138bad0cbb6e34a57df0f6f68",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 3,
+          "width": 32,
+          "bytes": 4096,
+          "payload_sha256": "39c6f2b98d2cd173d5ead535e6a24f8ab2c46ff5cc2ad5e58910fb152e146ae3",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 4,
+          "width": 16,
+          "bytes": 1024,
+          "payload_sha256": "20d43e1796d50a35863d2e68c4a4509dbc5247c5967e7a574695dc1911523c2b",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 5,
+          "width": 8,
+          "bytes": 256,
+          "payload_sha256": "8d2e1f2e40cf4ac906b3e48175d31850789eadbf945589f76e5a217b54788c47",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 6,
+          "width": 4,
+          "bytes": 64,
+          "payload_sha256": "ccba35a574c9a47430d403af7ac6a5a333871c5775acffb0fd188db8a27bc45d",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 7,
+          "width": 2,
+          "bytes": 16,
+          "payload_sha256": "73567b08ab39eefe495fb6dc715a418f5dea5d1d8cf55f7231c52ff9134342e0",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 8,
+          "width": 1,
+          "bytes": 4,
+          "payload_sha256": "2b20f063171ef895a6acf08ab6ec0c4e3858dc7499d655198e148330b3f9d6a8",
+          "rgba_mask_decode_equal": true
+        }
+      ]
+    },
+    {
+      "kind": "x-negative",
+      "source": "examples/phase0k-normal-probe/textures/x-negative.dds",
+      "source_sha256": "c00831f1fefb5e76b0f7d6c5a1bfb66d1a9a65b6378e48e7b5bcbd2d29550a7e",
+      "output": "examples/phase0p-camera-validation/x-negative-legacy-rgba8.dds",
+      "output_sha256": "5da08d951b6b7c8c1a8644dbf1f3b3cbb5d4af3d256418ea0a6b85235ccae94f",
+      "source_bytes": 349672,
+      "output_bytes": 349652,
+      "all_texels_and_mips_preserved": true,
+      "mips": [
+        {
+          "level": 0,
+          "width": 256,
+          "bytes": 262144,
+          "payload_sha256": "38aab4235c3d138da2cb64b3caffb20a2d6e27e814d6995d9d3aeac0909ccdd0",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 1,
+          "width": 128,
+          "bytes": 65536,
+          "payload_sha256": "aa5060571a048b0c9c7fcf388e6733413af762b56a1bf3050ac84eb82752fa4d",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 2,
+          "width": 64,
+          "bytes": 16384,
+          "payload_sha256": "a7e6034367c4f945a2423120f20f732199e744377ccbad3b5aa9f642f1569839",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 3,
+          "width": 32,
+          "bytes": 4096,
+          "payload_sha256": "7a43f813c38388fade1966281100d7b8a3e5ba8594b9052b159e49ac465727c3",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 4,
+          "width": 16,
+          "bytes": 1024,
+          "payload_sha256": "48e9e4833e0992f6e3009cbef67730e08f7d3f0adcbab15315df3aa2c60b831f",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 5,
+          "width": 8,
+          "bytes": 256,
+          "payload_sha256": "d28ea4e3bd014bf6c87762a4c412d47c94df9a6b063adb05d205ef8cad651703",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 6,
+          "width": 4,
+          "bytes": 64,
+          "payload_sha256": "d83e967665f78209e4310f5ba3e385b8c56659884fe101e52f5ac881256eff58",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 7,
+          "width": 2,
+          "bytes": 16,
+          "payload_sha256": "182592ef12e77ecc3c836ba9c8d9e0f1d3ccc0876a139ba0bfc6bb9c3e288048",
+          "rgba_mask_decode_equal": true
+        },
+        {
+          "level": 8,
+          "width": 1,
+          "bytes": 4,
+          "payload_sha256": "d2d2c29c7e3813ef8763de505d351d92fad07b2cd62f7613a560c18f3c1e1020",
+          "rgba_mask_decode_equal": true
+        }
+      ]
+    }
+  ]
+}

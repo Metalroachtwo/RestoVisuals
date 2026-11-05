@@ -1,0 +1,148 @@
+{
+  "evidence_label": "tested and validated: native editor display comparison",
+  "camera_repeatability": {
+    "roi_xyxy": [
+      352,
+      62,
+      1869,
+      758
+    ],
+    "roi_dimensions": [
+      1517,
+      696
+    ],
+    "display_rgb_exact_equal": true,
+    "difference_channel_extrema": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "captures": {
+      "s2-final-camera.png": "ce199f72ab41e04b784598c86a98671f9b1edf66c5f94b88591ae386b6b458ea",
+      "s3-final-camera.png": "31012a2ae1639581229c267bd30e0688b1f9b46104a71773ce8408a6f2002d80"
+    },
+    "scope": "Two independent fresh-session display screenshots; not native float resource equality or in-game stability"
+  },
+  "flat_return_display_viewport_exact_equal": true,
+  "metrics_scope": "Encoded 8-bit screenshot RGB, not scene-linear radiance or native resource precision",
+  "pad_interior_roi_xyxy": [
+    1000,
+    340,
+    1220,
+    570
+  ],
+  "excluded_axis_overlay_xyxy": [
+    1108,
+    430,
+    1136,
+    457
+  ],
+  "sampled_pixels": 49844,
+  "metrics": {
+    "flat": {
+      "mean_display_rgb_8bit": [
+        244.43808683091245,
+        240.25014043816708,
+        232.3648784206725
+      ],
+      "mae_rgb_vs_flat_8bit": 0.0,
+      "rms_rgb_vs_flat_8bit": 0.0,
+      "max_channel_delta_vs_flat_8bit": 0,
+      "changed_pixel_fraction_vs_flat": 0.0
+    },
+    "positive": {
+      "mean_display_rgb_8bit": [
+        248.8747492175588,
+        245.9046424845518,
+        239.894330310569
+      ],
+      "mae_rgb_vs_flat_8bit": 5.873538774309178,
+      "rms_rgb_vs_flat_8bit": 6.465882757697453,
+      "max_channel_delta_vs_flat_8bit": 11,
+      "changed_pixel_fraction_vs_flat": 0.995225102319236
+    },
+    "negative": {
+      "mean_display_rgb_8bit": [
+        221.28918224861567,
+        214.52620174945832,
+        203.74153358478452
+      ],
+      "mae_rgb_vs_flat_8bit": 25.832062702297836,
+      "rms_rgb_vs_flat_8bit": 33.53521669679659,
+      "max_channel_delta_vs_flat_8bit": 84,
+      "changed_pixel_fraction_vs_flat": 0.9997993740470267
+    },
+    "flat_return": {
+      "mean_display_rgb_8bit": [
+        244.43808683091245,
+        240.25014043816708,
+        232.3648784206725
+      ],
+      "mae_rgb_vs_flat_8bit": 0.0,
+      "rms_rgb_vs_flat_8bit": 0.0,
+      "max_channel_delta_vs_flat_8bit": 0,
+      "changed_pixel_fraction_vs_flat": 0.0
+    }
+  },
+  "material_state_checks": {
+    "positive": {
+      "only_normal_filename_differs": true,
+      "delta": [
+        [
+          "MATERIAL_0",
+          "res_1_texture",
+          "flat-legacy-rgba8.dds",
+          "x-positive-legacy-rgba8.dds"
+        ]
+      ]
+    },
+    "negative": {
+      "only_normal_filename_differs": true,
+      "delta": [
+        [
+          "MATERIAL_0",
+          "res_1_texture",
+          "flat-legacy-rgba8.dds",
+          "x-negative-legacy-rgba8.dds"
+        ]
+      ]
+    },
+    "flat_return": {
+      "only_normal_filename_differs": true,
+      "delta": []
+    }
+  },
+  "captures": {
+    "flat": {
+      "private_filename": "s3-final-camera.png",
+      "sha256": "31012a2ae1639581229c267bd30e0688b1f9b46104a71773ce8408a6f2002d80"
+    },
+    "positive": {
+      "private_filename": "matched-x-positive.png",
+      "sha256": "bac6207463fe61496e52120d3a17666d5a57de41f88d9ccf1002484ba8d84122"
+    },
+    "negative": {
+      "private_filename": "matched-x-negative.png",
+      "sha256": "df51f492df35d444d93aed05b2cca4c1b8e2d756a206fc0ec043dd714347ffda"
+    },
+    "flat_return": {
+      "private_filename": "matched-flat-return.png",
+      "sha256": "50473ffd445166010bf9ac5a89d2b346aa4f35c2621500d318c9746de266af1c"
+    }
+  },
+  "normal_texture_sampling_confirmed": true,
+  "x_directional_response": "Opposite signed-X inputs give distinct UV-aligned shading; six U repeats visible",
+  "absolute_world_light_vector_verified": false,
+  "green_axis_orientation_verified": false,
+  "native_game_compatibility_verified": false,
+  "full_normal_channel_decode_calibrated": false
+}

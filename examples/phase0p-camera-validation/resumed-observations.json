@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "starting_sha": "cecd6448dd0920ea2aaf9d8afed18546f820b8b5",
+  "evidence_label": "tested and validated in native ksEditor; KN5 filesystem export only",
+  "fresh_owned_sessions": 2,
+  "owner_opened_installed_editor_preserved": true,
+  "full_pad_visibility_verified": true,
+  "live_mesh_identity_verified": true,
+  "source_mesh": "RV0L_TEST_PAD",
+  "material": "RV0L_NORMAL_TEST",
+  "shader": "ksPerPixelNM",
+  "original_fbx_sha256": "49e1dc29e3e2ff976995d67e0bceaaca038e57443885814c72ea48e65ab2b474",
+  "source_counts": {
+    "meshes": 1,
+    "materials": 1,
+    "triangles": 2
+  },
+  "source_position": [
+    0,
+    0,
+    0
+  ],
+  "source_scale": [
+    1,
+    1,
+    1
+  ],
+  "source_radius": 8.485281,
+  "camera_recipe": {
+    "fov": 60,
+    "preview_weather": "3_clear via Load Weather",
+    "preview_pp": "default via Load PPfx",
+    "focus": "click empty viewport",
+    "vertical": "one Ctrl+Page Up pair held 120 ms",
+    "rotation": "left-drag +90 pixels vertically, then +60 pixels vertically; ten equal steps each",
+    "final_position_label": "0.000000; 30.000000; 0.000000",
+    "final_view_label": "0.000000; -18.648300; -23.499810",
+    "timed_input_portability": "Observed twice here; verify labels/framing on another host, do not assume frame-independent motion"
+  },
+  "camera_repeatability_verified": true,
+  "display_viewport_repeat_exact_equal": true,
+  "normal_texture_sampling_confirmed": true,
+  "signed_x_shading": "consistent with source U/+X basis; six repeats visible",
+  "absolute_world_light_vector_verified": false,
+  "green_axis_orientation_verified": false,
+  "original_flat_return_display_exact_equal": true,
+  "material_and_mesh_values_restored": true,
+  "new_payload_equivalent_directional_dds": 2,
+  "export_review": {
+    "decision": "GO",
+    "scope": "one private original KN5 file via File > Save KN5 > Track; no deployment",
+    "review_before_export": true,
+    "source_ownership_counts_shader_resources_camera_and_restoration_checked": true,
+    "unused_destination_checked": true,
+    "native_game_decision": "NO-GO"
+  },
+  "kn5": {
+    "private_filename": "rv0p_original_pad.kn5",
+    "bytes": 350981,
+    "sha256": "cc4285989205597824750c9871c44f7eeace384b02ef026dbf472fc9ea4d28fd",
+    "native_save_confirmation_observed": true,
+    "load_validated": false,
+    "serialized_mesh_texture_counts_independently_verified": false
+  },
+  "cleanup": {
+    "owned_sessions_closed_normally": true,
+    "exit_codes": [
+      0,
+      0
+    ],
+    "last_close_verified_eastern": "2026-11-05 10:54:23 -05:00",
+    "original_weather_pp_reloaded": true,
+    "working_inputs_restored": true,
+    "protected_files_unchanged": 29,
+    "settings_unchanged": 49,
+    "source_backup_pairs_verified": 25,
+    "installed_sdk_files_unchanged": 839,
+    "reused_sdk_files_unchanged": 839,
+    "kn5_backup_verified": true,
+    "sdk_generated_null_dds_kept_private": true
+  },
+  "tests": {
+    "targeted_passed": 15,
+    "failed": 0,
+    "existing_definitions_preserved": 201,
+    "new_definitions": 0,
+    "full_suite_rerun": false
+  },
+  "starting_allowance_remaining": {
+    "five_hour": 41,
+    "weekly": 50
+  },
+  "formal_closeout_allowance_remaining": {
+    "five_hour": 23,
+    "weekly": 47
+  },
+  "game_launched": false,
+  "installed_changes": false,
+  "hdr_rendering_decision": "NO-GO",
+  "native_game_decision": "NO-GO",
+  "private_evidence_directory": ".local/phase0p-20261105/resume-1014/evidence",
+  "next_milestone": "Supported KN5 load validation under a separately reviewed isolated fixture plan",
+  "repository_license": "owner undecided",
+  "full_normal_channel_decode_calibrated": false
+}
