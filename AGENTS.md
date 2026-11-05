@@ -333,3 +333,21 @@ Where supported, enforce these restrictions at the tool-permission or routing la
 - Preserve freeware, owner-undecided licensing, all prior source/tests/reference,
   locked installations and Phase 0E HDR NO-GO. Native baseline success is not
   custom-HLSL, material-slot, image-equivalence or game-performance validation.
+
+## Phase 0U offline preparation; prior desktop authorization withdrawn
+
+- The owner's Phase 0U brief explicitly ends the prior computer-use exception.
+  No GUI, screenshots, app control, replay playback, game launch, Objects Inspector,
+  DCC access or alternate automation route is authorized. A clock window opening
+  does not reactivate permission; a future native session needs fresh owner approval.
+- Read-only files/source research and workspace-only preparation/testing are allowed.
+  Preserve active sessions, installed assets/configuration and the live CM preference
+  store. Observe the two uncovered runtime-state files without restoring old data;
+  present observations cannot establish missing historical pretest hashes.
+- Prepare replay and concrete-material inspection procedures plus an inert,
+  disabled specification only. Authoring sidecars are not live KN5 identity;
+  replay hashes/filenames are not playback/frame certification. No native material
+  activation or generic replacement package; preserve the Phase 0E HDR NO-GO.
+- Keep work bounded, both reset credits reserved, the weekly 5% cutoff, original
+  shaders/tests/reference, freeware and owner-undecided licensing. Commit/push
+  reviewed offline results to phase0/foundation, verify remote SHA and stop.

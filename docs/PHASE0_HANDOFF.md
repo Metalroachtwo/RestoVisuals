@@ -1,4 +1,69 @@
-# RestoVisuals Phase 0T handoff — original native baseline captured
+# RestoVisuals Phase 0U handoff — offline replay/material preparation
+
+Prepared 2026-11-05 from verified local/remote
+`daa24375b8c00938651882f47f00417d1ccdbd7a` on `phase0/foundation`. Read
+[PHASE0U_REPLAY_MATERIAL_PREPARATION.md](PHASE0U_REPLAY_MATERIAL_PREPARATION.md)
+and the [disabled specification](../examples/phase0u-replay-material/experiment-spec.json).
+Previous handoffs remain below. Main stays
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**The owner explicitly ended the prior computer-use authorization.** No GUI,
+application control, new screenshot, game/replay/DCC or live inspector was used.
+Do not resume desktop access automatically under a new clock window. This phase
+performed scoped read-only file/source inspection and workspace-only tests.
+
+The T baseline images and replay remain intact. The original/private replay
+copies match: 5,559,241 bytes, SHA-256
+`d447417fef436d8993c22c18a030560654215aa43bb7a9a35f98b0e8ae5c2d8f`.
+Car/track/layout association is supported by filename and T launch receipts;
+embedded metadata, duration, playback and exact frame/camera remain unverified.
+Proposed 00:10.000 is a future candidate only, not a validated matching frame.
+CM's published file handler launches replay playback when opening an .acreplay;
+do not invoke it as passive inspection. No metadata parser or alternate launcher
+was built or run. Preserve the configured-versus-observed T weather distinction.
+
+Fresh U checks confirm 29 protected files and 48/49 selected settings. The CM live
+store remains the owner-approved exception. It and the two uncovered WebBrowser/
+odometer state files match T closeout copies and were stable across two U file
+observations. Private hashes/metadata and copies are new observations, never a
+replacement for missing pre-T2 baselines. No rollback or active-writer ownership
+claim was made; full user-state restoration is still unverified.
+
+Two source sidecars agree on `concrete`, `ksPerPixelNM_UVMult`, opaque flags and
+the authored normal binding. Source normal copies are 512×512 DXT5, ten mips;
+the container does not establish DXT5nm/native decode. SDK resource declarations
+do not establish tangent signs or UV behavior. Eleven scoped config files were
+read, including the selected skin. Five skin includes remain unresolved in the
+checked locations; effective fallback/precedence and material sharing are unknown.
+The root's RainFX name `roughtconcrete` is not the candidate name `concrete`.
+No live KN5 identity, exact mesh count or normal compatibility is certified.
+
+The inert JSON proposal requires exactly one selected mesh/unique material as
+acceptance bounds, verified decoding/XY/basis/UV/sharing, immutable authored
+resources and a fresh reviewed registration/manifest/recovery transaction. Native
+paths/hashes are unset and the installation diff is empty. No generic selector,
+active config, normal conversion, mod asset or installer is supplied. Static
+replacement deletion never proves live rollback; original cold reload is required.
+
+**31 targeted existing tests passed** (five DDS compatibility, 26 material/recovery).
+Eight closeout validation groups also passed.
+All 201 definitions, the historical 124, shaders/assets and untracked visual target
+remain unchanged. Full suite not rerun; no GPU/native/performance test occurred.
+Raw observations stay ignored under `.local/phase0u-20261105/`; original T evidence
+is preserved. Initial meters 70% five-hour / 29% weekly; closeout 63%/27%.
+Final readings/SHA are private. Both resets remain reserved; none was invoked.
+
+**CONDITIONAL GO:** a future separately authorized CM replay/baseline/read-only
+material-inspection session with fresh recovery coverage. **NO-GO:** normal-only
+deployment until actual frame/camera/A/A, shader/resource/basis/UV/count/sharing
+and config precedence gates pass, followed by separate safety/owner authorization.
+Exact execution steps and failure stops are in the report. Stop offline work at
+this checkpoint. Preserve freeware, undecided licensing, locked versions,
+unchanged main, Phase 0J cold-load recovery and Phase 0E HDR NO-GO.
+
+---
+
+## Historical Phase 0T handoff — original native baseline captured
 
 Prepared 2026-11-05 from verified local/remote
 `4f7ba0530c8ab4724fa0d9af0fc624978343c716` on `phase0/foundation`. Read

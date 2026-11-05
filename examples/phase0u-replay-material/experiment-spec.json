@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "status": "DRAFT_BLOCKED_ON_NATIVE_INSPECTION_AND_REGISTRATION",
+  "starting_sha": "daa24375b8c00938651882f47f00417d1ccdbd7a",
+  "computer_use_authorized": false,
+  "native_inspection_authorized": false,
+  "deployment_authorized": false,
+  "current_installation_diff": [],
+  "target": {
+    "track": "jd_drift_mansion",
+    "layout": "open",
+    "track_skin": "vdc2024",
+    "source_candidate_material": "concrete",
+    "source_candidate_shader": "ksPerPixelNM_UVMult",
+    "required_slot": "txNormal",
+    "runtime_model": null,
+    "runtime_mesh": null,
+    "runtime_material_identity": null,
+    "expected_selected_mesh_count": 1,
+    "expected_selected_material_count": 1,
+    "counts_are_acceptance_requirements_not_observations": true,
+    "native_counts_verified": false,
+    "sharing_outside_selection_allowed": false,
+    "wildcard_selection_allowed": false,
+    "on_mismatch": "STOP; revise and review before any activation"
+  },
+  "preserve": {
+    "shader_identity": true,
+    "all_original_texture_resources": true,
+    "all_material_coefficients_and_uv_parameters": true,
+    "authored_original_normal_immutable": true,
+    "pure_weather_pp_hdr_and_physics": true
+  },
+  "texture_contract": {
+    "kind": "original conventional tangent-space normal only",
+    "detail_source": "Phase 0K original mathematical normal hierarchy; not the Phase 0I signed moment texture",
+    "candidate_dimensions": [256, 256],
+    "mip_levels": 9,
+    "container_candidate": "traditional DDS; uncompressed 32-bit RGBA8",
+    "channel_bytes": ["R", "G", "B", "A"],
+    "channel_masks_hex": ["000000ff", "0000ff00", "00ff0000", "ff000000"],
+    "endianness": "little",
+    "alpha": 255,
+    "color_treatment": "intended non-color UNORM; no gamma conversion",
+    "roughness_packing": false,
+    "native_variant_decode_and_xy_orientation_verified": false,
+    "native_uv_frequency_and_filtering_verified": false,
+    "sequence": ["flat diagnostic", "+X", "-X", "+Y", "-Y", "original detail only after all gates"],
+    "generate_or_convert_additional_textures_in_phase0u": false
+  },
+  "replay": {
+    "sha256": "d447417fef436d8993c22c18a030560654215aa43bb7a9a35f98b0e8ae5c2d8f",
+    "bytes": 5559241,
+    "embedded_metadata_parsed": false,
+    "duration_seconds": null,
+    "playback_validated": false,
+    "proposed_reference_seconds": 10.0,
+    "proposal_is_an_existing_validated_frame": false,
+    "require_duration_and_stationary_visibility_check": true,
+    "reference_frame_index": null,
+    "camera_pose": null,
+    "before_enhancement": "Establish baseline A/A repeatability and record effective weather/exposure history"
+  },
+  "proposed_future_file_manifest": [
+    {
+      "logical_file": "rv0u-normal-only.ini",
+      "role": "uniquely owned, exact-selector normal-resource assignment",
+      "installed_path": null,
+      "sha256": null,
+      "created": false,
+      "requires": "supported config registration, native counts and fresh reviewed transaction"
+    },
+    {
+      "logical_file": "rv0u-normal.dds",
+      "role": "one reviewed diagnostic or original detail payload per cold-load stage",
+      "installed_path": null,
+      "sha256": null,
+      "created": false,
+      "requires": "exact native shader decode, encoding and orientation gates"
+    },
+    {
+      "logical_file": "registration or host-config diff",
+      "role": "make the owned configuration reachable through a supported route",
+      "installed_path": null,
+      "sha256": null,
+      "created": false,
+      "requires": "resolve precedence, collisions, existing ownership and separately approve every byte change"
+    }
+  ],
+  "manifest_complete_for_installation": false,
+  "unknown_installed_path_or_hash_blocks_activation": true,
+  "native_inspection_exit_criteria": [
+    "fresh owner scope and deadline",
+    "fresh recovery coverage including CM, WebBrowser and odometer state",
+    "original replay loads through Content Manager",
+    "duration, frame, camera and baseline A/A recorded",
+    "exact live shader, typed properties, resources and UV/basis evidence",
+    "exact mesh/material/sharing counts",
+    "effective root/skin/shared config chain and resource ownership"
+  ],
+  "deployment_exit_criteria": [
+    "separate owner authorization and fresh safety-review GO",
+    "all installed paths and hashes filled and collision checked",
+    "existing host configuration untouched unless its exact temporary diff is separately reviewed",
+    "complete run-specific recovery and interruption rehearsal",
+    "cold baseline, diagnostic, enhanced and restored loads",
+    "resource/property restoration plus matched images, not deletion alone"
+  ],
+  "rollback": {
+    "end_owned_game_normally_before_file_restore": true,
+    "remove_only_proven_owned_files": true,
+    "retain_foreign_or_ambiguous_state": true,
+    "live_cm_store_policy": "preserve working session and before/after versions; no forced byte restoration",
+    "cold_load_original_required": true,
+    "deleting_replacement_section_proves_live_rollback": false
+  },
+  "hdr_decision": "NO-GO",
+  "freeware": true,
+  "repository_license": "owner undecided"
+}
