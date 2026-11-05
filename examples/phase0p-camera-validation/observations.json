@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "evidence_label": "observed locally",
+  "starting_sha": "d7e3c1707ecf32e6964583ba0095f5c74e9de50f",
+  "branch": "phase0/foundation",
+  "original_fbx_sha256": "49e1dc29e3e2ff976995d67e0bceaaca038e57443885814c72ea48e65ab2b474",
+  "flat_legacy_dds_sha256": "1ead2f733f73ab1abff72f48267acdf794efbc1291165468df875081055e1460",
+  "sdk_mirror_reused": true,
+  "fov_display": 60,
+  "preview_weather_loaded": "3_clear",
+  "preview_pp_loaded": "default",
+  "delivered_camera_input": {
+    "key": "Page Up",
+    "down_up_pairs": 1,
+    "hold_ms": 600,
+    "automatic_repeat_injected": false,
+    "before_position_label": "0.000000;0.000000;0.000000",
+    "after_labels": {
+      "view_label": "0.000000; -0.150000; 0.000000",
+      "position_label": "0.000000; 0.150000; 0.000000"
+    },
+    "visible_result": "narrow surface edge at bottom of viewport"
+  },
+  "untested_controls": [
+    "left-drag rotation",
+    "arrow movement",
+    "Page Down",
+    "Shift precision",
+    "Ctrl speed",
+    "mouse wheel FOV"
+  ],
+  "next_operation_delivered": false,
+  "blocker": "owned editor could not obtain foreground; further input withheld",
+  "underlying_activation_failure_reason": "UNKNOWN",
+  "input_sent_to_unrelated_application": false,
+  "full_pad_visibility_verified": false,
+  "live_mesh_identity_verified": false,
+  "camera_repeatability_verified": false,
+  "diffuse_sampling_verified": false,
+  "normal_sampling_verified": false,
+  "new_dds_generated": 0,
+  "kn5_export_attempted": false,
+  "fixture_kn5_produced": false,
+  "export_decision": "NO-GO",
+  "native_ready": false,
+  "game_launched": false,
+  "owned_editor_closed_normally": true,
+  "editor_exit_code": 0,
+  "closed_verified_at_eastern": "2026-11-05 09:49:59 -05:00",
+  "preservation": {
+    "protected_files_unchanged": 29,
+    "selected_settings_unchanged": 49,
+    "original_and_backup_pairs_verified": 25,
+    "installed_sdk_files_unchanged": 839,
+    "reused_owned_sdk_files_unchanged": 839,
+    "working_inputs_restored_and_verified": 4,
+    "persistence_delta_before_restore": [],
+    "sdk_inventory_and_hashes_exact": true,
+    "fixture_kn5_produced": false,
+    "source_geometry_and_material_unchanged": true,
+    "private_error_log_unchanged": true,
+    "game_launched": false
+  },
+  "affected_tests_passed": 10,
+  "test_failures": 0,
+  "existing_test_definitions_preserved": 201,
+  "starting_allowance_remaining": {
+    "five_hour": 52,
+    "weekly": 52
+  },
+  "interrupted_checkpoint_allowance_remaining": {
+    "five_hour": 47,
+    "weekly": 51
+  },
+  "formal_closeout_allowance_remaining": {
+    "five_hour": 45,
+    "weekly": 51
+  },
+  "private_evidence_directory": ".local/phase0p-20261105/evidence",
+  "captures": [
+    {
+      "private_filename": "s1-00-fbx-loaded.png",
+      "sha256": "624692ab47cf893dc785fa65c142833876d1dbe63ee6a92c91b1ad8c3a907474"
+    },
+    {
+      "private_filename": "s1-01-clear-default.png",
+      "sha256": "be2924d0db630811afc9b15e63cf32c5d37caf05a1a75897bdfd24e59bec967a"
+    },
+    {
+      "private_filename": "s1-02-pageup.png",
+      "sha256": "ba30e6a16579352b8986171beb6fdaa890d2430e213f019db1a0e6b1e2eb26c8"
+    }
+  ],
+  "next_prerequisite": "fresh owned editor with foreground access, followed by repeatable above-pad camera framing",
+  "hdr_rendering_decision": "NO-GO",
+  "repository_license": "owner undecided"
+}

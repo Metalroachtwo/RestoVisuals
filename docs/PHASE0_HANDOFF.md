@@ -1,4 +1,70 @@
-# RestoVisuals Phase 0O continuation handoff
+# RestoVisuals Phase 0P continuation handoff
+
+Prepared 2026-11-05 on `phase0/foundation` from verified local/remote
+`d7e3c1707ecf32e6964583ba0095f5c74e9de50f`. Read
+[PHASE0P_CAMERA_VALIDATION.md](PHASE0P_CAMERA_VALIDATION.md) and the
+[sanitized observation receipt](../examples/phase0p-camera-validation/observations.json).
+Current Git tip and ignored final receipts identify synchronization. Remote main
+remains `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**BLOCKED at foreground access; primary camera gate incomplete.** One fresh owned
+ksEditor session reused the verified existing Phase 0O SDK mirror and unchanged
+original FBX/legacy-flat DDS. Clear/default Load buttons restored the colored sky.
+One Page Up down/up pair, held 600 ms, changed the position label from zero to
+`0.000000; 0.150000; 0.000000` and View to `0.000000; -0.150000; 0.000000`.
+A narrow surface edge appeared at the bottom; full silhouette, live mesh identity,
+visible face and diffuse sampling were not jointly established. FOV stayed 60.
+This is one label displacement, not a measured continuous movement speed.
+
+The next Ctrl+Page Up/left-drag operation was rejected by foreground verification
+before any input was delivered. An unrelated app was foreground; ordinary owned
+activation/restore did not acquire it. A direct accessibility focus request found
+the top-level target could not receive focus, and the owned viewport did not
+advertise keyboard focusability. No unrelated-app input or input-routing bypass
+was used. The underlying activation failure remains UNKNOWN. A manual foreground
+request remained unanswered, and the bounded run then closed the owned editor.
+That earlier request no longer refers to a live window.
+
+Left-drag/arrows/Page Down/Shift/Ctrl/wheel behavior remains UNTESTED, not failed.
+There was no second session/repeatability test, no tree double-click, geometry/
+winding/shader/coefficient/light change, Blender/export repeat or DDS conversion.
+One read-only source/persistence inspection retained +Y plane orientation, expected
+bounds/basis/UVs, material slots/properties and visible/renderable flags. Do not
+promote the narrow edge to confirmed diffuse/normal sampling. KN5/native NO-GO
+and Phase 0E HDR NO-GO remain binding.
+
+The owned editor closed normally, parent-witness exit 0, verified at 09:49:59
+America/New_York. No Save Data or force termination was used; the in-memory preview
+session ended. All 29 protected files, 49 settings, 25 original/backup pairs,
+839 installed SDK files and 839 reused-mirror files match fresh baselines. Four
+owned project inputs are restored/verified; persistence has no value delta and
+the exception log is unchanged. No KN5, game launch, deployment or installed
+rollback occurred. This is not a game material cold-reload test.
+
+Ten affected fixture-source regressions pass. All 201 existing test definitions,
+including the historical 124 baseline, remain unchanged; the full suite was not
+rerun for this evidence/documentation change. Raw screenshots, unrelated desktop
+diagnostics, settings and backups remain ignored in `.local/phase0p-20261105/`.
+The approved visual target remains unchanged and untracked.
+
+Live meters started at 52% five-hour / 52% weekly, read 47% / 51% at interruption
+and 45% / 51% at formal closeout. Access failure ended investigation before the
+approximately 15-point review. Final balances are in the ignored receipt; preserve
+the approximately 15-point closeout reserve and weekly 5% cutoff. No model
+escalation or delegation occurred.
+
+Next: fresh owned editor with confirmed foreground access, then short controlled
+vertical/left-drag movements to frame the unchanged pad from its +Y side and
+reproduce an equivalent view in another fresh session. Only then compare original
+flat/+X/-X normals and review one KN5 export. Do not investigate more DDS formats,
+change source geometry or repeat exporter work to address this desktop blocker.
+Recheck time/allowances: today's GUI/DCC exception ends at 17:00 Eastern, cleanup
+by 16:30. All owned applications are closed. Keep locked versions, Phase 0J
+cold-load requirements, freeware policy, unresolved licensing and main unchanged.
+
+---
+
+## Historical Phase 0O continuation handoff
 
 Prepared 2026-11-05 on `phase0/foundation` from verified local/remote
 `092625e2669f0f10a6afbdb8c8f15c2934c39a06`. Read

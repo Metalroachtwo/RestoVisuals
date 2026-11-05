@@ -228,3 +228,21 @@ Where supported, enforce these restrictions at the tool-permission or routing la
   selected settings and 839 reviewed SDK files. Close owned sessions normally.
   Retain sufficient credit for verification/documentation/Git and the weekly 5%
   cutoff; use a progress review near 15 points consumed, not a rigid small cap.
+
+## Phase 0P camera-validation scope (2026-11-05)
+
+- Today's owner-authorized GUI/DCC exception covers the original fixture camera
+  recovery through 17:00 America/New_York; start cleanup by 16:30. Recheck time,
+  preserve other sessions and reuse the verified FBX and existing owned SDK mirror.
+- Validate the supplied viewport controls with short recorded movements, FOV 60
+  initially, and no initial scene-tree double-click. Establish the unchanged pad's
+  visible face and reproduce the view in a fresh owned session. If visibility
+  still fails, allow one bounded read-only flags/orientation/bounds inspection;
+  stop speculation without editing geometry, winding, shader or coefficients.
+- Directional normal comparisons remain conditional on the visible-pad gate.
+  Reuse the established legacy representation with all texels/mips unchanged.
+  KN5 requires a fresh export-safety GO; no game launch or deployment is allowed.
+- Restore verified session changes, close owned applications normally and verify
+  protected/source/settings/SDK hashes. Reserve approximately 15 five-hour points
+  for closeout and the independent 5% weekly cutoff. Preserve existing tests,
+  freeware policy, Phase 0E HDR NO-GO and Phase 0J cold-load requirements.
