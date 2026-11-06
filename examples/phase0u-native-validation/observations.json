@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "starting_sha": "2776389247e2c1df7ae3d9dd7a365c139d3c58de",
+  "status": "NATIVE_REPLAY_LOADED_TWO_MATERIALS_IDENTIFIED_NORMAL_NO_GO",
+  "owner_after_hours_authorized": true,
+  "authorization_applies_only_to_eastern_date": "2026-11-05",
+  "gui_helper_disabled_after_closeout": true,
+  "game_launches": 1,
+  "launch_route": "existing CM Media/Replays Play",
+  "normal_exit": 0,
+  "agent_steam_restarts": 0,
+  "reset_actions": 0,
+  "replay": {
+    "sha256": "d447417fef436d8993c22c18a030560654215aa43bb7a9a35f98b0e8ae5c2d8f",
+    "bytes": 5559241,
+    "native_playback_validated": true,
+    "displayed_duration": "4 minutes 33 seconds",
+    "displayed_quality_hz": 66,
+    "displayed_version": 16,
+    "displayed_cars": 1,
+    "displayed_time": "13:06",
+    "cm_weather_label": "Thunderstorm (Sol)",
+    "effective_weather_contract_verified": false
+  },
+  "reference": {
+    "displayed_time": "0:09",
+    "camera": "Chase 1",
+    "displayed_camera_index": 2,
+    "car_index": 0,
+    "output_dimensions": [
+      1920,
+      1080
+    ],
+    "exact_recording_frame": null,
+    "numeric_pose_fov_certified": false,
+    "cross_load_reproducibility_tested": false
+  },
+  "image_comparisons": [
+    {
+      "reference": "baseline-A.png",
+      "compared": "baseline-A.png",
+      "metrics": {
+        "Width": 1920,
+        "Height": 1080,
+        "MaximumRGBDifference": 0,
+        "ChangedRGBPixels": 0,
+        "ChangedAlphaPixels": 0,
+        "NonOpaquePixels": 3,
+        "MeanAbsoluteRGBCodeDifference": 0.0,
+        "RGBCodeRMSE": 0.0
+      },
+      "measurement_space": "decoded 8-bit screenshot RGB code values; not radiance or HDR",
+      "exact_rgba_equal": true
+    },
+    {
+      "reference": "baseline-A.png",
+      "compared": "baseline-B.png",
+      "metrics": {
+        "Width": 1920,
+        "Height": 1080,
+        "MaximumRGBDifference": 68,
+        "ChangedRGBPixels": 879283,
+        "ChangedAlphaPixels": 6,
+        "NonOpaquePixels": 6,
+        "MeanAbsoluteRGBCodeDifference": 0.3375167181069959,
+        "RGBCodeRMSE": 0.8936606944072202
+      },
+      "measurement_space": "decoded 8-bit screenshot RGB code values; not radiance or HDR",
+      "exact_rgba_equal": false
+    },
+    {
+      "reference": "baseline-A.png",
+      "compared": "baseline-reseek-A.png",
+      "metrics": {
+        "Width": 1920,
+        "Height": 1080,
+        "MaximumRGBDifference": 52,
+        "ChangedRGBPixels": 737102,
+        "ChangedAlphaPixels": 4,
+        "NonOpaquePixels": 5,
+        "MeanAbsoluteRGBCodeDifference": 0.2581957304526749,
+        "RGBCodeRMSE": 0.7622130185844299
+      },
+      "measurement_space": "decoded 8-bit screenshot RGB code values; not radiance or HDR",
+      "exact_rgba_equal": false
+    },
+    {
+      "reference": "baseline-A.png",
+      "compared": "baseline-post-inspection.png",
+      "metrics": {
+        "Width": 1920,
+        "Height": 1080,
+        "MaximumRGBDifference": 60,
+        "ChangedRGBPixels": 939336,
+        "ChangedAlphaPixels": 6,
+        "NonOpaquePixels": 7,
+        "MeanAbsoluteRGBCodeDifference": 0.35904015560699587,
+        "RGBCodeRMSE": 0.9658149484557038
+      },
+      "measurement_space": "decoded 8-bit screenshot RGB code values; not radiance or HDR",
+      "exact_rgba_equal": false
+    }
+  ],
+  "image_tolerance_equivalence_claimed": false,
+  "native_materials": [
+    {
+      "mesh": "1GRASS0_CENTRAL",
+      "material": "map_center",
+      "shader": "ksMultilayer",
+      "origin": "dm_land.kn5",
+      "triangles": 10144,
+      "texture_count": 6,
+      "variables_count": 15,
+      "conventional_txNormal_displayed": false
+    },
+    {
+      "mesh": "tracksurface",
+      "material": "asphalt",
+      "shader": "ksMultilayer_fresnel_nm",
+      "origin": "jd_drift_mansion.kn5",
+      "triangles": 14090,
+      "texture_count": 7,
+      "variables_count": 23,
+      "normal_role": "txDetailNM",
+      "normal_resource": "tarmac-detail_NM.dds",
+      "detailNMMult": [
+        30,
+        4
+      ],
+      "global_sharing_and_unique_match_count_verified": false
+    }
+  ],
+  "authored_concrete_runtime_verified": false,
+  "normal_decode_uv_basis_verified": false,
+  "effective_config_precedence_verified": false,
+  "material_or_render_settings_changed": false,
+  "installation_diff": [],
+  "normal_comparison_decision": "NO-GO",
+  "hdr_decision": "NO-GO",
+  "enhanced_images": 0,
+  "shader_restoration_experiment_performed": false,
+  "preservation": {
+    "status": "PASS_WITH_LIVE_CM_AND_RETAINED_BROWSER_STATE_EXCEPTIONS",
+    "counts": {
+      "protected_files": {
+        "matching": 29,
+        "differences": []
+      },
+      "selected_settings": {
+        "matching": 48,
+        "differences": [
+          "cm_values/Values.data"
+        ]
+      },
+      "fresh_user_cfg": {
+        "matching": 260,
+        "total": 261,
+        "differences": [
+          "extension/state/lua/app/WebBrowser.ini"
+        ]
+      },
+      "car": 1265,
+      "track": 386,
+      "shared_configs": 13,
+      "original_sources": 25,
+      "mirror_sdk": 839,
+      "installed_sdk": 839
+    },
+    "original_and_private_replay_unchanged": true,
+    "private_captures": 32,
+    "no_material_installed": true,
+    "historical_t2_pretest_gaps_not_retroactively_closed": true,
+    "full_user_state_rollback_claimed": false
+  },
+  "restored_runtime_ui_files": 4,
+  "retained_uncertain_state": "extension/state/lua/app/WebBrowser.ini",
+  "owner_cm_and_editor_preserved": true,
+  "full_user_state_rollback_claimed": false,
+  "test_definitions_preserved": 201,
+  "prior_offline_u_targeted_tests_passed": 31,
+  "unit_suite_rerun_for_native_evidence": false,
+  "performance_measurements": [],
+  "private_capture_root": ".local/phase0u-native-20261105/evidence",
+  "selected_capture_receipts": [
+    {
+      "filename": "asphalt-details.png",
+      "bytes": 3107994,
+      "sha256": "bd7a66c562c21600689dc3c62ab977af585df95d0d2f22cbd26b03365346343d",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "asphalt-texture-bindings.png",
+      "bytes": 3094207,
+      "sha256": "8287128f5d04f0e98fe2578b3ba1c74803aba9ae85a4f5e0dacb1bc532e45fa1",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-A.png",
+      "bytes": 3393892,
+      "sha256": "4f76f90681031b89afc10255c1b9b3646f68c29206e439e4158ac10792e30310",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-B.png",
+      "bytes": 3394542,
+      "sha256": "0e51d17074f24a9795b7713328192011084e4da03f2185530d5501d1f1f940b6",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-post-inspection.png",
+      "bytes": 3393993,
+      "sha256": "5ddd464c8d4fb644ab4e6bccba7095acaaa69ee3ffd06e6e63ce0a7d093e73b1",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "baseline-reseek-A.png",
+      "bytes": 3392252,
+      "sha256": "afb82108473a43300ae2107050367937dff6ae3f69d6f2fd8f1244f3ab07177c",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    },
+    {
+      "filename": "map-center-textures.png",
+      "bytes": 3124972,
+      "sha256": "07fb8c9febd76dc6b4cae973d1fdd527826f9423c9f76a6cf254e3c31bbcb0df",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "private_only": true
+    }
+  ],
+  "starting_remaining": {
+    "five_hour": 60,
+    "weekly": 27
+  },
+  "closeout_remaining": {
+    "five_hour": 39,
+    "weekly": 24
+  },
+  "freeware": true,
+  "repository_license": "owner undecided"
+}

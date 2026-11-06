@@ -351,3 +351,22 @@ Where supported, enforce these restrictions at the tool-permission or routing la
 - Keep work bounded, both reset credits reserved, the weekly 5% cutoff, original
   shaders/tests/reference, freeware and owner-undecided licensing. Commit/push
   reviewed offline results to phase0/foundation, verify remote SHA and stop.
+
+## Phase 0U separately authorized native follow-up (2026-11-05 tonight only)
+
+- The owner's later after-hours brief overrides the offline-only restriction for
+  this night's replay/baseline/read-only CSP inspection. It grants no next-day or
+  persistent GUI access, creative-app access, version change or HDR integration.
+- Begin closeout near 15% five-hour or 10% weekly remaining, whichever controls;
+  begin earlier for recovery/Git needs. The 5% weekly hard cutoff and both reserved
+  resets remain binding. Ordinary replenishment does not extend access another day.
+- Normal comparison is conditional on actual shader/encoding/UV/sharing, authored
+  resource preservation, exact ownership/registration and reviewed recovery gates.
+  Those gates did not pass in this run; no normal replacement was installed.
+- Preserve the original open CM/editor sessions. Use fresh run-specific recovery
+  snapshots; retain the live CM store and ambiguous browser state rather than
+  overwrite uncertain owner data. Report exact coverage and image-repeatability
+  limits. End owned games normally; keep screenshots/mod assets private.
+- The native follow-up ended with its owned replay closed normally and temporary
+  GUI helper disabled. No automatic further launch or renewed task access follows
+  from the successful playback. Existing freeware/licensing/HDR restrictions persist.

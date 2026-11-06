@@ -1,4 +1,71 @@
-# RestoVisuals Phase 0U handoff — offline replay/material preparation
+# RestoVisuals Phase 0U handoff — replay loaded; two live materials identified
+
+Prepared 2026-11-05 from verified local/remote
+`2776389247e2c1df7ae3d9dd7a365c139d3c58de` on `phase0/foundation`. Read
+[PHASE0U_NATIVE_VALIDATION.md](PHASE0U_NATIVE_VALIDATION.md) and
+[observations](../examples/phase0u-native-validation/observations.json).
+Earlier offline preparation and prior handoffs remain below. Main stays
+`814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**The separately authorized after-hours replay run succeeded**, launching through
+existing CM at 18:25:46 Eastern and exiting normally with code 0 at 18:43:07.
+No Steam restart, normal replacement, mod edit, version change or reset occurred.
+Temporary GUI access is disabled after closeout; no next-day permission is inferred.
+The owner CM/editor sessions remain open and CM is back on its original Drive page.
+
+The exact T replay hash is preserved. Installed CM parsed 4:33, version 16, one car,
+66 Hz display, 13:06 and Thunderstorm (Sol). Playback renders a visibly clear view;
+do not equate metadata/configuration with effective Pure/weather/exposure behavior.
+Native controls paused at displayed 0:09, Chase 1 / camera index 2 / car 0.
+Four 1920×1080 baseline witnesses are retained privately, with repeated seek and
+post-inspection captures. Exact frame/numeric pose/FOV and cold-load reproducibility
+remain unverified. Paused A/B RGB RMSE is 0.893661 code values, reseek 0.762213,
+post-inspection 0.965815; none is pixel-identical and no tolerance-equivalence
+criterion passed. Capture alpha also varies at a few pixels; no HDR/alpha contract.
+
+CSP's read-only Objects Inspector confirmed:
+
+- Pale ground: `1GRASS0_CENTRAL` / `map_center` / `ksMultilayer`, `dm_land.kn5`,
+  10,144 triangles, six resources and no displayed conventional normal slot.
+- Road: `tracksurface` / `asphalt` / `ksMultilayer_fresnel_nm`, main track KN5,
+  14,090 triangles, seven resources, `txDetailNM=tarmac-detail_NM.dds`,
+  `detailNMMult=(30,4)` and a large track-spanning mesh.
+
+`concrete` was not found/certified. Do not apply its sidecar shader assumptions
+to these live materials. Packed decode, UV/basis, sharing/counts and effective
+skin/include registration remain unknown. No property drags/edits or native normal
+experiment occurred. **Normal deployment and Phase 0E HDR remain NO-GO.**
+
+Fresh recovery included the previously uncovered files. Four changed race/UI/log
+files were restored and verified after workspace copy/resume rehearsals. Final
+checks: 29 protected, 1,265 car, 386 track, 13 shared configs, both 839-file SDK
+sets and 25 original sources match. Settings remain **48/49** with the approved
+live CM store exception. Of 261 fresh readable user configs, **260 match**; one
+opaque WebBrowser state change is retained with fresh pre/post copies because
+its ownership was not established. Odometer state is unchanged. The historical
+T2 gaps and full user-state rollback remain unverified; no old state was imposed.
+
+All 201 test definitions and original shaders/assets/reference remain unchanged.
+The preceding offline U's 31 tests remain valid; they were not rerun without code
+changes. New native, image, recovery and preservation checks are in the report.
+All 32 captures/logs/raw preferences remain ignored under
+`.local/phase0u-native-20261105/`. No private media or third-party implementation
+is published. No full material-transaction fault suite or performance benchmark.
+
+Allowances began 60% five-hour / 27% weekly; productive checkpoint 47%/25%,
+closeout underway at 39%/24%, before required reserves. Final readings/SHA are in
+private synchronization evidence. Both reset credits remain reserved, unused.
+
+**Next highest-value milestone:** establish the observed asphalt `txDetailNM`
+packing/UV contract and preserve authored detail, then resolve sharing and supported
+registration before a new reviewed transaction. First define baseline repeatability
+criteria; a stable-looking paused frame is not image equivalence. Any new native
+run needs fresh session authorization. Preserve freeware, undecided licensing,
+locked versions, original sources and Phase 0J cold-load recovery requirements.
+
+---
+
+## Historical Phase 0U handoff — offline replay/material preparation
 
 Prepared 2026-11-05 from verified local/remote
 `daa24375b8c00938651882f47f00417d1ccdbd7a` on `phase0/foundation`. Read
