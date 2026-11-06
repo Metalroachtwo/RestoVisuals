@@ -370,3 +370,17 @@ Where supported, enforce these restrictions at the tool-permission or routing la
 - The native follow-up ended with its owned replay closed normally and temporary
   GUI helper disabled. No automatic further launch or renewed task access follows
   from the successful playback. Existing freeware/licensing/HDR restrictions persist.
+
+## Phase 0W offline photographic prototype
+
+- Computer-use, game/CM launch and installed filter/configuration changes are not
+  authorized. Windowless standalone compilation/rendering and workspace tests are
+  permitted. Preserve Pure's bridge, existing scripts, sources and references.
+- The original photographic core and three presets have an explicit offline color
+  contract. INI candidates configure engine controls; they do not dispatch this
+  HLSL. The optional Pure UI module is unregistered and has no render connection.
+  Unknown source encoding, native selection, exposure/default inheritance and UI
+  lifecycle keep native deployment NO-GO; Phase 0E HDR NO-GO persists.
+- Begin closeout near 7–10% five-hour remaining, earlier if needed, and preserve
+  the 5% weekly hard cutoff. Neither reserved reset is authorized. No automatic
+  restart after replenishment/reset; retain original work and verify Git sync.

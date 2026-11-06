@@ -1,0 +1,46 @@
+{
+  "enabled": false,
+  "native_test_decision": "NO-GO_UNTIL_PACKAGE_AND_PURE_LIFECYCLE_REVIEW",
+  "files": [
+    {
+      "source": "filters/RestoVisuals.ini",
+      "target_game_relative": "system/cfg/ppfilters/RestoVisuals.ini",
+      "bytes": 368,
+      "sha256": "f853677bfa54591737d88ae261e5cf4b843b5f0b22f5274bb6f63258ab3e1804",
+      "collision_observed": false
+    },
+    {
+      "source": "filters/RestoVisuals_Cool.ini",
+      "target_game_relative": "system/cfg/ppfilters/RestoVisuals_Cool.ini",
+      "bytes": 367,
+      "sha256": "8b2b33c011fc230da32996e1f59fad70689f3e0ff68c958406ba97f2adcec065",
+      "collision_observed": false
+    },
+    {
+      "source": "filters/RestoVisuals_Warm.ini",
+      "target_game_relative": "system/cfg/ppfilters/RestoVisuals_Warm.ini",
+      "bytes": 368,
+      "sha256": "27f586459ebcedac2bd9823cce4f6c15efd93a8d57433189cac8bfc46d6854f5",
+      "collision_observed": false
+    }
+  ],
+  "actual_installation_diff": [],
+  "auto_discovered_pure_companion_included": false,
+  "scriptable_filter_slot_changed": false,
+  "hdr_callback_used": false,
+  "offline_hlsl_dispatched_by_ini": false,
+  "lua_controller_rendering_connected": false,
+  "required_native_gates": [
+    "complete INI default/inheritance behavior",
+    "Pure default-script fallback and exposure ownership",
+    "correct settings and Gamma calibration",
+    "filter selection and cold-load registration",
+    "supported Lua host and UI teardown",
+    "original/enhanced/restored controlled captures",
+    "fresh backup and exact settings/file rollback"
+  ],
+  "rollback": "Exit owned game normally; restore exact previous filter/settings from fresh backups; remove only hash-matched owned additions; cold-load original filter and verify protected files",
+  "previous_run_transactions_reusable": false,
+  "license": "owner undecided",
+  "freeware": true
+}

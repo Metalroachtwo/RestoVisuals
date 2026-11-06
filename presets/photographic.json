@@ -1,0 +1,5 @@
+{
+  "balanced": {"exposure_ev": 0.0, "highlight": 1.0, "shadow": 0.15, "saturation": 0.99, "contrast": 1.03, "white_balance": [1.0, 1.0, 1.0]},
+  "warm": {"exposure_ev": -0.03, "highlight": 1.0, "shadow": 0.15, "saturation": 0.97, "contrast": 1.02, "white_balance": [1.025, 1.0, 0.975]},
+  "cool": {"exposure_ev": -0.08, "highlight": 1.0, "shadow": 0.20, "saturation": 0.95, "contrast": 1.10, "white_balance": [0.975, 1.0, 1.03]}
+}

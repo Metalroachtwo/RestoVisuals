@@ -1,0 +1,299 @@
+{
+  "scope": "original_synthetic_offline_d3d11",
+  "native_csp_pure_validated": false,
+  "dimensions": [
+    512,
+    128
+  ],
+  "input_encoding": "linear Rec.709; explicit sRGB PNG encoding",
+  "source_scene": "original grey/HDR/shadow/color/sky chart; not a game capture",
+  "source_sha256": "e764e8c1f85e0cdc6866daf0e1ec81ae2354d2a1ccaf8393046e80cbb594c981",
+  "cases": [
+    {
+      "preset": "neutral",
+      "max_absolute_cpu_gpu_error": 0.0,
+      "alpha_exact": true,
+      "identity_bytes_equal": true,
+      "display_clipped_pixels": 18144,
+      "compiled_entries": [
+        {
+          "entry_point": "PSLinear",
+          "target": "ps_5_0",
+          "compiled_bytes": 668,
+          "bytecode_sha256": "0a717c506f863baeb157f02bf8e73425d9b2fc7f902ad51b2f183b18ff1a58a8",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        },
+        {
+          "entry_point": "PSSrgb",
+          "target": "ps_5_0",
+          "compiled_bytes": 668,
+          "bytecode_sha256": "0a717c506f863baeb157f02bf8e73425d9b2fc7f902ad51b2f183b18ff1a58a8",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        }
+      ],
+      "dispatch_receipt": {
+        "entry": "PSLinear",
+        "format": "rgba32f",
+        "pixels": 65536,
+        "parameters": [
+          0,
+          0,
+          1
+        ],
+        "draws": 1,
+        "warmup_draws": 0,
+        "declared_texture_payload_bytes": 3145728,
+        "material_texture_payload_bytes": 0,
+        "material_mip_levels": 1,
+        "material_filter": null,
+        "material_address": "clamp",
+        "max_anisotropy": 1,
+        "fixture_parameters": null,
+        "roughness_compensation": 0,
+        "input_texture_allocated": true,
+        "constant_buffer_payload_bytes": 16,
+        "driver_allocation_measured": false,
+        "owned_com_references_before": 6,
+        "mapped_row_pitch_bytes": 8192,
+        "gpu_timestamp_disjoint": false,
+        "gpu_duration_ms": 0.00284,
+        "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+        "owned_com_references_after": 6
+      },
+      "owned_dispatch_resources_released": true,
+      "processing_settings": {
+        "intensity": 1.0,
+        "exposure_ev": 0.0,
+        "highlight": 0.0,
+        "shadow": 0.0,
+        "saturation": 1.0,
+        "contrast": 1.0,
+        "white_balance": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "parameters_specialized_at_compile_time": true
+    },
+    {
+      "preset": "balanced",
+      "max_absolute_cpu_gpu_error": 2.4177354351895275e-07,
+      "alpha_exact": true,
+      "identity_bytes_equal": false,
+      "display_clipped_pixels": 0,
+      "compiled_entries": [
+        {
+          "entry_point": "PSLinear",
+          "target": "ps_5_0",
+          "compiled_bytes": 1792,
+          "bytecode_sha256": "c0fdae60bce9e4c1b8dc72824c6fa411f83e3bd87dc16bbcb2ed8f733f8f670f",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        },
+        {
+          "entry_point": "PSSrgb",
+          "target": "ps_5_0",
+          "compiled_bytes": 2280,
+          "bytecode_sha256": "913bcfce870e4c8277273b76d33a9715bada834aa54c5590dca75190b753f049",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        }
+      ],
+      "dispatch_receipt": {
+        "entry": "PSLinear",
+        "format": "rgba32f",
+        "pixels": 65536,
+        "parameters": [
+          0,
+          0,
+          1
+        ],
+        "draws": 1,
+        "warmup_draws": 0,
+        "declared_texture_payload_bytes": 3145728,
+        "material_texture_payload_bytes": 0,
+        "material_mip_levels": 1,
+        "material_filter": null,
+        "material_address": "clamp",
+        "max_anisotropy": 1,
+        "fixture_parameters": null,
+        "roughness_compensation": 0,
+        "input_texture_allocated": true,
+        "constant_buffer_payload_bytes": 16,
+        "driver_allocation_measured": false,
+        "owned_com_references_before": 7,
+        "mapped_row_pitch_bytes": 8192,
+        "gpu_timestamp_disjoint": false,
+        "gpu_duration_ms": 0.0028,
+        "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+        "owned_com_references_after": 7
+      },
+      "owned_dispatch_resources_released": true,
+      "processing_settings": {
+        "intensity": 1.0,
+        "exposure_ev": 0.0,
+        "highlight": 1.0,
+        "shadow": 0.15,
+        "saturation": 0.99,
+        "contrast": 1.03,
+        "white_balance": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "parameters_specialized_at_compile_time": true
+    },
+    {
+      "preset": "warm",
+      "max_absolute_cpu_gpu_error": 3.4189404063411644e-07,
+      "alpha_exact": true,
+      "identity_bytes_equal": false,
+      "display_clipped_pixels": 0,
+      "compiled_entries": [
+        {
+          "entry_point": "PSLinear",
+          "target": "ps_5_0",
+          "compiled_bytes": 1872,
+          "bytecode_sha256": "41a61651d359bbb7bf6579d7db521fa8324e28ebc4abe54b262c91e6712f38bb",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        },
+        {
+          "entry_point": "PSSrgb",
+          "target": "ps_5_0",
+          "compiled_bytes": 2360,
+          "bytecode_sha256": "cc5e716031c6f1d953f3e2155f2fc3961297b85becb1154058cbe6e3901b7a66",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        }
+      ],
+      "dispatch_receipt": {
+        "entry": "PSLinear",
+        "format": "rgba32f",
+        "pixels": 65536,
+        "parameters": [
+          0,
+          0,
+          1
+        ],
+        "draws": 1,
+        "warmup_draws": 0,
+        "declared_texture_payload_bytes": 3145728,
+        "material_texture_payload_bytes": 0,
+        "material_mip_levels": 1,
+        "material_filter": null,
+        "material_address": "clamp",
+        "max_anisotropy": 1,
+        "fixture_parameters": null,
+        "roughness_compensation": 0,
+        "input_texture_allocated": true,
+        "constant_buffer_payload_bytes": 16,
+        "driver_allocation_measured": false,
+        "owned_com_references_before": 8,
+        "mapped_row_pitch_bytes": 8192,
+        "gpu_timestamp_disjoint": false,
+        "gpu_duration_ms": 0.0028,
+        "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+        "owned_com_references_after": 8
+      },
+      "owned_dispatch_resources_released": true,
+      "processing_settings": {
+        "intensity": 1.0,
+        "exposure_ev": -0.03,
+        "highlight": 1.0,
+        "shadow": 0.15,
+        "saturation": 0.97,
+        "contrast": 1.02,
+        "white_balance": [
+          1.025,
+          1.0,
+          0.975
+        ]
+      },
+      "parameters_specialized_at_compile_time": true
+    },
+    {
+      "preset": "cool",
+      "max_absolute_cpu_gpu_error": 3.156413774796363e-07,
+      "alpha_exact": true,
+      "identity_bytes_equal": false,
+      "display_clipped_pixels": 0,
+      "compiled_entries": [
+        {
+          "entry_point": "PSLinear",
+          "target": "ps_5_0",
+          "compiled_bytes": 1872,
+          "bytecode_sha256": "74714f9d4e86d4907927edf384c946ea64db1de6867a8650fd9b58b8a8984854",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        },
+        {
+          "entry_point": "PSSrgb",
+          "target": "ps_5_0",
+          "compiled_bytes": 2360,
+          "bytecode_sha256": "22cca65705a726ada0a785836ef2ac99e4d01cdb6cde5f7b998b39e635a4a776",
+          "hresult": "0x00000000",
+          "warnings_as_errors": true,
+          "debug_information": false
+        }
+      ],
+      "dispatch_receipt": {
+        "entry": "PSLinear",
+        "format": "rgba32f",
+        "pixels": 65536,
+        "parameters": [
+          0,
+          0,
+          1
+        ],
+        "draws": 1,
+        "warmup_draws": 0,
+        "declared_texture_payload_bytes": 3145728,
+        "material_texture_payload_bytes": 0,
+        "material_mip_levels": 1,
+        "material_filter": null,
+        "material_address": "clamp",
+        "max_anisotropy": 1,
+        "fixture_parameters": null,
+        "roughness_compensation": 0,
+        "input_texture_allocated": true,
+        "constant_buffer_payload_bytes": 16,
+        "driver_allocation_measured": false,
+        "owned_com_references_before": 9,
+        "mapped_row_pitch_bytes": 8192,
+        "gpu_timestamp_disjoint": false,
+        "gpu_duration_ms": 0.0028,
+        "timing_scope": "bounded_synthetic_draw_batch_excludes_upload_readback_not_game_performance",
+        "owned_com_references_after": 9
+      },
+      "owned_dispatch_resources_released": true,
+      "processing_settings": {
+        "intensity": 1.0,
+        "exposure_ev": -0.08,
+        "highlight": 1.0,
+        "shadow": 0.2,
+        "saturation": 0.95,
+        "contrast": 1.1,
+        "white_balance": [
+          0.975,
+          1.0,
+          1.03
+        ]
+      },
+      "parameters_specialized_at_compile_time": true
+    }
+  ],
+  "installation_diff": [],
+  "all_device_resources_released": true
+}

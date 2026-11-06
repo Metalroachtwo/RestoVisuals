@@ -9,3 +9,4 @@
 # Generated package manifests hash exact file bytes, including text line endings.
 examples/phase0k-normal-probe/** -text
 examples/phase0l-fixture-source/** -text
+examples/phase0w-pp/filters/** -text

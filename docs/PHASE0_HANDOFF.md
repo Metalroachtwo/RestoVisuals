@@ -1,4 +1,57 @@
-# RestoVisuals Phase 0U handoff — replay loaded; two live materials identified
+# RestoVisuals Phase 0W handoff — working offline photographic PP prototype
+
+Prepared from verified `c32d657ca0067af98edc68724aaa2fa5f3b3a642` on
+`phase0/foundation`. Read [PHASE0W_PP_FILTER_PROTOTYPE.md](PHASE0W_PP_FILTER_PROTOTYPE.md),
+[offline viewer](../examples/phase0w-pp/index.html),
+[GPU results](../examples/phase0w-pp/report.json) and
+[disabled package](../examples/phase0w-pp/disabled-installation.json).
+Main remains `814f34e18f3f03fb5f03e11b43cabf78eb0ef4f1`.
+
+**Implemented:** original CPU/HLSL photographic core with exact neutral fallback,
+bounded exposure/white balance/contrast/shadow/saturation/highlight response,
+intensity and exponential parameter transitions; three common-core presets;
+candidate standard PP INIs; inert Pure UI adapter with seven controls and failure
+gates. No GUI, game/CM launch, installed write, Pure bridge replacement or reset.
+
+**Validated:** 29 targeted tests pass (18 new, 11 existing), eight SM5 pixel builds,
+four windowless RGBA32F GPU cases through the unchanged renderer. Neutral bytes
+and alpha are exact; preset CPU/GPU error ≤3.42e-7. On the original synthetic chart,
+18,144 linear-peak clipping candidates become zero at full preset strength. These
+are original offline charts, not native visuals or a Dream/performance comparison.
+All original 201 test definitions remain unchanged; total definitions now 219.
+
+The Pure control signatures were checked against the installed 3.50 SDK. Lua import
+is inert, explicit construction is version-gated, and controls have no rendering
+connection. Existing optional LuaJIT dependency `.local/devdeps` was reused. The
+INI schema keys exist in the Kunos reference, but sparse defaults/overrides and
+native selectability are unverified. INIs do not dispatch our HLSL. HLSL controls
+are compile-time specialized in the offline demo, not live GPU buffer controls.
+No auto-discovered Pure companion is installed or provided in the candidate package.
+
+**Native deployment remains NO-GO.** Resolve standard PP schema/default inheritance,
+Pure fallback/exposure ownership and a supported removable control/render host.
+Preserve the existing Pure scriptable slot and Phase 0E HDR NO-GO. Do not promote
+the standalone linear Rec.709 input contract to CSP's dynamic HDR source.
+
+Reproduce with `python -m restovisuals.pp_demo --output .local/new-pp-run` (new owned
+folder required). Use `photographic.controlled()` for preset-relative control
+resolution; Lua fixtures verify the same defaults. Original GPU images, configs,
+report and disabled exact-path/hash manifest are in `examples/phase0w-pp`.
+Raw failed attempts/source receipts remain ignored under `.local/phase0w-validation`.
+The demo's initial bytecode/COM-handle wiring error was corrected; the final GPU
+run passes with owned resources released. No driver/software/policy repair.
+
+Next: review standard PP-only selection/default behavior and the safe host connection,
+then prepare a fresh reviewed native transaction with complete settings backups,
+collision checks, original/enhanced/restored captures and cold-load recovery.
+The current disabled proposal is not an installer or native approval. Original
+material work/reference, freeware, locked versions and undecided licensing persist.
+Starting meters were 26% five-hour / 22% weekly. Final meters/SHA are private;
+both reset credits remain reserved and unused. No automatic resumed session.
+
+---
+
+## Historical Phase 0U handoff — replay loaded; two live materials identified
 
 Prepared 2026-11-05 from verified local/remote
 `2776389247e2c1df7ae3d9dd7a365c139d3c58de` on `phase0/foundation`. Read
